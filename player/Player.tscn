@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://dnhulsx17skef"]
+
+[ext_resource type="Script" path="res://player/Player.gd" id="1_calhm"]
+[ext_resource type="Texture2D" uid="uid://dxb80j1fcp0dr" path="res://third-party/kenney_tiny-dungeon/Tilemap/tilemap_packed.png" id="2_153bh"]
+[ext_resource type="AudioStream" uid="uid://drkv2k8yadwxm" path="res://third-party/the-essential-retro-game-sfxs/footsteps.mp3" id="3_l050g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wdrr4"]
+atlas = ExtResource("2_153bh")
+region = Rect2(48, 112, 16, 16)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0fogc"]
+radius = 2.0
+height = 8.0
+
+[sub_resource type="Animation" id="Animation_ie8em"]
+resource_name = "step"
+length = 0.1
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_l050g")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oyefn"]
+_data = {
+"step": SubResource("Animation_ie8em")
+}
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_calhm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_wdrr4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_0fogc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_oyefn")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimationPlayer"]
+volume_db = -20.0
+bus = &"Sounds"

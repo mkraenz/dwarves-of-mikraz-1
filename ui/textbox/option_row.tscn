@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://x1fviub386b5"]
+
+[ext_resource type="Texture2D" uid="uid://ul4n7nkxe12w" path="res://third-party/kenney-1-bit/monochrome-transparent.png" id="1_jf0dx"]
+[ext_resource type="Theme" uid="uid://6q2onjex0t3g" path="res://ui/base.theme" id="1_mlmb8"]
+[ext_resource type="Script" path="res://ui/textbox/option_row.gd" id="1_pophu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dga1q"]
+atlas = ExtResource("1_jf0dx")
+region = Rect2(408, 340, 16, 16)
+
+[node name="OptionRow" type="HBoxContainer"]
+custom_minimum_size = Vector2(180, 0)
+theme = ExtResource("1_mlmb8")
+script = ExtResource("1_pophu")
+
+[node name="CursorPlaceholder" type="Label" parent="."]
+layout_mode = 2
+
+[node name="CursorIcon" type="TextureRect" parent="CursorPlaceholder"]
+layout_mode = 2
+offset_left = -4.0
+offset_top = -2.0
+offset_right = 4.0
+offset_bottom = 4.0
+texture = SubResource("AtlasTexture_dga1q")
+expand_mode = 3
+
+[node name="Ordinal" type="Label" parent="."]
+layout_mode = 2
+text = "1"
+
+[node name="OptionLabel" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Hit it"
+autowrap_mode = 3
