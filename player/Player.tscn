@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dnhulsx17skef"]
+[gd_scene load_steps=10 format=3 uid="uid://dnhulsx17skef"]
 
 [ext_resource type="Script" path="res://player/Player.gd" id="1_calhm"]
 [ext_resource type="Texture2D" uid="uid://dxb80j1fcp0dr" path="res://third-party/kenney_tiny-dungeon/Tilemap/tilemap_packed.png" id="2_153bh"]
 [ext_resource type="AudioStream" uid="uid://drkv2k8yadwxm" path="res://third-party/the-essential-retro-game-sfxs/footsteps.mp3" id="3_l050g"]
+[ext_resource type="Script" path="res://player/ActionRadius.gd" id="4_sw58l"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wdrr4"]
 atlas = ExtResource("2_153bh")
@@ -36,6 +37,9 @@ _data = {
 "step": SubResource("Animation_ie8em")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_74q37"]
+radius = 32.0
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_calhm")
@@ -56,3 +60,13 @@ libraries = {
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimationPlayer"]
 volume_db = -20.0
 bus = &"Sounds"
+
+[node name="ActionRadius" type="Area2D" parent="."]
+monitorable = false
+script = ExtResource("4_sw58l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActionRadius"]
+shape = SubResource("CircleShape2D_74q37")
+
+[connection signal="body_entered" from="ActionRadius" to="ActionRadius" method="_on_body_entered"]
+[connection signal="body_exited" from="ActionRadius" to="ActionRadius" method="_on_body_exited"]

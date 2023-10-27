@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://ck2utngryc1v"]
+[gd_scene load_steps=7 format=3 uid="uid://ck2utngryc1v"]
 
 [ext_resource type="Texture2D" uid="uid://dxb80j1fcp0dr" path="res://third-party/kenney_tiny-dungeon/Tilemap/tilemap_packed.png" id="1_ogvuk"]
-[ext_resource type="Script" path="res://world/Mineable.gd" id="1_xqctc"]
+[ext_resource type="Script" path="res://world/MouseCollider.gd" id="3_vwk5i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v5s0d"]
 atlas = ExtResource("1_ogvuk")
@@ -21,8 +21,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pcu3n"]
 size = Vector2(13, 8)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6s0k0"]
+size = Vector2(16, 16)
+
 [node name="Crate" type="RigidBody2D"]
-script = ExtResource("1_xqctc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_rc7yc")
@@ -31,4 +33,11 @@ sprite_frames = SubResource("SpriteFrames_rc7yc")
 position = Vector2(0.5, 4)
 shape = SubResource("RectangleShape2D_pcu3n")
 
-[node name="ClickCooldown" type="Timer" parent="."]
+[node name="MouseCollider" type="Area2D" parent="."]
+collision_mask = 0
+script = ExtResource("3_vwk5i")
+
+[node name="ClickableArea" type="CollisionShape2D" parent="MouseCollider"]
+shape = SubResource("RectangleShape2D_6s0k0")
+
+[node name="ClickCooldown" type="Timer" parent="MouseCollider"]
