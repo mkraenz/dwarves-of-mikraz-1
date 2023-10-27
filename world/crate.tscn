@@ -25,6 +25,7 @@ size = Vector2(13, 8)
 size = Vector2(16, 16)
 
 [node name="Crate" type="RigidBody2D"]
+collision_mask = 0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_rc7yc")
@@ -35,6 +36,7 @@ shape = SubResource("RectangleShape2D_pcu3n")
 
 [node name="MouseCollider" type="Area2D" parent="."]
 collision_mask = 0
+monitorable = false
 script = ExtResource("3_vwk5i")
 
 [node name="ClickableArea" type="CollisionShape2D" parent="MouseCollider"]

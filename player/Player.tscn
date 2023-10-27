@@ -62,7 +62,7 @@ volume_db = -20.0
 bus = &"Sounds"
 
 [node name="ActionRadius" type="Area2D" parent="."]
-monitorable = false
+collision_layer = 0
 script = ExtResource("4_sw58l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ActionRadius"]
