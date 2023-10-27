@@ -1,9 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://ck2utngryc1v"]
+[gd_scene load_steps=14 format=3 uid="uid://ck2utngryc1v"]
 
 [ext_resource type="Script" path="res://world/crate.gd" id="1_hlxmk"]
 [ext_resource type="Texture2D" uid="uid://dxb80j1fcp0dr" path="res://third-party/kenney_tiny-dungeon/Tilemap/tilemap_packed.png" id="1_ogvuk"]
 [ext_resource type="PackedScene" uid="uid://6b2lgtejwxtv" path="res://common/Stats.tscn" id="3_5oe1n"]
 [ext_resource type="Script" path="res://world/MouseCollider.gd" id="3_vwk5i"]
+[ext_resource type="Shader" path="res://effects/blink.gdshader" id="5_qr2ih"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r3og4"]
+resource_local_to_scene = true
+shader = ExtResource("5_qr2ih")
+shader_parameter/active = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v5s0d"]
 atlas = ExtResource("1_ogvuk")
@@ -26,11 +32,62 @@ size = Vector2(13, 8)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6s0k0"]
 size = Vector2(16, 16)
 
+[sub_resource type="Animation" id="Animation_lp1nn"]
+resource_name = "bounce"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:material:shader_parameter/active")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_f0w6d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vbtnk"]
+_data = {
+"RESET": SubResource("Animation_f0w6d"),
+"bounce": SubResource("Animation_lp1nn")
+}
+
 [node name="Crate" type="RigidBody2D"]
 collision_mask = 0
 script = ExtResource("1_hlxmk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_r3og4")
 sprite_frames = SubResource("SpriteFrames_rc7yc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -48,3 +105,8 @@ shape = SubResource("RectangleShape2D_6s0k0")
 [node name="ClickCooldown" type="Timer" parent="MouseCollider"]
 
 [node name="Stats" parent="." instance=ExtResource("3_5oe1n")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vbtnk")
+}
