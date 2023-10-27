@@ -1,8 +1,9 @@
-[gd_scene load_steps=32 format=3 uid="uid://dnhulsx17skef"]
+[gd_scene load_steps=33 format=3 uid="uid://dnhulsx17skef"]
 
 [ext_resource type="Script" path="res://player/Player.gd" id="1_calhm"]
 [ext_resource type="Texture2D" uid="uid://daevt8ai8xoht" path="res://third-party/Elthen/DwarfSpriteSheet1.3v.png" id="2_7vbeh"]
 [ext_resource type="Script" path="res://player/ActionRadius.gd" id="4_sw58l"]
+[ext_resource type="PackedScene" uid="uid://6b2lgtejwxtv" path="res://common/Stats.tscn" id="4_vaoqg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1hntc"]
 atlas = ExtResource("2_7vbeh")
@@ -298,7 +299,7 @@ states/Start/position = Vector2(136, 102)
 states/attack/node = SubResource("AnimationNodeBlendSpace1D_l3leq")
 states/attack/position = Vector2(459, 116)
 states/idle/node = SubResource("AnimationNodeBlendSpace1D_7hx8g")
-states/idle/position = Vector2(256, 220)
+states/idle/position = Vector2(257, 221)
 states/move/node = SubResource("AnimationNodeBlendSpace1D_b4oq7")
 states/move/position = Vector2(420, 284)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_88tpt"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_26v4y"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_0lfke"), "idle", "move", SubResource("AnimationNodeStateMachineTransition_5hgr6"), "move", "idle", SubResource("AnimationNodeStateMachineTransition_rewbv"), "move", "attack", SubResource("AnimationNodeStateMachineTransition_mxpht"), "attack", "move", SubResource("AnimationNodeStateMachineTransition_gifgq")]
@@ -338,12 +339,15 @@ shape = SubResource("CircleShape2D_74q37")
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_dhtgq")
 anim_player = NodePath("../AnimationPlayer")
+active = true
 parameters/conditions/attack = false
 parameters/conditions/idle = false
 parameters/conditions/is_moving = false
 parameters/attack/blend_position = 1.0
 parameters/idle/blend_position = 1.0
 parameters/move/blend_position = 1.0
+
+[node name="Stats" parent="." instance=ExtResource("4_vaoqg")]
 
 [connection signal="body_entered" from="ActionRadius" to="ActionRadius" method="_on_body_entered"]
 [connection signal="body_exited" from="ActionRadius" to="ActionRadius" method="_on_body_exited"]

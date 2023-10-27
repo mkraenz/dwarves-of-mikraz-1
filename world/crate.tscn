@@ -1,6 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://ck2utngryc1v"]
+[gd_scene load_steps=9 format=3 uid="uid://ck2utngryc1v"]
 
+[ext_resource type="Script" path="res://world/crate.gd" id="1_hlxmk"]
 [ext_resource type="Texture2D" uid="uid://dxb80j1fcp0dr" path="res://third-party/kenney_tiny-dungeon/Tilemap/tilemap_packed.png" id="1_ogvuk"]
+[ext_resource type="PackedScene" uid="uid://6b2lgtejwxtv" path="res://common/Stats.tscn" id="3_5oe1n"]
 [ext_resource type="Script" path="res://world/MouseCollider.gd" id="3_vwk5i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v5s0d"]
@@ -26,6 +28,7 @@ size = Vector2(16, 16)
 
 [node name="Crate" type="RigidBody2D"]
 collision_mask = 0
+script = ExtResource("1_hlxmk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_rc7yc")
@@ -43,3 +46,5 @@ script = ExtResource("3_vwk5i")
 shape = SubResource("RectangleShape2D_6s0k0")
 
 [node name="ClickCooldown" type="Timer" parent="MouseCollider"]
+
+[node name="Stats" parent="." instance=ExtResource("3_5oe1n")]

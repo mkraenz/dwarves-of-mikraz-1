@@ -1,7 +1,5 @@
 extends Area2D
 
-@export var hp = 3
-
 @onready var cooldown: Timer = $ClickCooldown
 
 var TIMEOUT = 0.3
@@ -19,11 +17,13 @@ func _input_event(_viewport, _event, _shape_idx):
 
 func mine() -> void:
 	if cooldown.is_stopped():
-		hp -= 1
-		if hp <= 0:
-			get_parent().queue_free()
-		else:
-			cooldown.start(TIMEOUT)
+		var parent_stats = get_node("../Stats")
+		assert(
+			parent_stats,
+			"MouseCollider's parent node must have a Stats node as sibling of MouseCollider"
+		)
+		parent_stats.hp -= 1
+		cooldown.start(TIMEOUT)
 
 
 func on_tick() -> void:
