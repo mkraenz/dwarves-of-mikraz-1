@@ -24,11 +24,10 @@ func _physics_process(_delta) -> void:
 
 
 func update_anim_params() -> void:
-	if velocity.x != 0:
-		var dir = velocity.normalized()
-		anim_tree["parameters/attack/blend_position"] = dir.x
-		anim_tree["parameters/idle/blend_position"] = dir.x
-		anim_tree["parameters/move/blend_position"] = dir.x
+	var rel_mouse_pos = get_global_mouse_position() - global_position
+	anim_tree["parameters/attack/blend_position"] = rel_mouse_pos.x
+	anim_tree["parameters/idle/blend_position"] = rel_mouse_pos.x
+	anim_tree["parameters/move/blend_position"] = rel_mouse_pos.x
 
 	if velocity == Vector2.ZERO:
 		anim_tree["parameters/conditions/idle"] = true
