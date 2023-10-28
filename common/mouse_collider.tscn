@@ -10,3 +10,6 @@ script = ExtResource("1_mwyv6")
 [node name="ClickableArea" type="CollisionShape2D" parent="."]
 
 [node name="ClickCooldown" type="Timer" parent="."]
+
+[node name="PlayerAnimHitTimer" type="Timer" parent="."]
+editor_description = "Fires when the player's attack animation, after taking a swing back, connects with the actual object"

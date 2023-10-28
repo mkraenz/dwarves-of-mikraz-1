@@ -321,6 +321,9 @@ position_smoothing_speed = 8.0
 [node name="Crate" parent="TileMap" instance=ExtResource("7_calbs")]
 position = Vector2(63, 65)
 
+[node name="Crate2" parent="TileMap" instance=ExtResource("7_calbs")]
+position = Vector2(69, 55)
+
 [node name="Bgm" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_g7fr2")
 volume_db = -10.0

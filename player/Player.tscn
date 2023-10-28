@@ -224,7 +224,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_74q37"]
-radius = 32.0
+radius = 24.0
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2hepq"]
 animation = &"attack_left"
@@ -339,7 +339,6 @@ shape = SubResource("CircleShape2D_74q37")
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_dhtgq")
 anim_player = NodePath("../AnimationPlayer")
-active = true
 parameters/conditions/attack = false
 parameters/conditions/idle = false
 parameters/conditions/is_moving = false
