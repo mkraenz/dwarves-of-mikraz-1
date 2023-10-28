@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://ck2utngryc1v"]
 
-[ext_resource type="Script" path="res://world/crate.gd" id="1_hlxmk"]
+[ext_resource type="Script" path="res://world/crate/crate.gd" id="1_lb4kg"]
 [ext_resource type="Texture2D" uid="uid://dxb80j1fcp0dr" path="res://third-party/kenney_tiny-dungeon/Tilemap/tilemap_packed.png" id="1_ogvuk"]
 [ext_resource type="PackedScene" uid="uid://6b2lgtejwxtv" path="res://common/Stats.tscn" id="3_5oe1n"]
 [ext_resource type="PackedScene" uid="uid://db81xvphpg5lc" path="res://common/mouse_collider.tscn" id="4_ckad6"]
@@ -100,7 +100,7 @@ _data = {
 
 [node name="Crate" type="RigidBody2D"]
 collision_mask = 0
-script = ExtResource("1_hlxmk")
+script = ExtResource("1_lb4kg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_r3og4")

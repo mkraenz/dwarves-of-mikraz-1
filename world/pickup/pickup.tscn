@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://d032gr28r0n7b"]
+
+[ext_resource type="Script" path="res://world/pickup/pickup.gd" id="1_hjjxh"]
+[ext_resource type="Texture2D" uid="uid://bus5vv87fkg6d" path="res://third-party/kenney-tiny-town/log.png" id="1_mwvp7"]
+[ext_resource type="Script" path="res://effects/float.gd" id="2_crowc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4iy8j"]
+
+[node name="Pickup" type="Area2D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_hjjxh")
+type = "log"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_mwvp7")
+script = ExtResource("2_crowc")
+
+[node name="Timer" type="Timer" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4iy8j")
+
+[connection signal="timeout" from="Sprite2D/Timer" to="Sprite2D" method="_on_timer_timeout"]
