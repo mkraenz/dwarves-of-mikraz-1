@@ -21,4 +21,10 @@ script = ExtResource("2_crowc")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_4iy8j")
 
+[node name="SuckCooldown" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+autostart = true
+
 [connection signal="timeout" from="Sprite2D/Timer" to="Sprite2D" method="_on_timer_timeout"]
+[connection signal="timeout" from="SuckCooldown" to="." method="_on_suck_cooldown_timeout"]

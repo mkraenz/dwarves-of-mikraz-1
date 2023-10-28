@@ -8,6 +8,7 @@ extends Node2D
 @onready var inventory := GInventory
 
 var get_sucked_towards_global_pos := Vector2.ZERO
+var suckable = false
 
 
 func _ready():
@@ -16,6 +17,8 @@ func _ready():
 
 
 func _process(delta):
+	if not suckable:
+		return
 	if get_sucked_towards_global_pos != Vector2.ZERO:
 		global_position = global_position.move_toward(
 			get_sucked_towards_global_pos, delta * SUCKING_SPEED
@@ -31,3 +34,7 @@ func unsuck() -> void:
 func collect() -> void:
 	eventbus.add_to_inventory.emit(type, amount)
 	queue_free()
+
+
+func _on_suck_cooldown_timeout():
+	suckable = true
