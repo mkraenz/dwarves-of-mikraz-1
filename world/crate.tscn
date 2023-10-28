@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://ck2utngryc1v"]
+[gd_scene load_steps=15 format=3 uid="uid://ck2utngryc1v"]
 
 [ext_resource type="Script" path="res://world/crate.gd" id="1_hlxmk"]
 [ext_resource type="Texture2D" uid="uid://dxb80j1fcp0dr" path="res://third-party/kenney_tiny-dungeon/Tilemap/tilemap_packed.png" id="1_ogvuk"]
 [ext_resource type="PackedScene" uid="uid://6b2lgtejwxtv" path="res://common/Stats.tscn" id="3_5oe1n"]
 [ext_resource type="PackedScene" uid="uid://db81xvphpg5lc" path="res://common/mouse_collider.tscn" id="4_ckad6"]
 [ext_resource type="Shader" path="res://effects/blink.gdshader" id="5_qr2ih"]
+[ext_resource type="AudioStream" uid="uid://dvfjim7k1sto8" path="res://third-party/sounds/wood/wood-impact-straight.mp3" id="6_sdewg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r3og4"]
 resource_local_to_scene = true
@@ -75,6 +76,21 @@ tracks/1/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Audio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_sdewg")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vbtnk"]
 _data = {
@@ -105,5 +121,7 @@ shape = SubResource("RectangleShape2D_v4jbw")
 libraries = {
 "": SubResource("AnimationLibrary_vbtnk")
 }
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
 
 [editable path="MouseCollider"]
