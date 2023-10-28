@@ -2,6 +2,7 @@ extends Area2D
 
 @onready var cooldown: Timer = $ClickCooldown
 @onready var player_hit_timer: Timer = $PlayerAnimHitTimer
+@onready var gstate := GState
 
 var TIMEOUT = 0.6  # identical to animation time of Player attack
 var TIMEOUT_TO_CONNECT = 0.2  # identical to time of Player attack animation when weapon connects with object
@@ -17,8 +18,10 @@ func _ready():
 func _input_event(_viewport, _event, _shape_idx):
 	if Input.is_action_pressed("act"):
 		if cooldown.is_stopped():
-			player_hit_timer.start(TIMEOUT_TO_CONNECT)
-			cooldown.start(TIMEOUT)
+			var parent = get_parent()
+			if parent in gstate.bodies_in_player_action_radius:
+				player_hit_timer.start(TIMEOUT_TO_CONNECT)
+				cooldown.start(TIMEOUT)
 
 
 func mine() -> void:
