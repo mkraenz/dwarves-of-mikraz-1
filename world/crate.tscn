@@ -123,5 +123,6 @@ libraries = {
 }
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="."]
+bus = &"Sounds"
 
 [editable path="MouseCollider"]

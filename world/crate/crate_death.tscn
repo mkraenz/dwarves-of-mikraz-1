@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://50at58g2mqb1"]
+[gd_scene load_steps=10 format=3 uid="uid://50at58g2mqb1"]
 
 [ext_resource type="Shader" path="res://effects/dissolve.gdshader" id="1_8t3r1"]
 [ext_resource type="Texture2D" uid="uid://dxb80j1fcp0dr" path="res://third-party/kenney_tiny-dungeon/Tilemap/tilemap_packed.png" id="2_s6smn"]
+[ext_resource type="Script" path="res://effects/death-effect-base.gd" id="3_5us18"]
 [ext_resource type="AudioStream" uid="uid://2vbb6efqqtd2" path="res://third-party/sounds/wood/wood-breaking.mp3" id="3_oxtmi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rmsbm"]
@@ -43,6 +44,18 @@ tracks/1/keys = {
 "times": PackedFloat32Array(-0.1)
 }
 tracks/1/use_blend = true
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_fsrip"]
 length = 0.001
@@ -68,11 +81,33 @@ _data = {
 [node name="CrateDeath" type="Sprite2D"]
 material = SubResource("ShaderMaterial_rmsbm")
 texture = SubResource("AtlasTexture_daefa")
+script = ExtResource("3_5us18")
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="."]
+bus = &"Sounds"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "default"
 libraries = {
 "": SubResource("AnimationLibrary_rfbin")
 }
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 20
+lifetime = 0.2
+one_shot = true
+explosiveness = 1.0
+randomness = 0.35
+emission_shape = 1
+emission_sphere_radius = 8.0
+spread = 180.0
+gravity = Vector2(0, 200)
+initial_velocity_min = 60.0
+initial_velocity_max = 60.0
+angular_velocity_max = 60.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color = Color(0.741176, 0.423529, 0.290196, 1)
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

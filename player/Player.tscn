@@ -1,7 +1,8 @@
-[gd_scene load_steps=33 format=3 uid="uid://dnhulsx17skef"]
+[gd_scene load_steps=34 format=3 uid="uid://dnhulsx17skef"]
 
 [ext_resource type="Script" path="res://player/Player.gd" id="1_calhm"]
 [ext_resource type="Texture2D" uid="uid://daevt8ai8xoht" path="res://third-party/Elthen/DwarfSpriteSheet1.3v.png" id="2_7vbeh"]
+[ext_resource type="AudioStream" uid="uid://b6w62pkixw4fr" path="res://third-party/sounds/swings/axe-swing.mp3" id="3_b7myr"]
 [ext_resource type="Script" path="res://player/ActionRadius.gd" id="4_sw58l"]
 [ext_resource type="PackedScene" uid="uid://6b2lgtejwxtv" path="res://common/Stats.tscn" id="4_vaoqg"]
 
@@ -67,6 +68,21 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Audio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_b7myr")
+}],
+"times": PackedFloat32Array(0.1)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="Animation" id="Animation_a3qey"]
 resource_name = "attack_right"
@@ -95,6 +111,21 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Audio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_b7myr")
+}],
+"times": PackedFloat32Array(0.1)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="Animation" id="Animation_0m8cx"]
 resource_name = "idle_left"
@@ -325,10 +356,6 @@ libraries = {
 "": SubResource("AnimationLibrary_oyefn")
 }
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimationPlayer"]
-volume_db = -20.0
-bus = &"Sounds"
-
 [node name="ActionRadius" type="Area2D" parent="."]
 collision_layer = 0
 script = ExtResource("4_sw58l")
@@ -347,6 +374,9 @@ parameters/idle/blend_position = 1.0
 parameters/move/blend_position = 1.0
 
 [node name="Stats" parent="." instance=ExtResource("4_vaoqg")]
+
+[node name="Audio" type="AudioStreamPlayer" parent="."]
+bus = &"Sounds"
 
 [connection signal="body_entered" from="ActionRadius" to="ActionRadius" method="_on_body_entered"]
 [connection signal="body_exited" from="ActionRadius" to="ActionRadius" method="_on_body_exited"]
