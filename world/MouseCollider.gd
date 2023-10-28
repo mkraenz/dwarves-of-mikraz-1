@@ -2,7 +2,7 @@ extends Area2D
 
 @onready var cooldown: Timer = $ClickCooldown
 
-var TIMEOUT = 0.3
+var TIMEOUT = 0.6  # identical to animation time of attack
 
 
 func _ready():
