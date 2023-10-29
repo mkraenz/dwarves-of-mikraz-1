@@ -84,6 +84,23 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0.1)
 }
 tracks/2/use_blend = true
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"_locked_anim_started"
+}, {
+"args": [],
+"method": &"_locked_anim_finished"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_a3qey"]
 resource_name = "attack_right"
@@ -127,6 +144,23 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0.1)
 }
 tracks/2/use_blend = true
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"_locked_anim_started"
+}, {
+"args": [],
+"method": &"_locked_anim_finished"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_0m8cx"]
 resource_name = "idle_left"
