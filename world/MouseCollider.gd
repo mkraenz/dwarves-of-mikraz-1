@@ -22,19 +22,19 @@ func _ready():
 func _input_event(_viewport, _event, _shape_idx):
 	if Input.is_action_pressed("act"):
 		if cooldown.is_stopped():
-			var parent = get_parent()
-			if parent in gstate.bodies_in_player_action_radius:
-				player_hit_timer.start(TIMEOUT_TO_CONNECT)
-				cooldown.start(TIMEOUT)
+			player_hit_timer.start(TIMEOUT_TO_CONNECT)
+			cooldown.start(TIMEOUT)
 
 
 func mine() -> void:
-	var parent_stats = get_node("../Stats")
-	assert(
-		parent_stats,
-		"MouseCollider's parent node must have a Stats node as sibling of MouseCollider"
-	)
-	parent_stats.hp -= 1
+	var parent = get_parent()
+	if parent in gstate.bodies_in_player_action_radius:
+		var parent_stats = get_node("../Stats")
+		assert(
+			parent_stats,
+			"MouseCollider's parent node must have a Stats node as sibling of MouseCollider"
+		)
+		parent_stats.hp -= 1
 
 
 func on_cooldown_tick() -> void:
