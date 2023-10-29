@@ -1,16 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://bi08raw4e5yar"]
+[gd_scene load_steps=8 format=3 uid="uid://bi08raw4e5yar"]
 
-[ext_resource type="Script" path="res://World.gd" id="1_dmawl"]
-[ext_resource type="PackedScene" uid="uid://dnhulsx17skef" path="res://player/Player.tscn" id="3_5oc1k"]
-[ext_resource type="Texture2D" uid="uid://dxb80j1fcp0dr" path="res://third-party/kenney_tiny-dungeon/Tilemap/tilemap_packed.png" id="5_vmprx"]
-[ext_resource type="PackedScene" uid="uid://eh3x5k36w1xu" path="res://ui/end/end.tscn" id="6_f0w17"]
-[ext_resource type="Theme" uid="uid://6q2onjex0t3g" path="res://ui/base.theme" id="6_htdhr"]
-[ext_resource type="PackedScene" uid="uid://ck2utngryc1v" path="res://world/crate.tscn" id="7_calbs"]
-[ext_resource type="PackedScene" uid="uid://d032gr28r0n7b" path="res://world/pickup/pickup.tscn" id="8_w7g78"]
-[ext_resource type="AudioStream" uid="uid://dgdk24vy5685w" path="res://third-party/TheOuterLinux/Brahms-Vals3-synth.ogg" id="9_g7fr2"]
+[ext_resource type="Texture2D" uid="uid://dxb80j1fcp0dr" path="res://third-party/kenney_tiny-dungeon/Tilemap/tilemap_packed.png" id="1_plfv1"]
+[ext_resource type="PackedScene" uid="uid://dnhulsx17skef" path="res://player/Player.tscn" id="2_vagfp"]
+[ext_resource type="PackedScene" uid="uid://ck2utngryc1v" path="res://world/crate.tscn" id="3_qvbfd"]
+[ext_resource type="AudioStream" uid="uid://dgdk24vy5685w" path="res://third-party/TheOuterLinux/Brahms-Vals3-synth.ogg" id="4_c1o0l"]
+[ext_resource type="PackedScene" uid="uid://d032gr28r0n7b" path="res://world/pickup/pickup.tscn" id="5_jo4wq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yub5t"]
-texture = ExtResource("5_vmprx")
+texture = ExtResource("1_plfv1")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -269,25 +266,8 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
 sources/1 = SubResource("TileSetAtlasSource_yub5t")
 
-[node name="World" type="Node2D"]
+[node name="Level" type="Node2D"]
 y_sort_enabled = true
-script = ExtResource("1_dmawl")
-
-[node name="UI" type="CanvasLayer" parent="."]
-visible = false
-
-[node name="UI" type="Control" parent="UI"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("6_htdhr")
-
-[node name="End" parent="UI/UI" instance=ExtResource("6_f0w17")]
-visible = false
-layout_mode = 1
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
@@ -303,7 +283,7 @@ layer_1/y_sort_origin = 0
 layer_1/z_index = 10
 layer_1/tile_data = PackedInt32Array(655360, 131072, 17, 589824, 131072, 17, 524288, 131072, 17, 458752, 131072, 17, 393216, 131072, 17, 327680, 131072, 17, 262144, 131072, 17, 196608, 131072, 17, 131072, 131072, 17, 65536, 131072, 17, 0, 196608, 16, 720897, 65536, 16, 720898, 65536, 16, 720899, 65536, 16, 720900, 65536, 16, 720901, 65536, 16, 720902, 65536, 16, 720903, 65536, 16, 720904, 65536, 16, 720905, 65536, 16, 720906, 65536, 16, 720907, 65536, 16, 720908, 65536, 16, 720909, 65536, 16, 720910, 65536, 16, 720911, 65536, 16, 720912, 65536, 16, 720913, 65536, 16, 720914, 65536, 16, 655379, 0, 17, 589843, 0, 17, 524307, 0, 17, 458771, 0, 17, 393235, 0, 17, 327699, 0, 17, 262163, 0, 17, 196627, 0, 17, 131091, 0, 17, 65555, 0, 17, 19, 262144, 16, 17, 65536, 18, 16, 65536, 18, 15, 65536, 18, 14, 65536, 18, 13, 65536, 18, 12, 65536, 18, 11, 65536, 18, 10, 65536, 18, 9, 65536, 18, 8, 65536, 18, 7, 65536, 18, 6, 65536, 18, 5, 65536, 18, 4, 65536, 18, 3, 65536, 18, 2, 65536, 18, 1, 65536, 18, 18, 65536, 18, 720896, 196608, 17, 720915, 262144, 17, 524306, 196608, 7, 524305, 327680, 6, 524304, 262144, 7, 655373, 131072, 17, 589837, 131072, 17, 524301, 131072, 17, 458765, 196608, 16, 458766, 65536, 18, 458768, 65536, 18, 458769, 65536, 18, 458770, 65536, 18, 458767, 196608, 9, 393229, 65536, 16, 393230, 65536, 16, 393232, 65536, 16, 393233, 65536, 16, 393234, 65536, 16, 458764, 0, 17, 524300, 0, 17, 655372, 0, 17, 589836, 0, 17, 393228, 0, 16, 655377, 2949120, 5)
 
-[node name="Player" parent="TileMap" instance=ExtResource("3_5oc1k")]
+[node name="Player" parent="TileMap" instance=ExtResource("2_vagfp")]
 position = Vector2(38, 26)
 
 [node name="Camera2D" type="Camera2D" parent="TileMap/Player"]
@@ -314,16 +294,16 @@ limit_bottom = 10000
 limit_smoothed = true
 position_smoothing_speed = 8.0
 
-[node name="Crate" parent="TileMap" instance=ExtResource("7_calbs")]
+[node name="Crate" parent="TileMap" instance=ExtResource("3_qvbfd")]
 position = Vector2(63, 65)
 
-[node name="Crate2" parent="TileMap" instance=ExtResource("7_calbs")]
+[node name="Crate2" parent="TileMap" instance=ExtResource("3_qvbfd")]
 position = Vector2(69, 55)
 
 [node name="Bgm" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("9_g7fr2")
+stream = ExtResource("4_c1o0l")
 volume_db = -10.0
 bus = &"Music"
 
-[node name="Pickup" parent="." instance=ExtResource("8_w7g78")]
+[node name="Pickup" parent="." instance=ExtResource("5_jo4wq")]
 position = Vector2(67, 96)

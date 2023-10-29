@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://eh3x5k36w1xu"]
 
 [ext_resource type="Theme" uid="uid://6q2onjex0t3g" path="res://ui/base.theme" id="1_60cqv"]
-[ext_resource type="Script" path="res://ui/end/End.gd" id="1_gsawq"]
+[ext_resource type="Script" path="res://ui/end/end.gd" id="2_1spt3"]
 
 [node name="End" type="Control"]
 layout_mode = 3
@@ -11,7 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_60cqv")
-script = ExtResource("1_gsawq")
+script = ExtResource("2_1spt3")
 
 [node name="Backdrop" type="ColorRect" parent="."]
 layout_mode = 1
