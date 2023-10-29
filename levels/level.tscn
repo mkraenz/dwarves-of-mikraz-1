@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bi08raw4e5yar"]
+[gd_scene load_steps=7 format=3 uid="uid://bi08raw4e5yar"]
 
 [ext_resource type="Texture2D" uid="uid://dxb80j1fcp0dr" path="res://third-party/kenney_tiny-dungeon/Tilemap/tilemap_packed.png" id="1_plfv1"]
 [ext_resource type="PackedScene" uid="uid://dnhulsx17skef" path="res://player/Player.tscn" id="2_vagfp"]
 [ext_resource type="PackedScene" uid="uid://ck2utngryc1v" path="res://world/crate.tscn" id="3_qvbfd"]
-[ext_resource type="AudioStream" uid="uid://dgdk24vy5685w" path="res://third-party/TheOuterLinux/Brahms-Vals3-synth.ogg" id="4_c1o0l"]
 [ext_resource type="PackedScene" uid="uid://d032gr28r0n7b" path="res://world/pickup/pickup.tscn" id="5_jo4wq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yub5t"]
@@ -299,11 +298,6 @@ position = Vector2(63, 65)
 
 [node name="Crate2" parent="TileMap" instance=ExtResource("3_qvbfd")]
 position = Vector2(69, 55)
-
-[node name="Bgm" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_c1o0l")
-volume_db = -10.0
-bus = &"Music"
 
 [node name="Pickup" parent="." instance=ExtResource("5_jo4wq")]
 position = Vector2(67, 96)

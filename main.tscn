@@ -11,3 +11,8 @@ script = ExtResource("1_k5eii")
 [node name="Title" parent="Gui" instance=ExtResource("3_cp28x")]
 
 [node name="World" type="Node2D" parent="."]
+
+[node name="Bgm" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
+autoplay = true
+bus = &"Music"
