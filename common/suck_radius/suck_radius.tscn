@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://common/suck_radius/SuckRadius.gd" id="1_gudvp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sbjd4"]
-radius = 48.0
+radius = 32.0
 
 [node name="SuckRadius" type="Area2D"]
 collision_layer = 0

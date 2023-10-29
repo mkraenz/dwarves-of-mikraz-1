@@ -1,7 +1,7 @@
 extends RigidBody2D
 
-var DeathAnim = preload("res://world/crate/crate_death.tscn")
-var Pickup = preload("res://world/pickup/pickup.tscn")
+const DeathAnim = preload("res://world/crate/crate_death.tscn")
+const Pickup = preload("res://world/pickup/pickup.tscn")
 
 @onready var eventbus := Eventbus
 @onready var stats: Stats = $Stats

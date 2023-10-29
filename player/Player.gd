@@ -7,6 +7,8 @@ class_name Player
 @onready var audio_anims := $AnimationPlayer
 @onready var anim_tree: AnimationTree = $AnimationTree
 
+const Persistence = preload("res://common/persistence/persistence.gd")
+
 var lock_animation = false
 
 
@@ -51,3 +53,13 @@ func _locked_anim_started() -> void:
 
 func _locked_anim_finished() -> void:
 	lock_animation = false
+
+
+func save():
+	var save_dict = {
+		"filename": get_scene_file_path(),
+		"parent": get_parent().get_path(),
+		"pos_x": position.x,  # Vector2 is not supported by JSON
+		"pos_y": position.y,
+	}
+	return save_dict

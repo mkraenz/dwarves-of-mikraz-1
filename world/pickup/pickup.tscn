@@ -22,7 +22,7 @@ script = ExtResource("2_crowc")
 shape = SubResource("RectangleShape2D_4iy8j")
 
 [node name="SuckCooldown" type="Timer" parent="."]
-wait_time = 0.4
+wait_time = 0.6
 one_shot = true
 autostart = true
 
