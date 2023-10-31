@@ -42,3 +42,19 @@ rm -r .build && mkdir .build
 ```sh
 /home/mirco/programming/gamedev/godot4/Godot_v4.1.1-stable_linux.x86_64 .
 ```
+
+### Features
+
+#### Persistence
+
+check `persistence.gd`
+
+#### Pausing
+
+following [docs](https://docs.godotengine.org/en/stable/tutorials/scripting/pausing_games.html)
+
+summary:
+
+- set the `root/Main/Gui/Pause` node's `Process.mode` to `When Paused` (in code: `Node.PROCESS_MODE_PAUSABLE`)
+- call `get_tree().paused = true # or false`
+- `pause_menu.hide()`

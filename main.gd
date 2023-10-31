@@ -21,7 +21,9 @@ func _ready() -> void:
 
 
 func _input(_event):
-	if Input.is_action_just_pressed("pause"):
+	var is_ingame = world.get_child_count() > 0
+	if Input.is_action_just_pressed("pause") and is_ingame:
+		get_tree().paused = true
 		pause_menu.show()
 
 
@@ -55,4 +57,5 @@ func _on_quit_to_title_pressed() -> void:
 
 
 func _on_resume_game_pressed() -> void:
+	get_tree().paused = false
 	pause_menu.hide()

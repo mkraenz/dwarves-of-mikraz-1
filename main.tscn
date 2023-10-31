@@ -12,6 +12,7 @@ script = ExtResource("1_k5eii")
 [node name="Title" parent="Gui" instance=ExtResource("3_sxw8d")]
 
 [node name="Pause" parent="Gui" instance=ExtResource("3_lo3uq")]
+process_mode = 2
 
 [node name="World" type="Node2D" parent="."]
 
