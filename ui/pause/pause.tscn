@@ -1,0 +1,98 @@
+[gd_scene load_steps=4 format=3 uid="uid://d4bt3ndfyg5je"]
+
+[ext_resource type="Theme" uid="uid://6q2onjex0t3g" path="res://ui/base.theme" id="1_orfgc"]
+[ext_resource type="Script" path="res://ui/pause/pause.gd" id="2_tp86b"]
+[ext_resource type="Texture2D" uid="uid://1ig1y4tylfuc" path="res://assets/images/titlescreen-mikraz-in-cirth-khuzdul.png" id="3_hl1qf"]
+
+[node name="Pause" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_orfgc")
+script = ExtResource("2_tp86b")
+
+[node name="Backdrop" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.956863, 0.74902, 0.588235, 1)
+
+[node name="M" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 20
+
+[node name="V" type="VBoxContainer" parent="M"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="V1" type="VBoxContainer" parent="M/V"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="C" type="CenterContainer" parent="M/V/V1"]
+layout_mode = 2
+
+[node name="Heading" type="TextureRect" parent="M/V/V1/C"]
+layout_mode = 2
+texture = ExtResource("3_hl1qf")
+
+[node name="GameTitle" type="Label" parent="M/V/V1"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Dwarves of Mikraz"
+horizontal_alignment = 1
+
+[node name="V2" type="VBoxContainer" parent="M/V"]
+layout_mode = 2
+alignment = 2
+
+[node name="Continue" type="Button" parent="M/V/V2"]
+layout_mode = 2
+text = "Continue"
+
+[node name="Save" type="Button" parent="M/V/V2"]
+layout_mode = 2
+text = "Save"
+
+[node name="Load" type="Button" parent="M/V/V2"]
+layout_mode = 2
+text = "Load"
+
+[node name="Options" type="Button" parent="M/V/V2"]
+layout_mode = 2
+text = "Options"
+
+[node name="H" type="HBoxContainer" parent="M/V/V2"]
+layout_mode = 2
+
+[node name="QuitToTitle" type="Button" parent="M/V/V2/H"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 5
+text = "Quit to title"
+
+[node name="QuitToDesktop" type="Button" parent="M/V/V2/H"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 5
+text = "Quit to Desktop"
+
+[connection signal="pressed" from="M/V/V2/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="M/V/V2/Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="M/V/V2/H/QuitToTitle" to="." method="_on_quit_to_title_pressed"]
+[connection signal="pressed" from="M/V/V2/H/QuitToDesktop" to="." method="_on_quit_to_desktop_pressed"]

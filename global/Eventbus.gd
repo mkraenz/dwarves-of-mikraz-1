@@ -9,3 +9,4 @@ signal add_to_inventory(resource_name: String, amount: int)
 signal new_game_pressed
 signal load_game_pressed
 signal continue_game_pressed
+signal quit_to_title_pressed
