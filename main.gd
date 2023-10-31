@@ -13,12 +13,14 @@ func _ready() -> void:
 	RenderingServer.set_default_clear_color(Color.BLACK)
 	eventbus.new_game_pressed.connect(_on_new_game_pressed)
 	eventbus.load_game_pressed.connect(_on_load_game_pressed)
-	eventbus.continue_game_pressed.connect(_on_continue_game_pressed)
+	eventbus.load_most_recent_game_pressed.connect(_on_load_most_recent_game_pressed)
 	eventbus.quit_to_title_pressed.connect(_on_quit_to_title_pressed)
+	eventbus.resume_game_pressed.connect(_on_resume_game_pressed)
+	title_menu.show()
+	pause_menu.hide()
 
 
 func _input(_event):
-	# TODO
 	if Input.is_action_just_pressed("pause"):
 		pause_menu.show()
 
@@ -39,7 +41,7 @@ func _on_load_game_pressed() -> void:
 	pause_menu.hide()
 
 
-func _on_continue_game_pressed() -> void:
+func _on_load_most_recent_game_pressed() -> void:
 	_on_load_game_pressed()
 	title_menu.hide()
 	pause_menu.hide()
@@ -50,3 +52,7 @@ func _on_quit_to_title_pressed() -> void:
 	for node in world.get_children():
 		world.remove_child(node)
 		node.queue_free()
+
+
+func _on_resume_game_pressed() -> void:
+	pause_menu.hide()

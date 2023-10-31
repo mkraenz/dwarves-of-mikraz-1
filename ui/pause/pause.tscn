@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://d4bt3ndfyg5je"]
+[gd_scene load_steps=5 format=3 uid="uid://4bt3ndfyg5jf"]
 
 [ext_resource type="Theme" uid="uid://6q2onjex0t3g" path="res://ui/base.theme" id="1_orfgc"]
 [ext_resource type="Script" path="res://ui/pause/pause.gd" id="2_tp86b"]
 [ext_resource type="Texture2D" uid="uid://1ig1y4tylfuc" path="res://assets/images/titlescreen-mikraz-in-cirth-khuzdul.png" id="3_hl1qf"]
+[ext_resource type="Script" path="res://ui/pause/PausedLabel.gd" id="4_c5a2f"]
 
 [node name="Pause" type="Control"]
 layout_mode = 3
@@ -61,9 +62,9 @@ horizontal_alignment = 1
 layout_mode = 2
 alignment = 2
 
-[node name="Continue" type="Button" parent="M/V/V2"]
+[node name="Resume" type="Button" parent="M/V/V2"]
 layout_mode = 2
-text = "Continue"
+text = "Resume"
 
 [node name="Save" type="Button" parent="M/V/V2"]
 layout_mode = 2
@@ -92,7 +93,16 @@ size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 5
 text = "Quit to Desktop"
 
-[connection signal="pressed" from="M/V/V2/Continue" to="." method="_on_continue_pressed"]
+[node name="M" type="MarginContainer" parent="M/V"]
+layout_mode = 2
+
+[node name="PausedLabel" type="Label" parent="M/V/M"]
+layout_mode = 2
+text = "- Paused -"
+horizontal_alignment = 1
+script = ExtResource("4_c5a2f")
+
+[connection signal="pressed" from="M/V/V2/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="M/V/V2/Load" to="." method="_on_load_pressed"]
 [connection signal="pressed" from="M/V/V2/H/QuitToTitle" to="." method="_on_quit_to_title_pressed"]
 [connection signal="pressed" from="M/V/V2/H/QuitToDesktop" to="." method="_on_quit_to_desktop_pressed"]

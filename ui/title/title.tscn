@@ -85,5 +85,5 @@ text = "Quit"
 [connection signal="pressed" from="M/V/V2/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="M/V/V2/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="M/V/V2/Load" to="." method="_on_load_pressed"]
-[connection signal="pressed" from="M/V/V2/Options" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="M/V/V2/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="M/V/V2/Quit" to="." method="_on_quit_pressed"]
