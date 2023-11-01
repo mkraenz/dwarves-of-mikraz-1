@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://ce83xqbtw77i5"]
+
+[ext_resource type="Theme" uid="uid://6q2onjex0t3g" path="res://ui/base.theme" id="1_qga5l"]
+[ext_resource type="Script" path="res://ui/inventory/inventory.gd" id="2_aarpq"]
+
+[node name="Inventory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_qga5l")
+script = ExtResource("2_aarpq")
+
+[node name="Backdrop" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.2)
+
+[node name="M" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 20
+
+[node name="ScrollContainer" type="ScrollContainer" parent="M"]
+layout_mode = 2
+
+[node name="ItemList" type="VBoxContainer" parent="M/ScrollContainer"]
+layout_mode = 2
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

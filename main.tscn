@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://crvaxgw3mwm78"]
+[gd_scene load_steps=5 format=3 uid="uid://crvaxgw3mwm78"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_k5eii"]
 [ext_resource type="PackedScene" uid="uid://4bt3ndfyg5jf" path="res://ui/pause/pause.tscn" id="3_lo3uq"]
 [ext_resource type="PackedScene" uid="uid://d4bt3ndfyg5je" path="res://ui/title/title.tscn" id="3_sxw8d"]
+[ext_resource type="PackedScene" uid="uid://ce83xqbtw77i5" path="res://ui/inventory/inventory.tscn" id="4_2h3fo"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_k5eii")
@@ -13,6 +14,8 @@ script = ExtResource("1_k5eii")
 
 [node name="Pause" parent="Gui" instance=ExtResource("3_lo3uq")]
 process_mode = 2
+
+[node name="Inventory" parent="Gui" instance=ExtResource("4_2h3fo")]
 
 [node name="World" type="Node2D" parent="."]
 

@@ -21,8 +21,11 @@ func _ready() -> void:
 	pause_menu.hide()
 
 
+func is_ingame() -> bool:
+	return not get_tree().paused and world.get_child_count() > 0
+
+
 func _input(_event):
-	var is_ingame = world.get_child_count() > 0
 	if Input.is_action_just_pressed("pause") and is_ingame:
 		get_tree().paused = true
 		pause_menu.show()
