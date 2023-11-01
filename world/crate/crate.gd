@@ -15,16 +15,12 @@ func _ready():
 
 func die() -> void:
 	spawn_pickups()
-	spawn_death_effect()
+	spawn(DeathAnim)
 	queue_free()
 
 
 func bounce(_val) -> void:
 	anims.play("bounce")
-
-
-func spawn_death_effect() -> void:
-	spawn(DeathAnim)
 
 
 func spawn_pickups() -> void:
@@ -41,3 +37,13 @@ func spawn(Scene: PackedScene, offset := Vector2.ZERO):
 	instance.global_position = global_position + offset
 	get_tree().current_scene.add_child(instance)
 	return instance
+
+
+func save() -> Dictionary:
+	var save_dict = {
+		"filename": get_scene_file_path(),
+		"parent": get_parent().get_path(),
+		"pos_x": position.x,  # Vector2 is not supported by JSON
+		"pos_y": position.y,
+	}
+	return save_dict

@@ -98,7 +98,7 @@ _data = {
 "bounce": SubResource("Animation_lp1nn")
 }
 
-[node name="Crate" type="RigidBody2D"]
+[node name="Crate" type="RigidBody2D" groups=["Persist"]]
 collision_mask = 0
 script = ExtResource("1_lb4kg")
 
