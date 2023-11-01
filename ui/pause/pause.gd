@@ -3,10 +3,6 @@ extends Control
 @onready var eventbus := Eventbus
 
 
-func _ready():
-	hide()
-
-
 func _on_start_pressed() -> void:
 	eventbus.new_game_pressed.emit()
 	hide()

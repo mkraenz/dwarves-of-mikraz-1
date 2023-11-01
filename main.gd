@@ -42,8 +42,8 @@ func _on_new_game_pressed() -> void:
 
 
 func _on_load_game_pressed() -> void:
-	for child in world.get_children():
-		child.free()  # queue_free would cause the next two lines to instantiate under the node path '/root/Main/World/Level2' instead of 'Level'. The persistence however uses the node paths '/root/Main/World/Level/Tilemap/Player' etc that depend on the naming 'Level'.
+	clear_world(true)  # queue_free (i.e. force=false) would cause the next two lines to instantiate under the node path '/root/Main/World/Level2' instead of 'Level'. The persistence however uses the node paths '/root/Main/World/Level/Tilemap/Player' etc that depend on the naming 'Level'.
+
 	var lvl = Level.instantiate()
 	world.add_child(lvl, true)
 	var persistence = Persistence.new()
@@ -56,10 +56,9 @@ func _on_load_most_recent_game_pressed() -> void:
 
 
 func _on_quit_to_title_pressed() -> void:
+	clear_world()
+	unpause_game()
 	title_menu.show()
-	for node in world.get_children():
-		world.remove_child(node)
-		node.queue_free()
 
 
 func _on_resume_game_pressed() -> void:
@@ -70,3 +69,12 @@ func unpause_game() -> void:
 	get_tree().paused = false  # only needed when we're in pause menu but also doesn't hurt to do from title menu
 	title_menu.hide()
 	pause_menu.hide()
+
+
+func clear_world(force = false) -> void:
+	for node in world.get_children():
+		world.remove_child(node)
+		if force:
+			node.free()
+		else:
+			node.queue_free()
