@@ -70,7 +70,6 @@ func load_game(tree: SceneTree, get_tree_node: Callable):
 
 		var node_data = json.get_data()
 
-		print(node_data)
 		if node_data.get("is_autoload"):
 			if node_data["autoload_name"] == "GInventory":
 				inventory.inventory = node_data["inventory"]

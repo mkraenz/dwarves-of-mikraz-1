@@ -22,7 +22,6 @@ func reset() -> void:
 
 func _on_add_to_inventory(resource_name: String, amount: int):
 	inventory[resource_name].amount += amount
-	print(inventory)
 
 
 func save():
