@@ -103,6 +103,7 @@ horizontal_alignment = 1
 script = ExtResource("4_c5a2f")
 
 [connection signal="pressed" from="M/V/V2/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="M/V/V2/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="M/V/V2/Load" to="." method="_on_load_pressed"]
 [connection signal="pressed" from="M/V/V2/H/QuitToTitle" to="." method="_on_quit_to_title_pressed"]
 [connection signal="pressed" from="M/V/V2/H/QuitToDesktop" to="." method="_on_quit_to_desktop_pressed"]

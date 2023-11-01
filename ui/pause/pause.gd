@@ -28,3 +28,8 @@ func _on_quit_to_title_pressed():
 func _on_resume_pressed():
 	eventbus.resume_game_pressed.emit()
 	hide()
+
+
+func _on_save_pressed():
+	eventbus.save_game_pressed.emit()
+	hide()

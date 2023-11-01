@@ -7,8 +7,6 @@ class_name Player
 @onready var audio_anims := $AnimationPlayer
 @onready var anim_tree: AnimationTree = $AnimationTree
 
-const Persistence = preload("res://common/persistence/persistence.gd")
-
 var lock_animation = false
 
 

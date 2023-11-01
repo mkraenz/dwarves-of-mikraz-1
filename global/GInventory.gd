@@ -30,6 +30,6 @@ func save():
 		"filename": get_scene_file_path(),
 		"is_autoload": true,
 		"autoload_name": "GInventory",
-		"inventory": inventory.inventory
+		"inventory": inventory
 	}
 	return data
