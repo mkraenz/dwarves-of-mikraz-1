@@ -4,9 +4,16 @@ var inventory := GInventory
 
 ## following https://docs.godotengine.org/en/stable/tutorials/io/saving_games.html except for handling of autoload variables aka globals
 
+# on my ubuntu: rm ~/.local/share/godot/app_userdata/Dwarves\ of\ Mikraz\ 1/savegame.save
+const FILEPATH = "user://savegame.save"
+
+
+func save_game_exists() -> bool:
+	return FileAccess.file_exists(FILEPATH)
+
 
 func save_game(tree: SceneTree):
-	var save_file = FileAccess.open("user://savegame.save", FileAccess.WRITE)
+	var save_file = FileAccess.open(FILEPATH, FileAccess.WRITE)
 	var save_nodes = tree.get_nodes_in_group("Persist")
 	for node in save_nodes:
 		# Check the node is an instanced scene so it can be instanced again during load.
@@ -37,7 +44,7 @@ func save_game(tree: SceneTree):
 ## Alternative would be to have like a /root/Main/Scripts/Persistence node with this script,
 ## so that get_tree() and get_node() have the tree context set.
 func load_game(tree: SceneTree, get_tree_node: Callable):
-	if not FileAccess.file_exists("user://savegame.save"):
+	if not FileAccess.file_exists(FILEPATH):
 		return  # Error! We don't have a save to load.
 
 	# We need to revert the game state so we're not cloning objects
@@ -50,7 +57,7 @@ func load_game(tree: SceneTree, get_tree_node: Callable):
 
 	# Load the file line by line and process that dictionary to restore
 	# the object it represents.
-	var save_file = FileAccess.open("user://savegame.save", FileAccess.READ)
+	var save_file = FileAccess.open(FILEPATH, FileAccess.READ)
 	while save_file.get_position() < save_file.get_length():
 		var json_string = save_file.get_line()
 		var json = JSON.new()

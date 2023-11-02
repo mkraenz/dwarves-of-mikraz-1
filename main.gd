@@ -63,6 +63,7 @@ func _on_quit_to_title_pressed() -> void:
 	world.clear()
 	unpause_game()
 	title_menu.show()
+	title_menu.refresh()
 
 
 func _on_resume_game_pressed() -> void:

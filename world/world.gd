@@ -34,7 +34,6 @@ func clear(immediate = false) -> void:
 	var dont_remove_nodes = [cam]
 	for node in get_children():
 		if dont_remove_nodes.has(node):
-			print("cam found. not removing from world")
 			continue
 		remove_child(node)
 		if immediate:

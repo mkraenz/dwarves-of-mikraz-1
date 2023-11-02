@@ -11,7 +11,6 @@ var lock_animation = false
 
 
 func _ready():
-	print("player ready")
 	anim_tree.active = true
 
 
@@ -66,5 +65,4 @@ func save() -> Dictionary:
 
 
 func connect_camera(cam: Camera2D) -> void:
-	print("connect camera")
 	cam_remote.remote_path = cam.get_path()
