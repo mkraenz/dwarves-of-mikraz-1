@@ -7,6 +7,8 @@ const Pickup = preload("res://world/pickup/pickup.tscn")
 @onready var stats: Stats = $Stats
 @onready var anims: AnimationPlayer = $AnimationPlayer
 
+@export var mineable := true  # used by MouseCollider
+
 
 func _ready():
 	stats.connect("no_health", die)

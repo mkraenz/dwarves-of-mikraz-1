@@ -29,12 +29,13 @@ func _input_event(_viewport, _event, _shape_idx):
 func mine() -> void:
 	var parent = get_parent()
 	if parent in gstate.bodies_in_player_action_radius:
-		var parent_stats = get_node("../Stats")
-		assert(
-			parent_stats,
-			"MouseCollider's parent node must have a Stats node as sibling of MouseCollider"
-		)
-		parent_stats.hp -= 1
+		if "mineable" in parent and parent.mineable:
+			var parent_stats = get_node("../Stats")
+			assert(
+				parent_stats,
+				"MouseCollider's parent node must have a Stats node as sibling of MouseCollider"
+			)
+			parent_stats.hp -= 1
 
 
 func on_cooldown_tick() -> void:

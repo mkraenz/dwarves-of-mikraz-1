@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://b43yygkrld0rh"]
+
+[ext_resource type="Script" path="res://world/buildings/sawmill/sawmill.gd" id="1_nmfpx"]
+[ext_resource type="Texture2D" uid="uid://dxb80j1fcp0dr" path="res://third-party/kenney_tiny-dungeon/Tilemap/tilemap_packed.png" id="2_n8wfi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wuawx"]
+size = Vector2(13, 9)
+
+[node name="Sawmill" type="StaticBody2D"]
+collision_layer = 9
+collision_mask = 0
+script = ExtResource("1_nmfpx")
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -4.5)
+shape = SubResource("RectangleShape2D_wuawx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("2_n8wfi")
+region_enabled = true
+region_rect = Rect2(0, 96, 16, 16)
