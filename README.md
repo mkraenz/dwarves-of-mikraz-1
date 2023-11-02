@@ -1,5 +1,8 @@
 # TypeScriptTeatime's Dwarves of Mikraz I
 
+- [itch.io](https://mkraenz.itch.io/dwarves-of-mikraz)
+- [github repo](https://github.com/mkraenz/dwarves-of-mikraz-1)
+
 ## BHAG
 
 Be nice to the malfunctioning CRT TV.
@@ -18,16 +21,18 @@ Rule Change: Hitting it, fixes it.
 ## Build and Export to itch.io
 
 - Create new project on itch.io
-- enable `SharedArrayBuffer support — (Experimental)`
-  - Fixes error message on game load: `The following features required to run Godot projects on the Web are missing: ...`
 - Build the Godot project using HTML template
   - `echo .build/ >> .gitignore`
   - `rm -r .build && mkdir .build`
   - Project -> Export... -> Add Preset -> Web -> (if not already installed, download the HTML template) -> Set output path to `.build/` -> Export Project... -> filename `index.html` -> disable `Export with Debug` -> Export
     - or, as a command (once initial setup is done)
-    - `/home/mirco/programming/gamedev/godot4/Godot_v4.1.1-stable_linux.x86_64 --export-release Web .build/index.html`
-  - `/home/mirco/programming/gamedev/itchio-butler/butler push .build mkraenz/the-old-man-and-the-tv:web`
+    - `/home/mirco/programming/gamedev/godot4/Godot_v4.1.2-stable_linux.x86_64 --export-release Web .build/index.html`
+- upload the build to itch.io `/home/mirco/programming/gamedev/itchio-butler/butler push .build mkraenz/dwarves-of-mikraz:web`
+- enable the build in the itch.io project page
 - In itch.io, edit project -> Uploads -> enable `This file will be played in the browser`
+- enable `SharedArrayBuffer support — (Experimental)`
+  - Fixes error message on game load: `The following features required to run Godot projects on the Web are missing: ...`
+  - Note: if you create the itch.io project and set SharedArrayBuffer support at that time, itch seems to forget your config for the newly uploaded build artifacts.
 
 Release script
 
