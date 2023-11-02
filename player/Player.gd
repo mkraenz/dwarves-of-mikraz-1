@@ -3,14 +3,15 @@ class_name Player
 
 @export var speed = 150
 
-@onready var gstate := GState
 @onready var audio_anims := $AnimationPlayer
 @onready var anim_tree: AnimationTree = $AnimationTree
+@onready var cam_remote := $CamRemote
 
 var lock_animation = false
 
 
 func _ready():
+	print("player ready")
 	anim_tree.active = true
 
 
@@ -59,5 +60,11 @@ func save() -> Dictionary:
 		"parent": get_parent().get_path(),
 		"pos_x": position.x,  # Vector2 is not supported by JSON
 		"pos_y": position.y,
+		"node_name": name,
 	}
 	return save_dict
+
+
+func connect_camera(cam: Camera2D) -> void:
+	print("connect camera")
+	cam_remote.remote_path = cam.get_path()

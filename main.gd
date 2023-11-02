@@ -1,9 +1,11 @@
 extends Node
 
-const Level = preload("res://levels/level.tscn")
 const Persistence = preload("res://common/persistence/persistence.gd")
+const MyCamera = preload("res://common/camera/my_camera.tscn")
+const Player = preload("res://player/Player.tscn")
 
-@onready var eventbus := Eventbus
+var eventbus := Eventbus
+var gstate := GState
 @onready var world := $World
 @onready var pause_menu := $Gui/Pause
 @onready var title_menu := $Gui/Title
@@ -39,16 +41,15 @@ func _on_save_game_pressed() -> void:
 
 
 func _on_new_game_pressed() -> void:
-	var lvl = Level.instantiate()
-	world.add_child(lvl)
+	world.setup_new_level()
 	unpause_game()
 
 
 func _on_load_game_pressed() -> void:
-	clear_world(true)  # queue_free (i.e. force=false) would cause the next two lines to instantiate under the node path '/root/Main/World/Level2' instead of 'Level'. The persistence however uses the node paths '/root/Main/World/Level/Tilemap/Player' etc that depend on the naming 'Level'.
+	world.clear(true)  # queue_free (i.e. force=false) would cause the next two lines to instantiate under the node path '/root/Main/World/Level2' instead of 'Level'. The persistence however uses the node paths '/root/Main/World/Level/Tilemap/Player' etc that depend on the naming 'Level'.
+	gstate.reset()
 
-	var lvl = Level.instantiate()
-	world.add_child(lvl, true)
+	world.setup_empty_level()
 	var persistence = Persistence.new()
 	persistence.load_game(get_tree(), get_node)
 	unpause_game()
@@ -59,7 +60,7 @@ func _on_load_most_recent_game_pressed() -> void:
 
 
 func _on_quit_to_title_pressed() -> void:
-	clear_world()
+	world.clear()
 	unpause_game()
 	title_menu.show()
 
@@ -73,11 +74,7 @@ func unpause_game() -> void:
 	title_menu.hide()
 	pause_menu.hide()
 
-
-func clear_world(force = false) -> void:
-	for node in world.get_children():
-		world.remove_child(node)
-		if force:
-			node.free()
-		else:
-			node.queue_free()
+# func attach_player_camera() -> void:
+# 	var player = get_tree().get_nodes_in_group("Player")[0]
+# 	var cam = MyCamera.instantiate()
+# 	player.add_child(cam)

@@ -45,8 +45,8 @@ func load_game(tree: SceneTree, get_tree_node: Callable):
 	# project, so take care with this step.
 	# For our example, we will accomplish this by deleting saveable objects.
 	var save_nodes = tree.get_nodes_in_group("Persist")
-	for i in save_nodes:
-		i.queue_free()
+	for key in save_nodes:
+		key.queue_free()
 
 	# Load the file line by line and process that dictionary to restore
 	# the object it represents.
@@ -74,13 +74,22 @@ func load_game(tree: SceneTree, get_tree_node: Callable):
 			if node_data["autoload_name"] == "GInventory":
 				inventory.inventory = node_data["inventory"]
 		else:
+			const handled_keys = [
+				"filename", "parent", "pos_x", "pos_y", "is_autoload", "node_name"
+			]
 			# Firstly, we need to create the object and add it to the tree and set its position.
 			var new_object = load(node_data["filename"]).instantiate()
+
 			get_tree_node.call(node_data["parent"]).add_child(new_object)
 			new_object.position = Vector2(node_data["pos_x"], node_data["pos_y"])
 
 			# Now we set the remaining variables.
-			for i in node_data.keys():
-				if i == "filename" or i == "parent" or i == "pos_x" or i == "pos_y":
+			for key in node_data.keys():
+				if handled_keys.has(key):
 					continue
-				new_object.set(i, node_data[i])
+				new_object.set(key, node_data[key])
+
+			if "node_name" in node_data and node_data["node_name"] == "Player":
+				# TODO maybe make this more stable by having a global ref to this object?
+				var cam = get_tree_node.call("/root/Main/World/Cam")
+				new_object.connect_camera(cam)

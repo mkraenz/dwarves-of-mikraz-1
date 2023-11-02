@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bpmgglwruexb7"]
+
+[node name="Camera2D" type="Camera2D"]
+limit_left = 0
+limit_top = 0
+limit_right = 10000
+limit_bottom = 10000
+limit_smoothed = true
+position_smoothing_speed = 8.0

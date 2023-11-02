@@ -371,7 +371,7 @@ states/move/position = Vector2(420, 284)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_88tpt"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_26v4y"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_0lfke"), "idle", "move", SubResource("AnimationNodeStateMachineTransition_5hgr6"), "move", "idle", SubResource("AnimationNodeStateMachineTransition_rewbv"), "move", "attack", SubResource("AnimationNodeStateMachineTransition_mxpht"), "attack", "move", SubResource("AnimationNodeStateMachineTransition_gifgq")]
 graph_offset = Vector2(-181.5, 103)
 
-[node name="Player" type="CharacterBody2D" groups=["Persist"]]
+[node name="Player" type="CharacterBody2D" groups=["Persist", "Player"]]
 collision_layer = 2
 script = ExtResource("1_calhm")
 
@@ -414,6 +414,8 @@ parameters/move/blend_position = 1.0
 bus = &"Sounds"
 
 [node name="SuckRadius" parent="." instance=ExtResource("6_2apq6")]
+
+[node name="CamRemote" type="RemoteTransform2D" parent="."]
 
 [connection signal="body_entered" from="ActionRadius" to="ActionRadius" method="_on_body_entered"]
 [connection signal="body_exited" from="ActionRadius" to="ActionRadius" method="_on_body_exited"]

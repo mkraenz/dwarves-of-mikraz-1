@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bi08raw4e5yar"]
+[gd_scene load_steps=7 format=3 uid="uid://bi08raw4e5yar"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_n5ph6"]
 [ext_resource type="Texture2D" uid="uid://dxb80j1fcp0dr" path="res://third-party/kenney_tiny-dungeon/Tilemap/tilemap_packed.png" id="1_plfv1"]
-[ext_resource type="PackedScene" uid="uid://dnhulsx17skef" path="res://player/Player.tscn" id="2_vagfp"]
 [ext_resource type="PackedScene" uid="uid://ck2utngryc1v" path="res://world/crate/crate.tscn" id="3_qvbfd"]
 [ext_resource type="PackedScene" uid="uid://d032gr28r0n7b" path="res://world/pickup/pickup.tscn" id="5_jo4wq"]
 
@@ -286,17 +285,6 @@ layer_1/tile_data = PackedInt32Array(655360, 131072, 17, 589824, 131072, 17, 524
 
 [node name="Pickup" parent="." instance=ExtResource("5_jo4wq")]
 position = Vector2(67, 96)
-
-[node name="Player" parent="." instance=ExtResource("2_vagfp")]
-position = Vector2(38, 26)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-limit_left = 0
-limit_top = 0
-limit_right = 10000
-limit_bottom = 10000
-limit_smoothed = true
-position_smoothing_speed = 8.0
 
 [node name="Crate" parent="." instance=ExtResource("3_qvbfd")]
 position = Vector2(63, 65)
