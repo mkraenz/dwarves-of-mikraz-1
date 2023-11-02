@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bi08raw4e5yar"]
+[gd_scene load_steps=8 format=3 uid="uid://bi08raw4e5yar"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_n5ph6"]
 [ext_resource type="Texture2D" uid="uid://dxb80j1fcp0dr" path="res://third-party/kenney_tiny-dungeon/Tilemap/tilemap_packed.png" id="1_plfv1"]
 [ext_resource type="PackedScene" uid="uid://ck2utngryc1v" path="res://world/crate/crate.tscn" id="3_qvbfd"]
+[ext_resource type="PackedScene" uid="uid://molrdbxdnti" path="res://common/resource_spawner/resource_spawner.tscn" id="5_0ppb2"]
 [ext_resource type="PackedScene" uid="uid://d032gr28r0n7b" path="res://world/pickup/pickup.tscn" id="5_jo4wq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yub5t"]
@@ -291,3 +292,5 @@ position = Vector2(63, 65)
 
 [node name="Crate2" parent="." instance=ExtResource("3_qvbfd")]
 position = Vector2(69, 55)
+
+[node name="ResourceSpawner" parent="." instance=ExtResource("5_0ppb2")]

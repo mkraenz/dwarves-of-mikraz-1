@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://molrdbxdnti"]
+
+[ext_resource type="Script" path="res://common/resource_spawner/resource_spawner.gd" id="1_mgmjs"]
+
+[node name="ResourceSpawner" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_mgmjs")
+
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
