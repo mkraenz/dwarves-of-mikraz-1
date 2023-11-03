@@ -6,4 +6,4 @@ var eventbus := Eventbus
 
 
 func interact() -> void:
-	eventbus.open_craft_menu.emit("sawmill")
+	eventbus.open_crafting_menu.emit("sawmill")

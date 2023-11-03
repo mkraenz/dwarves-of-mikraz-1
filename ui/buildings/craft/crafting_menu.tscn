@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://b3ff7xd1sb0og"]
 
 [ext_resource type="Theme" uid="uid://6q2onjex0t3g" path="res://ui/base.theme" id="1_dv7el"]
-[ext_resource type="Script" path="res://ui/buildings/craft/craft_menu.gd" id="2_408ik"]
+[ext_resource type="Script" path="res://ui/buildings/craft/crafting_menu.gd" id="2_67qoq"]
 
-[node name="CraftMenu" type="Control"]
+[node name="CraftingMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,7 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_dv7el")
-script = ExtResource("2_408ik")
+script = ExtResource("2_67qoq")
 
 [node name="Backdrop" type="ColorRect" parent="."]
 layout_mode = 1

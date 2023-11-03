@@ -10,7 +10,7 @@ var gdata := GData
 @onready var world := $World
 @onready var pause_menu := $Gui/PauseMenu
 @onready var title_menu := $Gui/TitleMenu
-@onready var crafting_menu := $Gui/CraftMenu
+@onready var crafting_menu := $Gui/CraftingMenu
 
 
 func _ready() -> void:
@@ -21,7 +21,7 @@ func _ready() -> void:
 	eventbus.quit_to_title_pressed.connect(_on_quit_to_title_pressed)
 	eventbus.resume_game_pressed.connect(_on_resume_game_pressed)
 	eventbus.save_game_pressed.connect(_on_save_game_pressed)
-	eventbus.open_craft_menu.connect(_on_open_crafting_menu)
+	eventbus.open_crafting_menu.connect(_on_open_crafting_menu)
 	eventbus.close_crafting_menu.connect(_on_close_crafting_menu)
 
 
