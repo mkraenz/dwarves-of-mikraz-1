@@ -19,6 +19,7 @@ config/features=PackedStringArray("4.1", "GL Compatibility")
 Eventbus="*res://global/Eventbus.gd"
 GState="*res://global/GState.gd"
 GInventory="*res://global/GInventory.gd"
+GData="*res://global/GData.gd"
 
 [display]
 

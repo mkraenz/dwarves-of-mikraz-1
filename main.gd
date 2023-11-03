@@ -6,9 +6,11 @@ const Player = preload("res://player/Player.tscn")
 
 var eventbus := Eventbus
 var gstate := GState
+var gdata := GData
 @onready var world := $World
 @onready var pause_menu := $Gui/PauseMenu
 @onready var title_menu := $Gui/TitleMenu
+@onready var craft_menu := $Gui/CraftMenu
 
 
 func _ready() -> void:
@@ -19,8 +21,7 @@ func _ready() -> void:
 	eventbus.quit_to_title_pressed.connect(_on_quit_to_title_pressed)
 	eventbus.resume_game_pressed.connect(_on_resume_game_pressed)
 	eventbus.save_game_pressed.connect(_on_save_game_pressed)
-	title_menu.show()
-	pause_menu.hide()
+	eventbus.open_craft_menu.connect(_on_open_craft_menu)
 
 
 func is_ingame() -> bool:
@@ -75,7 +76,8 @@ func unpause_game() -> void:
 	title_menu.hide()
 	pause_menu.hide()
 
-# func attach_player_camera() -> void:
-# 	var player = get_tree().get_nodes_in_group("Player")[0]
-# 	var cam = MyCamera.instantiate()
-# 	player.add_child(cam)
+
+func _on_open_craft_menu(for_building: String) -> void:
+	craft_menu.recipes = gdata.crafting[for_building]
+	craft_menu.refresh()
+	craft_menu.show()

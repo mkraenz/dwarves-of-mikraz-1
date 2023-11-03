@@ -82,3 +82,11 @@ summary:
 - [ ] after cooldown finishes, spawn finished product
   - [ ] progress bar
 - [ ] can collect finished product
+
+## Data generation
+
+We are using a data-driven approach to define items and crafting recipes. Corresponding files you need to change are the `.ts` files in `./assets/data/`. Then, simply run the export script to generate the corresponding json files that get automatically loaded into the game via `GData.gd`.
+
+```sh
+deno run --allow-write ./scripts/generate-data-jsons.ts
+```

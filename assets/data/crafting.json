@@ -1,0 +1,1 @@
+{"sawmill":[{"id":"plank","needs":[{"id":"log","amount":1}],"outputAmount":2,"durationInSec":0.5},{"id":"sawdust","needs":[{"id":"log","amount":1}],"outputAmount":5,"durationInSec":0.5}],"smelter":[{"id":"ironIngot","needs":[{"id":"ironOre","amount":2}],"outputAmount":1,"durationInSec":3}]}
