@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://6q2onjex0t3g" path="res://ui/base.theme" id="1_fhfmy"]
 [ext_resource type="Script" path="res://ui/title/title_menu.gd" id="2_01unw"]
-[ext_resource type="Texture2D" uid="uid://1ig1y4tylfuc" path="res://assets/images/titlescreen-mikraz-in-cirth-khuzdul.png" id="2_u2wan"]
+[ext_resource type="PackedScene" uid="uid://bt1njt15eesor" path="res://ui/components/game_title_heading.tscn" id="3_l0v43"]
 
 [node name="TitleMenu" type="Control"]
 layout_mode = 3
@@ -38,24 +38,13 @@ theme_override_constants/margin_bottom = 20
 [node name="V" type="VBoxContainer" parent="M"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 0
 
-[node name="V1" type="VBoxContainer" parent="M/V"]
-layout_mode = 2
-size_flags_vertical = 0
-
-[node name="C" type="CenterContainer" parent="M/V/V1"]
+[node name="GameTitleHeading" parent="M/V" instance=ExtResource("3_l0v43")]
 layout_mode = 2
 
-[node name="Heading" type="TextureRect" parent="M/V/V1/C"]
+[node name="VSpacerExpand" type="TextureRect" parent="M/V"]
 layout_mode = 2
-texture = ExtResource("2_u2wan")
-
-[node name="GameTitle" type="Label" parent="M/V/V1"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Dwarves of Mikraz"
-horizontal_alignment = 1
+size_flags_vertical = 3
 
 [node name="V2" type="VBoxContainer" parent="M/V"]
 layout_mode = 2

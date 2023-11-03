@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://4bt3ndfyg5jf" path="res://ui/pause/pause_menu.tscn" id="3_lo3uq"]
 [ext_resource type="PackedScene" uid="uid://d4bt3ndfyg5je" path="res://ui/title/title_menu.tscn" id="3_sxw8d"]
 [ext_resource type="PackedScene" uid="uid://ce83xqbtw77i5" path="res://ui/inventory/inventory_menu.tscn" id="4_2h3fo"]
+[ext_resource type="PackedScene" uid="uid://b3ff7xd1sb0og" path="res://ui/buildings/craft/craft_at_building_menu.tscn" id="5_bbh1v"]
 [ext_resource type="PackedScene" uid="uid://bpmgglwruexb7" path="res://common/camera/my_camera.tscn" id="5_du1ce"]
 [ext_resource type="Script" path="res://world/world.gd" id="5_qpwfe"]
-[ext_resource type="Theme" uid="uid://6q2onjex0t3g" path="res://ui/base.theme" id="5_ykbmp"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_k5eii")
@@ -20,12 +20,8 @@ process_mode = 2
 
 [node name="InventoryMenu" parent="Gui" instance=ExtResource("4_2h3fo")]
 
-[node name="CraftAtBuildingMenu" type="Control" parent="Gui"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-theme = ExtResource("5_ykbmp")
+[node name="CraftAtBuildingMenu" parent="Gui" instance=ExtResource("5_bbh1v")]
+visible = false
 
 [node name="World" type="Node2D" parent="."]
 script = ExtResource("5_qpwfe")
