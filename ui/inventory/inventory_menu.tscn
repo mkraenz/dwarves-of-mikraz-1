@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://ce83xqbtw77i5"]
 
 [ext_resource type="Theme" uid="uid://6q2onjex0t3g" path="res://ui/base.theme" id="1_qga5l"]
-[ext_resource type="Script" path="res://ui/inventory/inventory.gd" id="2_aarpq"]
+[ext_resource type="Script" path="res://ui/inventory/inventory_menu.gd" id="2_tr1jg"]
 
-[node name="Inventory" type="Control"]
+[node name="InventoryMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,7 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_qga5l")
-script = ExtResource("2_aarpq")
+script = ExtResource("2_tr1jg")
 
 [node name="Backdrop" type="ColorRect" parent="."]
 layout_mode = 1

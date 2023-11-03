@@ -7,8 +7,8 @@ const Player = preload("res://player/Player.tscn")
 var eventbus := Eventbus
 var gstate := GState
 @onready var world := $World
-@onready var pause_menu := $Gui/Pause
-@onready var title_menu := $Gui/Title
+@onready var pause_menu := $Gui/PauseMenu
+@onready var title_menu := $Gui/TitleMenu
 
 
 func _ready() -> void:

@@ -1,23 +1,31 @@
-[gd_scene load_steps=7 format=3 uid="uid://crvaxgw3mwm78"]
+[gd_scene load_steps=8 format=3 uid="uid://crvaxgw3mwm78"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_k5eii"]
-[ext_resource type="PackedScene" uid="uid://4bt3ndfyg5jf" path="res://ui/pause/pause.tscn" id="3_lo3uq"]
-[ext_resource type="PackedScene" uid="uid://d4bt3ndfyg5je" path="res://ui/title/title.tscn" id="3_sxw8d"]
-[ext_resource type="PackedScene" uid="uid://ce83xqbtw77i5" path="res://ui/inventory/inventory.tscn" id="4_2h3fo"]
+[ext_resource type="PackedScene" uid="uid://4bt3ndfyg5jf" path="res://ui/pause/pause_menu.tscn" id="3_lo3uq"]
+[ext_resource type="PackedScene" uid="uid://d4bt3ndfyg5je" path="res://ui/title/title_menu.tscn" id="3_sxw8d"]
+[ext_resource type="PackedScene" uid="uid://ce83xqbtw77i5" path="res://ui/inventory/inventory_menu.tscn" id="4_2h3fo"]
 [ext_resource type="PackedScene" uid="uid://bpmgglwruexb7" path="res://common/camera/my_camera.tscn" id="5_du1ce"]
 [ext_resource type="Script" path="res://world/world.gd" id="5_qpwfe"]
+[ext_resource type="Theme" uid="uid://6q2onjex0t3g" path="res://ui/base.theme" id="5_ykbmp"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_k5eii")
 
 [node name="Gui" type="CanvasLayer" parent="."]
 
-[node name="Title" parent="Gui" instance=ExtResource("3_sxw8d")]
+[node name="TitleMenu" parent="Gui" instance=ExtResource("3_sxw8d")]
 
-[node name="Pause" parent="Gui" instance=ExtResource("3_lo3uq")]
+[node name="PauseMenu" parent="Gui" instance=ExtResource("3_lo3uq")]
 process_mode = 2
 
-[node name="Inventory" parent="Gui" instance=ExtResource("4_2h3fo")]
+[node name="InventoryMenu" parent="Gui" instance=ExtResource("4_2h3fo")]
+
+[node name="CraftAtBuildingMenu" type="Control" parent="Gui"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("5_ykbmp")
 
 [node name="World" type="Node2D" parent="."]
 script = ExtResource("5_qpwfe")

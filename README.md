@@ -60,6 +60,25 @@ following [docs](https://docs.godotengine.org/en/stable/tutorials/scripting/paus
 
 summary:
 
-- set the `root/Main/Gui/Pause` node's `Process.mode` to `When Paused` (in code: `Node.PROCESS_MODE_PAUSABLE`)
+- set the `root/Main/Gui/PauseMenu` node's `Process.mode` to `When Paused` (in code: `Node.PROCESS_MODE_PAUSABLE`)
 - call `get_tree().paused = true # or false`
 - `pause_menu.hide()`
+
+## Todos
+
+- [x] image for building -> take the anvil from tiny-dungeon asset pack
+- [ ] select a building to build
+  - [ ] (later) have a button that opens the build menu
+  - [ ] build menu design
+  - [ ] building icon
+  - [ ] select menu item
+- [ ] build the building at mouse position
+  - [ ] (later) show a blueprint of the building on hover
+  - [x] on click build the build
+- [x] interact with the building
+  - [ ] open menu to put in resources
+- [ ] put in resources
+  - [ ] take resources from inventory
+- [ ] after cooldown finishes, spawn finished product
+  - [ ] progress bar
+- [ ] can collect finished product
