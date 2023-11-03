@@ -1,12 +1,11 @@
 extends Node
 
-## Todo #1 rename to crafting_recipes
-var crafting: Dictionary
+var crafting_recipes: Dictionary
 var items: Dictionary
 
 
 func _ready():
-	crafting = read_json_dict("res://assets/data/crafting.json")
+	crafting_recipes = read_json_dict("res://assets/data/crafting-recipes.json")
 	items = read_json_dict("res://assets/data/items.json")
 
 

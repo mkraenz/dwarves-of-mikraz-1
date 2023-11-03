@@ -79,7 +79,7 @@ func unpause_game() -> void:
 
 
 func _on_open_crafting_menu(for_building: String) -> void:
-	crafting_menu.recipes = gdata.crafting[for_building]
+	crafting_menu.recipes = gdata.crafting_recipes[for_building]
 	crafting_menu.refresh()
 	crafting_menu.show()
 
