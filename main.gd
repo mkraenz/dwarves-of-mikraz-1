@@ -10,7 +10,7 @@ var gdata := GData
 @onready var world := $World
 @onready var pause_menu := $Gui/PauseMenu
 @onready var title_menu := $Gui/TitleMenu
-@onready var craft_menu := $Gui/CraftMenu
+@onready var crafting_menu := $Gui/CraftMenu
 
 
 func _ready() -> void:
@@ -21,7 +21,8 @@ func _ready() -> void:
 	eventbus.quit_to_title_pressed.connect(_on_quit_to_title_pressed)
 	eventbus.resume_game_pressed.connect(_on_resume_game_pressed)
 	eventbus.save_game_pressed.connect(_on_save_game_pressed)
-	eventbus.open_craft_menu.connect(_on_open_craft_menu)
+	eventbus.open_craft_menu.connect(_on_open_crafting_menu)
+	eventbus.close_crafting_menu.connect(_on_close_crafting_menu)
 
 
 func is_ingame() -> bool:
@@ -77,7 +78,11 @@ func unpause_game() -> void:
 	pause_menu.hide()
 
 
-func _on_open_craft_menu(for_building: String) -> void:
-	craft_menu.recipes = gdata.crafting[for_building]
-	craft_menu.refresh()
-	craft_menu.show()
+func _on_open_crafting_menu(for_building: String) -> void:
+	crafting_menu.recipes = gdata.crafting[for_building]
+	crafting_menu.refresh()
+	crafting_menu.show()
+
+
+func _on_close_crafting_menu() -> void:
+	crafting_menu.hide()

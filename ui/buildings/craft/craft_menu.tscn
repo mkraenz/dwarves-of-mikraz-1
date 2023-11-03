@@ -39,7 +39,12 @@ layout_mode = 2
 
 [node name="AvailableItemsGrid" type="GridContainer" parent="M/H"]
 layout_mode = 2
-columns = 2
+
+[node name="ItemPanel" parent="M/H/AvailableItemsGrid" instance_placeholder="res://ui/buildings/craft/item_panel/item_panel.tscn"]
+layout_mode = 2
+
+[node name="ItemPanel2" parent="M/H/AvailableItemsGrid" instance_placeholder="res://ui/buildings/craft/item_panel/item_panel.tscn"]
+layout_mode = 2
 
 [node name="V" type="VBoxContainer" parent="M/H"]
 layout_mode = 2

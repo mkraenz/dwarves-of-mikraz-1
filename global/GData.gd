@@ -1,5 +1,6 @@
 extends Node
 
+## Todo #1 rename to crafting_recipes
 var crafting: Dictionary
 var items: Dictionary
 

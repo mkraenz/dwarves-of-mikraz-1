@@ -76,9 +76,17 @@ summary:
   - [ ] (later) show a blueprint of the building on hover
   - [x] on click build the build
 - [x] interact with the building
-  - [ ] open menu to put in resources
-- [ ] put in resources
+  - [x] open craft menu
+  - [x] select recipe
+  - [ ] display recipe details
+  - [ ] select number (default 1)
+    - [ ] select number (default 1)
+    - [ ] update recipe requirements
+    - [ ] ~~check requirements are fulfilled~~
+    - [ ] show warning on building when requirements not fulfilled
+  - [ ] click craft
   - [ ] take resources from inventory
+  - [ ] on click, close craft menu
 - [ ] after cooldown finishes, spawn finished product
   - [ ] progress bar
 - [ ] can collect finished product

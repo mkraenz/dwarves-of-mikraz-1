@@ -1,5 +1,7 @@
 extends Control
 
+## TODO #1 rename scene to crafting menu
+
 const ItemPanel = preload("res://ui/buildings/craft/item_panel/item_panel.tscn")
 
 ## Array of Dictionaries

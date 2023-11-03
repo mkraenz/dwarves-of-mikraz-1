@@ -1,6 +1,7 @@
 extends Control
 
 var ginventory := GInventory
+var gdata := GData
 
 @onready var item_list = $M/ScrollContainer/ItemList
 
@@ -26,7 +27,8 @@ func redraw_data() -> void:
 		node.queue_free()
 
 	for item_key in ginventory.inventory.keys():
-		var item = ginventory.inventory[item_key]
+		var inventory_item = ginventory.inventory[item_key]
+		var item = gdata.items[item_key]
 		var label = Label.new()
-		label.text = "%s : %s" % [item.label, item.amount]
+		label.text = "%s : %s" % [item.label, inventory_item.amount]
 		item_list.add_child(label)

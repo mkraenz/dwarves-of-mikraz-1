@@ -1,6 +1,7 @@
 extends Node
 
 var eventbus := Eventbus
+var gdata := GData
 
 ## human-readable item_id to Item
 var inventory: Dictionary
@@ -12,12 +13,9 @@ func _ready():
 
 
 func reset() -> void:
-	inventory = {
-		"log": {"amount": 0, "label": "Log"},
-		"plank": {"amount": 0, "label": "Plank"},
-		"stone": {"amount": 0, "label": "Stone"},
-		"iron": {"amount": 0, "label": "Iron ore"}
-	}
+	inventory = {}
+	for key in gdata.items:
+		inventory[key] = {"amount": 0}
 
 
 func _on_add_to_inventory(resource_name: String, amount: int):

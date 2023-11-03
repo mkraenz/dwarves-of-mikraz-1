@@ -16,4 +16,5 @@ signal save_game_pressed
 signal game_saved_successfully
 
 # crafting
-signal open_craft_menu(for_building: String)
+signal open_craft_menu(for_building: String)  ## TODO #1 rename
+signal close_crafting_menu
