@@ -76,15 +76,16 @@ summary:
   - [x] learn how to interact
   - [x] open craft menu
   - [x] select recipe
-  - [ ] display recipe details
-  - [ ] select number (default 1)
-    - [ ] select number (default 1)
-    - [ ] update recipe requirements
+  - [x] display recipe details
+  - [x] select number (default 1)
+    - [x] select number (default 1)
+    - [x] update recipe requirements
     - [ ] ~~check requirements are fulfilled~~
     - [ ] show warning on building when requirements not fulfilled
-  - [ ] click craft
-  - [ ] take resources from inventory
-  - [ ] on click, close craft menu
+  - [x] click craft
+  - [x] take resources from inventory
+  - [x] on click, close craft menu
+  - [ ] opening the craft menu after it was closed resets the crafting amounts and selected recipe
 - [ ] after cooldown finishes, spawn finished product
   - [ ] progress bar
 - [ ] can collect finished product

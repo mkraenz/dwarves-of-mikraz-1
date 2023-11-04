@@ -33,7 +33,7 @@ func refresh() -> void:
 		grid.add_child(panel)
 		panel.selected.connect(_on_panel_selected)
 
-	if len(recipes) == 0:
+	if not recipes:
 		print(name, "WARNING: No recipes available")
 		return
 	if not selected_id:
@@ -41,6 +41,12 @@ func refresh() -> void:
 
 	refresh_craft_button()
 	recipe_details.refresh()
+
+
+func soft_reset() -> void:
+	if recipes:
+		_on_panel_selected(recipes[0].id)
+	crafted_amount_multiplier = 1
 
 
 func _on_panel_selected(recipe_id: String) -> void:
@@ -51,9 +57,11 @@ func _on_panel_selected(recipe_id: String) -> void:
 
 
 func get_current_recipe():
-	if len(recipes) == 0:
+	if not recipes:
 		return null
 	var matching_recipes = recipes.filter(func(r): return r.id == selected_id)
+	if not matching_recipes:
+		return null
 	return matching_recipes[0]
 
 
@@ -67,13 +75,10 @@ func _on_craft_more_button_pressed() -> void:
 
 func refresh_craft_button() -> void:
 	var recipe = get_current_recipe()
+	if not recipe:
+		return
 	var crafted_amount = crafted_amount_multiplier * recipe.outputAmount
-	if crafted_amount == 0:
-		craft_button.text = "Craft Max"
-	elif crafted_amount < 0:
-		craft_button.text = "Craft ∞"
-	else:
-		craft_button.text = "Craft x%s" % [crafted_amount]
+	craft_button.refresh_text(crafted_amount)
 
 
 func _on_craft_button_pressed() -> void:

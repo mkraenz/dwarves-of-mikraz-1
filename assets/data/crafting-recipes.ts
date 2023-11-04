@@ -9,6 +9,7 @@ type ItemId = keyof typeof itemsData;
 interface Recipe {
   id: ItemId;
   needs: NeededItem[];
+  /** batch size. how many items of id get crafted in a single batch? */
   outputAmount: number;
   durationInSec: number;
 }
