@@ -11,7 +11,18 @@ var eventbus := Eventbus
 var recipes: Array
 var selected_id: String
 ## Positive number or 0 or -1. 0 represents Maximum possible amount, -1 represents Keep-crafting-infinitely.
-var crafted_amount_multiplier := 1
+var crafted_amount_multiplier := 1:
+	set = _set_crafted_amount_multiplier
+
+
+func _set_crafted_amount_multiplier(val: int) -> void:
+	crafted_amount_multiplier = val
+	if crafted_amount_multiplier < -1:
+		crafted_amount_multiplier = -1
+
+	recipe_details.multiplier = crafted_amount_multiplier
+	refresh_craft_button()
+	recipe_details.refresh()
 
 
 func refresh() -> void:
@@ -47,21 +58,10 @@ func get_current_recipe():
 
 func _on_craft_less_button_pressed() -> void:
 	crafted_amount_multiplier -= 1
-	if crafted_amount_multiplier < -1:
-		crafted_amount_multiplier = -1
-
-	# todo use getter on crafted_amount_multiplier instead
-	recipe_details.multiplier = crafted_amount_multiplier
-	refresh_craft_button()
-	recipe_details.refresh()
 
 
 func _on_craft_more_button_pressed() -> void:
 	crafted_amount_multiplier += 1
-
-	recipe_details.multiplier = crafted_amount_multiplier
-	refresh_craft_button()
-	recipe_details.refresh()
 
 
 func refresh_craft_button() -> void:
