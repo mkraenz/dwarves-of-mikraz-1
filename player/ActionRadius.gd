@@ -24,4 +24,3 @@ func refresh_marks(removed_body = null) -> void:
 	var closest = gstate.get_closest_body_in_player_action_radius(player.global_position)
 	if closest and removed_body != closest and closest.has_method("mark"):
 		closest.mark()
-		print("marked closest node", closest)

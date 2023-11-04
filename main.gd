@@ -21,7 +21,7 @@ func _ready() -> void:
 	eventbus.quit_to_title_pressed.connect(_on_quit_to_title_pressed)
 	eventbus.resume_game_pressed.connect(_on_resume_game_pressed)
 	eventbus.save_game_pressed.connect(_on_save_game_pressed)
-	eventbus.open_crafting_menu.connect(_on_open_crafting_menu)
+	eventbus.toggle_crafting_menu.connect(_on_toggle_crafting_menu)
 	eventbus.close_crafting_menu.connect(_on_close_crafting_menu)
 
 
@@ -78,10 +78,10 @@ func unpause_game() -> void:
 	pause_menu.hide()
 
 
-func _on_open_crafting_menu(for_building: String) -> void:
+func _on_toggle_crafting_menu(for_building: String) -> void:
 	crafting_menu.recipes = gdata.crafting_recipes[for_building]
 	crafting_menu.refresh()
-	crafting_menu.show()
+	crafting_menu.visible = not crafting_menu.visible
 
 
 func _on_close_crafting_menu() -> void:

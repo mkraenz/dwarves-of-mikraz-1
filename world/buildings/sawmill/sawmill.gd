@@ -8,8 +8,7 @@ var eventbus := Eventbus
 
 
 func interact() -> void:
-	# TODO #1 toggle instead
-	eventbus.open_crafting_menu.emit("sawmill")
+	eventbus.toggle_crafting_menu.emit("sawmill")
 
 
 func mark() -> void:
@@ -17,5 +16,4 @@ func mark() -> void:
 
 
 func unmark() -> void:
-	print("unmark sawmill")
 	how_to_use.hide()

@@ -9,5 +9,5 @@ signal resume_game_pressed
 signal quit_to_title_pressed
 signal save_game_pressed
 signal game_saved_successfully
-signal open_crafting_menu(for_building: String)
+signal toggle_crafting_menu(for_building: String)
 signal close_crafting_menu
