@@ -35,6 +35,7 @@ func _on_panel_selected(recipe_id: String) -> void:
 	selected_id = recipe_id
 	recipe_details.recipe = get_current_recipe()
 	recipe_details.refresh()
+	refresh_craft_button()
 
 
 func get_current_recipe():
@@ -66,7 +67,12 @@ func _on_craft_more_button_pressed() -> void:
 func refresh_craft_button() -> void:
 	var recipe = get_current_recipe()
 	var crafted_amount = crafted_amount_multiplier * recipe.outputAmount
-	craft_button.text = "Craft x%s" % [crafted_amount]  ## TODO #1 format 0 as Max, -1 as infinite
+	if crafted_amount == 0:
+		craft_button.text = "Craft Max"
+	elif crafted_amount < 0:
+		craft_button.text = "Craft ∞"
+	else:
+		craft_button.text = "Craft x%s" % [crafted_amount]
 
 
 func _on_craft_button_pressed() -> void:
