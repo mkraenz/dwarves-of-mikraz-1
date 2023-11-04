@@ -2,9 +2,12 @@ extends Node2D
 
 const Crate = preload("res://world/crate/crate.tscn")
 
+@export var enabled = true
+
 
 func _on_cooldown_timeout():
-	spawn_resource()
+	if enabled:
+		spawn_resource()
 
 
 func spawn_resource() -> void:

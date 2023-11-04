@@ -80,19 +80,6 @@ func _input(_event) -> void:
 func interact() -> void:
 	var is_interactable = func(x: Node2D): return "interactable" in x and x.interactable
 	var interactables_in_reach = gstate.bodies_in_player_action_radius.filter(is_interactable)
-	var closest_node = get_closest_node(interactables_in_reach)
+	var closest_node = gstate.get_closest_node(global_position, interactables_in_reach)
 	if closest_node:
 		closest_node.interact()
-
-
-func get_closest_node(nodes: Array[Variant]) -> Node2D:
-	if len(nodes) == 0:
-		return null
-	var min_node = nodes[0]
-	var min_dist = global_position.distance_to(min_node.global_position)
-	for node in nodes:
-		var dist = global_position.distance_to(node.global_position)
-		if dist < min_dist:
-			min_node = node
-			min_dist = dist
-	return min_node

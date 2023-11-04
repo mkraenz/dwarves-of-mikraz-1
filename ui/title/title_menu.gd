@@ -10,6 +10,11 @@ func _ready():
 	refresh()
 
 
+func _shortcut_input(_event) -> void:
+	if Input.is_action_just_pressed("test_new_game"):
+		_on_start_pressed()
+
+
 func _on_start_pressed() -> void:
 	eventbus.new_game_pressed.emit()
 	hide()
