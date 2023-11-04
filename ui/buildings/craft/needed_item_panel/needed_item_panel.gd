@@ -16,7 +16,7 @@ func refresh() -> void:
 	if item_texture:
 		icon.texture = item_texture
 
-	if in_stock > needed:
+	if in_stock >= needed:
 		undim()
 	else:
 		dim()
@@ -25,7 +25,7 @@ func refresh() -> void:
 func undim() -> void:
 	var default_modulate = Color.WHITE
 	amounts_label.modulate = default_modulate
-	name_label.modulate.a = default_modulate
+	name_label.modulate = default_modulate
 
 
 func dim() -> void:
