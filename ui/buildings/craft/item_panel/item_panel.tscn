@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bus5vv87fkg6d" path="res://third-party/kenney-tiny-town/log.png" id="2_nu1xw"]
 
 [node name="ItemPanel" type="ColorRect"]
-custom_minimum_size = Vector2(120, 20)
+custom_minimum_size = Vector2(100, 18)
 size_flags_horizontal = 0
 mouse_default_cursor_shape = 2
 color = Color(0.807843, 0.352941, 0.403922, 1)
@@ -22,7 +22,7 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/margin_left = 4
+theme_override_constants/margin_left = 2
 
 [node name="TextureRect" type="TextureRect" parent="H/M"]
 custom_minimum_size = Vector2(16, 16)
@@ -32,4 +32,6 @@ stretch_mode = 4
 
 [node name="Label" type="Label" parent="H"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 6
 text = "Example"
+vertical_alignment = 1
