@@ -299,3 +299,8 @@ enabled = false
 
 [node name="Sawmill" parent="." instance=ExtResource("6_ko3yx")]
 position = Vector2(141, 169)
+
+[node name="ProductionTakt" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="ProductionTakt" to="." method="_on_production_takt_timeout"]

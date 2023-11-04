@@ -4,6 +4,8 @@ const Crate = preload("res://world/crate/crate.tscn")
 const Pickup = preload("res://world/pickup/pickup.tscn")
 const Sawmill = preload("res://world/buildings/sawmill/sawmill.tscn")
 
+var eventbus := Eventbus
+
 
 # TODO this is debug code and should probably not be in a build
 func _input(_event) -> void:
@@ -13,3 +15,7 @@ func _input(_event) -> void:
 		var pos := get_global_mouse_position()
 		instance.global_position = pos
 		add_child(instance)
+
+
+func _on_production_takt_timeout():
+	eventbus.production_tick.emit()

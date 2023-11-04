@@ -85,8 +85,9 @@ summary:
   - [x] click craft
   - [x] take resources from inventory
   - [x] on click, close craft menu
-  - [ ] opening the craft menu after it was closed resets the crafting amounts and selected recipe
+  - [x] opening the craft menu after it was closed resets the crafting amounts and selected recipe
 - [ ] after cooldown finishes, spawn finished product
+  - [ ] cooldown timer
   - [ ] progress bar
 - [ ] can collect finished product
 
@@ -97,3 +98,29 @@ We are using a data-driven approach to define items and crafting recipes. Corres
 ```sh
 deno run --allow-write ./scripts/generate-data-jsons.ts
 ```
+
+## Thoughts about tacted production
+
+tick is 1 min
+
+tick at 18:00:00
+player starts production of a plank at 18:00:59
+assume: plank has durationInTicks = 1
+
+Answer A: plank should finish at 18:01:00 bc thats the next tick after 18:00:00
+Answer B: plank should finish at 18:02:00 bc that's the next full tick since production order.
+
+Question: When is the plank finished?
+
+When does the above "when finished" question NOT matter?
+when tick duration is small so that the player can do only few actions in between.
+
+tick is 1 sec
+tick at 18:00:00.000
+player starts production of a plank at 18:00:00.999
+assume plank has durationInTicks = 10
+Answer: finish at 18:00:10 or 18:00:11 but that's such a small difference. nobody can realistically exploit this behavior.
+
+Decision: Set tick to a smallish number. And use the simpler implementation for counting down ticks (meaning 18:00:10 would be the implementation).
+
+Note on Upgrades: If we have an upgrade that reduces production time by, say, 80%. Then we need to ensure that we still stay in tact meaning we need to `Math.ceil(durationInTicks * 0.8)` to get integer values.
