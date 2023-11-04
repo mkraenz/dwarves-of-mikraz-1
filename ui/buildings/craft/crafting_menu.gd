@@ -6,20 +6,28 @@ const ItemPanel = preload("res://ui/buildings/craft/item_panel/item_panel.tscn")
 var recipes: Array
 
 @onready var grid := $M/H/AvailableItemsGrid
-@onready var testdeleteme := $M/H/V/M/V/Needs/NeededItemPanel
+@onready var recipe_details := $M/H/V/RecipeDetailsCard
+
+var selected_id
 
 
 func refresh() -> void:
-	_clear_grid()
+	Utils.remove_all_children(grid)
 	for recipe in recipes:
 		var panel = ItemPanel.instantiate()
 		panel.recipe = recipe
 		grid.add_child(panel)
+		panel.selected.connect(_on_panel_selected)
 
-	testdeleteme.refresh()
+	if len(recipes) == 0:
+		print(name, "WARNING: No recipes available")
+		return
+	if not selected_id:
+		_on_panel_selected(recipes[0].id)
 
 
-func _clear_grid() -> void:
-	for node in grid.get_children():
-		grid.remove_child(node)
-		node.queue_free()
+func _on_panel_selected(recipe_id: String) -> void:
+	selected_id = recipe_id
+	var matching_recipes = recipes.filter(func(r): return r.id == recipe_id)
+	recipe_details.recipe = matching_recipes[0]
+	recipe_details.refresh()

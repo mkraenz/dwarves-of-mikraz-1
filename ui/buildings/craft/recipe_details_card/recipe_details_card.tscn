@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://c78h66nde8kp4"]
+
+[ext_resource type="Script" path="res://ui/buildings/craft/recipe_details_card/recipe_details_card.gd" id="1_heop1"]
+[ext_resource type="PackedScene" uid="uid://wx5006y5bujo" path="res://ui/buildings/craft/needed_item_panel/needed_item_panel.tscn" id="1_r2fff"]
+
+[node name="RecipeDetailsCard" type="MarginContainer"]
+script = ExtResource("1_heop1")
+
+[node name="Background" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+color = Color(0.807843, 0.352941, 0.403922, 1)
+
+[node name="V" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Spacer" type="MarginContainer" parent="V"]
+layout_mode = 2
+
+[node name="CraftedItemLabel" type="Label" parent="V"]
+layout_mode = 2
+text = "Example"
+horizontal_alignment = 1
+
+[node name="Needs" type="VBoxContainer" parent="V"]
+layout_mode = 2
+
+[node name="NeededItemPanel" parent="V/Needs" instance=ExtResource("1_r2fff")]
+layout_mode = 2
+
+[node name="NeededItemPanel2" parent="V/Needs" instance=ExtResource("1_r2fff")]
+layout_mode = 2
+in_stock = 20

@@ -22,9 +22,7 @@ func _on_visibility_changed():
 
 
 func redraw_data() -> void:
-	for node in item_list.get_children():
-		item_list.remove_child(node)
-		node.queue_free()
+	Utils.remove_all_children(item_list)
 
 	for item_key in ginventory.inventory.keys():
 		var inventory_item = ginventory.inventory[item_key]
