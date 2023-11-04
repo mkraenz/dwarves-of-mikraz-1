@@ -40,6 +40,7 @@ func refresh() -> void:
 		_on_panel_selected(recipes[0].id)
 
 	refresh_craft_button()
+	recipe_details.refresh()
 
 
 func _on_panel_selected(recipe_id: String) -> void:
