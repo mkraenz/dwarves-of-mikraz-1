@@ -5,18 +5,15 @@
 
 ## BHAG
 
-Be nice to the malfunctioning CRT TV.
-
-Rule Change: Hitting it, fixes it.
+Dwarf Fortress-infused Forager.
 
 ## Assets
 
+- check `./third-party/`
 - [Dwarven Font generation](https://www.fontspace.com/category/dwarven) - Anglo-Saxon Runes by Dan Smith's Fantasy Fonts - free for personal use
-- [tileset from kenney.nl](https://kenney.nl/assets/1-bit-pack) - CC0 1.0
-- [Background music Brahms by TheOuterLinux](https://opengameart.org/content/brahms-val3) - CC0 1.0
 - [PressStart2P font](https://fonts.google.com/specimen/Press+Start+2P) - OFL
 - [The Essential Retro Sound Effects Collection](https://opengameart.org/content/512-sound-effects-8-bit-style) - CC0 1.0
-- [Konami Code](https://de.wikipedia.org/wiki/Konami_Code)
+- files in `./assets/` created by mkraenz
 
 ## Build and Export to itch.io
 
