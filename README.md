@@ -73,7 +73,7 @@ summary:
   - [ ] (later) show a blueprint of the building on hover
   - [x] on click build the build
 - [x] interact with the building
-  - [ ] learn how to interact
+  - [x] learn how to interact
   - [x] open craft menu
   - [x] select recipe
   - [ ] display recipe details

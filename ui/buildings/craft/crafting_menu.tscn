@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3ff7xd1sb0og"]
+[gd_scene load_steps=4 format=3 uid="uid://b3ff7xd1sb0og"]
 
 [ext_resource type="Theme" uid="uid://6q2onjex0t3g" path="res://ui/base.theme" id="1_dv7el"]
 [ext_resource type="Script" path="res://ui/buildings/craft/crafting_menu.gd" id="2_67qoq"]
+[ext_resource type="PackedScene" uid="uid://wx5006y5bujo" path="res://ui/buildings/craft/needed_item_panel/needed_item_panel.tscn" id="3_mnn0u"]
 
 [node name="CraftingMenu" type="Control"]
 layout_mode = 3
@@ -36,6 +37,7 @@ theme_override_constants/margin_bottom = 20
 
 [node name="H" type="HBoxContainer" parent="M"]
 layout_mode = 2
+alignment = 1
 
 [node name="AvailableItemsGrid" type="GridContainer" parent="M/H"]
 layout_mode = 2
@@ -49,10 +51,31 @@ layout_mode = 2
 [node name="V" type="VBoxContainer" parent="M/H"]
 layout_mode = 2
 
-[node name="Card" type="ColorRect" parent="M/H/V"]
+[node name="M" type="MarginContainer" parent="M/H/V"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="M/H/V/Card"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Background" type="ColorRect" parent="M/H/V/M"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+color = Color(0.807843, 0.352941, 0.403922, 1)
+
+[node name="V" type="VBoxContainer" parent="M/H/V/M"]
+layout_mode = 2
+
+[node name="Spacer" type="MarginContainer" parent="M/H/V/M/V"]
+layout_mode = 2
+
+[node name="CraftedItemLabel" type="Label" parent="M/H/V/M/V"]
+layout_mode = 2
+text = "Example"
+horizontal_alignment = 1
+
+[node name="Needs" type="VBoxContainer" parent="M/H/V/M/V"]
+layout_mode = 2
+
+[node name="NeededItemPanel" parent="M/H/V/M/V/Needs" instance=ExtResource("3_mnn0u")]
+layout_mode = 2
+
+[node name="NeededItemPanel2" parent="M/H/V/M/V/Needs" instance=ExtResource("3_mnn0u")]
+layout_mode = 2
+in_stock = 20

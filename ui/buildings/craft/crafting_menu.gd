@@ -5,7 +5,8 @@ const ItemPanel = preload("res://ui/buildings/craft/item_panel/item_panel.tscn")
 ## Array of Dictionaries
 var recipes: Array
 
-@onready var grid = $M/H/AvailableItemsGrid
+@onready var grid := $M/H/AvailableItemsGrid
+@onready var testdeleteme := $M/H/V/M/V/Needs/NeededItemPanel
 
 
 func refresh() -> void:
@@ -14,6 +15,8 @@ func refresh() -> void:
 		var panel = ItemPanel.instantiate()
 		panel.recipe = recipe
 		grid.add_child(panel)
+
+	testdeleteme.refresh()
 
 
 func _clear_grid() -> void:

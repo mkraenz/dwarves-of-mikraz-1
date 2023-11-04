@@ -295,6 +295,7 @@ position = Vector2(63, 65)
 position = Vector2(69, 55)
 
 [node name="ResourceSpawner" parent="." instance=ExtResource("5_0ppb2")]
+enabled = false
 
 [node name="Sawmill" parent="." instance=ExtResource("6_ko3yx")]
 position = Vector2(141, 169)
