@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c78h66nde8kp4"]
+[gd_scene load_steps=4 format=3 uid="uid://c78h66nde8kp4"]
 
 [ext_resource type="Script" path="res://ui/buildings/craft/recipe_details_card/recipe_details_card.gd" id="1_heop1"]
 [ext_resource type="PackedScene" uid="uid://wx5006y5bujo" path="res://ui/buildings/craft/needed_item_panel/needed_item_panel.tscn" id="1_r2fff"]
+[ext_resource type="LabelSettings" uid="uid://b5jq3wdk4ka5g" path="res://ui/common/secondary_font.tres" id="2_ihn3y"]
 
 [node name="RecipeDetailsCard" type="MarginContainer"]
 script = ExtResource("1_heop1")
@@ -19,8 +20,19 @@ layout_mode = 2
 
 [node name="CraftedItemLabel" type="Label" parent="V"]
 layout_mode = 2
-text = "Example"
+text = "Example x1"
 horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="V"]
+layout_mode = 2
+theme_override_constants/margin_top = 2
+
+[node name="NeedsLabel" type="Label" parent="V"]
+layout_mode = 2
+text = "Materials"
+label_settings = ExtResource("2_ihn3y")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Needs" type="VBoxContainer" parent="V"]
 layout_mode = 2

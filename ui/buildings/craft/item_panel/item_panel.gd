@@ -19,9 +19,4 @@ func _ready():
 
 func _gui_input(_event):
 	if Input.is_action_just_pressed("act"):
-		## TODO #1
-		# eventbus.add_to_inventory.emit(recipe.id, recipe.outputAmount)
-		# for needed_item in recipe.needs:
-		# 	eventbus.add_to_inventory.emit(needed_item.id, -needed_item.amount)
-		# eventbus.close_crafting_menu.emit()
 		selected.emit(recipe.id)
