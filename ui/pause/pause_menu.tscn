@@ -37,7 +37,6 @@ theme_override_constants/margin_bottom = 20
 [node name="V" type="VBoxContainer" parent="M"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 0
 
 [node name="GameTitleHeading" parent="M/V" instance=ExtResource("3_48pxe")]
 layout_mode = 2
@@ -55,8 +54,13 @@ text = "- Paused -"
 horizontal_alignment = 1
 script = ExtResource("4_kxpae")
 
+[node name="VSpacerExpand2" type="TextureRect" parent="M/V"]
+layout_mode = 2
+size_flags_vertical = 3
+
 [node name="Buttons" type="VBoxContainer" parent="M/V"]
 layout_mode = 2
+theme_override_constants/separation = 6
 alignment = 2
 
 [node name="Resume" type="Button" parent="M/V/Buttons"]
@@ -69,11 +73,13 @@ layout_mode = 2
 [node name="Save" type="Button" parent="M/V/Buttons/H2"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
 text = "Save"
 
 [node name="Load" type="Button" parent="M/V/Buttons/H2"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Load"
 
 [node name="Options" type="Button" parent="M/V/Buttons"]
@@ -86,13 +92,13 @@ layout_mode = 2
 [node name="QuitToTitle" type="Button" parent="M/V/Buttons/H"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 5
+size_flags_stretch_ratio = 2.0
 text = "Back to Title"
 
 [node name="QuitToDesktop" type="Button" parent="M/V/Buttons/H"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 5
+size_flags_horizontal = 3
 text = "Quit"
 
 [connection signal="pressed" from="M/V/Buttons/Resume" to="." method="_on_resume_pressed"]
