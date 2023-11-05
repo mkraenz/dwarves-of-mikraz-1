@@ -28,50 +28,60 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 25
+theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 25
+theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 20
 
-[node name="V" type="VBoxContainer" parent="M"]
-layout_mode = 2
-size_flags_horizontal = 4
-
-[node name="GameTitleHeading" parent="M/V" instance=ExtResource("3_l0v43")]
+[node name="H" type="HBoxContainer" parent="M"]
 layout_mode = 2
 
-[node name="VSpacerExpand" type="TextureRect" parent="M/V"]
+[node name="Spacer" type="Control" parent="M/H"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+
+[node name="V" type="VBoxContainer" parent="M/H"]
+layout_mode = 2
+alignment = 1
+
+[node name="GameTitleHeading" parent="M/H/V" instance=ExtResource("3_l0v43")]
+layout_mode = 2
+alignment = 1
+
+[node name="VSpacerExpand" type="TextureRect" parent="M/H/V"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Buttons" type="VBoxContainer" parent="M/V"]
+[node name="Buttons" type="VBoxContainer" parent="M/H/V"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/separation = 6
 alignment = 2
 
-[node name="Continue" type="Button" parent="M/V/Buttons"]
+[node name="Continue" type="Button" parent="M/H/V/Buttons"]
 layout_mode = 2
 text = "Continue"
 
-[node name="Start" type="Button" parent="M/V/Buttons"]
+[node name="Start" type="Button" parent="M/H/V/Buttons"]
 layout_mode = 2
 text = "New Game"
 
-[node name="Load" type="Button" parent="M/V/Buttons"]
+[node name="Load" type="Button" parent="M/H/V/Buttons"]
 visible = false
 layout_mode = 2
 text = "Load"
 
-[node name="Options" type="Button" parent="M/V/Buttons"]
+[node name="Options" type="Button" parent="M/H/V/Buttons"]
 layout_mode = 2
 text = "Options"
 
-[node name="Quit" type="Button" parent="M/V/Buttons"]
+[node name="Quit" type="Button" parent="M/H/V/Buttons"]
 layout_mode = 2
 text = "Quit"
 
-[connection signal="pressed" from="M/V/Buttons/Continue" to="." method="_on_continue_pressed"]
-[connection signal="pressed" from="M/V/Buttons/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="M/V/Buttons/Load" to="." method="_on_load_pressed"]
-[connection signal="pressed" from="M/V/Buttons/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="M/V/Buttons/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="M/H/V/Buttons/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="M/H/V/Buttons/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="M/H/V/Buttons/Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="M/H/V/Buttons/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="M/H/V/Buttons/Quit" to="." method="_on_quit_pressed"]
