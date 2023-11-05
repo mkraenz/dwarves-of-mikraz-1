@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhvmkoh44jhyn"
-path="res://.godot/imported/panel-9slice-atlas.png-b92e51c31b5c63122e54c67f3a961185.ctex"
+uid="uid://c3r7sviufbyle"
+path="res://.godot/imported/panel-9slice.png-206e37d89f075352b3e61932f577f8fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/gui/panel-9slice-atlas.png"
-dest_files=["res://.godot/imported/panel-9slice-atlas.png-b92e51c31b5c63122e54c67f3a961185.ctex"]
+source_file="res://assets/images/gui/panel-9slice.png"
+dest_files=["res://.godot/imported/panel-9slice.png-206e37d89f075352b3e61932f577f8fe.ctex"]
 
 [params]
 
