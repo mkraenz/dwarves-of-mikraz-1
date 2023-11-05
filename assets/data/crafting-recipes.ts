@@ -30,7 +30,10 @@ export const craftingData = {
     },
     {
       id: "sawdust",
-      needs: [{ id: "log", amount: 1 }],
+      needs: [
+        { id: "log", amount: 2 },
+        { id: "stone", amount: 1 },
+      ],
       outputAmount: 5,
       durationInTicks: 8,
     },

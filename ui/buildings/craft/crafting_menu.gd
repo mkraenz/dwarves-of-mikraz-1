@@ -13,6 +13,7 @@ const ItemPanel = preload("res://ui/buildings/craft/item_panel/item_panel.tscn")
 @onready var recipe_details := $M/H/V/RecipeDetailsCard
 @onready var craft_button := $M/H/V/CraftButtons/CraftButton
 var eventbus := Eventbus
+var ginventory := GInventory
 
 var selected_id: String
 
@@ -22,7 +23,11 @@ func _set_batches(val: float) -> void:
 	if batches < 0:
 		batches = INF
 
-	recipe_details.batches = batches
+	recipe_details.batches = (
+		batches
+		if batches != 0
+		else ginventory.get_max_producable_batches(get_current_recipe().needs)
+	)
 	refresh_craft_button()
 	recipe_details.refresh()
 
@@ -86,11 +91,10 @@ func refresh_craft_button() -> void:
 func _on_craft_button_pressed() -> void:
 	var recipe = get_current_recipe()
 
-	eventbus.ordered_at_workshop.emit(recipe, batches, workshop_node_path)
-	## TODO remove
-	# eventbus.add_to_inventory.emit(recipe.id, recipe.outputAmount * batches)
-	# for needed_item in recipe.needs:
-	# 	eventbus.add_to_inventory.emit(
-	# 		needed_item.id, -needed_item.amount * batches
-	# )
+	var ordered_batches = (
+		batches
+		if batches != 0
+		else ginventory.get_max_producable_batches(get_current_recipe().needs)
+	)
+	eventbus.ordered_at_workshop.emit(recipe, ordered_batches, workshop_node_path)
 	eventbus.close_crafting_menu.emit()
