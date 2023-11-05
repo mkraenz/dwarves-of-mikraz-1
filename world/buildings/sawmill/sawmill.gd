@@ -32,6 +32,7 @@ func _on_ordered_at_workshop(
 	if str(get_path()) == at_target_node_path:
 		ordered_recipe = recipe
 		ordered_batches = batches
+		prints("incoming order", batches, recipe)
 
 
 func interact() -> void:
@@ -63,6 +64,7 @@ func _on_production_tick() -> void:
 
 	if has_an_order and not is_producing:
 		prepare_next_batch()
+
 	if not has_an_order:
 		mark_as_pending()
 

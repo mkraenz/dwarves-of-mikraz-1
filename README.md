@@ -90,8 +90,11 @@ summary:
   - [x] cooldown timer
   - [x] get order
   - [x] process order
-  - [ ] progress bar
+  - [ ] progress indicator for one batch
   - [ ] spawn finished products
+  - [ ] show current order
+    - forager displays it additionally on the workshop with an "x20" for the amount
+  - [ ] show progress of current order
 - [ ] can collect finished product
 
 ## Data generation

@@ -5,6 +5,9 @@ const ItemPanel = preload("res://ui/buildings/craft/item_panel/item_panel.tscn")
 ## type: Recipe[]
 @export var recipes: Array
 @export var workshop_node_path = ""
+## Positive number or 0 or -1. 0 represents Maximum possible amount, INF represents open-ended.
+@export var batches: float = 1.0:
+	set = _set_batches
 
 @onready var grid := $M/H/AvailableItemsGrid
 @onready var recipe_details := $M/H/V/RecipeDetailsCard
@@ -12,17 +15,14 @@ const ItemPanel = preload("res://ui/buildings/craft/item_panel/item_panel.tscn")
 var eventbus := Eventbus
 
 var selected_id: String
-## Positive number or 0 or -1. 0 represents Maximum possible amount, -1 represents Keep-crafting-infinitely. ## TODO change name to 'batches', use INF instead of -1
-var batches := 1:
-	set = _set_batches
 
 
-func _set_batches(val: int) -> void:
+func _set_batches(val: float) -> void:
 	batches = val
-	if batches < -1:
-		batches = -1
+	if batches < 0:
+		batches = INF
 
-	recipe_details.multiplier = batches
+	recipe_details.batches = batches
 	refresh_craft_button()
 	recipe_details.refresh()
 
@@ -72,7 +72,7 @@ func _on_craft_less_button_pressed() -> void:
 
 
 func _on_craft_more_button_pressed() -> void:
-	batches += 1
+	batches = batches + 1 if batches != INF else 0.0
 
 
 func refresh_craft_button() -> void:

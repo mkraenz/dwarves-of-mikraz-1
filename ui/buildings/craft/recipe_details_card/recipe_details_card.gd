@@ -3,10 +3,11 @@ extends MarginContainer
 const NeededItemPanel = preload("res://ui/buildings/craft/needed_item_panel/needed_item_panel.tscn")
 
 @export var recipe: Dictionary
-@export var multiplier = 1
+@export var batches = 1
 
 @onready var needs_list := $V/Needs
 @onready var crafted_item_label := $V/CraftedItemLabel
+@onready var needs_heading := $V/NeedsLabel
 var ginventory := GInventory
 var gdata := GData
 
@@ -16,7 +17,8 @@ func refresh() -> void:
 	for need in recipe.needs:
 		var panel = NeededItemPanel.instantiate()
 		panel.in_stock = ginventory.inventory[need.id].amount
-		panel.needed = need.amount * multiplier
+		panel.needed = need.amount * batches if batches != INF else need.amount
+		needs_heading.text = "Materials" if batches != INF else "Materials (batch)"
 		panel.item_name = gdata.items[need.id].label
 		needs_list.add_child(panel)
 		panel.refresh()
