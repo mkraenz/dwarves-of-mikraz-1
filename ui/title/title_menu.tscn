@@ -56,33 +56,33 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="V2" type="VBoxContainer" parent="M/V"]
+[node name="Buttons" type="VBoxContainer" parent="M/V"]
 layout_mode = 2
 alignment = 2
 
-[node name="Continue" type="Button" parent="M/V/V2"]
+[node name="Continue" type="Button" parent="M/V/Buttons"]
 layout_mode = 2
 text = "Continue"
 
-[node name="Start" type="Button" parent="M/V/V2"]
+[node name="Start" type="Button" parent="M/V/Buttons"]
 layout_mode = 2
 text = "New Game"
 
-[node name="Load" type="Button" parent="M/V/V2"]
+[node name="Load" type="Button" parent="M/V/Buttons"]
 visible = false
 layout_mode = 2
 text = "Load"
 
-[node name="Options" type="Button" parent="M/V/V2"]
+[node name="Options" type="Button" parent="M/V/Buttons"]
 layout_mode = 2
 text = "Options"
 
-[node name="Quit" type="Button" parent="M/V/V2"]
+[node name="Quit" type="Button" parent="M/V/Buttons"]
 layout_mode = 2
 text = "Quit"
 
-[connection signal="pressed" from="M/V/V2/Continue" to="." method="_on_continue_pressed"]
-[connection signal="pressed" from="M/V/V2/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="M/V/V2/Load" to="." method="_on_load_pressed"]
-[connection signal="pressed" from="M/V/V2/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="M/V/V2/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="M/V/Buttons/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="M/V/Buttons/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="M/V/Buttons/Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="M/V/Buttons/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="M/V/Buttons/Quit" to="." method="_on_quit_pressed"]

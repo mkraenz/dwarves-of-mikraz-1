@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bt1njt15eesor"]
+[gd_scene load_steps=3 format=3 uid="uid://bt1njt15eesor"]
 
 [ext_resource type="Texture2D" uid="uid://1ig1y4tylfuc" path="res://assets/images/titlescreen-mikraz-in-cirth-khuzdul.png" id="1_eigs4"]
+[ext_resource type="Theme" uid="uid://6q2onjex0t3g" path="res://ui/base.theme" id="2_2ii1x"]
 
 [node name="GameTitleHeading" type="VBoxContainer"]
 size_flags_vertical = 0
@@ -14,5 +15,7 @@ texture = ExtResource("1_eigs4")
 
 [node name="GameTitle" type="Label" parent="."]
 layout_mode = 2
+theme = ExtResource("2_2ii1x")
+theme_type_variation = &"TitleHeading"
 text = "Dwarves of Mikraz"
 horizontal_alignment = 1

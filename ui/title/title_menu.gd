@@ -3,7 +3,7 @@ extends Control
 const Persistence = preload("res://common/persistence/persistence.gd")
 
 @onready var eventbus := Eventbus
-@onready var continue_button := $M/V/V2/Continue
+@onready var continue_button := $M/V/Buttons/Continue
 
 
 func _ready():

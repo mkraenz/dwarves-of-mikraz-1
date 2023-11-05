@@ -1,4 +1,4 @@
-extends ColorRect
+extends Button
 
 signal selected(item_id: String)
 
@@ -6,15 +6,13 @@ signal selected(item_id: String)
 
 var gdata := GData
 var eventbus := Eventbus
-@onready var label = $H/Label
-
 var ginventory := GInventory
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var crafted_item: Dictionary = gdata.items[recipe.id]
-	label.text = crafted_item.label
+	text = crafted_item.label
 
 
 func _gui_input(_event):

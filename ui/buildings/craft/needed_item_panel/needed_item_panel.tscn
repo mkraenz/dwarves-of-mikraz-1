@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://wx5006y5bujo"]
+[gd_scene load_steps=3 format=3 uid="uid://wx5006y5bujo"]
 
 [ext_resource type="Texture2D" uid="uid://bus5vv87fkg6d" path="res://third-party/kenney-tiny-town/log.png" id="1_3cxhe"]
 [ext_resource type="Script" path="res://ui/buildings/craft/needed_item_panel/needed_item_panel.gd" id="1_04qg8"]
-[ext_resource type="LabelSettings" uid="uid://b5jq3wdk4ka5g" path="res://ui/common/secondary_font.tres" id="2_8x5u1"]
 
 [node name="NeededItemPanel" type="MarginContainer"]
 theme_override_constants/margin_left = 4
@@ -17,14 +16,13 @@ custom_minimum_size = Vector2(8, 8)
 layout_mode = 2
 size_flags_horizontal = 4
 texture = ExtResource("1_3cxhe")
-expand_mode = 4
+expand_mode = 3
 stretch_mode = 4
 
 [node name="Name" type="Label" parent="V"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 4
+theme_type_variation = &"LabelSmall"
 text = "Need 1"
-label_settings = ExtResource("2_8x5u1")
 vertical_alignment = 1
 
 [node name="HSpacerExpand" type="TextureRect" parent="V"]
@@ -33,7 +31,6 @@ size_flags_horizontal = 3
 
 [node name="Amounts" type="Label" parent="V"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 4
+theme_type_variation = &"LabelSmall"
 text = "163/5"
-label_settings = ExtResource("2_8x5u1")
 vertical_alignment = 1

@@ -5,8 +5,8 @@ const NeededItemPanel = preload("res://ui/buildings/craft/needed_item_panel/need
 @export var recipe: Dictionary
 @export var batches = 1
 
-@onready var needs_list := $V/Needs
-@onready var crafted_item_label := $V/CraftedItemLabel
+@onready var needs_list := $V/M2/Needs
+@onready var crafted_item_label := $V/M/CraftedItemLabel
 @onready var needs_heading := $V/NeedsLabel
 var ginventory := GInventory
 var gdata := GData

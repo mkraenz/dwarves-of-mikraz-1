@@ -3,35 +3,11 @@
 [ext_resource type="Script" path="res://ui/buildings/craft/item_panel/item_panel.gd" id="1_oue23"]
 [ext_resource type="Texture2D" uid="uid://bus5vv87fkg6d" path="res://third-party/kenney-tiny-town/log.png" id="2_nu1xw"]
 
-[node name="ItemPanel" type="ColorRect"]
-custom_minimum_size = Vector2(100, 18)
-size_flags_horizontal = 0
-mouse_default_cursor_shape = 2
-color = Color(0.807843, 0.352941, 0.403922, 1)
-script = ExtResource("1_oue23")
-
-[node name="H" type="HBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="M" type="MarginContainer" parent="H"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/margin_left = 2
-
-[node name="TextureRect" type="TextureRect" parent="H/M"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-texture = ExtResource("2_nu1xw")
-stretch_mode = 4
-
-[node name="Label" type="Label" parent="H"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 6
+[node name="ItemPanel" type="Button"]
+custom_minimum_size = Vector2(160, 0)
+offset_right = 92.0
+offset_bottom = 31.0
 text = "Example"
-vertical_alignment = 1
+icon = ExtResource("2_nu1xw")
+alignment = 0
+script = ExtResource("1_oue23")
