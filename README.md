@@ -78,7 +78,7 @@ summary:
   - [x] select number (default 1)
     - [x] select number (default 1)
     - [x] update recipe requirements
-    - [ ] ~~check requirements are fulfilled~~
+    - [x] check requirements are fulfilled
     - [x] show warning on building when requirements not fulfilled
   - [x] click craft
   - [x] take resources from inventory
@@ -88,12 +88,12 @@ summary:
   - [x] cooldown timer
   - [x] get order
   - [x] process order
-  - [ ] make batch size Max and Inf work
+  - [x] make batch size Max and Inf work
   - [ ] progress indicator for one batch
   - [ ] spawn finished products
   - [ ] show current order
     - forager displays it additionally on the workshop with an "x20" for the amount
-  - [ ] show progress of current order
+  - [ ] show overall progress of current order
 - [ ] can collect finished product
 
 ## Data generation
@@ -126,6 +126,14 @@ player starts production of a plank at 18:00:00.999
 assume plank has durationInTicks = 10
 Answer: finish at 18:00:10 or 18:00:11 but that's such a small difference. nobody can realistically exploit this behavior.
 
-Decision: Set tick to a smallish number. And use the simpler implementation for counting down ticks (meaning 18:00:10 would be the implementation).
+Decision: Set tick to a smallish number. And use the simpler implementation for counting down ticks (which ended up being the one that waits for the next tick to start production).
 
 Note on Upgrades: If we have an upgrade that reduces production time by, say, 80%. Then we need to ensure that we still stay in tact meaning we need to `Math.ceil(durationInTicks * 0.8)` to get integer values.
+
+## Learnings
+
+- set the default theme via Project -> Theme (under GUI subheading) -> Custom -> select default theme
+
+## Other Resources
+
+- [must-see godot 4 ui tutorial](https://www.youtube.com/watch?v=1_OFJLyqlXI)
