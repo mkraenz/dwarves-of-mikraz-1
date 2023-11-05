@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://d4bt3ndfyg5je"]
+[gd_scene load_steps=5 format=3 uid="uid://d4bt3ndfyg5je"]
 
 [ext_resource type="Theme" uid="uid://6q2onjex0t3g" path="res://ui/base.theme" id="1_fhfmy"]
 [ext_resource type="Script" path="res://ui/title/title_menu.gd" id="2_01unw"]
+[ext_resource type="Texture2D" uid="uid://bffq0xojpw4w8" path="res://assets/images/dwarves-mining-town.jpg" id="3_imguw"]
 [ext_resource type="PackedScene" uid="uid://bt1njt15eesor" path="res://ui/components/game_title_heading.tscn" id="3_l0v43"]
 
 [node name="TitleMenu" type="Control"]
@@ -14,7 +15,16 @@ grow_vertical = 2
 theme = ExtResource("1_fhfmy")
 script = ExtResource("2_01unw")
 
+[node name="Background" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(640, 360)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_imguw")
+expand_mode = 2
+
 [node name="Backdrop" type="ColorRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
