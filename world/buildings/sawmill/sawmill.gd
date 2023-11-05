@@ -12,13 +12,24 @@ var ginventory := GInventory
 @onready var how_to_use := $HowToUse
 
 var ticks_to_batch_completion = INF
+var produced_batches: int = 0
 var resources_in_use := []  # type: NeededItem[]
+
 var is_producing := false:
 	get:
 		return ticks_to_batch_completion != INF
+
 var has_an_order := false:
 	get:
 		return ordered_recipe != {}
+
+var order_filled := true:
+	get:
+		return produced_batches >= ordered_batches
+
+var batch_finished := true:
+	get:
+		return ticks_to_batch_completion <= 0
 
 
 func _ready():
@@ -29,7 +40,9 @@ func _ready():
 func _on_ordered_at_workshop(
 	recipe: Dictionary, batches: float, at_target_node_path: String
 ) -> void:
-	if str(get_path()) == at_target_node_path:
+	var order_is_for_this_workshop = str(get_path()) == at_target_node_path
+	if order_is_for_this_workshop:
+		clear_order()
 		ordered_recipe = recipe
 		ordered_batches = batches
 		prints("incoming order", batches, recipe)
@@ -47,20 +60,18 @@ func unmark() -> void:
 	how_to_use.hide()
 
 
+## IMPORTANT: order of steps is relevant since they all change state
 func _on_production_tick() -> void:
 	ticks_to_batch_completion -= 1
-	var batch_finished = ticks_to_batch_completion <= 0
 
-	# IMPORTANT: order of steps is relevant since they all change state
 	if not has_an_order:
 		return
 
 	if batch_finished:
 		finish_current_batch()
 
-	var order_filled = ordered_batches <= 0
 	if order_filled:
-		finish_current_order()
+		clear_order()
 
 	if has_an_order and not is_producing:
 		prepare_next_batch()
@@ -71,7 +82,7 @@ func _on_production_tick() -> void:
 
 func finish_current_batch() -> void:
 	output_product()
-	ordered_batches -= 1
+	produced_batches += 1
 	resources_in_use = []
 	ticks_to_batch_completion = INF
 
@@ -96,9 +107,11 @@ func consume_resources() -> void:
 		resources_in_use = ordered_recipe.needs
 
 
-func finish_current_order() -> void:
+func clear_order() -> void:
 	ordered_batches = 0
 	ordered_recipe = {}
+	produced_batches = 0
+	ticks_to_batch_completion = INF
 
 
 func output_product() -> void:
@@ -114,8 +127,9 @@ func save() -> Dictionary:
 		"pos_y": position.y,
 		"ordered_recipe": ordered_recipe,
 		"ordered_batches": ordered_batches,
+		"produced_batches": produced_batches,
 		"ticks_to_batch_completion": ticks_to_batch_completion,
-		"resources_in_use": resources_in_use
+		"resources_in_use": resources_in_use,
 	}
 	return save_dict
 
