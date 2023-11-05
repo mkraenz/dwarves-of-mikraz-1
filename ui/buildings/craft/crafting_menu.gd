@@ -17,17 +17,21 @@ var ginventory := GInventory
 
 var selected_id: String
 
+var ordered_batches: float = 0.0:
+	get:
+		return (
+			batches
+			if batches != 0
+			else ginventory.get_max_producable_batches(get_current_recipe().needs)
+		)
+
 
 func _set_batches(val: float) -> void:
 	batches = val
 	if batches < 0:
 		batches = INF
 
-	recipe_details.batches = (
-		batches
-		if batches != 0
-		else ginventory.get_max_producable_batches(get_current_recipe().needs)
-	)
+	recipe_details.batches = ordered_batches
 	refresh_craft_button()
 	recipe_details.refresh()
 
@@ -91,10 +95,5 @@ func refresh_craft_button() -> void:
 func _on_craft_button_pressed() -> void:
 	var recipe = get_current_recipe()
 
-	var ordered_batches = (
-		batches
-		if batches != 0
-		else ginventory.get_max_producable_batches(get_current_recipe().needs)
-	)
 	eventbus.ordered_at_workshop.emit(recipe, ordered_batches, workshop_node_path)
 	eventbus.close_crafting_menu.emit()
