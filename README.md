@@ -47,7 +47,7 @@ Release script
 
 #### Persistence
 
-check `persistence.gd`
+check `persistence.gd`. Note that JSON does not support `INF` so we added a custom parser `JSONX`. To persist floats that can be `INF` use `JSONX.stringify_float(my_float)`.
 
 #### Pausing
 

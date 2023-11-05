@@ -1,7 +1,8 @@
 extends StaticBody2D
 
 @export var interactable := true
-@export var ordered_recipe: Dictionary = {}  # type: Recipe ## TODO think about making Recipe a class with (static?) constructor receiving a Dictionary.
+## type: Recipe
+@export var ordered_recipe: Dictionary = {}
 ## for open-ended orders, set to INF
 @export var ordered_batches: float = 0
 
@@ -13,7 +14,8 @@ var ginventory := GInventory
 
 var ticks_to_batch_completion = INF
 var produced_batches: int = 0
-var resources_in_use := []  # type: NeededItem[]
+## type: NeededItem[]
+var resources_in_use := []
 
 var is_producing := false:
 	get:
@@ -126,9 +128,9 @@ func save() -> Dictionary:
 		"pos_x": position.x,  # Vector2 is not supported by JSON
 		"pos_y": position.y,
 		"ordered_recipe": ordered_recipe,
-		"ordered_batches": ordered_batches,
+		"ordered_batches": JSONX.stringify_float(ordered_batches),
 		"produced_batches": produced_batches,
-		"ticks_to_batch_completion": ticks_to_batch_completion,
+		"ticks_to_batch_completion": JSONX.stringify_float(ticks_to_batch_completion),
 		"resources_in_use": resources_in_use,
 	}
 	return save_dict

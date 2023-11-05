@@ -94,7 +94,13 @@ func load_game(tree: SceneTree, get_tree_node: Callable):
 			for key in node_data.keys():
 				if handled_keys.has(key):
 					continue
-				new_object.set(key, node_data[key])
+				var val = node_data[key]
+				match typeof(val):
+					TYPE_STRING:
+						var value = JSONX.try_parse_infinity(val)
+						new_object.set(key, value)
+					_:
+						new_object.set(key, val)
 
 			if "node_name" in node_data and node_data["node_name"] == "Player":
 				# TODO maybe make this more stable by having a global ref to this object?
