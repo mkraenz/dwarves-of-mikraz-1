@@ -86,9 +86,12 @@ summary:
   - [x] take resources from inventory
   - [x] on click, close craft menu
   - [x] opening the craft menu after it was closed resets the crafting amounts and selected recipe
-- [ ] after cooldown finishes, spawn finished product
-  - [ ] cooldown timer
+- [x] after cooldown finishes, spawn finished product
+  - [x] cooldown timer
+  - [x] get order
+  - [x] process order
   - [ ] progress bar
+  - [ ] spawn finished products
 - [ ] can collect finished product
 
 ## Data generation

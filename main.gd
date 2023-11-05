@@ -87,7 +87,8 @@ func unpause_game() -> void:
 	pause_menu.hide()
 
 
-func _on_toggle_crafting_menu(for_building: String) -> void:
+func _on_toggle_crafting_menu(for_building: String, workshop_node_path: String) -> void:
+	crafting_menu.workshop_node_path = workshop_node_path
 	crafting_menu.recipes = gdata.crafting_recipes[for_building]
 	crafting_menu.soft_reset()
 	crafting_menu.refresh()

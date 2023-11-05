@@ -12,6 +12,10 @@ func _ready():
 	eventbus.add_to_inventory.connect(_on_add_to_inventory)
 
 
+func has(item_id: String, amount: int) -> bool:
+	return inventory[item_id].amount >= amount
+
+
 func reset() -> void:
 	inventory = {}
 	for key in gdata.items:

@@ -2,15 +2,17 @@ extends Control
 
 const ItemPanel = preload("res://ui/buildings/craft/item_panel/item_panel.tscn")
 
+## type: Recipe[]
+@export var recipes: Array
+@export var workshop_node_path = ""
+
 @onready var grid := $M/H/AvailableItemsGrid
 @onready var recipe_details := $M/H/V/RecipeDetailsCard
 @onready var craft_button := $M/H/V/CraftButtons/CraftButton
 var eventbus := Eventbus
 
-## Array of Dictionaries
-var recipes: Array
 var selected_id: String
-## Positive number or 0 or -1. 0 represents Maximum possible amount, -1 represents Keep-crafting-infinitely.
+## Positive number or 0 or -1. 0 represents Maximum possible amount, -1 represents Keep-crafting-infinitely. ## TODO change name to 'batches', use INF instead of -1
 var crafted_amount_multiplier := 1:
 	set = _set_crafted_amount_multiplier
 
@@ -83,10 +85,12 @@ func refresh_craft_button() -> void:
 
 func _on_craft_button_pressed() -> void:
 	var recipe = get_current_recipe()
-	## TODO check amount?
-	eventbus.add_to_inventory.emit(recipe.id, recipe.outputAmount * crafted_amount_multiplier)
-	for needed_item in recipe.needs:
-		eventbus.add_to_inventory.emit(
-			needed_item.id, -needed_item.amount * crafted_amount_multiplier
-		)
+
+	eventbus.ordered_at_workshop.emit(recipe, crafted_amount_multiplier, workshop_node_path)
+	## TODO remove
+	# eventbus.add_to_inventory.emit(recipe.id, recipe.outputAmount * crafted_amount_multiplier)
+	# for needed_item in recipe.needs:
+	# 	eventbus.add_to_inventory.emit(
+	# 		needed_item.id, -needed_item.amount * crafted_amount_multiplier
+	# )
 	eventbus.close_crafting_menu.emit()
