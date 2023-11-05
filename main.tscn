@@ -30,6 +30,7 @@ process_mode = 1
 script = ExtResource("5_qpwfe")
 
 [node name="Cam" parent="World" instance=ExtResource("5_du1ce")]
+zoom = Vector2(1.5, 1.5)
 
 [node name="Bgm" type="AudioStreamPlayer" parent="."]
 volume_db = -10.0
