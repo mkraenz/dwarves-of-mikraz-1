@@ -104,13 +104,15 @@ script = ExtResource("1_lb4kg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_r3og4")
+position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_rc7yc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 4)
+position = Vector2(0.5, -4)
 shape = SubResource("RectangleShape2D_pcu3n")
 
 [node name="MouseCollider" parent="." instance=ExtResource("4_ckad6")]
+position = Vector2(0, -8)
 
 [node name="ClickableArea" parent="MouseCollider" index="0"]
 shape = SubResource("RectangleShape2D_v4jbw")

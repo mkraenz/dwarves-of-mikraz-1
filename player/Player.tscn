@@ -376,13 +376,13 @@ collision_layer = 2
 script = ExtResource("1_calhm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -6)
+position = Vector2(0, -13)
 texture = SubResource("AtlasTexture_1hntc")
 hframes = 8
 vframes = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 6)
+position = Vector2(0, -2)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_0fogc")
 

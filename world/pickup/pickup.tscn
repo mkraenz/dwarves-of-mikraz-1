@@ -37,12 +37,14 @@ script = ExtResource("1_hjjxh")
 type = "log"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -5)
 texture = ExtResource("1_mwvp7")
 script = ExtResource("2_crowc")
 
 [node name="Timer" type="Timer" parent="Sprite2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_4iy8j")
 
 [node name="SuckCooldown" type="Timer" parent="."]
