@@ -63,16 +63,19 @@ func _on_production_tick() -> void:
 
 	if has_an_order and not is_producing:
 		prepare_next_batch()
+	if not has_an_order:
+		mark_as_pending()
 
 
 func finish_current_batch() -> void:
 	output_product()
 	ordered_batches -= 1
 	resources_in_use = []
+	ticks_to_batch_completion = INF
 
 
 func prepare_next_batch() -> void:
-	if needs_fulfilled():
+	if needs_fulfilled_for_next_batch():
 		consume_resources()
 		ticks_to_batch_completion = ordered_recipe.durationInTicks
 		mark_as_producing()
@@ -80,7 +83,7 @@ func prepare_next_batch() -> void:
 		mark_as_production_blocked()
 
 
-func needs_fulfilled() -> bool:
+func needs_fulfilled_for_next_batch() -> bool:
 	var need_fulfilled = func(need): return ginventory.has(need.id, need.amount)
 	return ordered_recipe.needs.all(need_fulfilled)
 
@@ -92,8 +95,6 @@ func consume_resources() -> void:
 
 
 func finish_current_order() -> void:
-	print("order finished")
-	ticks_to_batch_completion = INF
 	ordered_batches = 0
 	ordered_recipe = {}
 
@@ -118,8 +119,12 @@ func save() -> Dictionary:
 
 
 func mark_as_producing() -> void:
-	modulate = Color.WHITE
+	modulate = Color.GREEN
 
 
 func mark_as_production_blocked() -> void:
-	modulate = Color.DIM_GRAY
+	modulate = Color.RED
+
+
+func mark_as_pending() -> void:
+	modulate = Color.WHITE
