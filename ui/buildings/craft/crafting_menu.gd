@@ -13,16 +13,16 @@ var eventbus := Eventbus
 
 var selected_id: String
 ## Positive number or 0 or -1. 0 represents Maximum possible amount, -1 represents Keep-crafting-infinitely. ## TODO change name to 'batches', use INF instead of -1
-var crafted_amount_multiplier := 1:
-	set = _set_crafted_amount_multiplier
+var batches := 1:
+	set = _set_batches
 
 
-func _set_crafted_amount_multiplier(val: int) -> void:
-	crafted_amount_multiplier = val
-	if crafted_amount_multiplier < -1:
-		crafted_amount_multiplier = -1
+func _set_batches(val: int) -> void:
+	batches = val
+	if batches < -1:
+		batches = -1
 
-	recipe_details.multiplier = crafted_amount_multiplier
+	recipe_details.multiplier = batches
 	refresh_craft_button()
 	recipe_details.refresh()
 
@@ -48,7 +48,7 @@ func refresh() -> void:
 func soft_reset() -> void:
 	if recipes:
 		_on_panel_selected(recipes[0].id)
-	crafted_amount_multiplier = 1
+	batches = 1
 
 
 func _on_panel_selected(recipe_id: String) -> void:
@@ -68,29 +68,29 @@ func get_current_recipe():
 
 
 func _on_craft_less_button_pressed() -> void:
-	crafted_amount_multiplier -= 1
+	batches -= 1
 
 
 func _on_craft_more_button_pressed() -> void:
-	crafted_amount_multiplier += 1
+	batches += 1
 
 
 func refresh_craft_button() -> void:
 	var recipe = get_current_recipe()
 	if not recipe:
 		return
-	var crafted_amount = crafted_amount_multiplier * recipe.outputAmount
+	var crafted_amount = batches * recipe.outputAmount
 	craft_button.refresh_text(crafted_amount)
 
 
 func _on_craft_button_pressed() -> void:
 	var recipe = get_current_recipe()
 
-	eventbus.ordered_at_workshop.emit(recipe, crafted_amount_multiplier, workshop_node_path)
+	eventbus.ordered_at_workshop.emit(recipe, batches, workshop_node_path)
 	## TODO remove
-	# eventbus.add_to_inventory.emit(recipe.id, recipe.outputAmount * crafted_amount_multiplier)
+	# eventbus.add_to_inventory.emit(recipe.id, recipe.outputAmount * batches)
 	# for needed_item in recipe.needs:
 	# 	eventbus.add_to_inventory.emit(
-	# 		needed_item.id, -needed_item.amount * crafted_amount_multiplier
+	# 		needed_item.id, -needed_item.amount * batches
 	# )
 	eventbus.close_crafting_menu.emit()
