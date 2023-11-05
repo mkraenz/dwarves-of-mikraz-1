@@ -81,7 +81,7 @@ summary:
     - [x] select number (default 1)
     - [x] update recipe requirements
     - [ ] ~~check requirements are fulfilled~~
-    - [ ] show warning on building when requirements not fulfilled
+    - [x] show warning on building when requirements not fulfilled
   - [x] click craft
   - [x] take resources from inventory
   - [x] on click, close craft menu
@@ -90,6 +90,7 @@ summary:
   - [x] cooldown timer
   - [x] get order
   - [x] process order
+  - [ ] make batch size Max and Inf work
   - [ ] progress indicator for one batch
   - [ ] spawn finished products
   - [ ] show current order
