@@ -17,9 +17,9 @@ func read_json_dict(filepath: String):
 		if typeof(json.data) == TYPE_DICTIONARY:
 			return json.data
 		else:
-			prints("Unexpected data for filepath", filepath)
+			printt("Unexpected data for filepath", filepath)
 	else:
-		prints(
+		printt(
 			"JSON Parse Error:",
 			json.get_error_message(),
 			"for filepath",

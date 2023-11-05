@@ -18,12 +18,12 @@ func save_game(tree: SceneTree):
 	for node in save_nodes:
 		# Check the node is an instanced scene so it can be instanced again during load.
 		if node.scene_file_path.is_empty():
-			print("persistent node '%s' is not an instanced scene, skipped" % node.name)
+			printt("persistent node '%s' is not an instanced scene, skipped" % node.name)
 			continue
 
 		# Check the node has a save function.
 		if !node.has_method("save"):
-			print("persistent node '%s' is missing a save() function, skipped" % node.name)
+			printt("persistent node '%s' is missing a save() function, skipped" % node.name)
 			continue
 
 		var node_data = node.call("save")
@@ -65,7 +65,7 @@ func load_game(tree: SceneTree, get_tree_node: Callable):
 		# Check if there is any error while parsing the JSON string, skip in case of failure
 		var parse_result = json.parse(json_string)
 		if not parse_result == OK:
-			print(
+			printt(
 				"JSON Parse Error: ",
 				json.get_error_message(),
 				" in ",

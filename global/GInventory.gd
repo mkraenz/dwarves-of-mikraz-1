@@ -20,8 +20,6 @@ func get_max_producable_batches(needs: Array) -> float:
 	var available_amounts = needs.map(
 		func(need): return int(inventory[need.id].amount / float(need.amount))
 	)
-	prints("available", available_amounts)
-	prints("min", available_amounts.min())
 	return available_amounts.min()
 
 
