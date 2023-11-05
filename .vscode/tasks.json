@@ -4,7 +4,7 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "open with Aseprite",
+      "label": "Aseprite: Open current file",
       "type": "shell",
       "command": "aseprite ${file}",
       "presentation": {
@@ -13,7 +13,7 @@
       "problemMatcher": []
     },
     {
-      "label": "Export to .png from Aseprite",
+      "label": "Aseprite: Export current file to .png",
       "type": "shell",
       "command": "aseprite --batch ${file} --sheet ${relativeFileDirname}/${fileBasenameNoExtension}.png",
       "presentation": {
