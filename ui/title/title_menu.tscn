@@ -21,16 +21,6 @@ offset_bottom = 40.0
 texture = ExtResource("3_imguw")
 expand_mode = 2
 
-[node name="Backdrop" type="ColorRect" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.956863, 0.74902, 0.588235, 1)
-
 [node name="M" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
