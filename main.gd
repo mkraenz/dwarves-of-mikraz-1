@@ -11,6 +11,8 @@ var gdata := GData
 @onready var pause_menu := $Gui/PauseMenu
 @onready var title_menu := $Gui/TitleMenu
 @onready var crafting_menu := $Gui/CraftingMenu
+@onready var inventory_menu := $Gui/InventoryMenu
+## Todo there are several issues with the management of menus, e.g. crafting menu and inventory menu can be opened at the same time causing glitchy ui. Needs rework
 
 
 func _ready() -> void:
@@ -30,9 +32,11 @@ func is_ingame() -> bool:
 
 
 func _input(_event):
-	if Input.is_action_just_pressed("pause") and is_ingame():
-		get_tree().paused = true
-		pause_menu.show()
+	if Input.is_action_just_pressed("pause"):
+		if is_ingame():
+			pause_game()
+		else:
+			unpause_game()
 
 
 func _on_save_game_pressed() -> void:
@@ -70,6 +74,11 @@ func _on_quit_to_title_pressed() -> void:
 
 func _on_resume_game_pressed() -> void:
 	unpause_game()
+
+
+func pause_game() -> void:
+	get_tree().paused = true
+	pause_menu.show()
 
 
 func unpause_game() -> void:

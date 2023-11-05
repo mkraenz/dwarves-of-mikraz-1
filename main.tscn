@@ -9,22 +9,24 @@
 [ext_resource type="Script" path="res://world/world.gd" id="5_qpwfe"]
 
 [node name="Main" type="Node"]
+process_mode = 3
 script = ExtResource("1_k5eii")
 
 [node name="Gui" type="CanvasLayer" parent="."]
-
-[node name="TitleMenu" parent="Gui" instance=ExtResource("3_sxw8d")]
-
-[node name="PauseMenu" parent="Gui" instance=ExtResource("3_lo3uq")]
-process_mode = 2
-visible = false
 
 [node name="InventoryMenu" parent="Gui" instance=ExtResource("4_2h3fo")]
 
 [node name="CraftingMenu" parent="Gui" instance=ExtResource("5_bbh1v")]
 visible = false
 
+[node name="PauseMenu" parent="Gui" instance=ExtResource("3_lo3uq")]
+process_mode = 2
+visible = false
+
+[node name="TitleMenu" parent="Gui" instance=ExtResource("3_sxw8d")]
+
 [node name="World" type="Node2D" parent="."]
+process_mode = 1
 script = ExtResource("5_qpwfe")
 
 [node name="Cam" parent="World" instance=ExtResource("5_du1ce")]

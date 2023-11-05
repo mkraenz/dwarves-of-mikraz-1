@@ -1,6 +1,15 @@
 extends Node
 
 var bodies_in_player_action_radius: Array = []
+var is_ingame := false:
+	get = _get_is_ingame
+
+
+func _get_is_ingame() -> bool:
+	var main = get_node("/root/Main")
+	if not main:
+		return false
+	return main.is_ingame()
 
 
 func reset() -> void:

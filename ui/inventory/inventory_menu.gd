@@ -2,6 +2,7 @@ extends Control
 
 var ginventory := GInventory
 var gdata := GData
+var gstate := GState
 
 @onready var item_list = $M/ScrollContainer/ItemList
 
@@ -12,7 +13,7 @@ func _ready():
 
 func _input(_event):
 	if Input.is_action_just_pressed("toggle_inventory"):
-		if get_node("/root/Main").is_ingame():
+		if gstate.is_ingame:
 			visible = not visible
 
 
