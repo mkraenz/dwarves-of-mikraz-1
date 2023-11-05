@@ -1,4 +1,4 @@
-extends MarginContainer
+extends Container
 
 const NeededItemPanel = preload("res://ui/buildings/craft/needed_item_panel/needed_item_panel.tscn")
 
