@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b43yygkrld0rh"]
+[gd_scene load_steps=6 format=3 uid="uid://b43yygkrld0rh"]
 
 [ext_resource type="Script" path="res://world/buildings/sawmill/sawmill.gd" id="1_nmfpx"]
 [ext_resource type="Texture2D" uid="uid://co6mylr4lajdt" path="res://assets/images/buzzsaw.png" id="2_exqbe"]
 [ext_resource type="Texture2D" uid="uid://cp87bj5ibs3s5" path="res://third-party/dreammix/key-f.png" id="3_2l1d0"]
+[ext_resource type="Script" path="res://world/buildings/sawmill/progress_indicator.gd" id="4_g2bua"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wuawx"]
 size = Vector2(31, 23)
@@ -25,3 +26,6 @@ region_rect = Rect2(0, 96, 16, 16)
 visible = false
 position = Vector2(0, -41)
 texture = ExtResource("3_2l1d0")
+
+[node name="ProgressIndicator" type="Sprite2D" parent="."]
+script = ExtResource("4_g2bua")

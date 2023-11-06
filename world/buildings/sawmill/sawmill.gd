@@ -2,17 +2,21 @@ extends StaticBody2D
 
 @export var interactable := true
 ## type: Recipe
-@export var ordered_recipe: Dictionary = {}
+@export var ordered_recipe: Dictionary = {}:
+	set = _set_ordered_recipe
 ## for open-ended orders, set to INF
 @export var ordered_batches: float = 0
 
 var eventbus := Eventbus
 var gdata := GData
 var ginventory := GInventory
+var gstate := GState
 
 @onready var how_to_use := $HowToUse
+@onready var progress_indicator := $ProgressIndicator
 
-var ticks_to_batch_completion = INF
+var ticks_to_batch_completion = INF:
+	set = _set_ticks_to_batch_completion
 var produced_batches: int = 0
 ## type: NeededItem[]
 var resources_in_use := []
@@ -32,6 +36,20 @@ var order_filled := true:
 var batch_finished := true:
 	get:
 		return ticks_to_batch_completion <= 0
+
+var is_pending := true:
+	get:
+		return has_an_order and (resources_in_use or needs_fulfilled_for_next_batch())
+
+
+func _set_ordered_recipe(val: Dictionary) -> void:
+	ordered_recipe = val
+	refresh_mark()
+
+
+func _set_ticks_to_batch_completion(val: float) -> void:
+	ticks_to_batch_completion = val
+	refresh_mark()
 
 
 func _ready():
@@ -78,8 +96,7 @@ func _on_production_tick() -> void:
 	if has_an_order and not is_producing:
 		prepare_next_batch()
 
-	if not has_an_order:
-		mark_as_pending()
+	refresh_mark()
 
 
 func finish_current_batch() -> void:
@@ -136,8 +153,24 @@ func save() -> Dictionary:
 	return save_dict
 
 
+## after a reload we lose the color
+func refresh_mark() -> void:
+	if is_producing:
+		print("producing")
+		return mark_as_producing()
+	elif has_an_order and not is_pending:
+		print("blocked")
+		return mark_as_production_blocked()
+	elif is_pending:
+		print("pending")
+		return mark_as_pending()
+	print("idle")
+	return mark_as_idle()
+
+
 func mark_as_producing() -> void:
 	modulate = Color.GREEN
+	# progress_indicator.start(gstate.tick_duration * duration_in_ticks)
 
 
 func mark_as_production_blocked() -> void:
@@ -145,4 +178,8 @@ func mark_as_production_blocked() -> void:
 
 
 func mark_as_pending() -> void:
+	modulate = Color.YELLOW
+
+
+func mark_as_idle() -> void:
 	modulate = Color.WHITE

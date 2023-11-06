@@ -4,6 +4,9 @@ var bodies_in_player_action_radius: Array = []
 var is_ingame := false:
 	get = _get_is_ingame
 
+## in seconds
+var tick_duration: float = 1
+
 
 func _get_is_ingame() -> bool:
 	var main = get_node("/root/Main")
