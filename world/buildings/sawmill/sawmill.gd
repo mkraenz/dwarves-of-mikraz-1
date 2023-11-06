@@ -2,8 +2,7 @@ extends StaticBody2D
 
 @export var interactable := true
 ## type: Recipe
-@export var ordered_recipe: Dictionary = {}:
-	set = _set_ordered_recipe
+@export var ordered_recipe: Dictionary = {}
 ## for open-ended orders, set to INF
 @export var ordered_batches: float = 0
 
@@ -13,10 +12,10 @@ var ginventory := GInventory
 var gstate := GState
 
 @onready var how_to_use := $HowToUse
-@onready var progress_indicator := $ProgressIndicator
+@onready var current_order_display := $CurrentOrderDisplay
+@onready var sprite := $Sprite2D
 
-var ticks_to_batch_completion = INF:
-	set = _set_ticks_to_batch_completion
+var ticks_to_batch_completion = INF
 var produced_batches: int = 0
 ## type: NeededItem[]
 var resources_in_use := []
@@ -42,19 +41,13 @@ var is_pending := true:
 		return has_an_order and (resources_in_use or needs_fulfilled_for_next_batch())
 
 
-func _set_ordered_recipe(val: Dictionary) -> void:
-	ordered_recipe = val
-	refresh_mark()
-
-
-func _set_ticks_to_batch_completion(val: float) -> void:
-	ticks_to_batch_completion = val
-	refresh_mark()
-
-
 func _ready():
 	eventbus.production_tick.connect(_on_production_tick)
 	eventbus.ordered_at_workshop.connect(_on_ordered_at_workshop)
+
+
+func _process(_delta):
+	refresh_mark()
 
 
 func _on_ordered_at_workshop(
@@ -95,8 +88,6 @@ func _on_production_tick() -> void:
 
 	if has_an_order and not is_producing:
 		prepare_next_batch()
-
-	refresh_mark()
 
 
 func finish_current_batch() -> void:
@@ -153,8 +144,9 @@ func save() -> Dictionary:
 	return save_dict
 
 
-## after a reload we lose the color
 func refresh_mark() -> void:
+	refresh_current_order_display()
+
 	if is_producing:
 		print("producing")
 		return mark_as_producing()
@@ -168,18 +160,25 @@ func refresh_mark() -> void:
 	return mark_as_idle()
 
 
+func refresh_current_order_display() -> void:
+	if has_an_order:
+		current_order_display.show()
+		current_order_display.set_text(ordered_batches - produced_batches)
+	else:
+		current_order_display.hide()
+
+
 func mark_as_producing() -> void:
-	modulate = Color.GREEN
-	# progress_indicator.start(gstate.tick_duration * duration_in_ticks)
+	sprite.modulate = Color.GREEN
 
 
 func mark_as_production_blocked() -> void:
-	modulate = Color.RED
+	sprite.modulate = Color.RED
 
 
 func mark_as_pending() -> void:
-	modulate = Color.YELLOW
+	sprite.modulate = Color.YELLOW
 
 
 func mark_as_idle() -> void:
-	modulate = Color.WHITE
+	sprite.modulate = Color.WHITE

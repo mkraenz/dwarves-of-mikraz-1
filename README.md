@@ -93,7 +93,7 @@ summary:
     - [ ] progress indicator changes from red to green (within the same circle?)
       - idea: interpolate from Red Color(1,0,0) at 0 degrees to Green Color(0,1,0) at 360 degrees
   - [ ] spawn finished products
-  - [ ] show current order
+  - [x] show current order
     - forager displays it additionally on the workshop with an "x20" for the amount
   - [ ] show overall progress of current order
 - [ ] can collect finished product

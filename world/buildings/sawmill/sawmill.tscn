@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b43yygkrld0rh"]
+[gd_scene load_steps=8 format=3 uid="uid://b43yygkrld0rh"]
 
 [ext_resource type="Script" path="res://world/buildings/sawmill/sawmill.gd" id="1_nmfpx"]
 [ext_resource type="Texture2D" uid="uid://co6mylr4lajdt" path="res://assets/images/buzzsaw.png" id="2_exqbe"]
 [ext_resource type="Texture2D" uid="uid://cp87bj5ibs3s5" path="res://third-party/dreammix/key-f.png" id="3_2l1d0"]
 [ext_resource type="Script" path="res://world/buildings/sawmill/progress_indicator.gd" id="4_g2bua"]
+[ext_resource type="Texture2D" uid="uid://bus5vv87fkg6d" path="res://third-party/kenney-tiny-town/log.png" id="6_3d3le"]
+[ext_resource type="Script" path="res://world/buildings/sawmill/current_order_display.gd" id="7_c87u4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wuawx"]
 size = Vector2(31, 23)
@@ -24,8 +26,22 @@ region_rect = Rect2(0, 96, 16, 16)
 
 [node name="HowToUse" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(0, -41)
+position = Vector2(1, -17)
 texture = ExtResource("3_2l1d0")
 
-[node name="ProgressIndicator" type="Sprite2D" parent="."]
+[node name="ProgressIndicatorB" type="Sprite2D" parent="."]
+visible = false
 script = ExtResource("4_g2bua")
+
+[node name="CurrentOrderDisplay" type="Sprite2D" parent="."]
+position = Vector2(0, 6)
+texture = ExtResource("6_3d3le")
+script = ExtResource("7_c87u4")
+
+[node name="Amount" type="Label" parent="CurrentOrderDisplay"]
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 41.0
+offset_bottom = 14.0
+theme_type_variation = &"LabelSmall"
+text = "12"
