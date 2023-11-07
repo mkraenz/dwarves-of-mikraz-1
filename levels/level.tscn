@@ -290,6 +290,14 @@ layer_1/tile_data = PackedInt32Array(655360, 131072, 17, 589824, 131072, 17, 524
 [node name="Pickup" parent="." instance=ExtResource("5_jo4wq")]
 position = Vector2(67, 96)
 
+[node name="Pickup2" parent="." instance=ExtResource("5_jo4wq")]
+position = Vector2(380, 141)
+item_id = "ironIngot"
+
+[node name="Pickup3" parent="." instance=ExtResource("5_jo4wq")]
+position = Vector2(272, 230)
+item_id = "coal"
+
 [node name="Crate" parent="." instance=ExtResource("3_qvbfd")]
 position = Vector2(63, 65)
 
@@ -297,7 +305,6 @@ position = Vector2(63, 65)
 position = Vector2(69, 55)
 
 [node name="ResourceSpawner" parent="." instance=ExtResource("5_0ppb2")]
-enabled = false
 
 [node name="Sawmill" parent="." instance=ExtResource("6_ko3yx")]
 position = Vector2(141, 169)

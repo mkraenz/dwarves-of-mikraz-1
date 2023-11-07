@@ -65,4 +65,12 @@ export const itemsData = {
       resPath: "res://third-party/henry_lazarini/I_IronBar.png",
     },
   },
+  coal: {
+    label: "Coal",
+    id: "coal",
+    icon: {
+      type: "Texture2D",
+      resPath: "res://third-party/henry_lazarini/I_Coal.png",
+    },
+  },
 } satisfies ItemData;

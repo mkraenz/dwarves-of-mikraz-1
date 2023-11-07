@@ -1,23 +1,33 @@
 extends Area2D
 
-@export var type: String
+@export var item_id: String
 @export var amount: int = 1
+
 @export var SUCKING_SPEED := 100.0
 @export var TOLERANCE := 5
+
+const ICON_SIZE_IN_PX := 16
+
 @onready var eventbus := Eventbus
 @onready var inventory := GInventory
 @onready var audio := $Audio
+@onready var icon := $Icon
+var gdata := GData
 
 var get_sucked_towards_global_pos := Vector2.ZERO
 var suckable = false
 
 
 func _ready():
-	assert(type, "Pickup has no type. Set it via export variable.")
-	assert(type in inventory.inventory, "Pickup's type does not exist in GInventory")
+	assert(item_id, "Pickup has no item_id. Set it via export variable.")
+	assert(item_id in gdata.items, "Pickup's item_id does not exist in Gdata.items")
+
+	icon.texture = gdata.get_item_icon(item_id)
+	var icon_scale: float = float(ICON_SIZE_IN_PX) / icon.texture.get_width()
+	icon.scale = Vector2(icon_scale, icon_scale)
 
 
-func _process(delta):
+func _physics_process(delta):
 	if not suckable:
 		return
 	if get_sucked_towards_global_pos != Vector2.ZERO:
@@ -33,7 +43,7 @@ func unsuck() -> void:
 
 
 func die() -> void:
-	eventbus.add_to_inventory.emit(type, amount)
+	eventbus.add_to_inventory.emit(item_id, amount)
 	hide()
 	set_process(false)
 	monitorable = false
@@ -51,7 +61,9 @@ func save() -> Dictionary:
 	var save_dict = {
 		"filename": get_scene_file_path(),
 		"parent": get_parent().get_path(),
-		"pos_x": position.x,  # Vector2 is not supported by JSON
+		"pos_x": position.x,
 		"pos_y": position.y,
+		"item_id": item_id,
+		"amount": amount,
 	}
 	return save_dict

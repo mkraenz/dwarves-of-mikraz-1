@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://d032gr28r0n7b"]
 
 [ext_resource type="Script" path="res://world/pickup/pickup.gd" id="1_hjjxh"]
-[ext_resource type="Texture2D" uid="uid://bus5vv87fkg6d" path="res://third-party/kenney-tiny-town/log.png" id="1_mwvp7"]
 [ext_resource type="Script" path="res://effects/float.gd" id="2_crowc"]
+[ext_resource type="Texture2D" uid="uid://cmuo1te6vs7jk" path="res://third-party/henry_lazarini/I_Coal.png" id="2_tvkir"]
 [ext_resource type="AudioStream" uid="uid://7sfv88j6hndc" path="res://third-party/sounds/pickups/blubs/blub-straight.mp3" id="4_h6b1v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4iy8j"]
@@ -34,14 +34,14 @@ _data = {
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_hjjxh")
-type = "log"
+item_id = "log"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(0, -5)
-texture = ExtResource("1_mwvp7")
+texture = ExtResource("2_tvkir")
 script = ExtResource("2_crowc")
 
-[node name="Timer" type="Timer" parent="Sprite2D"]
+[node name="Timer" type="Timer" parent="Icon"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
@@ -61,5 +61,5 @@ libraries = {
 "": SubResource("AnimationLibrary_y536w")
 }
 
-[connection signal="timeout" from="Sprite2D/Timer" to="Sprite2D" method="_on_timer_timeout"]
+[connection signal="timeout" from="Icon/Timer" to="Icon" method="_on_timer_timeout"]
 [connection signal="timeout" from="SuckCooldown" to="." method="_on_suck_cooldown_timeout"]

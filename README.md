@@ -74,7 +74,7 @@ summary:
   - [x] learn how to interact
   - [x] open craft menu
   - [x] select recipe
-  - [ ] show icon of recipe
+  - [x] show icon of recipe
   - [x] display recipe details
   - [x] select number (default 1)
     - [x] select number (default 1)
@@ -96,7 +96,8 @@ summary:
   - [ ] spawn finished products
   - [x] show current order
     - forager displays it additionally on the workshop with an "x20" for the amount
-  - [ ] show overall progress of current order
+  - [x] show overall progress of current order
+    - [ ] currently shows number of batches, but on Craft button it shows `batches * units_per_batch`
 - [ ] can collect finished product
 
 ## Data generation
