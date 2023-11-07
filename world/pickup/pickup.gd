@@ -45,7 +45,7 @@ func unsuck() -> void:
 func die() -> void:
 	eventbus.add_to_inventory.emit(item_id, amount)
 	hide()
-	set_process(false)
+	set_physics_process(false)
 	monitorable = false
 	audio.play()
 	await audio.finished

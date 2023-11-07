@@ -34,7 +34,6 @@ _data = {
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_hjjxh")
-item_id = "log"
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(0, -5)

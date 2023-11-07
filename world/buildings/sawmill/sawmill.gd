@@ -1,5 +1,7 @@
 extends StaticBody2D
 
+const Pickup = preload("res://world/pickup/pickup.tscn")
+
 @export var interactable := true
 ## type: Recipe
 @export var ordered_recipe: Dictionary = {}
@@ -58,7 +60,7 @@ func _on_ordered_at_workshop(
 		clear_order()
 		ordered_recipe = recipe
 		ordered_batches = batches
-		prints("incoming order", batches, recipe)
+		printt("incoming order", batches, recipe)
 
 
 func interact() -> void:
@@ -91,7 +93,7 @@ func _on_production_tick() -> void:
 
 
 func finish_current_batch() -> void:
-	output_product()
+	output_products()
 	produced_batches += 1
 	resources_in_use = []
 	ticks_to_batch_completion = INF
@@ -122,11 +124,6 @@ func clear_order() -> void:
 	ordered_recipe = {}
 	produced_batches = 0
 	ticks_to_batch_completion = INF
-
-
-func output_product() -> void:
-	## TODO #1 this should actually spawn objects in the world to be collected
-	eventbus.add_to_inventory.emit(ordered_recipe.id, ordered_recipe.outputAmount)
 
 
 func save() -> Dictionary:
@@ -179,3 +176,16 @@ func mark_as_pending() -> void:
 
 func mark_as_idle() -> void:
 	sprite.modulate = Color.WHITE
+
+
+func output_products() -> void:
+	const RADIUS := 30
+	for i in range(ordered_recipe.outputAmount):
+		# TODO dont randomize but put the items on the small circle arc
+		var angle = randf_range(5 * PI / 4.0, 7 * PI / 4.0)  # between 225 and 315 degrees
+		# negative sine because y is down in godot
+		var random_offset_on_circle = Vector2(cos(angle), -sin(angle)) * RADIUS
+		var instance = Pickup.instantiate()
+		instance.global_position = global_position + random_offset_on_circle
+		instance.item_id = ordered_recipe.id
+		get_parent().add_child(instance)

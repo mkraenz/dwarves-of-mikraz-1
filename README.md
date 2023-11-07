@@ -99,6 +99,7 @@ summary:
   - [x] show overall progress of current order
     - [ ] currently shows number of batches, but on Craft button it shows `batches * units_per_batch`
 - [ ] can collect finished product
+  - [ ] collect sounds need to work
 
 ## Data generation
 

@@ -25,7 +25,7 @@ export const craftingData = {
     {
       id: "plank",
       needs: [{ id: "log", amount: 1 }],
-      outputAmount: 2,
+      outputAmount: 2, // TODO rename to batch_size
       durationInTicks: 5,
     },
     {

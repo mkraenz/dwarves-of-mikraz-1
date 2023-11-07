@@ -289,6 +289,7 @@ layer_1/tile_data = PackedInt32Array(655360, 131072, 17, 589824, 131072, 17, 524
 
 [node name="Pickup" parent="." instance=ExtResource("5_jo4wq")]
 position = Vector2(67, 96)
+item_id = "log"
 
 [node name="Pickup2" parent="." instance=ExtResource("5_jo4wq")]
 position = Vector2(380, 141)
