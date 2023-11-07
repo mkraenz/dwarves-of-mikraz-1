@@ -74,6 +74,7 @@ summary:
   - [x] learn how to interact
   - [x] open craft menu
   - [x] select recipe
+  - [ ] show icon of recipe
   - [x] display recipe details
   - [x] select number (default 1)
     - [x] select number (default 1)
