@@ -61,6 +61,7 @@ summary:
 
 ## Todos
 
+- [x] disallow space bar to call new game on exported game
 - [x] image for building -> take the anvil from tiny-dungeon asset pack
 - [ ] select a building to build
   - [ ] (later) have a button that opens the build menu
@@ -97,9 +98,8 @@ summary:
   - [x] show current order
     - forager displays it additionally on the workshop with an "x20" for the amount
   - [x] show overall progress of current order
-    - [ ] currently shows number of batches, but on Craft button it shows `batches * units_per_batch`
-- [ ] can collect finished product
-  - [ ] collect sounds need to work
+    - [x] currently shows number of batches, but on Craft button it shows `batches * units_per_batch` -> use total amount
+- [x] can collect finished product
 
 ## Data generation
 
