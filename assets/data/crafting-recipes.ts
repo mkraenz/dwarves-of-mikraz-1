@@ -37,6 +37,13 @@ export const craftingData = {
       outputAmount: 5,
       durationInTicks: 8,
     },
+    // TODO remove
+    {
+      id: "ironIngot",
+      needs: [{ id: "ironOre", amount: 2 }],
+      outputAmount: 1,
+      durationInTicks: 10,
+    },
   ],
   smelter: [
     {

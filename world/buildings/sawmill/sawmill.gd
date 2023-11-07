@@ -148,15 +148,11 @@ func refresh_mark() -> void:
 	refresh_current_order_display()
 
 	if is_producing:
-		print("producing")
 		return mark_as_producing()
 	elif has_an_order and not is_pending:
-		print("blocked")
 		return mark_as_production_blocked()
 	elif is_pending:
-		print("pending")
 		return mark_as_pending()
-	print("idle")
 	return mark_as_idle()
 
 
