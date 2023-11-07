@@ -156,7 +156,7 @@ func refresh_mark() -> void:
 func refresh_current_order_display() -> void:
 	if has_an_order:
 		current_order_display.show()
-		current_order_display.texture = gdata.get_item_icon(ordered_recipe.id)
+		current_order_display.set_icon_texture(gdata.get_item_icon(ordered_recipe.id))
 		current_order_display.set_text(ordered_batches - produced_batches)
 	else:
 		current_order_display.hide()
