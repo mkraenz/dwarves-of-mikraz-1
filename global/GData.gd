@@ -27,3 +27,20 @@ func read_json_dict(filepath: String):
 			"at line",
 			json.get_error_line()
 		)
+
+
+func get_item_icon(item_id: String) -> Texture2D:
+	var item: Dictionary = items[item_id]
+	match item.icon.type:
+		"Texture2D":
+			var texture: CompressedTexture2D = load(item.icon.resPath)
+			return texture
+		"AtlasTexture":
+			return null
+		_:
+			printt("ERROR: unsupported texture type for ", item_id)
+			return null
+
+
+func get_item(id: String) -> Dictionary:
+	return items[id]

@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cwwx84aiwq7fa"]
+[gd_scene load_steps=3 format=3 uid="uid://cwwx84aiwq7fa"]
 
+[ext_resource type="Texture2D" uid="uid://cmuo1te6vs7jk" path="res://third-party/henry_lazarini/I_Coal.png" id="1_fgm8j"]
 [ext_resource type="Script" path="res://ui/buildings/craft/item_panel/item_panel.gd" id="1_oue23"]
 
 [node name="ItemPanel" type="Button"]
@@ -7,6 +8,7 @@ custom_minimum_size = Vector2(160, 0)
 offset_right = 92.0
 offset_bottom = 31.0
 text = "Example"
+icon = ExtResource("1_fgm8j")
 alignment = 0
 expand_icon = true
 script = ExtResource("1_oue23")

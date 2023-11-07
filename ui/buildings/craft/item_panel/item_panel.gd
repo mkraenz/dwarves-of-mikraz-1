@@ -11,18 +11,8 @@ var ginventory := GInventory
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var crafted_item: Dictionary = gdata.items[recipe.id]
-	print(crafted_item)
-	var _icon = crafted_item.get("icon")
-	if _icon:
-		match _icon.type:
-			"Texture2D":
-				var texture: CompressedTexture2D = load(_icon.resPath)
-				icon = texture
-			"AtlasTexture":
-				pass
-			_:
-				printt("ERROR: unsupported texture type in", name)
+	icon = gdata.get_item_icon(recipe.id)
+	var crafted_item := gdata.get_item(recipe.id)
 	text = crafted_item.label
 
 

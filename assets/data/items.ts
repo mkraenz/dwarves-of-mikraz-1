@@ -5,7 +5,7 @@ interface ItemData {
 interface Item {
   label: string;
   id: string;
-  icon?:
+  icon:
     | { type: "Texture2D"; resPath: `res://${string}` }
     | {
         type: "AtlasTexture";
