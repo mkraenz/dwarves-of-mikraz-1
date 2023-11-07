@@ -3,7 +3,7 @@ extends MarginContainer
 @export var in_stock := 0
 @export var needed := 1
 @export var item_name := "Need 1"
-@export var item_texture: Texture2D
+@export var item_icon: Texture2D
 
 @onready var amounts_label := $V/Amounts
 @onready var name_label := $V/Name
@@ -13,8 +13,8 @@ extends MarginContainer
 func refresh() -> void:
 	amounts_label.text = "%s/%s" % [in_stock, needed]
 	name_label.text = item_name
-	if item_texture:
-		icon.texture = item_texture
+	if item_icon:
+		icon.texture = item_icon
 
 	if in_stock >= needed:
 		undim()

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://wx5006y5bujo"]
 
-[ext_resource type="Texture2D" uid="uid://bus5vv87fkg6d" path="res://third-party/kenney-tiny-town/log.png" id="1_3cxhe"]
 [ext_resource type="Script" path="res://ui/buildings/craft/needed_item_panel/needed_item_panel.gd" id="1_04qg8"]
+[ext_resource type="Texture2D" uid="uid://cmuo1te6vs7jk" path="res://third-party/henry_lazarini/I_Coal.png" id="2_h4t6a"]
 
 [node name="NeededItemPanel" type="MarginContainer"]
 theme_override_constants/margin_left = 4
@@ -15,7 +15,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(8, 8)
 layout_mode = 2
 size_flags_horizontal = 4
-texture = ExtResource("1_3cxhe")
+texture = ExtResource("2_h4t6a")
 expand_mode = 3
 stretch_mode = 4
 
