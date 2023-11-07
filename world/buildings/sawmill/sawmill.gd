@@ -157,7 +157,8 @@ func refresh_current_order_display() -> void:
 	if has_an_order:
 		current_order_display.show()
 		current_order_display.set_icon_texture(gdata.get_item_icon(ordered_recipe.id))
-		current_order_display.set_text(ordered_batches - produced_batches)
+		var remaining_amount = (ordered_batches - produced_batches) * ordered_recipe.outputAmount
+		current_order_display.set_text(remaining_amount)
 	else:
 		current_order_display.hide()
 
