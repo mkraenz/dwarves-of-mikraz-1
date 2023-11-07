@@ -179,13 +179,13 @@ func mark_as_idle() -> void:
 
 
 func output_products() -> void:
-	const RADIUS := 30
-	for i in range(ordered_recipe.outputAmount):
-		# TODO dont randomize but put the items on the small circle arc
-		var angle = randf_range(5 * PI / 4.0, 7 * PI / 4.0)  # between 225 and 315 degrees
+	const y := 25
+	const CENTER_OFFSET = 10
+	var amount = ordered_recipe.outputAmount
+	for i in range(amount):
+		var x = lerp(-CENTER_OFFSET, CENTER_OFFSET, i / (amount - 1)) if amount != 1 else 0
 		# negative sine because y is down in godot
-		var random_offset_on_circle = Vector2(cos(angle), -sin(angle)) * RADIUS
 		var instance = Pickup.instantiate()
-		instance.global_position = global_position + random_offset_on_circle
+		instance.global_position = global_position + Vector2(x, y)
 		instance.item_id = ordered_recipe.id
 		get_parent().add_child(instance)
