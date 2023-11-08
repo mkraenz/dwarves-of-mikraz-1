@@ -16,6 +16,9 @@ func _input(_event) -> void:
 		instance.global_position = pos
 		add_child(instance)
 
+	if Input.is_action_just_pressed("toggle_building_menu"):
+		eventbus.toggle_building_menu.emit()
+
 
 func _on_production_takt_timeout():
 	eventbus.production_tick.emit()

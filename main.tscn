@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://crvaxgw3mwm78"]
+[gd_scene load_steps=9 format=3 uid="uid://crvaxgw3mwm78"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_k5eii"]
 [ext_resource type="PackedScene" uid="uid://4bt3ndfyg5jf" path="res://ui/pause/pause_menu.tscn" id="3_lo3uq"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b3ff7xd1sb0og" path="res://ui/buildings/craft/crafting_menu.tscn" id="5_bbh1v"]
 [ext_resource type="PackedScene" uid="uid://bpmgglwruexb7" path="res://common/camera/my_camera.tscn" id="5_du1ce"]
 [ext_resource type="Script" path="res://world/world.gd" id="5_qpwfe"]
+[ext_resource type="PackedScene" uid="uid://bhc1lv183q4nr" path="res://ui/buildings/building_menu.tscn" id="6_0fwhm"]
 
 [node name="Main" type="Node"]
 process_mode = 3
@@ -24,6 +25,9 @@ process_mode = 2
 visible = false
 
 [node name="TitleMenu" parent="Gui" instance=ExtResource("3_sxw8d")]
+
+[node name="BuildingMenu" parent="Gui" instance=ExtResource("6_0fwhm")]
+visible = false
 
 [node name="World" type="Node2D" parent="."]
 process_mode = 1

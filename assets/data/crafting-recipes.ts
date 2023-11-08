@@ -20,6 +20,7 @@ interface NeededItem {
   amount: number;
 }
 
+// TODO consider giving crafting recipes a different id from the item they produce, to allow for alternative recipes
 export const craftingData = {
   sawmill: [
     {

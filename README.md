@@ -94,12 +94,14 @@ summary:
   - [ ] progress indicator for one batch
     - [ ] progress indicator changes from red to green (within the same circle?)
       - idea: interpolate from Red Color(1,0,0) at 0 degrees to Green Color(0,1,0) at 360 degrees
-  - [ ] spawn finished products
+  - [x] spawn finished products
   - [x] show current order
     - forager displays it additionally on the workshop with an "x20" for the amount
   - [x] show overall progress of current order
     - [x] currently shows number of batches, but on Craft button it shows `batches * units_per_batch` -> use total amount
 - [x] can collect finished product
+- [ ] block player movement while in crafting menu
+- [ ] block player movement while in building menu
 
 ## Data generation
 
