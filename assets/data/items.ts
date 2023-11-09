@@ -6,12 +6,12 @@ interface Item {
   label: string;
   id: string;
   icon:
-    | { type: "Texture2D"; resPath: `res://${string}` }
+    | { type: "Texture2D"; res_path: `res://${string}` }
     | {
         type: "AtlasTexture";
         regionX: number;
         regionY: number;
-        resPath: `res://${string}`;
+        res_path: `res://${string}`;
       };
 }
 
@@ -22,7 +22,7 @@ export const itemsData = {
     id: "log",
     icon: {
       type: "Texture2D",
-      resPath: "res://third-party/kenney-tiny-town/log.png",
+      res_path: "res://third-party/kenney-tiny-town/log.png",
     },
   },
   plank: {
@@ -30,7 +30,7 @@ export const itemsData = {
     id: "plank",
     icon: {
       type: "Texture2D",
-      resPath: "res://assets/images/gui/plank.png",
+      res_path: "res://assets/images/gui/plank.png",
     },
   },
   sawdust: {
@@ -38,7 +38,7 @@ export const itemsData = {
     id: "sawdust",
     icon: {
       type: "Texture2D",
-      resPath: "res://assets/images/gui/sawdust.png",
+      res_path: "res://assets/images/gui/sawdust.png",
     },
   },
   stone: {
@@ -46,7 +46,7 @@ export const itemsData = {
     id: "stone",
     icon: {
       type: "Texture2D",
-      resPath: "res://third-party/henry_lazarini/I_Rock01.png",
+      res_path: "res://third-party/henry_lazarini/I_Rock01.png",
     },
   },
   ironOre: {
@@ -54,7 +54,7 @@ export const itemsData = {
     id: "ironOre",
     icon: {
       type: "Texture2D",
-      resPath: "res://third-party/henry_lazarini/I_IronOre.png",
+      res_path: "res://third-party/henry_lazarini/I_IronOre.png",
     },
   },
   ironIngot: {
@@ -62,7 +62,7 @@ export const itemsData = {
     id: "ironIngot",
     icon: {
       type: "Texture2D",
-      resPath: "res://third-party/henry_lazarini/I_IronBar.png",
+      res_path: "res://third-party/henry_lazarini/I_IronBar.png",
     },
   },
   coal: {
@@ -70,7 +70,7 @@ export const itemsData = {
     id: "coal",
     icon: {
       type: "Texture2D",
-      resPath: "res://third-party/henry_lazarini/I_Coal.png",
+      res_path: "res://third-party/henry_lazarini/I_Coal.png",
     },
   },
 } satisfies ItemData;

@@ -55,7 +55,7 @@ func get_building_icon(id: String) -> Texture2D:
 func _load_icon(icon: Dictionary, id: String) -> Texture2D:
 	match icon.type:
 		"Texture2D":
-			var texture: CompressedTexture2D = load(icon.resPath)
+			var texture: CompressedTexture2D = load(icon.res_path)
 			return texture
 		"AtlasTexture":
 			return null

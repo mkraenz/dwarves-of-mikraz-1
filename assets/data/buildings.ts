@@ -6,12 +6,12 @@ interface Building {
   label: string;
   id: string;
   icon:
-    | { type: "Texture2D"; resPath: `res://${string}` }
+    | { type: "Texture2D"; res_path: `res://${string}` }
     | {
         type: "AtlasTexture";
         regionX: number;
         regionY: number;
-        resPath: `res://${string}`;
+        res_path: `res://${string}`;
       };
 }
 
@@ -21,7 +21,7 @@ export const buildingData = {
     id: "sawmill",
     icon: {
       type: "Texture2D",
-      resPath: "res://assets/images/buzzsaw.png",
+      res_path: "res://assets/images/buzzsaw.png",
     },
   },
   smelter: {
@@ -29,7 +29,7 @@ export const buildingData = {
     id: "smelter",
     icon: {
       type: "Texture2D",
-      resPath: "res://third-party/henry_lazarini/I_IronBar.png",
+      res_path: "res://third-party/henry_lazarini/I_IronBar.png",
     },
   },
   mint: {
@@ -37,7 +37,7 @@ export const buildingData = {
     id: "mint",
     icon: {
       type: "Texture2D",
-      resPath: "res://third-party/henry_lazarini/I_GoldCoin.png",
+      res_path: "res://third-party/henry_lazarini/I_GoldCoin.png",
     },
   },
   forge: {
@@ -45,7 +45,7 @@ export const buildingData = {
     id: "forge",
     icon: {
       type: "Texture2D",
-      resPath: "res://third-party/henry_lazarini/I_IronOre.png",
+      res_path: "res://third-party/henry_lazarini/I_IronOre.png",
     },
   },
   charcoal_kiln: {
@@ -53,7 +53,7 @@ export const buildingData = {
     id: "charcoal_kiln",
     icon: {
       type: "Texture2D",
-      resPath: "res://third-party/henry_lazarini/I_Coal.png",
+      res_path: "res://third-party/henry_lazarini/I_Coal.png",
     },
   },
 } satisfies BuildingData;
