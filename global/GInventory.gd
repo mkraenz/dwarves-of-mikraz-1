@@ -35,6 +35,7 @@ func _on_add_to_inventory(resource_name: String, amount: int):
 
 func save():
 	var data = {
+		## TODO a direct dependency on the file path (in save file: `"filename":"res://player/Player.tscn"`) means that we cannot move or rename the file. Idea: better to have an ID to a file here, as well as a lookup table (in code only!) that is easily changeable. Same goes for autoload_name actually
 		"filename": get_scene_file_path(),
 		"is_autoload": true,
 		"autoload_name": "GInventory",
