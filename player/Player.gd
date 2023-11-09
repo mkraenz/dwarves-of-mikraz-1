@@ -72,14 +72,24 @@ func connect_camera(cam: Camera2D) -> void:
 func _input(_event) -> void:
 	if Input.is_action_just_pressed("interact"):
 		interact()
-	# TODO
-	# if Input.is_action_just_pressed("act"):
-	# act()
 
 
 func interact() -> void:
+	# TODO change to has_method('interact')
 	var is_interactable = func(x: Node2D): return "interactable" in x and x.interactable
-	var interactables_in_reach = gstate.bodies_in_player_action_radius.filter(is_interactable)
-	var closest_node = gstate.get_closest_node(global_position, interactables_in_reach)
+	var nodes_in_reach = gstate.bodies_in_player_action_radius.filter(is_interactable)
+	var closest_node = gstate.get_closest_node(global_position, nodes_in_reach)
 	if closest_node:
 		closest_node.interact()
+
+
+func mine() -> void:
+	var is_mineable = func(x: Node2D): return x.has_method("mine")
+	var nodes_in_reach = gstate.bodies_in_player_action_radius.filter(is_mineable)
+	var closest_node = gstate.get_closest_node(global_position, nodes_in_reach)
+	if closest_node:
+		closest_node.mine()
+
+
+func _on_attack_impact() -> void:
+	mine()

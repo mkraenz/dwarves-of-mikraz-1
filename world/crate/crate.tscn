@@ -1,9 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://ck2utngryc1v"]
+[gd_scene load_steps=13 format=3 uid="uid://ck2utngryc1v"]
 
 [ext_resource type="Script" path="res://world/crate/crate.gd" id="1_lb4kg"]
 [ext_resource type="Texture2D" uid="uid://dxb80j1fcp0dr" path="res://third-party/kenney_tiny-dungeon/Tilemap/tilemap_packed.png" id="1_ogvuk"]
 [ext_resource type="PackedScene" uid="uid://6b2lgtejwxtv" path="res://common/Stats.tscn" id="3_5oe1n"]
-[ext_resource type="PackedScene" uid="uid://db81xvphpg5lc" path="res://common/mouse_collider.tscn" id="4_ckad6"]
 [ext_resource type="Shader" path="res://effects/blink.gdshader" id="5_qr2ih"]
 [ext_resource type="AudioStream" uid="uid://dvfjim7k1sto8" path="res://third-party/sounds/wood/wood-impact-straight.mp3" id="6_sdewg"]
 
@@ -29,9 +28,6 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pcu3n"]
 size = Vector2(13, 8)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_v4jbw"]
-size = Vector2(16, 16)
 
 [sub_resource type="Animation" id="Animation_f0w6d"]
 length = 0.001
@@ -111,12 +107,6 @@ sprite_frames = SubResource("SpriteFrames_rc7yc")
 position = Vector2(0.5, -4)
 shape = SubResource("RectangleShape2D_pcu3n")
 
-[node name="MouseCollider" parent="." instance=ExtResource("4_ckad6")]
-position = Vector2(0, -8)
-
-[node name="ClickableArea" parent="MouseCollider" index="0"]
-shape = SubResource("RectangleShape2D_v4jbw")
-
 [node name="Stats" parent="." instance=ExtResource("3_5oe1n")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -126,5 +116,3 @@ libraries = {
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="."]
 bus = &"Sounds"
-
-[editable path="MouseCollider"]

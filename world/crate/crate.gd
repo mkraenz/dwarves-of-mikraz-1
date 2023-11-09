@@ -17,6 +17,10 @@ func _ready():
 	stats.connect("hp_changed", bounce)
 
 
+func mine() -> void:
+	stats.hp -= 1
+
+
 func die() -> void:
 	spawn_pickups()
 	spawn(DeathAnim)

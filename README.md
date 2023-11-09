@@ -61,6 +61,7 @@ summary:
 
 ## Todos
 
+- [ ] crates usability
 - [x] disallow space bar to call new game on exported game
 - [x] image for building -> take the anvil from tiny-dungeon asset pack
 - [x] select a building to build
@@ -68,6 +69,8 @@ summary:
   - [x] build menu design
   - [x] building icon
   - [x] select building
+  - [ ] build button inside the building menu
+- [ ] buildings cost resources
 - [x] build the building at mouse position
   - [x] show a blueprint of the building on hover
   - [x] on click build the build
