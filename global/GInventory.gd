@@ -3,7 +3,7 @@ extends Node
 var eventbus := Eventbus
 var gdata := GData
 
-## human-readable item_id to Item
+## item_id to {amount: float}
 var inventory: Dictionary
 
 

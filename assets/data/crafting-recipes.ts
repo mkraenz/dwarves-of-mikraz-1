@@ -10,7 +10,7 @@ interface Recipe {
   id: ItemId;
   needs: NeededItem[];
   /** batch size. how many items of id get crafted in a single batch? */
-  outputAmount: number;
+  batch_size: number;
   /** a tick is an ingame time duration given by a global timer (the ProductionTakt) */
   durationInTicks: number;
 }
@@ -26,7 +26,7 @@ export const craftingData = {
     {
       id: "plank",
       needs: [{ id: "log", amount: 1 }],
-      outputAmount: 2, // TODO rename to batch_size
+      batch_size: 2, // TODO rename to batch_size
       durationInTicks: 5,
     },
     {
@@ -35,14 +35,14 @@ export const craftingData = {
         { id: "log", amount: 2 },
         { id: "stone", amount: 1 },
       ],
-      outputAmount: 5,
+      batch_size: 5,
       durationInTicks: 8,
     },
     // TODO remove
     {
       id: "ironIngot",
       needs: [{ id: "ironOre", amount: 2 }],
-      outputAmount: 1,
+      batch_size: 1,
       durationInTicks: 10,
     },
   ],
@@ -50,7 +50,7 @@ export const craftingData = {
     {
       id: "ironIngot",
       needs: [{ id: "ironOre", amount: 2 }],
-      outputAmount: 1,
+      batch_size: 1,
       durationInTicks: 10,
     },
   ],

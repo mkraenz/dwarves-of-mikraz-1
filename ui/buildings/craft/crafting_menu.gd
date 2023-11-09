@@ -88,7 +88,7 @@ func refresh_craft_button() -> void:
 	var recipe = get_current_recipe()
 	if not recipe:
 		return
-	var crafted_amount = batches * recipe.outputAmount
+	var crafted_amount = batches * recipe.batch_size
 	craft_button.refresh_text(crafted_amount)
 
 

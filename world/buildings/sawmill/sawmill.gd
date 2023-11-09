@@ -157,7 +157,7 @@ func refresh_current_order_display() -> void:
 	if has_an_order:
 		current_order_display.show()
 		current_order_display.set_icon_texture(gdata.get_item_icon(ordered_recipe.id))
-		var remaining_amount = (ordered_batches - produced_batches) * ordered_recipe.outputAmount
+		var remaining_amount = (ordered_batches - produced_batches) * ordered_recipe.batch_size
 		current_order_display.set_text(remaining_amount)
 	else:
 		current_order_display.hide()
@@ -182,7 +182,7 @@ func mark_as_idle() -> void:
 func output_products() -> void:
 	const y := 25
 	const CENTER_OFFSET = 10
-	var amount = ordered_recipe.outputAmount
+	var amount = ordered_recipe.batch_size
 	for i in range(amount):
 		var x = lerp(-CENTER_OFFSET, CENTER_OFFSET, i / (amount - 1)) if amount != 1 else 0
 		# negative sine because y is down in godot
