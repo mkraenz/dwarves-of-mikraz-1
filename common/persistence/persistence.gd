@@ -1,6 +1,7 @@
 extends Node
 
 var inventory := GInventory
+var gstate := GState
 
 ## following https://docs.godotengine.org/en/stable/tutorials/io/saving_games.html except for handling of autoload variables aka globals
 
@@ -104,6 +105,4 @@ func load_game(tree: SceneTree, get_tree_node: Callable):
 			get_tree_node.call(node_data["parent"]).add_child(new_object)
 
 			if "node_name" in node_data and node_data["node_name"] == "Player":
-				# TODO maybe make this more stable by having a global ref to this object?
-				var cam = get_tree_node.call("/root/Main/World/Cam")
-				new_object.connect_camera(cam)
+				new_object.connect_camera(gstate.cam)

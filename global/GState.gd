@@ -4,8 +4,15 @@ var bodies_in_player_action_radius: Array = []
 var is_ingame := false:
 	get = _get_is_ingame
 
+var cam: Camera2D = null:
+	get = _get_cam
+
 ## in seconds
 var tick_duration: float = 1
+
+
+func _get_cam() -> Camera2D:
+	return get_node("/root/Main/World/Cam")
 
 
 func _get_is_ingame() -> bool:
