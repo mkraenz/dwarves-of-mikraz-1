@@ -15,3 +15,8 @@ signal toggle_crafting_menu(for_building: String, workshop_node_path: String)  #
 signal close_crafting_menu
 signal ordered_at_workshop(recipe: Dictionary, batches: float, workshop_node_path: String)
 signal toggle_building_menu
+
+# TODO refactor to State machine
+signal enter_build_mode(building_id: String)
+signal enter_character_mode
+signal exit_build_mode

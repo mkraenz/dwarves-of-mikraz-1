@@ -27,6 +27,8 @@ func _ready() -> void:
 	eventbus.toggle_crafting_menu.connect(_on_toggle_crafting_menu)
 	eventbus.close_crafting_menu.connect(_on_close_crafting_menu)
 	eventbus.toggle_building_menu.connect(_on_toggle_building_menu)
+	eventbus.enter_build_mode.connect(_on_enter_build_mode)
+	eventbus.enter_character_mode.connect(_on_enter_character_mode)
 
 
 func is_ingame() -> bool:
@@ -104,3 +106,12 @@ func _on_close_crafting_menu() -> void:
 
 func _on_toggle_building_menu() -> void:
 	building_menu.visible = not building_menu.visible
+
+
+func _on_enter_build_mode(building_id: String) -> void:
+	building_menu.hide()
+	gstate.mode = GState.Mode.build
+
+
+func _on_enter_character_mode() -> void:
+	gstate.mode = GState.Mode.character

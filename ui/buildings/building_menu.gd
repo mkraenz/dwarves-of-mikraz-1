@@ -1,6 +1,7 @@
 extends Control
 
 var gdata := GData
+var eventbus := Eventbus
 @onready var item_list: ItemList = $Background/M/V/ItemList
 
 
@@ -13,7 +14,5 @@ func _ready():
 
 
 func _on_item_list_item_activated(index: int) -> void:
-	var id = item_list.get_item_metadata(index)
-	var building = gdata.get_building(id)
-	print(building)
-	## TODO continue
+	var building_id = item_list.get_item_metadata(index)
+	eventbus.enter_build_mode.emit(building_id)

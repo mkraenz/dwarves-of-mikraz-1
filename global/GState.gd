@@ -4,6 +4,9 @@ var bodies_in_player_action_radius: Array = []
 var is_ingame := false:
 	get = _get_is_ingame
 
+enum Mode { menu, build, character }
+var mode: Mode = Mode.menu
+
 var cam: Camera2D = null:
 	get = _get_cam
 
