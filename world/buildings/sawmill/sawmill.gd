@@ -102,7 +102,7 @@ func finish_current_batch() -> void:
 func prepare_next_batch() -> void:
 	if needs_fulfilled_for_next_batch():
 		consume_resources()
-		ticks_to_batch_completion = ordered_recipe.durationInTicks
+		ticks_to_batch_completion = ordered_recipe.duration_in_ticks
 		mark_as_producing()
 	else:
 		mark_as_production_blocked()

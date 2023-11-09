@@ -4,7 +4,7 @@
       "id": "plank",
       "needs": [{ "id": "log", "amount": 1 }],
       "batch_size": 2,
-      "durationInTicks": 5
+      "duration_in_ticks": 5
     },
     {
       "id": "sawdust",
@@ -13,13 +13,13 @@
         { "id": "stone", "amount": 1 }
       ],
       "batch_size": 5,
-      "durationInTicks": 8
+      "duration_in_ticks": 8
     },
     {
       "id": "ironIngot",
       "needs": [{ "id": "ironOre", "amount": 2 }],
       "batch_size": 1,
-      "durationInTicks": 10
+      "duration_in_ticks": 10
     }
   ],
   "smelter": [
@@ -27,7 +27,7 @@
       "id": "ironIngot",
       "needs": [{ "id": "ironOre", "amount": 2 }],
       "batch_size": 1,
-      "durationInTicks": 10
+      "duration_in_ticks": 10
     }
   ]
 }
