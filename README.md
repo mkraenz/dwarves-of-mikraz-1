@@ -63,13 +63,13 @@ summary:
 
 - [x] disallow space bar to call new game on exported game
 - [x] image for building -> take the anvil from tiny-dungeon asset pack
-- [ ] select a building to build
-  - [ ] (later) have a button that opens the build menu
-  - [ ] build menu design
-  - [ ] building icon
-  - [ ] select menu item
-- [ ] build the building at mouse position
-  - [ ] (later) show a blueprint of the building on hover
+- [x] select a building to build
+  - [x] have a button that opens the build menu
+  - [x] build menu design
+  - [x] building icon
+  - [x] select building
+- [x] build the building at mouse position
+  - [x] show a blueprint of the building on hover
   - [x] on click build the build
 - [x] interact with the building
   - [x] learn how to interact
