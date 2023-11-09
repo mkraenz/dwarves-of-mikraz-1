@@ -7,9 +7,9 @@ const Sawmill = preload("res://world/buildings/sawmill/sawmill.tscn")
 var eventbus := Eventbus
 
 
-# TODO this is debug code and should probably not be in a build
 func _input(_event) -> void:
 	# spawn at mouse position
+	# TODO this code is for easy debugging and testing. feature flag once we have a build menu
 	if Input.is_action_just_pressed("test"):
 		var instance := Sawmill.instantiate()
 		var pos := get_global_mouse_position()
