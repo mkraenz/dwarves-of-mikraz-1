@@ -2,7 +2,6 @@ extends StaticBody2D
 
 const Pickup = preload("res://world/pickup/pickup.tscn")
 
-@export var interactable := true
 ## type: Recipe
 @export var ordered_recipe: Dictionary = {}
 ## for open-ended orders, set to INF

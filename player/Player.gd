@@ -75,20 +75,19 @@ func _input(_event) -> void:
 
 
 func interact() -> void:
-	# TODO change to has_method('interact')
-	var is_interactable = func(x: Node2D): return "interactable" in x and x.interactable
-	var nodes_in_reach = gstate.bodies_in_player_action_radius.filter(is_interactable)
-	var closest_node = gstate.get_closest_node(global_position, nodes_in_reach)
-	if closest_node:
-		closest_node.interact()
+	act_on_closest_actable("interact")
 
 
 func mine() -> void:
-	var is_mineable = func(x: Node2D): return x.has_method("mine")
-	var nodes_in_reach = gstate.bodies_in_player_action_radius.filter(is_mineable)
+	act_on_closest_actable("mine")
+
+
+func act_on_closest_actable(methodName: String):
+	var is_methodable = func(x: Node2D): return x.has_method(methodName)
+	var nodes_in_reach = gstate.bodies_in_player_action_radius.filter(is_methodable)
 	var closest_node = gstate.get_closest_node(global_position, nodes_in_reach)
 	if closest_node:
-		closest_node.mine()
+		closest_node.call(methodName)
 
 
 func _on_attack_impact() -> void:
