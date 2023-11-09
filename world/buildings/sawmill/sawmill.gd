@@ -186,7 +186,6 @@ func output_products() -> void:
 	var amount = ordered_recipe.batch_size
 	for i in range(amount):
 		var x = lerp(-CENTER_OFFSET, CENTER_OFFSET, i / (amount - 1)) if amount != 1 else 0
-		# negative sine because y is down in godot
 		var instance = Pickup.instantiate()
 		instance.global_position = global_position + Vector2(x, y)
 		instance.item_id = ordered_recipe.id

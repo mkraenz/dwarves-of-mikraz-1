@@ -31,7 +31,6 @@ func save_game(tree: SceneTree):
 		save_file.store_line(json_string)
 
 	for global_variable in [inventory]:
-		# for global_variable in [inventory]:
 		var node_data = global_variable.call("save")
 		var json_string = JSON.stringify(node_data)
 		save_file.store_line(json_string)

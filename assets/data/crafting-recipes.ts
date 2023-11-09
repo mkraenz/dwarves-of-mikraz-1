@@ -26,7 +26,7 @@ export const craftingData = {
     {
       id: "plank",
       needs: [{ id: "log", amount: 1 }],
-      batch_size: 2, // TODO rename to batch_size
+      batch_size: 2,
       duration_in_ticks: 5,
     },
     {
@@ -38,7 +38,6 @@ export const craftingData = {
       batch_size: 5,
       duration_in_ticks: 8,
     },
-    // TODO remove
     {
       id: "ironIngot",
       needs: [{ id: "ironOre", amount: 2 }],
