@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://dn05qj4gsbmoa"]
+
+[ext_resource type="Texture2D" uid="uid://b7tguge8s0kiw" path="res://third-party/dreammix/key-tab.png" id="1_pdd5a"]
+[ext_resource type="Script" path="res://ui/hud/BuildMenuHint.gd" id="2_ojauf"]
+
+[node name="Hud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="M" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="BuildMenuHint" type="Button" parent="M"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "Build"
+icon = ExtResource("1_pdd5a")
+script = ExtResource("2_ojauf")
+
+[connection signal="pressed" from="M/BuildMenuHint" to="M/BuildMenuHint" method="_on_pressed"]

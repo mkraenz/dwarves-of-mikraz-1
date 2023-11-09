@@ -108,7 +108,7 @@ func _on_toggle_building_menu() -> void:
 	building_menu.visible = not building_menu.visible
 
 
-func _on_enter_build_mode(building_id: String) -> void:
+func _on_enter_build_mode(_building_id: String) -> void:
 	building_menu.hide()
 	gstate.mode = GState.Mode.build
 

@@ -1,2 +1,2 @@
 - Big thanks to [Dream Mix](https://itch.io/profile/dreammix) for the [amazing keyboard sprites](https://dreammix.itch.io/keyboard-keys-for-ui)! Dream Mix kindly allowed me to use the assets in my Open Source games (<https://itch.io/post/6997712>).
-- Changes made: extracted specific keys from downloadable `Keyboard Letters and Symbols.png`. Added shading.
+- Changes made: extracted specific keys from downloadable `Keyboard Letters and Symbols.png` and `Keyboard Extras.png`. Added shading.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://crvaxgw3mwm78"]
+[gd_scene load_steps=10 format=3 uid="uid://crvaxgw3mwm78"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_k5eii"]
 [ext_resource type="PackedScene" uid="uid://4bt3ndfyg5jf" path="res://ui/pause/pause_menu.tscn" id="3_lo3uq"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bpmgglwruexb7" path="res://common/camera/my_camera.tscn" id="5_du1ce"]
 [ext_resource type="Script" path="res://world/world.gd" id="5_qpwfe"]
 [ext_resource type="PackedScene" uid="uid://bhc1lv183q4nr" path="res://ui/buildings/building_menu.tscn" id="6_0fwhm"]
+[ext_resource type="PackedScene" uid="uid://dn05qj4gsbmoa" path="res://ui/hud/hud.tscn" id="7_q3nhx"]
 
 [node name="Main" type="Node"]
 process_mode = 3
@@ -15,9 +16,14 @@ script = ExtResource("1_k5eii")
 
 [node name="Gui" type="CanvasLayer" parent="."]
 
+[node name="Hud" parent="Gui" instance=ExtResource("7_q3nhx")]
+
 [node name="InventoryMenu" parent="Gui" instance=ExtResource("4_2h3fo")]
 
 [node name="CraftingMenu" parent="Gui" instance=ExtResource("5_bbh1v")]
+visible = false
+
+[node name="BuildingMenu" parent="Gui" instance=ExtResource("6_0fwhm")]
 visible = false
 
 [node name="PauseMenu" parent="Gui" instance=ExtResource("3_lo3uq")]
@@ -25,9 +31,6 @@ process_mode = 2
 visible = false
 
 [node name="TitleMenu" parent="Gui" instance=ExtResource("3_sxw8d")]
-
-[node name="BuildingMenu" parent="Gui" instance=ExtResource("6_0fwhm")]
-visible = false
 
 [node name="World" type="Node2D" parent="."]
 process_mode = 1
