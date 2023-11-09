@@ -16,6 +16,7 @@ var gstate := GState
 @onready var how_to_use := $HowToUse
 @onready var current_order_display := $CurrentOrderDisplay
 @onready var sprite := $Sprite2D
+@onready var audio := $Audio
 
 var ticks_to_batch_completion = INF
 var produced_batches: int = 0
@@ -190,3 +191,4 @@ func output_products() -> void:
 		instance.global_position = global_position + Vector2(x, y)
 		instance.item_id = ordered_recipe.id
 		get_parent().add_child(instance)
+	audio.play()

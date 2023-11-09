@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://b43yygkrld0rh"]
+[gd_scene load_steps=9 format=3 uid="uid://b43yygkrld0rh"]
 
 [ext_resource type="Script" path="res://world/buildings/sawmill/sawmill.gd" id="1_nmfpx"]
 [ext_resource type="Texture2D" uid="uid://co6mylr4lajdt" path="res://assets/images/buzzsaw.png" id="2_exqbe"]
 [ext_resource type="Texture2D" uid="uid://cp87bj5ibs3s5" path="res://third-party/dreammix/key-f.png" id="3_2l1d0"]
 [ext_resource type="Script" path="res://world/buildings/sawmill/progress_indicator.gd" id="4_g2bua"]
 [ext_resource type="Texture2D" uid="uid://bus5vv87fkg6d" path="res://third-party/kenney-tiny-town/log.png" id="6_3d3le"]
+[ext_resource type="AudioStream" uid="uid://noa3q0awltwv" path="res://third-party/sounds/pickups/pop.mp3" id="7_4rb6a"]
 [ext_resource type="Script" path="res://world/buildings/sawmill/current_order_display.gd" id="7_c87u4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wuawx"]
@@ -45,3 +46,8 @@ offset_right = 41.0
 offset_bottom = 14.0
 theme_type_variation = &"LabelSmall"
 text = "12"
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_4rb6a")
+volume_db = -20.0
+bus = &"Sounds"
