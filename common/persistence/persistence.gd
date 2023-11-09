@@ -83,10 +83,9 @@ func load_game(tree: SceneTree, get_tree_node: Callable):
 			const handled_keys = [
 				"filename", "parent", "pos_x", "pos_y", "is_autoload", "node_name"
 			]
-			# Firstly, we need to create the object and add it to the tree and set its position.
-			var new_object = load(node_data["filename"]).instantiate()
 
-			get_tree_node.call(node_data["parent"]).add_child(new_object)
+			# Firstly, create the object and set its position.
+			var new_object = load(node_data["filename"]).instantiate()
 			new_object.position = Vector2(node_data["pos_x"], node_data["pos_y"])
 
 			# Now we set the remaining variables.
@@ -100,6 +99,9 @@ func load_game(tree: SceneTree, get_tree_node: Callable):
 						new_object.set(key, value)
 					_:
 						new_object.set(key, val)
+
+			# finally add to tree. This happens last so that _ready is not called before all the properties have been re-initialized
+			get_tree_node.call(node_data["parent"]).add_child(new_object)
 
 			if "node_name" in node_data and node_data["node_name"] == "Player":
 				# TODO maybe make this more stable by having a global ref to this object?
