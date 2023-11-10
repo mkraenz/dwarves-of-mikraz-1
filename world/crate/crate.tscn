@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ck2utngryc1v"]
+[gd_scene load_steps=16 format=3 uid="uid://ck2utngryc1v"]
 
 [ext_resource type="Script" path="res://world/crate/crate.gd" id="1_lb4kg"]
 [ext_resource type="Texture2D" uid="uid://dxb80j1fcp0dr" path="res://third-party/kenney_tiny-dungeon/Tilemap/tilemap_packed.png" id="1_ogvuk"]
@@ -6,6 +6,7 @@
 [ext_resource type="Shader" path="res://effects/blink.gdshader" id="5_qr2ih"]
 [ext_resource type="Texture2D" uid="uid://bqvay4k6h60m3" path="res://third-party/dreammix/key-e.png" id="6_c4wom"]
 [ext_resource type="AudioStream" uid="uid://dvfjim7k1sto8" path="res://third-party/sounds/wood/wood-impact-straight.mp3" id="6_sdewg"]
+[ext_resource type="Script" path="res://world/crate/Healthbar.gd" id="7_p124t"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r3og4"]
 resource_local_to_scene = true
@@ -95,6 +96,9 @@ _data = {
 "bounce": SubResource("Animation_lp1nn")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w3uge"]
+bg_color = Color(1, 0.156863, 0.156863, 1)
+
 [node name="Crate" type="RigidBody2D" groups=["Persist"]]
 collision_mask = 0
 script = ExtResource("1_lb4kg")
@@ -122,3 +126,13 @@ bus = &"Sounds"
 visible = false
 position = Vector2(0, -24)
 texture = ExtResource("6_c4wom")
+
+[node name="Healthbar" type="ProgressBar" parent="." node_paths=PackedStringArray("stats")]
+offset_left = -9.0
+offset_top = 1.0
+offset_right = 10.0
+offset_bottom = 5.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_w3uge")
+show_percentage = false
+script = ExtResource("7_p124t")
+stats = NodePath("../Stats")
