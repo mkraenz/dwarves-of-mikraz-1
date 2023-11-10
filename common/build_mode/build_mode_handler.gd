@@ -31,7 +31,7 @@ func spawn_at_mouse_position(Scene: PackedScene) -> void:
 	var instance := Scene.instantiate()
 	var pos := get_global_mouse_position()
 	instance.global_position = pos
-	add_child(instance)
+	get_parent().add_child(instance)
 
 
 func _on_exit_build_mode() -> void:
