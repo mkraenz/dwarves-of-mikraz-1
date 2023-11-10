@@ -6,6 +6,7 @@ const Pickup = preload("res://world/pickup/pickup.tscn")
 @onready var eventbus := Eventbus
 @onready var stats: Stats = $Stats
 @onready var anims: AnimationPlayer = $AnimationPlayer
+@onready var how_to_use := $HowToUse
 
 @export var mineable := true  # used by MouseCollider
 @export var item_id := "log"
@@ -59,3 +60,11 @@ func save() -> Dictionary:
 		"amount": amount
 	}
 	return save_dict
+
+
+func mark() -> void:
+	how_to_use.show()
+
+
+func unmark() -> void:
+	how_to_use.hide()

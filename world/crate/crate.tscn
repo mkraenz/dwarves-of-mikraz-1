@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://ck2utngryc1v"]
+[gd_scene load_steps=14 format=3 uid="uid://ck2utngryc1v"]
 
 [ext_resource type="Script" path="res://world/crate/crate.gd" id="1_lb4kg"]
 [ext_resource type="Texture2D" uid="uid://dxb80j1fcp0dr" path="res://third-party/kenney_tiny-dungeon/Tilemap/tilemap_packed.png" id="1_ogvuk"]
 [ext_resource type="PackedScene" uid="uid://6b2lgtejwxtv" path="res://common/Stats.tscn" id="3_5oe1n"]
 [ext_resource type="Shader" path="res://effects/blink.gdshader" id="5_qr2ih"]
+[ext_resource type="Texture2D" uid="uid://bqvay4k6h60m3" path="res://third-party/dreammix/key-e.png" id="6_c4wom"]
 [ext_resource type="AudioStream" uid="uid://dvfjim7k1sto8" path="res://third-party/sounds/wood/wood-impact-straight.mp3" id="6_sdewg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r3og4"]
@@ -116,3 +117,8 @@ libraries = {
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="."]
 bus = &"Sounds"
+
+[node name="HowToUse" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -24)
+texture = ExtResource("6_c4wom")

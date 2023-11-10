@@ -62,6 +62,8 @@ summary:
 ## Todos
 
 - [ ] crates usability
+  - [x] via keyboard and mouse by distance
+  - [ ] which key
 - [x] disallow space bar to call new game on exported game
 - [x] image for building -> take the anvil from tiny-dungeon asset pack
 - [x] select a building to build

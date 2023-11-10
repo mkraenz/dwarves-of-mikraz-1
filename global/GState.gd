@@ -30,7 +30,14 @@ func reset() -> void:
 
 
 ## performance optimization: if this gets called on every frame, it might be worth to instead sort bodies_in_player_action_radius on every insert/delete
-func get_closest_body_in_player_action_radius(to_global_position: Vector2) -> Variant:
+func get_closest_body_in_player_action_radius(
+	to_global_position: Vector2, filter_by_method_name: String = ""
+) -> Variant:
+	if filter_by_method_name:
+		var is_methodable = func(x: Node2D): return x.has_method(filter_by_method_name)
+		var nodes_in_reach = bodies_in_player_action_radius.filter(is_methodable)
+		return get_closest_node(to_global_position, nodes_in_reach)
+
 	return get_closest_node(to_global_position, bodies_in_player_action_radius)
 
 

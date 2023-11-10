@@ -4,6 +4,8 @@ const Crate = preload("res://world/crate/crate.tscn")
 
 @export var enabled = true
 
+var gstate := GState
+
 
 func _on_cooldown_timeout():
 	if enabled:
@@ -17,6 +19,9 @@ func spawn_resource() -> void:
 
 
 func random_vector2() -> Vector2:
-	var x = randf_range(16, 320 - 16)
-	var y = randf_range(16, 180 - 16)
+	DisplayServer.window_get_size()
+	var dim: Vector2 = get_viewport().get_visible_rect().size / gstate.cam.zoom
+	var inset := 16
+	var x = randf_range(inset, dim.x - inset)
+	var y = randf_range(inset, dim.y - inset)
 	return Vector2(x, y)

@@ -7,6 +7,7 @@ class_name Player
 @onready var anim_tree: AnimationTree = $AnimationTree
 @onready var cam_remote := $CamRemote
 @onready var gstate := GState
+@onready var action_radius := $ActionRadius
 
 var lock_animation = false
 
@@ -75,19 +76,11 @@ func _input(_event) -> void:
 
 
 func interact() -> void:
-	act_on_closest_actable("interact")
+	action_radius.act_on_closest_actable("interact")
 
 
 func mine() -> void:
-	act_on_closest_actable("mine")
-
-
-func act_on_closest_actable(methodName: String):
-	var is_methodable = func(x: Node2D): return x.has_method(methodName)
-	var nodes_in_reach = gstate.bodies_in_player_action_radius.filter(is_methodable)
-	var closest_node = gstate.get_closest_node(global_position, nodes_in_reach)
-	if closest_node:
-		closest_node.call(methodName)
+	action_radius.act_on_closest_actable("mine")
 
 
 func _on_attack_impact() -> void:
