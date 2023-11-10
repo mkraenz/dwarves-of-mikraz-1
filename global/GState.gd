@@ -29,7 +29,7 @@ func reset() -> void:
 	bodies_in_player_action_radius.clear()
 
 
-## performance optimization: if this gets called on every frame, it might be worth to instead sort bodies_in_player_action_radius on every insert/delete
+## performance optimization: if this gets called by many clients on every frame, it might be worth to instead sort bodies_in_player_action_radius on every frame. We would then just need to take the first array element (if no filter), or the first element in order that also has the method (if with filter)
 func get_closest_body_in_player_action_radius(
 	to_global_position: Vector2, filter_by_method_name: String = ""
 ) -> Variant:
