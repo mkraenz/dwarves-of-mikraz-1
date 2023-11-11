@@ -17,8 +17,8 @@ func _input(_event):
 			visible = not visible
 
 
-func _on_visibility_changed():
-	if item_list:  # visiblity_changed may get called before _ready()
+func _physics_process(_delta: float) -> void:
+	if visible:
 		redraw_data()
 
 
