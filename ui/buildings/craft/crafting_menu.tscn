@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b3ff7xd1sb0og"]
+[gd_scene load_steps=7 format=3 uid="uid://b3ff7xd1sb0og"]
 
 [ext_resource type="Script" path="res://ui/buildings/craft/crafting_menu.gd" id="2_67qoq"]
 [ext_resource type="PackedScene" uid="uid://c78h66nde8kp4" path="res://ui/buildings/craft/recipe_details_card/recipe_details_card.tscn" id="3_kcnpb"]
 [ext_resource type="Texture2D" uid="uid://dxb80j1fcp0dr" path="res://third-party/kenney_tiny-dungeon/Tilemap/tilemap_packed.png" id="4_whwbc"]
+[ext_resource type="Script" path="res://ui/buildings/craft/close_button.gd" id="5_2y11m"]
 [ext_resource type="Script" path="res://ui/buildings/craft/craft_button.gd" id="5_81kie"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a8pbh"]
@@ -77,6 +78,14 @@ script = ExtResource("5_81kie")
 layout_mode = 2
 text = ">"
 
+[node name="CloseButton" type="Button" parent="M/H"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "X"
+script = ExtResource("5_2y11m")
+
 [connection signal="pressed" from="M/H/V/CraftButtons/CraftLessButton" to="." method="_on_craft_less_button_pressed"]
 [connection signal="pressed" from="M/H/V/CraftButtons/CraftButton" to="." method="_on_craft_button_pressed"]
 [connection signal="pressed" from="M/H/V/CraftButtons/CraftMoreButton" to="." method="_on_craft_more_button_pressed"]
+[connection signal="pressed" from="M/H/CloseButton" to="M/H/CloseButton" method="_on_pressed"]

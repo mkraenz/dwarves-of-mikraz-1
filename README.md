@@ -65,10 +65,11 @@ summary:
   - [x] via keyboard and mouse by distance
   - [x] which key
 - [ ] try to use groups to destroy the level
-- [ ] exit button crafting menu
+- [ ] how to open inventory
+- [x] exit button crafting menu
+- [ ] exit button inventory menu
 - [x] howtoplay unmark not working
 - [ ] when changing crafting recipes, emit the current resources
-- [ ] how to open inventory
 - [x] disallow space bar to call new game on exported game
 - [x] image for building -> take the anvil from tiny-dungeon asset pack
 - [x] select a building to build
