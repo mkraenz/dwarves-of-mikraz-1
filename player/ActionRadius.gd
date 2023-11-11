@@ -17,6 +17,9 @@ func _on_body_entered(body: Node2D):
 func _on_body_exited(body: Node2D):
 	gstate.bodies_in_player_action_radius.erase(body)
 
+	if body.has_method("unmark"):
+		body.unmark()
+
 
 func unmark_all() -> void:
 	for node in gstate.bodies_in_player_action_radius:

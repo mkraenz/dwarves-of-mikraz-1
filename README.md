@@ -61,9 +61,14 @@ summary:
 
 ## Todos
 
-- [ ] crates usability
+- [x] crates usability
   - [x] via keyboard and mouse by distance
-  - [ ] which key
+  - [x] which key
+- [ ] try to use groups to destroy the level
+- [ ] exit button crafting menu
+- [x] howtoplay unmark not working
+- [ ] when changing crafting recipes, emit the current resources
+- [ ] how to open inventory
 - [x] disallow space bar to call new game on exported game
 - [x] image for building -> take the anvil from tiny-dungeon asset pack
 - [x] select a building to build

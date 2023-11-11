@@ -30,6 +30,12 @@ export const craftingData = {
       duration_in_ticks: 5,
     },
     {
+      id: "ironOre",
+      needs: [{ id: "log", amount: 3 }],
+      batch_size: 1,
+      duration_in_ticks: 10,
+    },
+    {
       id: "sawdust",
       needs: [
         { id: "log", amount: 2 },
