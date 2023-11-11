@@ -30,7 +30,7 @@ _data = {
 "die": SubResource("Animation_xhjrl")
 }
 
-[node name="Pickup" type="Area2D" groups=["Persist"]]
+[node name="Pickup" type="Area2D" groups=["persist"]]
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_hjjxh")

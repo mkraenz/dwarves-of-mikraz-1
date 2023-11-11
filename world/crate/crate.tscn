@@ -99,7 +99,7 @@ _data = {
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w3uge"]
 bg_color = Color(1, 0.156863, 0.156863, 1)
 
-[node name="Crate" type="RigidBody2D" groups=["Persist"]]
+[node name="Crate" type="RigidBody2D" groups=["persist"]]
 collision_mask = 0
 script = ExtResource("1_lb4kg")
 

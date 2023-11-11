@@ -15,7 +15,7 @@ func save_game_exists() -> bool:
 
 func save_game(tree: SceneTree):
 	var save_file = FileAccess.open(FILEPATH, FileAccess.WRITE)
-	var save_nodes = tree.get_nodes_in_group("Persist")
+	var save_nodes = tree.get_nodes_in_group("persist")
 	for node in save_nodes:
 		# Check the node is an instanced scene so it can be instanced again during load.
 		if node.scene_file_path.is_empty():
@@ -51,7 +51,7 @@ func load_game(tree: SceneTree, get_tree_node: Callable):
 	# during loading. This will vary wildly depending on the needs of a
 	# project, so take care with this step.
 	# For our example, we will accomplish this by deleting saveable objects.
-	var save_nodes = tree.get_nodes_in_group("Persist")
+	var save_nodes = tree.get_nodes_in_group("persist")
 	for key in save_nodes:
 		key.queue_free()
 
