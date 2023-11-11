@@ -78,7 +78,7 @@ summary:
   - [x] build menu design
   - [x] building icon
   - [x] select building
-  - [ ] build button inside the building menu
+  - [x] build button inside the building menu
 - [ ] buildings cost resources
 - [x] build the building at mouse position
   - [x] show a blueprint of the building on hover

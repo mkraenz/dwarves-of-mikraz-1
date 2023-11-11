@@ -16,3 +16,9 @@ func _ready():
 func _on_item_list_item_activated(index: int) -> void:
 	var building_id = item_list.get_item_metadata(index)
 	eventbus.enter_build_mode.emit(building_id)
+
+
+func _on_build_button_pressed() -> void:
+	if item_list.is_anything_selected():
+		var selected_index = item_list.get_selected_items()[0]
+		_on_item_list_item_activated(selected_index)
