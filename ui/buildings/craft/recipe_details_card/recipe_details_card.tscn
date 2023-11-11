@@ -17,10 +17,12 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
 [node name="CraftedItemLabel" type="Label" parent="V/M"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_type_variation = &"TitleHeading"
-text = "Example x1"
+text = "Example  x1"
 horizontal_alignment = 1
+autowrap_mode = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="V"]
 layout_mode = 2
