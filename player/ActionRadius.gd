@@ -3,7 +3,7 @@ extends Area2D
 @onready var gstate := GState
 
 
-func _physics_process(delta):
+func _physics_process(_delta: float):
 	# if two crates are within radius and we move between then, we want the mark to move to the closest one. So we need to do this on every movement
 	unmark_all()
 	add_marks()

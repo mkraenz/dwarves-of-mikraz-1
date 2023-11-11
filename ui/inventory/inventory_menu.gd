@@ -7,16 +7,6 @@ var gstate := GState
 @onready var item_list = $M/ScrollContainer/ItemList
 
 
-func _ready():
-	hide()
-
-
-func _input(_event):
-	if Input.is_action_just_pressed("toggle_inventory"):
-		if gstate.is_ingame:
-			visible = not visible
-
-
 func _physics_process(_delta: float) -> void:
 	if visible:
 		redraw_data()

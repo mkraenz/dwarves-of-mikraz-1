@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://ce83xqbtw77i5"]
+[gd_scene load_steps=3 format=3 uid="uid://ce83xqbtw77i5"]
 
+[ext_resource type="Script" path="res://ui/inventory/close_button.gd" id="2_pqsm6"]
 [ext_resource type="Script" path="res://ui/inventory/inventory_menu.gd" id="2_tr1jg"]
 
 [node name="InventoryMenu" type="Control"]
@@ -37,3 +38,12 @@ layout_mode = 2
 
 [node name="ItemList" type="VBoxContainer" parent="M/ScrollContainer"]
 layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="M"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "X"
+script = ExtResource("2_pqsm6")
+
+[connection signal="pressed" from="M/CloseButton" to="M/CloseButton" method="_on_pressed"]

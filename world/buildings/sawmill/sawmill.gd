@@ -191,8 +191,6 @@ func mark_as_idle() -> void:
 
 
 func output_products() -> void:
-	const y := 25
-	const CENTER_OFFSET = 10
 	var amount = ordered_recipe.batch_size
 	var item_id = ordered_recipe.id
 	_output_pickups(item_id, amount)
@@ -203,7 +201,7 @@ func _output_pickups(item_id: String, amount: int) -> void:
 	const y := 25
 	const CENTER_OFFSET = 10
 	for i in range(amount):
-		var x = lerp(-CENTER_OFFSET, CENTER_OFFSET, i / (amount - 1)) if amount != 1 else 0
+		var x = lerp(-CENTER_OFFSET, CENTER_OFFSET, float(i) / (amount - 1)) if amount != 1 else 0
 		var instance = Pickup.instantiate()
 		instance.global_position = global_position + Vector2(x, y)
 		instance.item_id = item_id

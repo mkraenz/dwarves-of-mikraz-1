@@ -27,6 +27,7 @@ func _ready() -> void:
 	eventbus.toggle_crafting_menu.connect(_on_toggle_crafting_menu)
 	eventbus.close_crafting_menu.connect(_on_close_crafting_menu)
 	eventbus.toggle_building_menu.connect(_on_toggle_building_menu)
+	eventbus.toggle_inventory_menu.connect(_on_toggle_inventory_menu)
 	eventbus.enter_build_mode.connect(_on_enter_build_mode)
 	eventbus.enter_character_mode.connect(_on_enter_character_mode)
 
@@ -115,3 +116,7 @@ func _on_enter_build_mode(_building_id: String) -> void:
 
 func _on_enter_character_mode() -> void:
 	gstate.mode = GState.Mode.character
+
+
+func _on_toggle_inventory_menu() -> void:
+	inventory_menu.visible = not inventory_menu.visible
