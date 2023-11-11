@@ -40,9 +40,9 @@ export const buildingData = {
       res_path: "res://third-party/henry_lazarini/I_GoldCoin.png",
     },
   },
-  forge: {
-    label: "Forge",
-    id: "forge",
+  smithy: {
+    label: "Smithy",
+    id: "smithy",
     icon: {
       type: "Texture2D",
       res_path: "res://third-party/henry_lazarini/I_IronOre.png",

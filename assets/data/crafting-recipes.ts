@@ -44,6 +44,8 @@ export const craftingData = {
       batch_size: 5,
       duration_in_ticks: 8,
     },
+  ],
+  smelter: [
     {
       id: "iron_ingot",
       needs: [{ id: "iron_ore", amount: 2 }],
@@ -51,7 +53,7 @@ export const craftingData = {
       duration_in_ticks: 10,
     },
   ],
-  smelter: [
+  smithy: [
     {
       id: "iron_ingot",
       needs: [{ id: "iron_ore", amount: 2 }],

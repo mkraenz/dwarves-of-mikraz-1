@@ -1,6 +1,7 @@
 extends Node2D
 
 const Sawmill = preload("res://world/buildings/sawmill/sawmill.tscn")
+const Smithy = preload("res://world/buildings/smithy/smithy.tscn")
 
 var eventbus := Eventbus
 var gstate := GState
@@ -50,6 +51,8 @@ func get_building_scene() -> PackedScene:
 	match building_id:
 		"sawmill":
 			return Sawmill
+		"smithy":
+			return Smithy
 		"":
 			printt(name, "ERROR! building_id is not initialized to an actual value.")
 			return

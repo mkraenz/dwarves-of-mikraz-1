@@ -68,7 +68,7 @@ summary:
 - [x] refactor: rename Persist to persist
 - [x] how to open inventory
 - [x] exit button crafting menu
-- [ ] exit button inventory menu
+- [x] exit button inventory menu
 - [x] howtoplay unmark not working
 - [x] when changing crafting recipes, emit the current resources
 - [x] disallow space bar to call new game on exported game
