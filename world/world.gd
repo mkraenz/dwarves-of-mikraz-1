@@ -31,11 +31,8 @@ func _setup_player() -> void:
 
 
 func clear(immediate = false) -> void:
-	var dont_remove_nodes = [cam]
-	for node in get_children():
-		if dont_remove_nodes.has(node):
-			continue
-		remove_child(node)
+	var nodes = get_tree().get_nodes_in_group("destroy")
+	for node in nodes:
 		if immediate:
 			node.free()
 		else:

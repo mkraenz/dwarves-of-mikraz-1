@@ -65,7 +65,8 @@ summary:
   - [x] via keyboard and mouse by distance
   - [x] which key
 - [ ] try to use groups to destroy the level
-- [ ] how to open inventory
+- [ ] refactor: rename Persist to persist
+- [x] how to open inventory
 - [x] exit button crafting menu
 - [ ] exit button inventory menu
 - [x] howtoplay unmark not working
