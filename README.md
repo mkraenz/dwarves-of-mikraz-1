@@ -64,13 +64,13 @@ summary:
 - [x] crates usability
   - [x] via keyboard and mouse by distance
   - [x] which key
-- [ ] try to use groups to destroy the level
-- [ ] refactor: rename Persist to persist
+- [x] try to use groups to destroy the level
+- [x] refactor: rename Persist to persist
 - [x] how to open inventory
 - [x] exit button crafting menu
 - [ ] exit button inventory menu
 - [x] howtoplay unmark not working
-- [ ] when changing crafting recipes, emit the current resources
+- [x] when changing crafting recipes, emit the current resources
 - [x] disallow space bar to call new game on exported game
 - [x] image for building -> take the anvil from tiny-dungeon asset pack
 - [x] select a building to build
@@ -106,14 +106,14 @@ summary:
   - [ ] progress indicator for one batch
     - [ ] progress indicator changes from red to green (within the same circle?)
       - idea: interpolate from Red Color(1,0,0) at 0 degrees to Green Color(0,1,0) at 360 degrees
+  - [ ] cancel current order
   - [x] spawn finished products
   - [x] show current order
     - forager displays it additionally on the workshop with an "x20" for the amount
   - [x] show overall progress of current order
     - [x] currently shows number of batches, but on Craft button it shows `batches * units_per_batch` -> use total amount
 - [x] can collect finished product
-- [ ] block player movement while in crafting menu
-- [ ] block player movement while in building menu
+- [ ] block player movement + actions while in crafting/building/inventory menu
 
 ## Data generation
 

@@ -57,7 +57,9 @@ func _on_ordered_at_workshop(
 ) -> void:
 	var order_is_for_this_workshop = str(get_path()) == at_target_node_path
 	if order_is_for_this_workshop:
-		clear_order()
+		if has_an_order:
+			output_current_inputs()
+			clear_order()
 		ordered_recipe = recipe
 		ordered_batches = batches
 		printt("incoming order", batches, recipe)
@@ -119,11 +121,20 @@ func consume_resources() -> void:
 		resources_in_use = ordered_recipe.needs
 
 
+func output_current_inputs() -> void:
+	for resource in resources_in_use:
+		var amount = resource.amount
+		var item_id = resource.id
+		_output_pickups(item_id, amount)
+	resources_in_use = []
+
+
 func clear_order() -> void:
 	ordered_batches = 0
 	ordered_recipe = {}
 	produced_batches = 0
 	ticks_to_batch_completion = INF
+	resources_in_use = []
 
 
 func save() -> Dictionary:
@@ -183,10 +194,17 @@ func output_products() -> void:
 	const y := 25
 	const CENTER_OFFSET = 10
 	var amount = ordered_recipe.batch_size
+	var item_id = ordered_recipe.id
+	_output_pickups(item_id, amount)
+	audio.play()
+
+
+func _output_pickups(item_id: String, amount: int) -> void:
+	const y := 25
+	const CENTER_OFFSET = 10
 	for i in range(amount):
 		var x = lerp(-CENTER_OFFSET, CENTER_OFFSET, i / (amount - 1)) if amount != 1 else 0
 		var instance = Pickup.instantiate()
 		instance.global_position = global_position + Vector2(x, y)
-		instance.item_id = ordered_recipe.id
+		instance.item_id = item_id
 		get_parent().add_child(instance)
-	audio.play()

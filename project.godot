@@ -38,6 +38,7 @@ import/blender/enabled=false
 theme/custom="res://ui/base.theme"
 theme/default_font_antialiasing=0
 theme/default_font_subpixel_positioning=0
+timers/tooltip_delay_sec=0.1
 
 [input]
 
