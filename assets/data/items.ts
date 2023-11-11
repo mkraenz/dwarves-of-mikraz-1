@@ -49,17 +49,17 @@ export const itemsData = {
       res_path: "res://third-party/henry_lazarini/I_Rock01.png",
     },
   },
-  ironOre: {
+  iron_ore: {
     label: "Iron ore",
-    id: "ironOre",
+    id: "iron_ore",
     icon: {
       type: "Texture2D",
       res_path: "res://third-party/henry_lazarini/I_IronOre.png",
     },
   },
-  ironIngot: {
+  iron_ingot: {
     label: "Iron ingot",
-    id: "ironIngot",
+    id: "iron_ingot",
     icon: {
       type: "Texture2D",
       res_path: "res://third-party/henry_lazarini/I_IronBar.png",

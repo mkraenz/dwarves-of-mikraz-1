@@ -294,11 +294,11 @@ item_id = "log"
 
 [node name="Pickup2" parent="." instance=ExtResource("5_jo4wq")]
 position = Vector2(380, 141)
-item_id = "ironOre"
+item_id = "iron_ore"
 
 [node name="Pickup3" parent="." instance=ExtResource("5_jo4wq")]
 position = Vector2(272, 230)
-item_id = "ironOre"
+item_id = "iron_ore"
 
 [node name="Crate" parent="." instance=ExtResource("3_qvbfd")]
 position = Vector2(63, 65)

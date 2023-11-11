@@ -30,7 +30,7 @@ export const craftingData = {
       duration_in_ticks: 5,
     },
     {
-      id: "ironOre",
+      id: "iron_ore",
       needs: [{ id: "log", amount: 3 }],
       batch_size: 1,
       duration_in_ticks: 10,
@@ -45,16 +45,16 @@ export const craftingData = {
       duration_in_ticks: 8,
     },
     {
-      id: "ironIngot",
-      needs: [{ id: "ironOre", amount: 2 }],
+      id: "iron_ingot",
+      needs: [{ id: "iron_ore", amount: 2 }],
       batch_size: 1,
       duration_in_ticks: 10,
     },
   ],
   smelter: [
     {
-      id: "ironIngot",
-      needs: [{ id: "ironOre", amount: 2 }],
+      id: "iron_ingot",
+      needs: [{ id: "iron_ore", amount: 2 }],
       batch_size: 1,
       duration_in_ticks: 10,
     },
