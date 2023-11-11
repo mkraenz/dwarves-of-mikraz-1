@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dn05qj4gsbmoa"]
+[gd_scene load_steps=4 format=3 uid="uid://dn05qj4gsbmoa"]
 
 [ext_resource type="Texture2D" uid="uid://b7tguge8s0kiw" path="res://third-party/dreammix/key-tab.png" id="1_pdd5a"]
 [ext_resource type="Script" path="res://ui/hud/BuildMenuHint.gd" id="2_ojauf"]
+[ext_resource type="Texture2D" uid="uid://crpopdop1x3ie" path="res://third-party/dreammix/key-i.png" id="3_5qhr1"]
 
 [node name="Hud" type="Control"]
 layout_mode = 3
@@ -23,12 +24,31 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="BuildMenuHint" type="Button" parent="M"]
+[node name="VBoxContainer" type="VBoxContainer" parent="M"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_constants/separation = -4
+
+[node name="BuildMenuHint" type="Button" parent="M/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 text = "Build"
 icon = ExtResource("1_pdd5a")
+flat = true
+icon_alignment = 2
 script = ExtResource("2_ojauf")
 
-[connection signal="pressed" from="M/BuildMenuHint" to="M/BuildMenuHint" method="_on_pressed"]
+[node name="InventoryMenuHint" type="Button" parent="M/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "Inventory"
+icon = ExtResource("3_5qhr1")
+flat = true
+icon_alignment = 2
+script = ExtResource("2_ojauf")
+
+[connection signal="pressed" from="M/VBoxContainer/BuildMenuHint" to="M/VBoxContainer/BuildMenuHint" method="_on_pressed"]
+[connection signal="pressed" from="M/VBoxContainer/InventoryMenuHint" to="M/VBoxContainer/InventoryMenuHint" method="_on_pressed"]
