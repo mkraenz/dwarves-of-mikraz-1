@@ -113,41 +113,23 @@ summary:
   - [x] show overall progress of current order
     - [x] currently shows number of batches, but on Craft button it shows `batches * units_per_batch` -> use total amount
 - [x] can collect finished product
-- [ ] block player movement + actions while in crafting/building/inventory menu
+- [x] block player movement + actions while in crafting/building/inventory menu
 
 ## Data generation
 
 We are using a data-driven approach to define items and crafting recipes. Corresponding files you need to change are the `.ts` files in `./assets/data/`. Then, simply run the export script to generate the corresponding json files that get automatically loaded into the game via `GData.gd`.
 
 ```sh
-deno run --allow-write ./scripts/generate-data-jsons.ts
+yarn datagen
 ```
 
-## Thoughts about tacted production
+## Deployment
 
-tick is 1 min
+Automatically bumps version, builds project, and pushes it to itch.io.
 
-tick at 18:00:00
-player starts production of a plank at 18:00:59
-assume: plank has duration_in_ticks = 1
-
-Answer A: plank should finish at 18:01:00 bc thats the next tick after 18:00:00
-Answer B: plank should finish at 18:02:00 bc that's the next full tick since production order.
-
-Question: When is the plank finished?
-
-When does the above "when finished" question NOT matter?
-when tick duration is small so that the player can do only few actions in between.
-
-tick is 1 sec
-tick at 18:00:00.000
-player starts production of a plank at 18:00:00.999
-assume plank has duration_in_ticks = 10
-Answer: finish at 18:00:10 or 18:00:11 but that's such a small difference. nobody can realistically exploit this behavior.
-
-Decision: Set tick to a smallish number. And use the simpler implementation for counting down ticks (which ended up being the one that waits for the next tick to start production).
-
-Note on Upgrades: If we have an upgrade that reduces production time by, say, 80%. Then we need to ensure that we still stay in tact meaning we need to `Math.ceil(duration_in_ticks * 0.8)` to get integer values.
+```sh
+yarn deploy
+```
 
 ## Learnings
 

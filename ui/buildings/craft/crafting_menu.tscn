@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://b3ff7xd1sb0og"]
+[gd_scene load_steps=8 format=3 uid="uid://b3ff7xd1sb0og"]
 
 [ext_resource type="Script" path="res://ui/buildings/craft/crafting_menu.gd" id="2_67qoq"]
+[ext_resource type="PackedScene" uid="uid://yjnjpa3w23jx" path="res://ui/common/backdrop.tscn" id="2_l4tro"]
 [ext_resource type="PackedScene" uid="uid://c78h66nde8kp4" path="res://ui/buildings/craft/recipe_details_card/recipe_details_card.tscn" id="3_kcnpb"]
 [ext_resource type="Texture2D" uid="uid://dxb80j1fcp0dr" path="res://third-party/kenney_tiny-dungeon/Tilemap/tilemap_packed.png" id="4_whwbc"]
 [ext_resource type="Script" path="res://ui/buildings/craft/close_button.gd" id="5_2y11m"]
@@ -10,7 +11,7 @@
 atlas = ExtResource("4_whwbc")
 region = Rect2(144, 144, 16, 16)
 
-[node name="CraftingMenu" type="Control"]
+[node name="CraftingMenu" type="Control" groups=["blocking"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,14 +20,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_67qoq")
 
-[node name="Backdrop" type="ColorRect" parent="."]
+[node name="Backdrop" parent="." instance=ExtResource("2_l4tro")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.2)
 
 [node name="M" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -85,6 +80,7 @@ size_flags_vertical = 0
 text = "X"
 script = ExtResource("5_2y11m")
 
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
 [connection signal="pressed" from="M/H/V/CraftButtons/CraftLessButton" to="." method="_on_craft_less_button_pressed"]
 [connection signal="pressed" from="M/H/V/CraftButtons/CraftButton" to="." method="_on_craft_button_pressed"]
 [connection signal="pressed" from="M/H/V/CraftButtons/CraftMoreButton" to="." method="_on_craft_more_button_pressed"]

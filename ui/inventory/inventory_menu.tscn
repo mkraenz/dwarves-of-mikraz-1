@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://ce83xqbtw77i5"]
+[gd_scene load_steps=4 format=3 uid="uid://ce83xqbtw77i5"]
 
+[ext_resource type="PackedScene" uid="uid://yjnjpa3w23jx" path="res://ui/common/backdrop.tscn" id="2_fmctf"]
 [ext_resource type="Script" path="res://ui/inventory/inventory_menu.gd" id="2_tr1jg"]
 [ext_resource type="Script" path="res://ui/inventory/toggle_menu_button.gd" id="2_y0lhc"]
 
-[node name="InventoryMenu" type="Control"]
+[node name="InventoryMenu" type="Control" groups=["blocking"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,14 +13,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_tr1jg")
 
-[node name="Backdrop" type="ColorRect" parent="."]
+[node name="Backdrop" parent="." instance=ExtResource("2_fmctf")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.2)
 
 [node name="M" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -28,9 +23,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 25
+theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 25
+theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
 [node name="P" type="PanelContainer" parent="M"]

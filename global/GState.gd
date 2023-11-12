@@ -13,6 +13,15 @@ var cam: Camera2D
 ## in seconds
 var tick_duration: float = 1
 
+var player_input_blocked = true:
+	get = _get_player_input_blocked
+
+
+func _get_player_input_blocked() -> bool:
+	var nodes = get_tree().get_nodes_in_group("blocking")
+	var some_blocking_node_visible = nodes.any(func(x): return x.visible)
+	return some_blocking_node_visible
+
 
 func _get_is_ingame() -> bool:
 	var main = get_node("/root/Main")

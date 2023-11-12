@@ -1,13 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://bhc1lv183q4nr"]
+[gd_scene load_steps=8 format=3 uid="uid://bhc1lv183q4nr"]
 
 [ext_resource type="Script" path="res://ui/buildings/building_menu.gd" id="1_bhq74"]
 [ext_resource type="Script" path="res://ui/buildings/close_button.gd" id="2_1kb71"]
+[ext_resource type="PackedScene" uid="uid://yjnjpa3w23jx" path="res://ui/common/backdrop.tscn" id="2_g4eh5"]
 [ext_resource type="Texture2D" uid="uid://co6mylr4lajdt" path="res://assets/images/buzzsaw.png" id="2_p18lv"]
 [ext_resource type="Texture2D" uid="uid://nh8toscaritt" path="res://third-party/henry_lazarini/I_IronBar.png" id="3_bxqt1"]
 [ext_resource type="Texture2D" uid="uid://cmuo1te6vs7jk" path="res://third-party/henry_lazarini/I_Coal.png" id="4_noesg"]
 [ext_resource type="Texture2D" uid="uid://dtvctdaw8ikps" path="res://ui/icons/hammer-icon.tres" id="6_4j3a5"]
 
-[node name="BuildingMenu" type="Control"]
+[node name="BuildingMenu" type="Control" groups=["blocking"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,43 +17,49 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bhq74")
 
-[node name="Background" type="PanelContainer" parent="."]
+[node name="Backdrop" parent="." instance=ExtResource("2_g4eh5")]
 layout_mode = 1
-anchors_preset = -1
+
+[node name="M" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = 20.0
-offset_right = -20.0
-offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
-[node name="M" type="MarginContainer" parent="Background"]
+[node name="P" type="PanelContainer" parent="M"]
+layout_mode = 2
+
+[node name="M" type="MarginContainer" parent="M/P"]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="V" type="VBoxContainer" parent="Background/M"]
+[node name="V" type="VBoxContainer" parent="M/P/M"]
 layout_mode = 2
 
-[node name="Header" type="HBoxContainer" parent="Background/M/V"]
+[node name="Header" type="HBoxContainer" parent="M/P/M/V"]
 layout_mode = 2
 
-[node name="Heading" type="Label" parent="Background/M/V/Header"]
+[node name="Heading" type="Label" parent="M/P/M/V/Header"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Buildings"
 horizontal_alignment = 1
 
-[node name="CloseButton" type="Button" parent="Background/M/V/Header"]
+[node name="CloseButton" type="Button" parent="M/P/M/V/Header"]
 layout_mode = 2
 text = "X"
 script = ExtResource("2_1kb71")
 
-[node name="ItemList" type="ItemList" parent="Background/M/V"]
+[node name="ItemList" type="ItemList" parent="M/P/M/V"]
 layout_mode = 2
 size_flags_vertical = 3
 max_text_lines = 2
@@ -71,20 +78,20 @@ item_2/icon = ExtResource("3_bxqt1")
 item_3/text = "Charcoal Kiln"
 item_3/icon = ExtResource("4_noesg")
 
-[node name="M" type="MarginContainer" parent="Background/M/V"]
+[node name="M" type="MarginContainer" parent="M/P/M/V"]
 layout_mode = 2
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 0
 
-[node name="BuildButton" type="Button" parent="Background/M/V/M"]
+[node name="BuildButton" type="Button" parent="M/P/M/V/M"]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Build"
 icon = ExtResource("6_4j3a5")
 
-[connection signal="pressed" from="Background/M/V/Header/CloseButton" to="Background/M/V/Header/CloseButton" method="_on_pressed"]
-[connection signal="item_activated" from="Background/M/V/ItemList" to="." method="_on_item_list_item_activated"]
-[connection signal="pressed" from="Background/M/V/M/BuildButton" to="." method="_on_build_button_pressed"]
+[connection signal="pressed" from="M/P/M/V/Header/CloseButton" to="M/P/M/V/Header/CloseButton" method="_on_pressed"]
+[connection signal="item_activated" from="M/P/M/V/ItemList" to="." method="_on_item_list_item_activated"]
+[connection signal="pressed" from="M/P/M/V/M/BuildButton" to="." method="_on_build_button_pressed"]

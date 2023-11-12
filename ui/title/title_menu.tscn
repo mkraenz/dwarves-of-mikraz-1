@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bt1njt15eesor" path="res://ui/components/game_title_heading.tscn" id="3_l0v43"]
 [ext_resource type="PackedScene" uid="uid://bwmjdntgw8ghd" path="res://ui/title/version/version.tscn" id="4_irtrd"]
 
-[node name="TitleMenu" type="Control"]
+[node name="TitleMenu" type="Control" groups=["blocking"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

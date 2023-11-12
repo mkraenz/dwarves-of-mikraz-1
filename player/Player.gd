@@ -22,9 +22,20 @@ func get_input() -> void:
 
 
 func _physics_process(_delta) -> void:
+	if gstate.player_input_blocked:
+		animate_idle()
+		return
+	else:
+		set_process_input(true)
 	get_input()
 	move_and_slide()
 	update_anim_params()
+
+
+func animate_idle() -> void:
+	anim_tree["parameters/conditions/idle"] = true
+	anim_tree["parameters/conditions/is_moving"] = false
+	anim_tree["parameters/conditions/attack"] = false
 
 
 func update_anim_params() -> void:

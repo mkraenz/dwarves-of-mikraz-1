@@ -2,7 +2,7 @@ extends Control
 
 var gdata := GData
 var eventbus := Eventbus
-@onready var item_list: ItemList = $Background/M/V/ItemList
+@onready var item_list: ItemList = $M/P/M/V/ItemList
 
 
 func _ready():

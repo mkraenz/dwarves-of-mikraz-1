@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bt1njt15eesor" path="res://ui/components/game_title_heading.tscn" id="3_48pxe"]
 [ext_resource type="Script" path="res://ui/pause/paused_label.gd" id="4_kxpae"]
 
-[node name="PauseMenu" type="Control"]
+[node name="PauseMenu" type="Control" groups=["blocking"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
