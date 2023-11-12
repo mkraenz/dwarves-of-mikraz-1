@@ -440,6 +440,7 @@ parameters/move/blend_position = 1.0
 [node name="Stats" parent="." instance=ExtResource("4_vaoqg")]
 
 [node name="Audio" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
 bus = &"Sounds"
 
 [node name="SuckRadius" parent="." instance=ExtResource("6_2apq6")]
