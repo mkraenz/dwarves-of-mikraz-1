@@ -1,0 +1,18 @@
+{
+  "name": "dwarves-of-mikraz-1",
+  "version": "0.0.22",
+  "scripts": {
+    "datagen": "deno run --allow-write ./scripts/generate-data-jsons.ts",
+    "deploy": "npm run bump && ./shipit.sh",
+    "bump": "npm version patch -m 'chore: %s version bump'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mkraenz/dwarves-of-mikraz-1.git"
+  },
+  "author": "Mirco Kraenz",
+  "bugs": {
+    "url": "https://github.com/mkraenz/dwarves-of-mikraz-1/issues"
+  },
+  "homepage": "https://github.com/mkraenz/dwarves-of-mikraz-1#readme"
+}
