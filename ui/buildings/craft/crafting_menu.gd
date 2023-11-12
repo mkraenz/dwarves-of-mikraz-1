@@ -48,7 +48,7 @@ func refresh() -> void:
 		printt(name, "WARNING: No recipes available")
 		return
 	if not selected_id:
-		_on_panel_selected(recipes[0].id)
+		_on_panel_selected(recipes[0].item_id)
 
 	refresh_craft_button()
 	recipe_details.refresh()

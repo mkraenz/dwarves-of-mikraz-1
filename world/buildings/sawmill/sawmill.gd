@@ -167,7 +167,7 @@ func refresh_mark() -> void:
 func refresh_current_order_display() -> void:
 	if has_an_order:
 		current_order_display.show()
-		current_order_display.set_icon_texture(gdata.get_item_icon(ordered_recipe.id))
+		current_order_display.set_icon_texture(gdata.get_item_icon(ordered_recipe.item_id))
 		var remaining_amount = (ordered_batches - produced_batches) * ordered_recipe.batch_size
 		current_order_display.set_text(remaining_amount)
 	else:
@@ -192,7 +192,7 @@ func mark_as_idle() -> void:
 
 func output_products() -> void:
 	var amount = ordered_recipe.batch_size
-	var item_id = ordered_recipe.id
+	var item_id = ordered_recipe.item_id
 	_output_pickups(item_id, amount)
 	audio.play()
 

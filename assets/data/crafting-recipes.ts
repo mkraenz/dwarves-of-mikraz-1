@@ -7,7 +7,8 @@ interface CraftingData {
 type ItemId = keyof typeof itemsData;
 
 interface Recipe {
-  id: ItemId;
+  id: string;
+  item_id: ItemId;
   needs: NeededItem[];
   /** batch size. how many items of id get crafted in a single batch? */
   batch_size: number;
@@ -20,23 +21,32 @@ interface NeededItem {
   amount: number;
 }
 
-// TODO consider giving crafting recipes a different id from the item they produce, to allow for alternative recipes
 export const craftingData = {
   sawmill: [
     {
-      id: "plank",
+      id: "planks",
+      item_id: "plank",
       needs: [{ id: "log", amount: 1 }],
       batch_size: 2,
       duration_in_ticks: 5,
     },
     {
-      id: "iron_ore",
+      id: "planks2",
+      item_id: "plank",
+      needs: [{ id: "log", amount: 4 }],
+      batch_size: 10,
+      duration_in_ticks: 17,
+    },
+    {
+      id: "iron_ore_from_logs",
+      item_id: "iron_ore",
       needs: [{ id: "log", amount: 3 }],
       batch_size: 1,
       duration_in_ticks: 10,
     },
     {
       id: "sawdust",
+      item_id: "sawdust",
       needs: [
         { id: "log", amount: 2 },
         { id: "stone", amount: 1 },
@@ -48,6 +58,7 @@ export const craftingData = {
   smelter: [
     {
       id: "iron_ingot",
+      item_id: "iron_ingot",
       needs: [{ id: "iron_ore", amount: 2 }],
       batch_size: 1,
       duration_in_ticks: 10,
@@ -56,6 +67,7 @@ export const craftingData = {
   smithy: [
     {
       id: "iron_ingot",
+      item_id: "iron_ingot",
       needs: [{ id: "iron_ore", amount: 2 }],
       batch_size: 1,
       duration_in_ticks: 10,

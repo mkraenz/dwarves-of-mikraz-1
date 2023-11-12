@@ -11,8 +11,8 @@ var ginventory := GInventory
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	icon = gdata.get_item_icon(recipe.id)
-	var crafted_item := gdata.get_item(recipe.id)
+	icon = gdata.get_item_icon(recipe.item_id)
+	var crafted_item := gdata.get_item(recipe.item_id)
 	text = crafted_item.label
 
 

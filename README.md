@@ -114,6 +114,7 @@ summary:
     - [x] currently shows number of batches, but on Craft button it shows `batches * units_per_batch` -> use total amount
 - [x] can collect finished product
 - [x] block player movement + actions while in crafting/building/inventory menu
+- [ ] collector building that autocollects outputs
 
 ## Data generation
 

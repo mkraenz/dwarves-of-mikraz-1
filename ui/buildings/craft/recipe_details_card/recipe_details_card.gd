@@ -24,4 +24,4 @@ func refresh() -> void:
 		needs_list.add_child(panel)
 		panel.refresh()
 
-	crafted_item_label.text = "%s x%s" % [gdata.items[recipe.id].label, recipe.batch_size]
+	crafted_item_label.text = "%s x%s" % [gdata.items[recipe.item_id].label, recipe.batch_size]
