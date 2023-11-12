@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ce83xqbtw77i5"]
 
-[ext_resource type="Script" path="res://ui/inventory/close_button.gd" id="2_pqsm6"]
 [ext_resource type="Script" path="res://ui/inventory/inventory_menu.gd" id="2_tr1jg"]
+[ext_resource type="Script" path="res://ui/inventory/toggle_menu_button.gd" id="2_y0lhc"]
 
 [node name="InventoryMenu" type="Control"]
 layout_mode = 3
@@ -58,6 +58,6 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 text = "X"
-script = ExtResource("2_pqsm6")
+script = ExtResource("2_y0lhc")
 
 [connection signal="pressed" from="M/P/H/M/CloseButton" to="M/P/H/M/CloseButton" method="_on_pressed"]

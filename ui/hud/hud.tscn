@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dn05qj4gsbmoa"]
+[gd_scene load_steps=5 format=3 uid="uid://dn05qj4gsbmoa"]
 
 [ext_resource type="Texture2D" uid="uid://b7tguge8s0kiw" path="res://third-party/dreammix/key-tab.png" id="1_pdd5a"]
 [ext_resource type="Script" path="res://ui/hud/BuildMenuHint.gd" id="2_ojauf"]
 [ext_resource type="Texture2D" uid="uid://crpopdop1x3ie" path="res://third-party/dreammix/key-i.png" id="3_5qhr1"]
+[ext_resource type="Script" path="res://ui/inventory/toggle_menu_button.gd" id="4_yojxo"]
 
 [node name="Hud" type="Control"]
 layout_mode = 3
@@ -48,7 +49,7 @@ text = "Inventory"
 icon = ExtResource("3_5qhr1")
 flat = true
 icon_alignment = 2
-script = ExtResource("2_ojauf")
+script = ExtResource("4_yojxo")
 
 [connection signal="pressed" from="M/VBoxContainer/BuildMenuHint" to="M/VBoxContainer/BuildMenuHint" method="_on_pressed"]
 [connection signal="pressed" from="M/VBoxContainer/InventoryMenuHint" to="M/VBoxContainer/InventoryMenuHint" method="_on_pressed"]
