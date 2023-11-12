@@ -2,6 +2,8 @@ extends StaticBody2D
 
 const Pickup = preload("res://world/pickup/pickup.tscn")
 
+## type: keyof typeof buildingData
+@export var building_type = "sawmill"
 ## type: Recipe
 @export var ordered_recipe: Dictionary = {}
 ## for open-ended orders, set to INF
@@ -16,6 +18,7 @@ var gstate := GState
 @onready var current_order_display := $CurrentOrderDisplay
 @onready var sprite := $Sprite2D
 @onready var audio := $Audio
+@onready var progressbar: TextureProgressBar = $Progressbar
 
 var ticks_to_batch_completion = INF
 var produced_batches: int = 0
@@ -66,7 +69,7 @@ func _on_ordered_at_workshop(
 
 
 func interact() -> void:
-	eventbus.toggle_crafting_menu.emit("sawmill", str(get_path()))
+	eventbus.toggle_crafting_menu.emit(building_type, str(get_path()))
 
 
 func mark() -> void:
@@ -175,18 +178,25 @@ func refresh_current_order_display() -> void:
 
 
 func mark_as_producing() -> void:
+	progressbar.show()
+	progressbar.max_value = ordered_recipe.duration_in_ticks
+	progressbar.value = ordered_recipe.duration_in_ticks - ticks_to_batch_completion
+
 	sprite.modulate = Color.GREEN
 
 
 func mark_as_production_blocked() -> void:
+	progressbar.hide()
 	sprite.modulate = Color.RED
 
 
 func mark_as_pending() -> void:
+	progressbar.hide()
 	sprite.modulate = Color.YELLOW
 
 
 func mark_as_idle() -> void:
+	progressbar.hide()
 	sprite.modulate = Color.WHITE
 
 

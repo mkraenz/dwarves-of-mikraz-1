@@ -2,6 +2,7 @@ extends StaticBody2D
 
 const Pickup = preload("res://world/pickup/pickup.tscn")
 
+@export var building_type = "smithy"
 ## type: Recipe
 @export var ordered_recipe: Dictionary = {}
 ## for open-ended orders, set to INF
@@ -16,6 +17,7 @@ var gstate := GState
 @onready var current_order_display := $CurrentOrderDisplay
 @onready var audio := $Audio
 @onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var progressbar: TextureProgressBar = $Progressbar
 
 var ticks_to_batch_completion = INF
 var produced_batches: int = 0
@@ -66,7 +68,7 @@ func _on_ordered_at_workshop(
 
 
 func interact() -> void:
-	eventbus.toggle_crafting_menu.emit("smithy", str(get_path()))
+	eventbus.toggle_crafting_menu.emit(building_type, str(get_path()))
 
 
 func mark() -> void:
@@ -175,24 +177,30 @@ func refresh_current_order_display() -> void:
 
 
 func mark_as_producing() -> void:
+	progressbar.show()
+	progressbar.max_value = ordered_recipe.duration_in_ticks
+	progressbar.value = ordered_recipe.duration_in_ticks - ticks_to_batch_completion
 	anim_sprite.modulate = Color.GREEN
 	if has_method("animate_mark_as_producing"):
 		animate_mark_as_producing()
 
 
 func mark_as_production_blocked() -> void:
+	progressbar.hide()
 	anim_sprite.modulate = Color.RED
 	if has_method("animate_mark_as_blocked"):
 		animate_mark_as_blocked()
 
 
 func mark_as_pending() -> void:
+	progressbar.hide()
 	anim_sprite.modulate = Color.YELLOW
 	if has_method("animate_mark_as_pending"):
 		animate_mark_as_pending()
 
 
 func mark_as_idle() -> void:
+	progressbar.hide()
 	anim_sprite.modulate = Color.WHITE
 	if has_method("animate_mark_as_idle"):
 		animate_mark_as_idle()

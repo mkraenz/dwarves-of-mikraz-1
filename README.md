@@ -103,9 +103,7 @@ summary:
   - [x] get order
   - [x] process order
   - [x] make batch size Max and Inf work
-  - [ ] progress indicator for one batch
-    - [ ] progress indicator changes from red to green (within the same circle?)
-      - idea: interpolate from Red Color(1,0,0) at 0 degrees to Green Color(0,1,0) at 360 degrees
+  - [x] progress indicator for one batch
   - [ ] cancel current order
   - [x] spawn finished products
   - [x] show current order
