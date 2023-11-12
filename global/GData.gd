@@ -6,12 +6,14 @@ var crafting_recipes: Dictionary
 var items: Dictionary
 ## type: BuildingData
 var buildings: Dictionary
+var version: String = "0.0.x"
 
 
 func _ready():
 	crafting_recipes = read_json_dict("res://assets/data/crafting-recipes.json")
 	items = read_json_dict("res://assets/data/items.json")
 	buildings = read_json_dict("res://assets/data/buildings.json")
+	version = read_json_dict("res://package.json").version
 
 
 func read_json_dict(filepath: String):
