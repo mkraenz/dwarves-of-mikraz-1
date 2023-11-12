@@ -1,3 +1,5 @@
+import type { NeededItem } from "./crafting-recipes";
+
 interface BuildingData {
   [buildingName: string]: Building;
 }
@@ -13,6 +15,8 @@ interface Building {
         regionY: number;
         res_path: `res://${string}`;
       };
+  /** building costs */
+  needs: NeededItem[];
 }
 
 export const buildingData = {
@@ -23,6 +27,7 @@ export const buildingData = {
       type: "Texture2D",
       res_path: "res://assets/images/buzzsaw.png",
     },
+    needs: [{ id: "log", amount: 5 }],
   },
   smelter: {
     label: "Smelter",
@@ -31,6 +36,7 @@ export const buildingData = {
       type: "Texture2D",
       res_path: "res://third-party/henry_lazarini/I_IronBar.png",
     },
+    needs: [],
   },
   mint: {
     label: "Mint",
@@ -39,6 +45,7 @@ export const buildingData = {
       type: "Texture2D",
       res_path: "res://third-party/henry_lazarini/I_GoldCoin.png",
     },
+    needs: [],
   },
   smithy: {
     label: "Smithy",
@@ -47,6 +54,7 @@ export const buildingData = {
       type: "Texture2D",
       res_path: "res://third-party/henry_lazarini/I_IronOre.png",
     },
+    needs: [],
   },
   charcoal_kiln: {
     label: "Charcoal Kiln",
@@ -55,5 +63,6 @@ export const buildingData = {
       type: "Texture2D",
       res_path: "res://third-party/henry_lazarini/I_Coal.png",
     },
+    needs: [],
   },
 } satisfies BuildingData;

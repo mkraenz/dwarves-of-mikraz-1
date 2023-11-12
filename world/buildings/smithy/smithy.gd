@@ -2,6 +2,8 @@ extends StaticBody2D
 
 const Pickup = preload("res://world/pickup/pickup.tscn")
 
+## TODO unify with other manifacturing buildings, particularly sawmill
+
 @export var building_type = "smithy"
 ## type: Recipe
 @export var ordered_recipe: Dictionary = {}

@@ -16,7 +16,7 @@ interface Recipe {
   duration_in_ticks: number;
 }
 
-interface NeededItem {
+export interface NeededItem {
   id: ItemId;
   amount: number;
 }
