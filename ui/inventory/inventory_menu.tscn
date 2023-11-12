@@ -33,17 +33,31 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 20
 
-[node name="ScrollContainer" type="ScrollContainer" parent="M"]
+[node name="P" type="PanelContainer" parent="M"]
 layout_mode = 2
 
-[node name="ItemList" type="VBoxContainer" parent="M/ScrollContainer"]
+[node name="H" type="HBoxContainer" parent="M/P"]
 layout_mode = 2
 
-[node name="CloseButton" type="Button" parent="M"]
+[node name="ItemList" type="ItemList" parent="M/P/H"]
+editor_description = "Columns is set to a very high value so that it autofills the available area in a row and then wraps to the next line automaticlally."
+layout_mode = 2
+size_flags_horizontal = 3
+text_overrun_behavior = 2
+max_columns = 10000
+fixed_column_width = 32
+icon_mode = 0
+fixed_icon_size = Vector2i(32, 32)
+
+[node name="M" type="MarginContainer" parent="M/P/H"]
+layout_mode = 2
+theme_override_constants/margin_top = 2
+
+[node name="CloseButton" type="Button" parent="M/P/H/M"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 text = "X"
 script = ExtResource("2_pqsm6")
 
-[connection signal="pressed" from="M/CloseButton" to="M/CloseButton" method="_on_pressed"]
+[connection signal="pressed" from="M/P/H/M/CloseButton" to="M/P/H/M/CloseButton" method="_on_pressed"]
