@@ -7,15 +7,11 @@ var is_ingame := false:
 enum Mode { menu, build, character }
 var mode: Mode = Mode.menu
 
-var cam: Camera2D = null:
-	get = _get_cam
+## camera sets itself on ready
+var cam: Camera2D
 
 ## in seconds
 var tick_duration: float = 1
-
-
-func _get_cam() -> Camera2D:
-	return get_node("/root/Main/World/Cam")
 
 
 func _get_is_ingame() -> bool:
