@@ -23,18 +23,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
+theme_type_variation = &"MarginAllSmall"
 
 [node name="P" type="PanelContainer" parent="M"]
 layout_mode = 2
 
-[node name="H" type="HBoxContainer" parent="M/P"]
+[node name="M" type="MarginContainer" parent="M/P"]
+layout_mode = 2
+theme_type_variation = &"MarginAllSmall"
+
+[node name="H" type="HBoxContainer" parent="M/P/M"]
 layout_mode = 2
 
-[node name="ItemList" type="ItemList" parent="M/P/H"]
+[node name="ItemList" type="ItemList" parent="M/P/M/H"]
 editor_description = "Columns is set to a very high value so that it autofills the available area in a row and then wraps to the next line automaticlally."
 layout_mode = 2
 size_flags_horizontal = 3
@@ -44,15 +45,15 @@ fixed_column_width = 32
 icon_mode = 0
 fixed_icon_size = Vector2i(32, 32)
 
-[node name="M" type="MarginContainer" parent="M/P/H"]
+[node name="M" type="MarginContainer" parent="M/P/M/H"]
 layout_mode = 2
 theme_override_constants/margin_top = 2
 
-[node name="CloseButton" type="Button" parent="M/P/H/M"]
+[node name="CloseButton" type="Button" parent="M/P/M/H/M"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 text = "X"
 script = ExtResource("2_y0lhc")
 
-[connection signal="pressed" from="M/P/H/M/CloseButton" to="M/P/H/M/CloseButton" method="_on_pressed"]
+[connection signal="pressed" from="M/P/M/H/M/CloseButton" to="M/P/M/H/M/CloseButton" method="_on_pressed"]

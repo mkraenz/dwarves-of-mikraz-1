@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6bpddw43d5e4"]
+
+[ext_resource type="PackedScene" uid="uid://wx5006y5bujo" path="res://ui/buildings/craft/needed_item_panel/needed_item_panel.tscn" id="1_oraw4"]
+[ext_resource type="Script" path="res://ui/buildings/building_needs_panel/building_needs_panel.gd" id="1_w4jqh"]
+
+[node name="BuildingNeeds" type="PanelContainer"]
+custom_minimum_size = Vector2(128, 0)
+script = ExtResource("1_w4jqh")
+
+[node name="V" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="M" type="MarginContainer" parent="V"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 4
+
+[node name="Label" type="Label" parent="V/M"]
+layout_mode = 2
+text = "Needs"
+horizontal_alignment = 1
+
+[node name="Needs" type="VBoxContainer" parent="V"]
+layout_mode = 2
+
+[node name="NeededItemPanel" parent="V/Needs" instance=ExtResource("1_oraw4")]
+layout_mode = 2
+
+[node name="NeededItemPanel2" parent="V/Needs" instance=ExtResource("1_oraw4")]
+layout_mode = 2
+in_stock = 20

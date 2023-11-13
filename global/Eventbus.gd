@@ -1,6 +1,8 @@
 extends Node
 
 signal add_to_inventory(resource_name: String, amount: int)
+signal inventory_changed(item_id: String, new_amount: int)
+
 signal production_tick  # production buildings connect to this signal and reduce their order's duration_in_ticks counter by 1
 
 # menus and persistence

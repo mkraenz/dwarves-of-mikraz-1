@@ -4,7 +4,7 @@ var ginventory := GInventory
 var gdata := GData
 var gstate := GState
 
-@onready var item_list: ItemList = $M/P/H/ItemList
+@onready var item_list: ItemList = $M/P/M/H/ItemList
 
 
 func _physics_process(_delta: float) -> void:

@@ -36,7 +36,7 @@ export const buildingData = {
       type: "Texture2D",
       res_path: "res://third-party/henry_lazarini/I_IronBar.png",
     },
-    needs: [{ id: "plank", amount: 5 }],
+    needs: [{ id: "plank", amount: 10 }],
   },
   mint: {
     label: "Mint",
@@ -45,7 +45,7 @@ export const buildingData = {
       type: "Texture2D",
       res_path: "res://third-party/henry_lazarini/I_GoldCoin.png",
     },
-    needs: [{ id: "plank", amount: 5 }],
+    needs: [{ id: "plank", amount: 200 }],
   },
   smithy: {
     label: "Smithy",
@@ -54,7 +54,10 @@ export const buildingData = {
       type: "Texture2D",
       res_path: "res://third-party/henry_lazarini/I_IronOre.png",
     },
-    needs: [{ id: "plank", amount: 5 }],
+    needs: [
+      { id: "plank", amount: 5 },
+      { id: "iron_ore", amount: 3 },
+    ],
   },
   charcoal_kiln: {
     label: "Charcoal Kiln",
@@ -63,6 +66,6 @@ export const buildingData = {
       type: "Texture2D",
       res_path: "res://third-party/henry_lazarini/I_Coal.png",
     },
-    needs: [{ id: "plank", amount: 5 }],
+    needs: [{ id: "plank", amount: 8 }],
   },
 } satisfies BuildingData;

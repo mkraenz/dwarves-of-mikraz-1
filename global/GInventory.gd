@@ -3,7 +3,7 @@ extends Node
 var eventbus := Eventbus
 var gdata := GData
 
-## item_id to {amount: float}
+## type: { [item_id: string]: {amount: int} }
 var inventory: Dictionary
 
 
@@ -35,8 +35,9 @@ func reset() -> void:
 		inventory[key] = {"amount": 0}
 
 
-func _on_add_to_inventory(resource_name: String, amount: int):
-	inventory[resource_name].amount += amount
+func _on_add_to_inventory(item_id: String, amount: int):
+	inventory[item_id].amount += amount
+	eventbus.inventory_changed.emit(item_id, inventory[item_id].amount)
 
 
 func save():
