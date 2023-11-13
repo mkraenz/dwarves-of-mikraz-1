@@ -5,6 +5,7 @@ const Smithy = preload("res://world/buildings/smithy/smithy.tscn")
 
 var eventbus := Eventbus
 var gstate := GState
+var ginventory := GInventory
 var gdata := GData
 
 @onready var building_blueprint: Sprite2D = $BuildingBlueprint
@@ -22,10 +23,13 @@ func _input(_event) -> void:
 		building_blueprint.global_position = get_global_mouse_position()
 
 		if Input.is_action_just_pressed("act") and click_delay.is_stopped():
-			eventbus.exit_build_mode.emit()
-			eventbus.enter_character_mode.emit()
-			var BuildingScene = get_building_scene()
-			spawn_at_mouse_position(BuildingScene)
+			var building := gdata.get_building(building_id)
+			if ginventory.satisfies_all_needs(building.needs):
+				consume_resources(building.needs)
+				var BuildingScene = get_building_scene()
+				spawn_at_mouse_position(BuildingScene)
+				eventbus.exit_build_mode.emit()
+				eventbus.enter_character_mode.emit()
 
 
 func spawn_at_mouse_position(Scene: PackedScene) -> void:
@@ -61,3 +65,8 @@ func get_building_scene() -> PackedScene:
 				"actually selected %s, but so far we only have the Sawmill building" % building_id
 			)
 			return Sawmill
+
+
+func consume_resources(needs: Array) -> void:
+	for need in needs:
+		eventbus.add_to_inventory.emit(need.id, -need.amount)

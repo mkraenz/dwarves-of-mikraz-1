@@ -114,8 +114,7 @@ func prepare_next_batch() -> void:
 
 
 func needs_fulfilled_for_next_batch() -> bool:
-	var need_fulfilled = func(need): return ginventory.has(need.id, need.amount)
-	return ordered_recipe.needs.all(need_fulfilled)
+	return ginventory.satisfies_all_needs(ordered_recipe.needs)
 
 
 func consume_resources() -> void:

@@ -113,7 +113,7 @@ summary:
 - [x] can collect finished product
 - [x] block player movement + actions while in crafting/building/inventory menu
 - [ ] collector building that autocollects outputs
-- [ ] fullscreen
+- [x] fullscreen -> using itch.io page setting
 - [ ] options menu
   - [ ] key rebinding
   - [ ] choose controller ps or controller xbox or keyboard

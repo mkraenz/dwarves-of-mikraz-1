@@ -16,6 +16,12 @@ func has(item_id: String, amount: int) -> bool:
 	return inventory[item_id].amount >= amount
 
 
+## @param {NeededItem[]} needs
+func satisfies_all_needs(needs: Array) -> bool:
+	var need_fulfilled = func(need): return has(need.id, need.amount)
+	return needs.all(need_fulfilled)
+
+
 func get_max_producable_batches(needs: Array) -> float:
 	var available_amounts = needs.map(
 		func(need): return int(inventory[need.id].amount / float(need.amount))
