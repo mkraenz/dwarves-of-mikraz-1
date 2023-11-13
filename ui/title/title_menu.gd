@@ -35,8 +35,7 @@ func _on_continue_pressed():
 
 
 func _on_options_pressed():
-	# TODO
-	pass  # Replace with function body.
+	pass
 
 
 func refresh() -> void:
