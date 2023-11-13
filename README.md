@@ -113,6 +113,16 @@ summary:
 - [x] can collect finished product
 - [x] block player movement + actions while in crafting/building/inventory menu
 - [ ] collector building that autocollects outputs
+- [ ] fullscreen
+- [ ] options menu
+  - [ ] key rebinding
+  - [ ] choose controller ps or controller xbox or keyboard
+  - [ ] volume
+- [x] switch keyboard input prompts - [kenneys](https://kenney.nl/assets/input-prompts-pixel-16)
+  - [x] replace `dreammix/`
+- [ ] controller support
+  - [ ] ps
+  - [ ] xbox
 
 ## Data generation
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqvay4k6h60m3"
-path="res://.godot/imported/key-e.png-2fdcb7f9d744b86876d8622bc815ebc0.ctex"
+uid="uid://jfmr2n8kjf10"
+path="res://.godot/imported/kenney-input-prompts-34x24-a-16x16.png-5594852e30d03d186bd0862dd1f13beb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://third-party/dreammix/key-e.png"
-dest_files=["res://.godot/imported/key-e.png-2fdcb7f9d744b86876d8622bc815ebc0.ctex"]
+source_file="res://third-party/kenney/kenney-input-prompts-34x24-a-16x16.png"
+dest_files=["res://.godot/imported/kenney-input-prompts-34x24-a-16x16.png-5594852e30d03d186bd0862dd1f13beb.ctex"]
 
 [params]
 

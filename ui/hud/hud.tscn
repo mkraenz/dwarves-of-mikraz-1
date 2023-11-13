@@ -1,9 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://dn05qj4gsbmoa"]
+[gd_scene load_steps=6 format=3 uid="uid://dn05qj4gsbmoa"]
 
-[ext_resource type="Texture2D" uid="uid://b7tguge8s0kiw" path="res://third-party/dreammix/key-tab.png" id="1_pdd5a"]
+[ext_resource type="Texture2D" uid="uid://jfmr2n8kjf10" path="res://third-party/kenney/kenney-input-prompts-34x24-a-16x16.png" id="1_lmv2g"]
 [ext_resource type="Script" path="res://ui/hud/BuildMenuHint.gd" id="2_ojauf"]
-[ext_resource type="Texture2D" uid="uid://crpopdop1x3ie" path="res://third-party/dreammix/key-i.png" id="3_5qhr1"]
 [ext_resource type="Script" path="res://ui/inventory/toggle_menu_button.gd" id="4_yojxo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mexfn"]
+atlas = ExtResource("1_lmv2g")
+region = Rect2(384, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1wp2"]
+atlas = ExtResource("1_lmv2g")
+region = Rect2(304, 80, 32, 16)
+margin = Rect2(0, 0, -8, 0)
 
 [node name="Hud" type="Control"]
 layout_mode = 3
@@ -31,25 +39,25 @@ size_flags_horizontal = 8
 size_flags_vertical = 8
 theme_override_constants/separation = -4
 
-[node name="BuildMenuHint" type="Button" parent="M/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
-text = "Build"
-icon = ExtResource("1_pdd5a")
-flat = true
-icon_alignment = 2
-script = ExtResource("2_ojauf")
-
 [node name="InventoryMenuHint" type="Button" parent="M/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 text = "Inventory"
-icon = ExtResource("3_5qhr1")
+icon = SubResource("AtlasTexture_mexfn")
 flat = true
 icon_alignment = 2
 script = ExtResource("4_yojxo")
 
-[connection signal="pressed" from="M/VBoxContainer/BuildMenuHint" to="M/VBoxContainer/BuildMenuHint" method="_on_pressed"]
+[node name="BuildMenuHint" type="Button" parent="M/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "Build"
+icon = SubResource("AtlasTexture_a1wp2")
+flat = true
+icon_alignment = 2
+script = ExtResource("2_ojauf")
+
 [connection signal="pressed" from="M/VBoxContainer/InventoryMenuHint" to="M/VBoxContainer/InventoryMenuHint" method="_on_pressed"]
+[connection signal="pressed" from="M/VBoxContainer/BuildMenuHint" to="M/VBoxContainer/BuildMenuHint" method="_on_pressed"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://b43yygkrld0ry"]
 
 [ext_resource type="Script" path="res://world/buildings/smithy/smithy.gd" id="1_nmfpx"]
-[ext_resource type="Texture2D" uid="uid://cp87bj5ibs3s5" path="res://third-party/dreammix/key-f.png" id="3_2l1d0"]
+[ext_resource type="Texture2D" uid="uid://dejapy0ejca46" path="res://world/buildings/common/key-f.tres" id="3_vt8h2"]
 [ext_resource type="Texture2D" uid="uid://ciqjgayfpwp72" path="res://assets/images/gui/progressbar/progressbar.png" id="4_t07dl"]
 [ext_resource type="Texture2D" uid="uid://bus5vv87fkg6d" path="res://third-party/kenney-tiny-town/log.png" id="6_3d3le"]
 [ext_resource type="AudioStream" uid="uid://noa3q0awltwv" path="res://third-party/sounds/pickups/pop.mp3" id="7_4rb6a"]
@@ -69,7 +69,7 @@ animation = &"idle"
 [node name="HowToUse" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(-3, -33)
-texture = ExtResource("3_2l1d0")
+texture = ExtResource("3_vt8h2")
 
 [node name="Progressbar" type="TextureProgressBar" parent="."]
 visible = false
