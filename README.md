@@ -61,68 +61,16 @@ summary:
 
 ## Todos
 
-- [x] crates usability
-  - [x] via keyboard and mouse by distance
-  - [x] which key
-- [x] try to use groups to destroy the level
-- [x] refactor: rename Persist to persist
-- [x] how to open inventory
-- [x] exit button crafting menu
-- [x] exit button inventory menu
-- [x] howtoplay unmark not working
-- [x] when changing crafting recipes, emit the current resources
-- [x] disallow space bar to call new game on exported game
-- [x] image for building -> take the anvil from tiny-dungeon asset pack
-- [x] select a building to build
-  - [x] have a button that opens the build menu
-  - [x] build menu design
-  - [x] building icon
-  - [x] select building
-  - [x] build button inside the building menu
-- [ ] buildings cost resources
-- [x] build the building at mouse position
-  - [x] show a blueprint of the building on hover
-  - [x] on click build the build
-- [x] interact with the building
-  - [x] learn how to interact
-  - [x] open craft menu
-  - [x] select recipe
-  - [x] show icon of recipe
-  - [x] display recipe details
-  - [x] select number (default 1)
-    - [x] select number (default 1)
-    - [x] update recipe requirements
-    - [x] check requirements are fulfilled
-    - [x] show warning on building when requirements not fulfilled
-  - [x] click craft
-  - [x] take resources from inventory
-  - [x] on click, close craft menu
-  - [x] opening the craft menu after it was closed resets the crafting amounts and selected recipe
-- [x] after cooldown finishes, spawn finished product
-  - [x] cooldown timer
-  - [x] get order
-  - [x] process order
-  - [x] make batch size Max and Inf work
-  - [x] progress indicator for one batch
-  - [ ] cancel current order
-  - [x] spawn finished products
-  - [x] show current order
-    - forager displays it additionally on the workshop with an "x20" for the amount
-  - [x] show overall progress of current order
-    - [x] currently shows number of batches, but on Craft button it shows `batches * units_per_batch` -> use total amount
-- [x] can collect finished product
-- [x] block player movement + actions while in crafting/building/inventory menu
+- [ ] NeededItemPanel not updating
 - [ ] collector building that autocollects outputs
-- [x] fullscreen -> using itch.io page setting
 - [ ] options menu
   - [ ] key rebinding
   - [ ] choose controller ps or controller xbox or keyboard
   - [ ] volume
-- [x] switch keyboard input prompts - [kenneys](https://kenney.nl/assets/input-prompts-pixel-16)
-  - [x] replace `dreammix/`
 - [ ] controller support
   - [ ] ps
   - [ ] xbox
+- [ ] cancel current order
 
 ## Data generation
 
