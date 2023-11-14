@@ -12,10 +12,21 @@ func _on_cooldown_timeout():
 		spawn_resource()
 
 
-func spawn_resource() -> void:
-	var crate = Crate.instantiate()
-	crate.global_position = random_vector2()
-	add_child(crate)
+func spawn_resource(attempt = 0) -> void:
+	if attempt > 10:
+		prints("collision reached max attempts. aborting.")
+		return
+	var instance = Crate.instantiate()
+	var original_collision_layer = instance.collision_layer
+	instance.collision_layer = 0  # disable collision to not move the object
+	instance.global_position = random_vector2()
+	add_child(instance)
+	var colliding = instance.test_move(instance.transform, Vector2.ZERO)
+	if colliding:
+		remove_child(instance)
+		spawn_resource(attempt + 1)
+	else:
+		instance.collision_layer = original_collision_layer  # reenable collision for a valid object
 
 
 func random_vector2() -> Vector2:
