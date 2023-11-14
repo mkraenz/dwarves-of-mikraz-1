@@ -1,6 +1,6 @@
 {
   "name": "dwarves-of-mikraz-1",
-  "version": "0.0.27",
+  "version": "0.0.28",
   "scripts": {
     "datagen": "deno run --allow-write ./scripts/generate-data-jsons.ts",
     "deploy": "npm run bump && ./shipit.sh",
