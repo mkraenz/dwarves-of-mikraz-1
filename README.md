@@ -64,8 +64,8 @@ summary:
 - [ ] NeededItemPanel not updating
 - [ ] avoid building/spawning on position where something is already placed
   - [x] decide: huge grid (e.g. forager) vs tiny grid (e.g. factorio) vs freeform (e.g. RTS games) (I'm not gonna use hex grid) -> RTS first, let's see how that feels
-  - [ ] implement RTS style placement validation for buildings
-  - [ ] placement validation for spawners
+  - [x] implement RTS style placement validation for buildings
+  - [x] placement validation for spawners
 - [ ] collector building that autocollects outputs
 - [ ] options menu
   - [ ] key rebinding
@@ -77,6 +77,7 @@ summary:
 - [ ] cancel current order
 - [ ] audio
 - [ ] ingame menus can open above eachother
+- [ ] outer bounds
 
 ## Data generation
 

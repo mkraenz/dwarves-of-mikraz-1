@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ul4n7nkxe12w"
-path="res://.godot/imported/monochrome-transparent.png-9e6ea664782f36c9e482947e4ed214fb.ctex"
+uid="uid://utg107rxb4e6"
+path="res://.godot/imported/kenney-tiny-battle-tilemap.png-2e7510eeae5835786d7b9e6bbe1c81e6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://third-party/kenney-1-bit/monochrome-transparent.png"
-dest_files=["res://.godot/imported/monochrome-transparent.png-9e6ea664782f36c9e482947e4ed214fb.ctex"]
+source_file="res://third-party/kenney-roguelike/kenney-tiny-battle-tilemap.png"
+dest_files=["res://.godot/imported/kenney-tiny-battle-tilemap.png-2e7510eeae5835786d7b9e6bbe1c81e6.ctex"]
 
 [params]
 
