@@ -11,8 +11,12 @@ interface Building {
     | { type: "Texture2D"; res_path: `res://${string}` }
     | {
         type: "AtlasTexture";
-        regionX: number;
-        regionY: number;
+        region: {
+          x: number;
+          y: number;
+          width: number;
+          height: number;
+        };
         res_path: `res://${string}`;
       };
   /** building costs */
@@ -51,8 +55,14 @@ export const buildingData = {
     label: "Smithy",
     id: "smithy",
     icon: {
-      type: "Texture2D",
-      res_path: "res://third-party/henry_lazarini/I_IronOre.png",
+      type: "AtlasTexture",
+      res_path: "res://assets/images/smithy.png",
+      region: {
+        x: 48,
+        y: 0,
+        width: 48,
+        height: 48,
+      },
     },
     needs: [
       { id: "plank", amount: 5 },

@@ -65,6 +65,7 @@ shape = SubResource("RectangleShape2D_wuawx")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_h6lc3")
 animation = &"idle"
+autoplay = "idle"
 
 [node name="HowToUse" type="Sprite2D" parent="."]
 visible = false

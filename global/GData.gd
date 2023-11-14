@@ -60,7 +60,12 @@ func _load_icon(icon: Dictionary, id: String) -> Texture2D:
 			var texture: CompressedTexture2D = load(icon.res_path)
 			return texture
 		"AtlasTexture":
-			return null
+			var underlying_texture: CompressedTexture2D = load(icon.res_path)
+			var texture: AtlasTexture = AtlasTexture.new()
+			texture.atlas = underlying_texture
+			var region = icon.region
+			texture.region = Rect2(region.x, region.y, region.width, region.height)
+			return texture
 		_:
 			printt("ERROR: unsupported texture type for ", id)
 			return null

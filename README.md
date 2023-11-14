@@ -62,6 +62,10 @@ summary:
 ## Todos
 
 - [ ] NeededItemPanel not updating
+- [ ] avoid building/spawning on position where something is already placed
+  - [x] decide: huge grid (e.g. forager) vs tiny grid (e.g. factorio) vs freeform (e.g. RTS games) (I'm not gonna use hex grid) -> RTS first, let's see how that feels
+  - [ ] implement RTS style placement validation for buildings
+  - [ ] placement validation for spawners
 - [ ] collector building that autocollects outputs
 - [ ] options menu
   - [ ] key rebinding
@@ -71,6 +75,8 @@ summary:
   - [ ] ps
   - [ ] xbox
 - [ ] cancel current order
+- [ ] audio
+- [ ] ingame menus can open above eachother
 
 ## Data generation
 
@@ -95,3 +101,10 @@ yarn deploy
 ## Other Resources
 
 - [must-see godot 4 ui tutorial](https://www.youtube.com/watch?v=1_OFJLyqlXI)
+
+## Music
+
+Options
+
+- [Animal crossing style pack 3$](https://alexcook.itch.io/relaxing-pack)
+- [napping on a cloud CC0](https://opengameart.org/content/napping-on-a-cloud)
