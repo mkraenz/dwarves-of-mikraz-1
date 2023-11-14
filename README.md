@@ -77,7 +77,7 @@ summary:
 - [ ] cancel current order
 - [ ] audio
 - [ ] ingame menus can open above eachother
-- [ ] outer bounds
+- [x] outer bounds
 
 ## Data generation
 

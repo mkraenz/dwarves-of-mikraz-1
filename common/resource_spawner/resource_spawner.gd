@@ -31,7 +31,7 @@ func spawn_resource(attempt = 0) -> void:
 
 func random_vector2() -> Vector2:
 	DisplayServer.window_get_size()
-	var dim: Vector2 = get_viewport().get_visible_rect().size / gstate.cam.zoom
+	var dim: Vector2 = Vector2(gstate.cam.limit_right, gstate.cam.limit_bottom)
 	var inset := 16
 	var x = randf_range(inset, dim.x - inset)
 	var y = randf_range(inset, dim.y - inset)
