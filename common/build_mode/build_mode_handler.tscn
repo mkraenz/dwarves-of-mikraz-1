@@ -3,11 +3,11 @@
 [ext_resource type="Script" path="res://common/build_mode/build_mode_handler.gd" id="1_imjsq"]
 
 [node name="BuildModeHandler" type="Node2D"]
-y_sort_enabled = true
 script = ExtResource("1_imjsq")
 
-[node name="BuildingBlueprint" type="Sprite2D" parent="."]
+[node name="BuildingBlueprint" type="Node2D" parent="."]
 visible = false
+z_index = 4096
 
 [node name="InitialClickDelay" type="Timer" parent="."]
 wait_time = 0.2

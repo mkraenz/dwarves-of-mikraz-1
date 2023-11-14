@@ -21,7 +21,7 @@ region = Rect2(128, 0, 128, 128)
 
 [node name="Sawmill" type="StaticBody2D" groups=["persist"]]
 collision_layer = 9
-collision_mask = 0
+collision_mask = 3
 script = ExtResource("1_nmfpx")
 
 [node name="Shape" type="CollisionShape2D" parent="."]

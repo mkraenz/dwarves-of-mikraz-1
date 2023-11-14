@@ -8,9 +8,12 @@ var gstate := GState
 var ginventory := GInventory
 var gdata := GData
 
-@onready var building_blueprint: Sprite2D = $BuildingBlueprint
+@onready var building_blueprint: Node2D = $BuildingBlueprint
 @onready var click_delay := $InitialClickDelay
 var building_id: String = ""
+
+var blueprint: PhysicsBody2D
+var colliding = true
 
 
 func _ready():
@@ -18,11 +21,20 @@ func _ready():
 	eventbus.exit_build_mode.connect(_on_exit_build_mode)
 
 
+func _physics_process(_delta):
+	if blueprint:
+		colliding = blueprint.test_move(blueprint.transform, Vector2.ZERO)
+		if colliding:
+			blueprint.modulate = Color.RED
+		else:
+			blueprint.modulate = Color.GREEN
+
+
 func _input(_event) -> void:
 	if gstate.mode == GState.Mode.build:
-		building_blueprint.global_position = get_global_mouse_position()
+		blueprint.global_position = get_global_mouse_position()
 
-		if Input.is_action_just_pressed("act") and click_delay.is_stopped():
+		if Input.is_action_just_pressed("act") and click_delay.is_stopped() and not colliding:
 			var building := gdata.get_building(building_id)
 			if ginventory.satisfies_all_needs(building.needs):
 				consume_resources(building.needs)
@@ -41,12 +53,18 @@ func spawn_at_mouse_position(Scene: PackedScene) -> void:
 
 func _on_exit_build_mode() -> void:
 	building_blueprint.hide()
+	Utils.remove_all_children(building_blueprint)
+	blueprint = null
 
 
 func _on_enter_build_mode(_building_id: String) -> void:
+	if blueprint:
+		blueprint.queue_free()
 	building_id = _building_id
-	var texture = gdata.get_building_icon(building_id)
-	building_blueprint.texture = texture
+	var Scene := get_building_scene()
+	blueprint = Scene.instantiate()
+	blueprint.collision_layer = 0
+	building_blueprint.add_child(blueprint)
 	building_blueprint.show()
 	click_delay.start()
 
