@@ -66,6 +66,7 @@ summary:
   - [x] decide: huge grid (e.g. forager) vs tiny grid (e.g. factorio) vs freeform (e.g. RTS games) (I'm not gonna use hex grid) -> RTS first, let's see how that feels
   - [x] implement RTS style placement validation for buildings
   - [x] placement validation for spawners
+  - [ ] improve placement / avoid collision
 - [ ] collector building that autocollects outputs
 - [ ] options menu
   - [ ] key rebinding

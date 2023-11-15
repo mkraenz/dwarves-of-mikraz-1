@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends StaticBody2D
 
 const DeathAnim = preload("res://world/crate/crate_death.tscn")
 const Pickup = preload("res://world/pickup/pickup.tscn")
@@ -7,6 +7,7 @@ const Pickup = preload("res://world/pickup/pickup.tscn")
 @onready var stats: Stats = $Stats
 @onready var anims: AnimationPlayer = $AnimationPlayer
 @onready var how_to_use := $HowToUse
+@onready var shape: CollisionShape2D = $Shape
 
 @export var mineable := true  # used by MouseCollider
 @export var item_id := "log"
@@ -68,3 +69,7 @@ func mark() -> void:
 
 func unmark() -> void:
 	how_to_use.hide()
+
+
+func set_collision_scale(new_scale: float) -> void:
+	shape.scale = Vector2.ONE * new_scale

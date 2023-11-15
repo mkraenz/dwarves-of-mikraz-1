@@ -3,12 +3,15 @@ extends Node2D
 const Sawmill = preload("res://world/buildings/sawmill/sawmill.tscn")
 const Smithy = preload("res://world/buildings/smithy/smithy.tscn")
 
+@export var blueprint_collision_shape_scale := 1.45:
+	set = _blueprint_collision_shape_scale
+
 var eventbus := Eventbus
 var gstate := GState
 var ginventory := GInventory
 var gdata := GData
 
-@onready var building_blueprint: Node2D = $BuildingBlueprint
+@onready var blueprint_slot: Node2D = $BlueprintSlot
 @onready var click_delay := $InitialClickDelay
 var building_id: String = ""
 
@@ -52,8 +55,8 @@ func spawn_at_mouse_position(Scene: PackedScene) -> void:
 
 
 func _on_exit_build_mode() -> void:
-	building_blueprint.hide()
-	Utils.remove_all_children(building_blueprint)
+	blueprint_slot.hide()
+	Utils.remove_all_children(blueprint_slot)
 	blueprint = null
 
 
@@ -63,9 +66,10 @@ func _on_enter_build_mode(_building_id: String) -> void:
 	building_id = _building_id
 	var Scene := get_building_scene()
 	blueprint = Scene.instantiate()
-	blueprint.collision_layer = 0
-	building_blueprint.add_child(blueprint)
-	building_blueprint.show()
+	blueprint.collision_layer = 0  # avoid pushing away objects with the blueprint
+	blueprint_slot.add_child(blueprint)
+	scale_blueprint_collision_shape(blueprint_collision_shape_scale)
+	blueprint_slot.show()
 	click_delay.start()
 
 
@@ -76,10 +80,10 @@ func get_building_scene() -> PackedScene:
 		"smithy":
 			return Smithy
 		"":
-			printt(name, "ERROR! building_id is not initialized to an actual value.")
+			push_error("building_id is not initialized to an actual value.")
 			return
 		_:
-			print(
+			push_error(
 				"actually selected %s, but so far we only have the Sawmill building" % building_id
 			)
 			return Sawmill
@@ -88,3 +92,17 @@ func get_building_scene() -> PackedScene:
 func consume_resources(needs: Array) -> void:
 	for need in needs:
 		eventbus.add_to_inventory.emit(need.id, -need.amount)
+
+
+func _blueprint_collision_shape_scale(val: float) -> void:
+	blueprint_collision_shape_scale = val
+	scale_blueprint_collision_shape(blueprint_collision_shape_scale)
+
+
+func scale_blueprint_collision_shape(new_scale: float) -> void:
+	if not blueprint:
+		return
+	if blueprint.has_method("set_collision_scale"):
+		blueprint.set_collision_scale(new_scale)
+	else:
+		push_error("blueprint is missing 'set_collision_scale'. blueprint.name", blueprint.name)

@@ -24,9 +24,9 @@ func read_json_dict(filepath: String):
 		if typeof(json.data) == TYPE_DICTIONARY:
 			return json.data
 		else:
-			printt("Unexpected data for filepath", filepath)
+			push_warning("Unexpected data for filepath", filepath)
 	else:
-		printt(
+		push_warning(
 			"JSON Parse Error:",
 			json.get_error_message(),
 			"for filepath",
@@ -67,5 +67,5 @@ func _load_icon(icon: Dictionary, id: String) -> Texture2D:
 			texture.region = Rect2(region.x, region.y, region.width, region.height)
 			return texture
 		_:
-			printt("ERROR: unsupported texture type for ", id)
+			push_error("Unsupported texture type for ", id)
 			return null

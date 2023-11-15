@@ -103,7 +103,7 @@ region = Rect2(304, 32, 16, 16)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w3uge"]
 bg_color = Color(1, 0.156863, 0.156863, 1)
 
-[node name="Crate" type="RigidBody2D" groups=["persist"]]
+[node name="Crate" type="StaticBody2D" groups=["persist"]]
 collision_mask = 3
 script = ExtResource("1_lb4kg")
 
@@ -112,7 +112,7 @@ material = SubResource("ShaderMaterial_r3og4")
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_rc7yc")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Shape" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -4)
 shape = SubResource("RectangleShape2D_pcu3n")
 

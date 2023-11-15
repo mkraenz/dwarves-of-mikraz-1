@@ -45,7 +45,7 @@ func refresh() -> void:
 		panel.selected.connect(_on_panel_selected)
 
 	if not recipes:
-		printt(name, "WARNING: No recipes available")
+		push_error("No recipes available")
 		return
 	if not selected_id:
 		_on_panel_selected(recipes[0].item_id)

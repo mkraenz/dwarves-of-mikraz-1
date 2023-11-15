@@ -20,6 +20,7 @@ var gstate := GState
 @onready var audio := $Audio
 @onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var progressbar: TextureProgressBar = $Progressbar
+@onready var shape: CollisionShape2D = $Shape
 
 var ticks_to_batch_completion = INF
 var produced_batches: int = 0
@@ -239,3 +240,7 @@ func animate_mark_as_idle() -> void:
 
 func animate_mark_as_pending() -> void:
 	animate_mark_as_idle()
+
+
+func set_collision_scale(new_scale: float) -> void:
+	shape.scale = Vector2.ONE * new_scale

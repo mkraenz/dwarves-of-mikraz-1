@@ -19,6 +19,7 @@ var gstate := GState
 @onready var sprite := $Sprite2D
 @onready var audio := $Audio
 @onready var progressbar: TextureProgressBar = $Progressbar
+@onready var shape: CollisionShape2D = $Shape
 
 var ticks_to_batch_completion = INF
 var produced_batches: int = 0
@@ -215,3 +216,7 @@ func _output_pickups(item_id: String, amount: int) -> void:
 		instance.global_position = global_position + Vector2(x, y)
 		instance.item_id = item_id
 		get_parent().add_child(instance)
+
+
+func set_collision_scale(new_scale: float) -> void:
+	shape.scale = Vector2.ONE * new_scale
