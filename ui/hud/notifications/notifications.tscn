@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://ds2qodwrbmiud"]
+
+[ext_resource type="Script" path="res://ui/hud/notifications/notifications.gd" id="1_py53a"]
+
+[node name="Notifications" type="RichTextLabel"]
+custom_minimum_size = Vector2(500, 0)
+bbcode_enabled = true
+text = "[center]Hello there, [color=purple]Twitch[/color]. It's awesome to see you.[/center]"
+fit_content = true
+scroll_active = false
+script = ExtResource("1_py53a")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

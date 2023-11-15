@@ -50,7 +50,10 @@ func _input(_event) -> void:
 				consume_resources(building.needs)
 				var BuildingScene = get_building_scene()
 				spawn_at_mouse_position(BuildingScene)
-				eventbus.exit_build_mode.emit()
+				if not Input.is_action_pressed("multiplace"):
+					eventbus.exit_build_mode.emit()
+			else:
+				eventbus.show_notification.emit("Not enough resources.", 5.0)
 
 
 func spawn_at_mouse_position(Scene: PackedScene) -> void:

@@ -20,3 +20,5 @@ signal toggle_inventory_menu
 
 signal enter_build_mode(building_id: String)
 signal exit_build_mode
+
+signal show_notification(message: String, duration_in_sec: float)

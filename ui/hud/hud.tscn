@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://dn05qj4gsbmoa"]
+[gd_scene load_steps=7 format=3 uid="uid://dn05qj4gsbmoa"]
 
+[ext_resource type="PackedScene" uid="uid://ds2qodwrbmiud" path="res://ui/hud/notifications/notifications.tscn" id="1_20kht"]
 [ext_resource type="Texture2D" uid="uid://jfmr2n8kjf10" path="res://third-party/kenney/kenney-input-prompts-34x24-a-16x16.png" id="1_lmv2g"]
 [ext_resource type="Script" path="res://ui/hud/BuildMenuHint.gd" id="2_ojauf"]
 [ext_resource type="Script" path="res://ui/inventory/toggle_menu_button.gd" id="4_yojxo"]
@@ -28,18 +29,33 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
+theme_type_variation = &"MarginAllSmall"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="M"]
+[node name="V" type="VBoxContainer" parent="M"]
+layout_mode = 2
+
+[node name="M" type="MarginContainer" parent="M/V"]
+layout_mode = 2
+theme_override_constants/margin_top = 60
+
+[node name="H" type="HBoxContainer" parent="M/V/M"]
+layout_mode = 2
+alignment = 1
+
+[node name="Notifications" parent="M/V/M/H" instance=ExtResource("1_20kht")]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="M/V"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="V" type="VBoxContainer" parent="M/V"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 theme_override_constants/separation = -4
 
-[node name="InventoryMenuHint" type="Button" parent="M/VBoxContainer"]
+[node name="InventoryMenuHint" type="Button" parent="M/V/V"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
@@ -49,7 +65,7 @@ flat = true
 icon_alignment = 2
 script = ExtResource("4_yojxo")
 
-[node name="BuildMenuHint" type="Button" parent="M/VBoxContainer"]
+[node name="BuildMenuHint" type="Button" parent="M/V/V"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
@@ -59,5 +75,5 @@ flat = true
 icon_alignment = 2
 script = ExtResource("2_ojauf")
 
-[connection signal="pressed" from="M/VBoxContainer/InventoryMenuHint" to="M/VBoxContainer/InventoryMenuHint" method="_on_pressed"]
-[connection signal="pressed" from="M/VBoxContainer/BuildMenuHint" to="M/VBoxContainer/BuildMenuHint" method="_on_pressed"]
+[connection signal="pressed" from="M/V/V/InventoryMenuHint" to="M/V/V/InventoryMenuHint" method="_on_pressed"]
+[connection signal="pressed" from="M/V/V/BuildMenuHint" to="M/V/V/BuildMenuHint" method="_on_pressed"]

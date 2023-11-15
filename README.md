@@ -68,7 +68,8 @@ summary:
   - [x] placement validation for spawners
   - [x] improve placement / avoid collision
   - [x] exit build mode
-  - [ ] multi placement with Shift key
+  - [x] multi placement with Shift key
+  - [x] show warning on "not enough resources" -> notification system
 - [ ] collector building that autocollects outputs
 - [ ] options menu
   - [ ] key rebinding
