@@ -20,5 +20,4 @@ signal toggle_building_menu
 signal toggle_inventory_menu
 
 signal enter_build_mode(building_id: String)
-signal enter_character_mode
 signal exit_build_mode

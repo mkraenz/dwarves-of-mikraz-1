@@ -62,11 +62,13 @@ summary:
 ## Todos
 
 - [ ] NeededItemPanel not updating
-- [ ] avoid building/spawning on position where something is already placed
+- [x] avoid building/spawning on position where something is already placed
   - [x] decide: huge grid (e.g. forager) vs tiny grid (e.g. factorio) vs freeform (e.g. RTS games) (I'm not gonna use hex grid) -> RTS first, let's see how that feels
   - [x] implement RTS style placement validation for buildings
   - [x] placement validation for spawners
-  - [ ] improve placement / avoid collision
+  - [x] improve placement / avoid collision
+  - [x] exit build mode
+  - [ ] multi placement with Shift key
 - [ ] collector building that autocollects outputs
 - [ ] options menu
   - [ ] key rebinding

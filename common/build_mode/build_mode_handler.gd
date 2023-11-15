@@ -35,6 +35,13 @@ func _physics_process(_delta):
 
 func _input(_event) -> void:
 	if gstate.mode == GState.Mode.build:
+		if Input.is_action_just_pressed("close"):
+			eventbus.exit_build_mode.emit()
+			return
+
+		if not blueprint:
+			return
+
 		blueprint.global_position = get_global_mouse_position()
 
 		if Input.is_action_just_pressed("act") and click_delay.is_stopped() and not colliding:
@@ -44,7 +51,6 @@ func _input(_event) -> void:
 				var BuildingScene = get_building_scene()
 				spawn_at_mouse_position(BuildingScene)
 				eventbus.exit_build_mode.emit()
-				eventbus.enter_character_mode.emit()
 
 
 func spawn_at_mouse_position(Scene: PackedScene) -> void:
@@ -67,6 +73,7 @@ func _on_enter_build_mode(_building_id: String) -> void:
 	var Scene := get_building_scene()
 	blueprint = Scene.instantiate()
 	blueprint.collision_layer = 0  # avoid pushing away objects with the blueprint
+	blueprint.global_position = get_global_mouse_position()
 	blueprint_slot.add_child(blueprint)
 	scale_blueprint_collision_shape(blueprint_collision_shape_scale)
 	blueprint_slot.show()

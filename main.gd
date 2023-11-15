@@ -29,7 +29,6 @@ func _ready() -> void:
 	eventbus.toggle_building_menu.connect(_on_toggle_building_menu)
 	eventbus.toggle_inventory_menu.connect(_on_toggle_inventory_menu)
 	eventbus.enter_build_mode.connect(_on_enter_build_mode)
-	eventbus.enter_character_mode.connect(_on_enter_character_mode)
 
 
 func is_ingame() -> bool:
@@ -112,10 +111,6 @@ func _on_toggle_building_menu() -> void:
 func _on_enter_build_mode(_building_id: String) -> void:
 	building_menu.hide()
 	gstate.mode = GState.Mode.build
-
-
-func _on_enter_character_mode() -> void:
-	gstate.mode = GState.Mode.character
 
 
 func _on_toggle_inventory_menu() -> void:
