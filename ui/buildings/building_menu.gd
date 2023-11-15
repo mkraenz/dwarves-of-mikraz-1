@@ -18,7 +18,7 @@ func _ready():
 
 func _input(_event):
 	if visible and Input.is_action_just_pressed("close"):
-		eventbus.close_building_menu.emit()
+		close_menu()
 
 
 func _physics_process(_delta: float) -> void:
@@ -49,3 +49,7 @@ func get_building(index: int) -> Dictionary:
 
 func _on_item_list_item_selected(index):
 	details.building = get_building(index)
+
+
+func close_menu():
+	hide()

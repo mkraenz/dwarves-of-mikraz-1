@@ -19,7 +19,7 @@ func _ready():
 
 func _input(_event):
 	if visible and Input.is_action_just_pressed("close"):
-		eventbus.close_inventory_menu.emit()
+		close_menu()
 
 
 func redraw_data() -> void:
@@ -43,3 +43,7 @@ func fill_item_list() -> void:
 		var i = item_list.add_item(str(inventory_item.amount), icon)
 		item_list.set_item_metadata(i, item_key)
 		item_list.set_item_tooltip(i, item.label)
+
+
+func close_menu():
+	hide()

@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://ce83xqbtw77i5"]
+[gd_scene load_steps=3 format=3 uid="uid://ce83xqbtw77i5"]
 
 [ext_resource type="PackedScene" uid="uid://yjnjpa3w23jx" path="res://ui/common/backdrop.tscn" id="2_fmctf"]
 [ext_resource type="Script" path="res://ui/inventory/inventory_menu.gd" id="2_tr1jg"]
-[ext_resource type="Script" path="res://ui/inventory/toggle_menu_button.gd" id="2_y0lhc"]
 
 [node name="InventoryMenu" type="Control" groups=["blocking"]]
 layout_mode = 3
@@ -54,6 +53,5 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 text = "X"
-script = ExtResource("2_y0lhc")
 
-[connection signal="pressed" from="M/P/M/H/M/CloseButton" to="M/P/M/H/M/CloseButton" method="_on_pressed"]
+[connection signal="pressed" from="M/P/M/H/M/CloseButton" to="." method="close_menu"]

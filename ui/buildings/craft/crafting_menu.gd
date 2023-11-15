@@ -28,7 +28,12 @@ var ordered_batches: float = 0.0:
 
 func _input(_event):
 	if visible and Input.is_action_just_pressed("close"):
-		eventbus.close_crafting_menu.emit()
+		close_menu()
+
+
+func close_menu() -> void:
+	soft_reset()
+	hide()
 
 
 func _set_batches(val: float) -> void:
@@ -101,4 +106,4 @@ func _on_craft_button_pressed() -> void:
 	var recipe = get_current_recipe()
 
 	eventbus.ordered_at_workshop.emit(recipe, ordered_batches, workshop_node_path)
-	eventbus.close_crafting_menu.emit()
+	close_menu()

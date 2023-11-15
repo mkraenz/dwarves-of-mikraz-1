@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://bhc1lv183q4nr"]
+[gd_scene load_steps=8 format=3 uid="uid://bhc1lv183q4nr"]
 
 [ext_resource type="Script" path="res://ui/buildings/building_menu.gd" id="1_bhq74"]
-[ext_resource type="Script" path="res://ui/buildings/close_button.gd" id="2_1kb71"]
 [ext_resource type="PackedScene" uid="uid://yjnjpa3w23jx" path="res://ui/common/backdrop.tscn" id="2_g4eh5"]
 [ext_resource type="Texture2D" uid="uid://co6mylr4lajdt" path="res://assets/images/buzzsaw.png" id="2_p18lv"]
 [ext_resource type="Texture2D" uid="uid://nh8toscaritt" path="res://third-party/henry_lazarini/I_IronBar.png" id="3_bxqt1"]
@@ -52,7 +51,6 @@ horizontal_alignment = 1
 [node name="CloseButton" type="Button" parent="M/P/M/V/Header"]
 layout_mode = 2
 text = "X"
-script = ExtResource("2_1kb71")
 
 [node name="H" type="HBoxContainer" parent="M/P/M/V"]
 layout_mode = 2
@@ -95,7 +93,7 @@ size_flags_horizontal = 4
 text = "Build"
 icon = ExtResource("6_4j3a5")
 
-[connection signal="pressed" from="M/P/M/V/Header/CloseButton" to="M/P/M/V/Header/CloseButton" method="_on_pressed"]
+[connection signal="pressed" from="M/P/M/V/Header/CloseButton" to="." method="close_menu"]
 [connection signal="item_activated" from="M/P/M/V/H/ItemList" to="." method="_on_item_list_item_activated"]
 [connection signal="item_selected" from="M/P/M/V/H/ItemList" to="." method="_on_item_list_item_selected"]
 [connection signal="pressed" from="M/P/M/V/M/BuildButton" to="." method="_on_build_button_pressed"]
