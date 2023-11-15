@@ -27,7 +27,9 @@ func _ready() -> void:
 	eventbus.toggle_crafting_menu.connect(_on_toggle_crafting_menu)
 	eventbus.close_crafting_menu.connect(_on_close_crafting_menu)
 	eventbus.toggle_building_menu.connect(_on_toggle_building_menu)
+	eventbus.close_building_menu.connect(_on_close_building_menu)
 	eventbus.toggle_inventory_menu.connect(_on_toggle_inventory_menu)
+	eventbus.close_inventory_menu.connect(_on_close_inventory_menu)
 	eventbus.enter_build_mode.connect(_on_enter_build_mode)
 
 
@@ -115,3 +117,11 @@ func _on_enter_build_mode(_building_id: String) -> void:
 
 func _on_toggle_inventory_menu() -> void:
 	inventory_menu.visible = not inventory_menu.visible
+
+
+func _on_close_inventory_menu() -> void:
+	inventory_menu.hide()
+
+
+func _on_close_building_menu() -> void:
+	building_menu.hide()

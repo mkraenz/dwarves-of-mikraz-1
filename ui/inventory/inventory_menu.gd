@@ -3,6 +3,7 @@ extends Control
 var ginventory := GInventory
 var gdata := GData
 var gstate := GState
+var eventbus := Eventbus
 
 @onready var item_list: ItemList = $M/P/M/H/ItemList
 
@@ -14,6 +15,11 @@ func _physics_process(_delta: float) -> void:
 
 func _ready():
 	fill_item_list()
+
+
+func _input(_event):
+	if visible and Input.is_action_just_pressed("close"):
+		eventbus.close_inventory_menu.emit()
 
 
 func redraw_data() -> void:

@@ -26,6 +26,11 @@ var ordered_batches: float = 0.0:
 		)
 
 
+func _input(_event):
+	if visible and Input.is_action_just_pressed("close"):
+		eventbus.close_crafting_menu.emit()
+
+
 func _set_batches(val: float) -> void:
 	batches = val
 	if batches < 0:

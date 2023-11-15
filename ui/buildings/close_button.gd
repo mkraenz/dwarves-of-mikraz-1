@@ -4,4 +4,4 @@ var eventbus := Eventbus
 
 
 func _on_pressed():
-	eventbus.toggle_building_menu.emit()
+	eventbus.close_building_menu.emit()

@@ -16,6 +16,11 @@ func _ready():
 		item_list.set_item_metadata(index, building.id)
 
 
+func _input(_event):
+	if visible and Input.is_action_just_pressed("close"):
+		eventbus.close_building_menu.emit()
+
+
 func _physics_process(_delta: float) -> void:
 	for index in item_list.item_count:
 		var building = get_building(index)

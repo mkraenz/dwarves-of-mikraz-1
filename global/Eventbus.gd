@@ -17,7 +17,9 @@ signal toggle_crafting_menu(for_building: String, workshop_node_path: String)  #
 signal close_crafting_menu
 signal ordered_at_workshop(recipe: Dictionary, batches: float, workshop_node_path: String)
 signal toggle_building_menu
+signal close_building_menu
 signal toggle_inventory_menu
+signal close_inventory_menu
 
 signal enter_build_mode(building_id: String)
 signal exit_build_mode
