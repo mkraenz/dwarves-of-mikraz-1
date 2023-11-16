@@ -86,7 +86,7 @@ summary:
   - [ ] allow ginventory changes with save-load functionality
 - [x] prefer `@export` for Dependency Injection -> fail as soon as persistence comes into play, except it is common to almost all objects or at a large group of objects
 - [x] DRY smithy and sawmill
-- [ ] font size of order display of sawmill vs charcoal kiln/smithy
+- [x] font size of order display of sawmill vs charcoal kiln/smithy
 - [ ] BUG: how to save/load production state
 
 ## Data generation
