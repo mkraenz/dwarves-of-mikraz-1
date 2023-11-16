@@ -2,7 +2,7 @@ extends Node2D
 
 const Pickup = preload("res://world/pickup/pickup.tscn")
 
-## the thing that is producing
+## the thing that is producing. type: `{on_output_products: () => void; on_production_idle: () => void; on_production_producing: () => void; on_production_blocked: () => void; on_production_pending: () => void; get_path: () => void;}`
 @export var production_site: Node2D
 @export var reference_node: Node2D
 @export var progressbar: Range

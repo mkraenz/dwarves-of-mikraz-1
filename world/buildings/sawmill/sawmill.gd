@@ -19,10 +19,6 @@ func unmark() -> void:
 	how_to_use.hide()
 
 
-func clear_order() -> void:
-	production.clear_order()
-
-
 func save() -> Dictionary:
 	var save_dict = {
 		"file_id": "sawmill_DgFJ2E",

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b43yygkrld0ry"]
+[gd_scene load_steps=16 format=3 uid="uid://b43yygkrld0ry"]
 
 [ext_resource type="Script" path="res://world/buildings/smithy/smithy.gd" id="1_nmfpx"]
 [ext_resource type="Texture2D" uid="uid://dejapy0ejca46" path="res://world/buildings/common/key-f.tres" id="3_vt8h2"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://noa3q0awltwv" path="res://third-party/sounds/pickups/pop.mp3" id="7_4rb6a"]
 [ext_resource type="Script" path="res://world/buildings/smithy/current_order_display.gd" id="7_c87u4"]
 [ext_resource type="Texture2D" uid="uid://bh8fyhr10mw41" path="res://assets/images/smithy.png" id="7_raft2"]
+[ext_resource type="PackedScene" uid="uid://p7ame63w6rhl" path="res://world/buildings/common/production/production.tscn" id="8_vi8pg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wuawx"]
 size = Vector2(37, 33.5)
@@ -101,3 +102,10 @@ text = "12"
 stream = ExtResource("7_4rb6a")
 volume_db = -20.0
 bus = &"Sounds"
+
+[node name="Production" parent="." node_paths=PackedStringArray("production_site", "reference_node", "progressbar", "current_order_display") instance=ExtResource("8_vi8pg")]
+production_site = NodePath("..")
+reference_node = NodePath("..")
+progressbar = NodePath("../Progressbar")
+current_order_display = NodePath("../CurrentOrderDisplay")
+building_type = "smithy"
