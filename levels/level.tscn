@@ -926,7 +926,8 @@ position = Vector2(141, 169)
 [node name="ProductionTakt" type="Timer" parent="."]
 autostart = true
 
-[node name="BuildModeHandler" parent="." instance=ExtResource("7_55u28")]
+[node name="BuildModeHandler" parent="." node_paths=PackedStringArray("target_node") instance=ExtResource("7_55u28")]
+target_node = NodePath("..")
 
 [node name="Smithy" parent="." instance=ExtResource("8_nspfr")]
 position = Vector2(308, 76)

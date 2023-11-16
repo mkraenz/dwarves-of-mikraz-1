@@ -6,7 +6,6 @@
 script = ExtResource("1_imjsq")
 
 [node name="BlueprintSlot" type="Node2D" parent="."]
-visible = false
 z_index = 4096
 
 [node name="InitialClickDelay" type="Timer" parent="."]
