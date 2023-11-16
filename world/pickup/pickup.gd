@@ -59,7 +59,7 @@ func _on_suck_cooldown_timeout():
 
 func save() -> Dictionary:
 	var save_dict = {
-		"filename": get_scene_file_path(),
+		"file_id": "pickup_FUwDe7",
 		"parent": get_parent().get_path(),
 		"pos_x": position.x,
 		"pos_y": position.y,

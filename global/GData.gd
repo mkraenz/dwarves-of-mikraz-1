@@ -7,6 +7,8 @@ var items: Dictionary
 ## type: BuildingData
 var buildings: Dictionary
 var version: String = "0.0.x"
+## type: ScriptRegistry
+var scripts: Dictionary
 
 
 func _ready():
@@ -14,6 +16,7 @@ func _ready():
 	items = read_json_dict("res://assets/data/items.json")
 	buildings = read_json_dict("res://assets/data/buildings.json")
 	version = read_json_dict("res://package.json").version
+	scripts = read_json_dict("res://assets/data/script.registry.json")
 
 
 func read_json_dict(filepath: String):

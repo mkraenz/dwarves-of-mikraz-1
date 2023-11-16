@@ -3,8 +3,35 @@ extends Node
 var eventbus := Eventbus
 var gdata := GData
 
-## type: { [item_id: string]: {amount: int} }
-var inventory: Dictionary
+## type:
+## ```ts
+## {
+##	[item_id: string]: {
+##		amount: int;
+## 		/** whether the player has collected this resource before */
+## 		seen: boolean
+## 	}
+## }
+## ```
+var inventory: Dictionary:
+	set = _set_inventory
+
+var seen_items: Dictionary:
+	get = _get_seen_items
+
+
+func _get_seen_items() -> Dictionary:
+	var x_seen_items := {}
+	for id in inventory.keys():
+		var item = inventory[id]
+		if item.seen:
+			x_seen_items[id] = item
+	return x_seen_items
+
+
+func _set_inventory(val: Dictionary) -> void:
+	inventory = val
+	eventbus.ginventory_overwritten.emit()
 
 
 func _ready():
@@ -32,18 +59,18 @@ func get_max_producable_batches(needs: Array) -> float:
 func reset() -> void:
 	inventory = {}
 	for key in gdata.items:
-		inventory[key] = {"amount": 0}
+		inventory[key] = {"amount": 0, "seen": false}
 
 
 func _on_add_to_inventory(item_id: String, amount: int):
 	inventory[item_id].amount += amount
+	inventory[item_id].seen = true
 	eventbus.inventory_changed.emit(item_id, inventory[item_id].amount)
 
 
-func save():
+func save() -> Dictionary:
 	var data = {
-		## TODO a direct dependency on the file path (in save file: `"filename":"res://player/Player.tscn"`) means that we cannot move or rename the file. Idea: better to have an ID to a file here, as well as a lookup table (in code only!) that is easily changeable. Same goes for autoload_name actually
-		"filename": get_scene_file_path(),
+		"file_id": "ginventory_GVwfHU",
 		"is_autoload": true,
 		"autoload_name": "GInventory",
 		"inventory": inventory

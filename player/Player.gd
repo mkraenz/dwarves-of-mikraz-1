@@ -68,7 +68,7 @@ func _locked_anim_finished() -> void:
 
 func save() -> Dictionary:
 	var save_dict = {
-		"filename": get_scene_file_path(),
+		"file_id": "player_rqXkdk",
 		"parent": get_parent().get_path(),
 		"pos_x": position.x,  # Vector2 is not supported by JSON
 		"pos_y": position.y,

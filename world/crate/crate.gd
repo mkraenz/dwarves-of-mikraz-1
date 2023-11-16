@@ -53,7 +53,7 @@ func spawn(Scene: PackedScene, offset := Vector2.ZERO):
 
 func save() -> Dictionary:
 	var save_dict = {
-		"filename": get_scene_file_path(),
+		"file_id": "crate_tmMrzy",
 		"parent": get_parent().get_path(),
 		"pos_x": position.x,  # Vector2 is not supported by JSON
 		"pos_y": position.y,

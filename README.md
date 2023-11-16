@@ -82,6 +82,7 @@ summary:
 - [ ] audio
 - [ ] ingame menus can open above eachother
 - [x] outer bounds
+- [ ] script registry
 
 ## Data generation
 

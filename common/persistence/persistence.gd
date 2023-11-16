@@ -2,10 +2,11 @@ extends Node
 
 var inventory := GInventory
 var gstate := GState
+var gdata := GData
 
-## following https://docs.godotengine.org/en/stable/tutorials/io/saving_games.html except for handling of autoload variables aka globals
+## largely following https://docs.godotengine.org/en/stable/tutorials/io/saving_games.html
 
-# on my ubuntu: rm ~/.local/share/godot/app_userdata/Dwarves\ of\ Mikraz\ 1/savegame.save
+# remove savegame command on my ubuntu: rm ~/.local/share/godot/app_userdata/Dwarves\ of\ Mikraz\ 1/savegame.save
 const FILEPATH = "user://savegame.save"
 
 
@@ -81,12 +82,18 @@ func load_game(tree: SceneTree, get_tree_node: Callable):
 			if node_data["autoload_name"] == "GInventory":
 				inventory.inventory = node_data["inventory"]
 		else:
-			const handled_keys = [
-				"filename", "parent", "pos_x", "pos_y", "is_autoload", "node_name"
-			]
+			const handled_keys = ["file_id", "parent", "pos_x", "pos_y", "is_autoload", "node_name"]
 
 			# Firstly, create the object and set its position.
-			var new_object = load(node_data["filename"]).instantiate()
+			var script = gdata.scripts.get(node_data["file_id"])
+			if not script:
+				push_error(
+					(
+						"Script found in save game that does not exist in the script registry. file_id: %s"
+						% node_data["file_id"]
+					)
+				)
+			var new_object = load(script.res_path).instantiate()
 			new_object.position = Vector2(node_data["pos_x"], node_data["pos_y"])
 
 			# Now we set the remaining variables.
