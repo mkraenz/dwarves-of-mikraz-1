@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://p7ame63w6rhl"]
+
+[ext_resource type="Script" path="res://world/buildings/common/production/production.gd" id="1_i1t3m"]
+
+[node name="Production" type="Node2D"]
+script = ExtResource("1_i1t3m")

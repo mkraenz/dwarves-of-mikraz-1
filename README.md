@@ -83,7 +83,9 @@ summary:
 - [ ] ingame menus can open above eachother
 - [x] outer bounds
 - [x] script registry
-- [ ] allow ginventory changes with save-load functionality
+  - [ ] allow ginventory changes with save-load functionality
+- [x] prefer `@export` for Dependency Injection -> fail as soon as persistence comes into play, except it is common to almost all objects or at a large group of objects
+- [ ] DRY smithy and sawmill
 
 ## Data generation
 
