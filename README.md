@@ -82,7 +82,8 @@ summary:
 - [ ] audio
 - [ ] ingame menus can open above eachother
 - [x] outer bounds
-- [ ] script registry
+- [x] script registry
+- [ ] allow ginventory changes with save-load functionality
 
 ## Data generation
 
