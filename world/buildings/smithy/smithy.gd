@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-@onready var how_to_use := $HowToUse
+@onready var how_to_interact := $HowToInteract
 @onready var audio := $Audio
 @onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var shape: CollisionShape2D = $Shape
@@ -12,11 +12,11 @@ func interact() -> void:
 
 
 func mark() -> void:
-	how_to_use.show()
+	how_to_interact.show()
 
 
 func unmark() -> void:
-	how_to_use.hide()
+	how_to_interact.hide()
 
 
 func save() -> Dictionary:

@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=3 uid="uid://dbtbfpiho8sx1"]
+
+[ext_resource type="Script" path="res://world/buildings/charcoal_kiln/charcoal_kiln.gd" id="1_1mcgh"]
+[ext_resource type="Texture2D" uid="uid://b4lbmdd2n5ebi" path="res://third-party/kenney-roguelike/roguelikeSheet_transparent.png" id="1_ms5hd"]
+[ext_resource type="PackedScene" uid="uid://p7ame63w6rhl" path="res://world/buildings/common/production/production.tscn" id="2_o1fro"]
+[ext_resource type="PackedScene" uid="uid://t2utidwitf4t" path="res://world/buildings/common/current_order_display/current_order_display.tscn" id="3_snav2"]
+[ext_resource type="PackedScene" uid="uid://cyfyx07i1ornl" path="res://world/buildings/common/progressbar/progressbar.tscn" id="4_xhkxv"]
+[ext_resource type="AudioStream" uid="uid://noa3q0awltwv" path="res://third-party/sounds/pickups/pop.mp3" id="6_w8jxa"]
+[ext_resource type="PackedScene" uid="uid://c2mrs2touugk1" path="res://world/buildings/common/how_to_interact/how_to_interact.tscn" id="7_jjvep"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7xndd"]
+size = Vector2(28, 20)
+
+[node name="CharcoalKiln" type="StaticBody2D"]
+script = ExtResource("1_1mcgh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+scale = Vector2(2, 2)
+texture = ExtResource("1_ms5hd")
+region_enabled = true
+region_rect = Rect2(864, 128, 16, 16)
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_7xndd")
+
+[node name="Production" parent="." node_paths=PackedStringArray("production_site", "reference_node", "progressbar", "current_order_display") instance=ExtResource("2_o1fro")]
+production_site = NodePath("..")
+reference_node = NodePath("..")
+progressbar = NodePath("../Progressbar")
+current_order_display = NodePath("../CurrentOrderDisplay")
+building_type = "charcoal_kiln"
+
+[node name="CurrentOrderDisplay" parent="." instance=ExtResource("3_snav2")]
+position = Vector2(0, -10)
+
+[node name="Progressbar" parent="." instance=ExtResource("4_xhkxv")]
+offset_top = -20.0
+offset_bottom = 108.0
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_w8jxa")
+
+[node name="HowToInteract" parent="." instance=ExtResource("7_jjvep")]
+position = Vector2(1, -38)

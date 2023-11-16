@@ -68,9 +68,21 @@ export const craftingData = {
     {
       id: "iron_ingot",
       item_id: "iron_ingot",
-      needs: [{ id: "iron_ore", amount: 2 }],
-      batch_size: 1,
+      needs: [
+        { id: "iron_ore", amount: 2 },
+        { id: "coal", amount: 1 },
+      ],
+      batch_size: 2,
       duration_in_ticks: 10,
+    },
+  ],
+  charcoal_kiln: [
+    {
+      id: "charcoal",
+      item_id: "coal",
+      needs: [{ id: "log", amount: 1 }],
+      batch_size: 1,
+      duration_in_ticks: 4,
     },
   ],
 } satisfies CraftingData;

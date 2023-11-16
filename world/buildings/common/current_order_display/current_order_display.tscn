@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://t2utidwitf4t"]
+
+[ext_resource type="Texture2D" uid="uid://bus5vv87fkg6d" path="res://third-party/kenney-tiny-town/log.png" id="1_tsb6n"]
+[ext_resource type="Script" path="res://world/buildings/common/current_order_display/current_order_display.gd" id="2_1djx3"]
+
+[node name="CurrentOrderDisplay" type="Sprite2D"]
+z_index = 1
+texture = ExtResource("1_tsb6n")
+script = ExtResource("2_1djx3")
+
+[node name="Amount" type="Label" parent="."]
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 41.0
+offset_bottom = 14.0
+theme_type_variation = &"LabelSmall"
+text = "12"

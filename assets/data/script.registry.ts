@@ -28,6 +28,10 @@ export const scriptRegistry = {
     res_path: "res://world/buildings/smithy/smithy.tscn",
     id: "smithy_2IVp6B",
   },
+  charcoal_kiln_gbuAXz: {
+    res_path: "res://world/buildings/charcoal_kiln/charcoal_kiln.tscn",
+    id: "charcoal_kiln_gbuAXz",
+  },
   ginventory_GVwfHU: {
     res_path: "res://global/GInventory.gd",
     id: "ginventory_GVwfHU",

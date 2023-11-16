@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2mrs2touugk1"]
+
+[ext_resource type="Texture2D" uid="uid://dejapy0ejca46" path="res://world/buildings/common/key-f.tres" id="1_tb4lm"]
+
+[node name="HowToInteract" type="Sprite2D"]
+visible = false
+position = Vector2(1, -17)
+texture = ExtResource("1_tb4lm")

@@ -76,6 +76,6 @@ export const buildingData = {
       type: "Texture2D",
       res_path: "res://third-party/henry_lazarini/I_Coal.png",
     },
-    needs: [{ id: "plank", amount: 8 }],
+    needs: [{ id: "plank", amount: 4 }],
   },
 } satisfies BuildingData;

@@ -1,6 +1,7 @@
 extends Node2D
 
 const Sawmill = preload("res://world/buildings/sawmill/sawmill.tscn")
+const CharcoalKiln = preload("res://world/buildings/charcoal_kiln/charcoal_kiln.tscn")
 const Smithy = preload("res://world/buildings/smithy/smithy.tscn")
 
 ## The node that new buildings get attached to, and buildings attach outputs to.
@@ -89,6 +90,8 @@ func get_building_scene() -> PackedScene:
 			return Sawmill
 		"smithy":
 			return Smithy
+		"charcoal_kiln":
+			return CharcoalKiln
 		"":
 			push_error("building_id is not initialized to an actual value.")
 			return
