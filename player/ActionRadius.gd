@@ -1,5 +1,7 @@
 extends Area2D
 
+@export var reference_node: Node2D
+
 @onready var gstate := GState
 
 
@@ -28,22 +30,20 @@ func unmark_all() -> void:
 
 
 func add_marks() -> void:
-	var player = get_parent()
 	var closest_interactable = gstate.get_closest_body_in_player_action_radius(
-		player.global_position, "interact"
+		reference_node.global_position, "interact"
 	)
 	try_mark_node(closest_interactable)
 
 	var closest_mineable = gstate.get_closest_body_in_player_action_radius(
-		player.global_position, "mine"
+		reference_node.global_position, "mine"
 	)
 	try_mark_node(closest_mineable)
 
 
 func act_on_closest_actable(method_name: String):
-	var player = get_parent()
 	var closest_node = gstate.get_closest_body_in_player_action_radius(
-		player.global_position, method_name
+		reference_node.global_position, method_name
 	)
 	if closest_node:
 		closest_node.call(method_name)
