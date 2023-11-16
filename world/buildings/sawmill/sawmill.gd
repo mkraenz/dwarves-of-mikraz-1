@@ -25,17 +25,13 @@ func save() -> Dictionary:
 		"parent": get_parent().get_path(),
 		"pos_x": position.x,  # Vector2 is not supported by JSON
 		"pos_y": position.y,
-		"ordered_recipe": production.ordered_recipe,
-		"ordered_batches": JSONX.stringify_float(production.ordered_batches),
-		"produced_batches": production.produced_batches,
-		"ticks_to_batch_completion": JSONX.stringify_float(production.ticks_to_batch_completion),
-		"resources_in_use": production.resources_in_use,
+		"production": production.save()
 	}
 	return save_dict
 
 
-func on_load() -> void:
-	pass
+func on_load(save_dict: Dictionary) -> void:
+	production.load_from(save_dict.production)
 
 
 func on_production_producing() -> void:

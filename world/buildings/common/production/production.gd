@@ -191,3 +191,25 @@ func _output_pickups(item_id: String, amount: int) -> void:
 		instance.global_position = global_position + Vector2(x, y)
 		instance.item_id = item_id
 		gstate.level.add_child(instance)
+
+
+func save() -> Dictionary:
+	var save_dict = {
+		"ordered_recipe": ordered_recipe,
+		"ordered_batches": JSONX.stringify_float(ordered_batches),
+		"produced_batches": produced_batches,
+		"ticks_to_batch_completion": JSONX.stringify_float(ticks_to_batch_completion),
+		"resources_in_use": resources_in_use,
+	}
+	return save_dict
+
+
+func load_from(save_dict: Dictionary) -> void:
+	for key in save_dict.keys():
+		var val = save_dict[key]
+		match typeof(val):
+			TYPE_STRING:
+				var value = JSONX.try_parse_infinity(val)
+				self.set(key, value)
+			_:
+				self.set(key, val)
