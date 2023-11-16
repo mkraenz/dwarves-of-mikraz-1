@@ -9,6 +9,7 @@ var mode: Mode = Mode.menu
 
 ## camera sets itself on ready
 var cam: Camera2D
+var level: Node2D
 
 ## in seconds
 var tick_duration: float = 1

@@ -223,7 +223,7 @@ func _output_pickups(item_id: String, amount: int) -> void:
 		var instance = Pickup.instantiate()
 		instance.global_position = global_position + Vector2(x, y)
 		instance.item_id = item_id
-		get_parent().add_child(instance)
+		gstate.level.add_child(instance)
 
 
 func animate_mark_as_producing() -> void:

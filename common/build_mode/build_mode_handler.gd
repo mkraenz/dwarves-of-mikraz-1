@@ -3,7 +3,7 @@ extends Node2D
 const Sawmill = preload("res://world/buildings/sawmill/sawmill.tscn")
 const Smithy = preload("res://world/buildings/smithy/smithy.tscn")
 
-## The node that new buildings get attached to.
+## The node that new buildings get attached to, and buildings attach outputs to.
 @export var target_node: Node2D
 @export var blueprint_collision_shape_scale := 1.45:
 	set = _blueprint_collision_shape_scale
@@ -62,7 +62,7 @@ func spawn_at_mouse_position(Scene: PackedScene) -> void:
 	var instance := Scene.instantiate()
 	var pos := get_global_mouse_position()
 	instance.global_position = pos
-	target_node.add_child(instance)
+	gstate.level.add_child(instance)
 
 
 func _on_exit_build_mode() -> void:

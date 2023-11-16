@@ -1,6 +1,11 @@
 extends Node2D
 
 var eventbus := Eventbus
+var gstate := GState
+
+
+func _ready():
+	gstate.level = self
 
 
 func _input(_event) -> void:
