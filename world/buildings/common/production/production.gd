@@ -50,6 +50,7 @@ var is_pending := true:
 func _ready():
 	eventbus.production_tick.connect(_on_production_tick)
 	eventbus.ordered_at_workshop.connect(_on_ordered_at_workshop)
+	eventbus.cancel_order_at_workshop.connect(_on_cancel_order_at_workshop)
 
 
 func _process(_delta):
@@ -66,7 +67,13 @@ func _on_ordered_at_workshop(
 			clear_order()
 		ordered_recipe = recipe
 		ordered_batches = batches
-		printt("incoming order", batches, recipe)
+
+
+func _on_cancel_order_at_workshop(at_target_node_path: String) -> void:
+	var targetted_at_this_workshop = str(production_site.get_path()) == at_target_node_path
+	if targetted_at_this_workshop:
+		_output_current_inputs()
+		clear_order()
 
 
 func interact() -> void:

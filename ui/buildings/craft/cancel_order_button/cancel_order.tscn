@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7kgb2e1ljqsh"]
+
+[ext_resource type="Texture2D" uid="uid://jfmr2n8kjf10" path="res://third-party/kenney/kenney-input-prompts-34x24-a-16x16.png" id="1_jwghj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72nu1"]
+atlas = ExtResource("1_jwghj")
+region = Rect2(448, 304, 16, 16)
+
+[node name="CancelOrder" type="Button"]
+text = "Stop"
+icon = SubResource("AtlasTexture_72nu1")
+alignment = 0

@@ -72,8 +72,8 @@ v0.1.0
 - [ ] controller support
   - [ ] ps
   - [ ] xbox
-- [ ] cancel current order
 - [ ] ingame menus can open above eachother
+- [x] cancel current order
 - [x] script registry
   - [ ] allow ginventory changes with save-load functionality
 - [ ] some polish

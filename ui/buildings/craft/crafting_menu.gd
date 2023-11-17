@@ -1,6 +1,7 @@
 extends Control
 
 const ItemPanel = preload("res://ui/buildings/craft/item_panel/item_panel.tscn")
+const CancelOrderButton = preload("res://ui/buildings/craft/cancel_order_button/cancel_order.tscn")
 
 ## type: Recipe[]
 @export var recipes: Array
@@ -54,6 +55,10 @@ func refresh() -> void:
 		grid.add_child(panel)
 		panel.selected.connect(_on_panel_selected)
 
+	var cancel_order_button = CancelOrderButton.instantiate()
+	grid.add_child(cancel_order_button)
+	cancel_order_button.pressed.connect(_on_cancel_order_button_pressed)
+
 	if not recipes:
 		push_error("No recipes available")
 		return
@@ -106,4 +111,9 @@ func _on_craft_button_pressed() -> void:
 	var recipe = get_current_recipe()
 
 	eventbus.ordered_at_workshop.emit(recipe, ordered_batches, workshop_node_path)
+	close_menu()
+
+
+func _on_cancel_order_button_pressed() -> void:
+	eventbus.cancel_order_at_workshop.emit(workshop_node_path)
 	close_menu()

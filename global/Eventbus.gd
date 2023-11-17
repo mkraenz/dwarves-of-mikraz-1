@@ -23,3 +23,4 @@ signal exit_build_mode
 
 signal show_notification(message: String, duration_in_sec: float)
 signal ginventory_overwritten
+signal cancel_order_at_workshop(workshop_node_path: String)
