@@ -62,14 +62,6 @@ summary:
 ## Todos
 
 - [ ] NeededItemPanel not updating
-- [x] avoid building/spawning on position where something is already placed
-  - [x] decide: huge grid (e.g. forager) vs tiny grid (e.g. factorio) vs freeform (e.g. RTS games) (I'm not gonna use hex grid) -> RTS first, let's see how that feels
-  - [x] implement RTS style placement validation for buildings
-  - [x] placement validation for spawners
-  - [x] improve placement / avoid collision
-  - [x] exit build mode
-  - [x] multi placement with Shift key
-  - [x] show warning on "not enough resources" -> notification system
 - [ ] collector building that autocollects outputs
 - [ ] options menu
   - [ ] key rebinding
@@ -79,15 +71,37 @@ summary:
   - [ ] ps
   - [ ] xbox
 - [ ] cancel current order
-- [ ] audio
 - [ ] ingame menus can open above eachother
-- [x] outer bounds
 - [x] script registry
   - [ ] allow ginventory changes with save-load functionality
-- [x] prefer `@export` for Dependency Injection -> fail as soon as persistence comes into play, except it is common to almost all objects or at a large group of objects
-- [x] DRY smithy and sawmill
-- [x] font size of order display of sawmill vs charcoal kiln/smithy
-- [x] BUG: how to save/load production state
+- [ ] some polish
+  - [x] use a Marker to determine the position of production outputs
+  - [ ] scene transitions
+    - [ ] continue
+    - [ ] new game
+    - [ ] load
+    - [ ] more?
+  - [ ] sfx
+    - [ ] on build
+    - [ ] menu sounds
+      - [ ] title menu
+      - [ ] pause menu
+      - [ ] crafting menu
+      - [ ] inventory menu
+      - [ ] building menu
+    - [ ] on order accepted
+  - [ ] charcoal kiln animations
+- [ ] demo: production sim
+  - [ ] final goal: produce 20 battle axes for the war of the dwarves against the dark lord
+  - [ ] communicate the final quest (KIS)
+  - [ ] new resource: stone
+  - [ ] new resource: iron ore
+  - [ ] turn crates into trees
+  - [ ] new building: smelter
+  - [ ] move crafting recipes from smithy to smelter
+  - [ ] new crafting recipe: battle axe
+  - [ ] progression:
+    - [ ] logs -> sawmill -> planks -> stone -> charcoal kiln -> coal -> smelter -> iron ingots -> smithy -> battle axe
 
 ## Data generation
 
@@ -113,9 +127,17 @@ yarn deploy
 
 - [must-see godot 4 ui tutorial](https://www.youtube.com/watch?v=1_OFJLyqlXI)
 
-## Music
+## Audio
 
-Options
+These are options that are under further investigation but not yet necessarily used in the game.
+
+### Music
 
 - [Animal crossing style pack 3$](https://alexcook.itch.io/relaxing-pack)
 - [napping on a cloud CC0](https://opengameart.org/content/napping-on-a-cloud)
+
+### SFX
+
+- [obsydianx interface pack cc0](https://obsydianx.itch.io/interface-sfx-pack-1)
+- [Orc sound pack CC0 (good for dwarf laughs & amused, burp, yes, hup and hut when cutting trees, inquisitive & sceptical, joyous, satisfied, sleep, surprised, thankful)](https://johncarroll.itch.io/orc-voice-pack) (there's more stuff from johncarroll. may be worth checking out, e.g. [warrior](https://johncarroll.itch.io/warrior-voice-pack))
+- [itchio CC0 sfx](https://itch.io/game-assets/assets-cc0/tag-sound-effects)
