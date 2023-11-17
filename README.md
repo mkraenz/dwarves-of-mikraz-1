@@ -61,12 +61,14 @@ summary:
 
 ## Todos
 
+v0.1.0
+
 - [ ] NeededItemPanel not updating
-- [ ] collector building that autocollects outputs
 - [ ] options menu
   - [ ] key rebinding
   - [ ] choose controller ps or controller xbox or keyboard
   - [ ] volume
+  - [ ] credits
 - [ ] controller support
   - [ ] ps
   - [ ] xbox
@@ -90,18 +92,30 @@ summary:
       - [ ] inventory menu
       - [ ] building menu
     - [ ] on order accepted
-  - [ ] charcoal kiln animations
+  - [ ] charcoal kiln
+    - [ ] replace placeholder sprite
+    - [ ] animations
+  - [ ] smelter
+    - [ ] replace placeholder sprite
+    - [ ] animations
+  - [ ] crafting menu: if Max results in 0 items, do not confirm.
 - [ ] demo: production sim
-  - [ ] final goal: produce 20 battle axes for the war of the dwarves against the dark lord
+  - [ ] final goal: produce 20 battle axes for the war of the dwarves against the evil lord
   - [ ] communicate the final quest (KIS)
+  - [ ] Congratulations. You finished the game/demo.
   - [ ] new resource: stone
   - [ ] new resource: iron ore
+    - [ ] remove the ability to "craft" iron ore at sawmill
   - [ ] turn crates into trees
-  - [ ] new building: smelter
-  - [ ] move crafting recipes from smithy to smelter
-  - [ ] new crafting recipe: battle axe
+  - [x] new building: smelter
+  - [x] move crafting recipes from smithy to smelter
+  - [x] new crafting recipe: battle axe
   - [ ] progression:
-    - [ ] logs -> sawmill -> planks -> stone -> charcoal kiln -> coal -> smelter -> iron ingots -> smithy -> battle axe
+    - [ ] logs -> sawmill -> planks -> stone -> charcoal kiln -> coal -> iron ore -> smelter -> iron ingots -> smithy -> battle axe
+
+v0.2.0
+
+- [ ] collector building that autocollects outputs
 
 ## Data generation
 

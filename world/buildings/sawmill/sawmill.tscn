@@ -46,3 +46,4 @@ bus = &"Sounds"
 position = Vector2(0, 8)
 
 [node name="OutputSlot" type="Marker2D" parent="."]
+position = Vector2(0, 26)

@@ -3,6 +3,7 @@ extends Node2D
 const Sawmill = preload("res://world/buildings/sawmill/sawmill.tscn")
 const CharcoalKiln = preload("res://world/buildings/charcoal_kiln/charcoal_kiln.tscn")
 const Smithy = preload("res://world/buildings/smithy/smithy.tscn")
+const Smelter = preload("res://world/buildings/smelter/smelter.tscn")
 
 ## The node that new buildings get attached to, and buildings attach outputs to.
 @export var target_node: Node2D
@@ -84,6 +85,7 @@ func _on_enter_build_mode(_building_id: String) -> void:
 	click_delay.start()
 
 
+## TODO can we automate this and instead use the script id to get the building from buildings.ts
 func get_building_scene() -> PackedScene:
 	match building_id:
 		"sawmill":
@@ -92,6 +94,8 @@ func get_building_scene() -> PackedScene:
 			return Smithy
 		"charcoal_kiln":
 			return CharcoalKiln
+		"smelter":
+			return Smelter
 		"":
 			push_error("building_id is not initialized to an actual value.")
 			return

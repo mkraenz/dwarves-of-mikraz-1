@@ -73,6 +73,14 @@ export const itemsData = {
       res_path: "res://third-party/henry_lazarini/I_Coal.png",
     },
   },
+  battle_axe: {
+    label: "Battle Axe",
+    id: "battle_axe",
+    icon: {
+      type: "Texture2D",
+      res_path: "res://third-party/henry_lazarini/W_Axe009.png",
+    },
+  },
   coal1: {
     label: "Coal",
     id: "coal1",

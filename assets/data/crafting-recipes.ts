@@ -59,21 +59,25 @@ export const craftingData = {
     {
       id: "iron_ingot",
       item_id: "iron_ingot",
-      needs: [{ id: "iron_ore", amount: 2 }],
-      batch_size: 1,
-      duration_in_ticks: 10,
-    },
-  ],
-  smithy: [
-    {
-      id: "iron_ingot",
-      item_id: "iron_ingot",
       needs: [
         { id: "iron_ore", amount: 2 },
         { id: "coal", amount: 1 },
       ],
       batch_size: 2,
       duration_in_ticks: 10,
+    },
+  ],
+  smithy: [
+    {
+      id: "battle_axe",
+      item_id: "battle_axe",
+      needs: [
+        { id: "iron_ingot", amount: 4 },
+        { id: "coal", amount: 2 },
+        { id: "plank", amount: 1 },
+      ],
+      batch_size: 1,
+      duration_in_ticks: 15,
     },
   ],
   charcoal_kiln: [

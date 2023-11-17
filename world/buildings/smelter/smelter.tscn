@@ -1,0 +1,85 @@
+[gd_scene load_steps=13 format=3 uid="uid://bmsf4jrtokcvg"]
+
+[ext_resource type="Script" path="res://world/buildings/smelter/smelter.gd" id="1_nniej"]
+[ext_resource type="Texture2D" uid="uid://b4lbmdd2n5ebi" path="res://third-party/kenney-roguelike/roguelikeSheet_transparent.png" id="1_x2mhi"]
+[ext_resource type="PackedScene" uid="uid://c2mrs2touugk1" path="res://world/buildings/common/how_to_interact/how_to_interact.tscn" id="2_n27ih"]
+[ext_resource type="PackedScene" uid="uid://cyfyx07i1ornl" path="res://world/buildings/common/progressbar/progressbar.tscn" id="3_cqdx3"]
+[ext_resource type="PackedScene" uid="uid://p7ame63w6rhl" path="res://world/buildings/common/production/production.tscn" id="4_wna7y"]
+[ext_resource type="PackedScene" uid="uid://t2utidwitf4t" path="res://world/buildings/common/current_order_display/current_order_display.tscn" id="5_j57fk"]
+[ext_resource type="AudioStream" uid="uid://noa3q0awltwv" path="res://third-party/sounds/pickups/pop.mp3" id="7_bu548"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ttpmn"]
+atlas = ExtResource("1_x2mhi")
+region = Rect2(880, 144, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1es47"]
+atlas = ExtResource("1_x2mhi")
+region = Rect2(864, 144, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plsmg"]
+atlas = ExtResource("1_x2mhi")
+region = Rect2(880, 144, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k6xnf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ttpmn")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1es47")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plsmg")
+}],
+"loop": true,
+"name": &"producing",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lb2ix"]
+size = Vector2(30, 16)
+
+[node name="Smelter" type="StaticBody2D" groups=["persist"]]
+script = ExtResource("1_nniej")
+
+[node name="Production" parent="." node_paths=PackedStringArray("production_site", "reference_node", "progressbar", "current_order_display", "output_spot") instance=ExtResource("4_wna7y")]
+production_site = NodePath("..")
+reference_node = NodePath("..")
+progressbar = NodePath("../Progressbar")
+current_order_display = NodePath("../CurrentOrderDisplay")
+output_spot = NodePath("../OutputSpot")
+building_type = "smelter"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -24)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_k6xnf")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_lb2ix")
+
+[node name="HowToInteract" parent="." instance=ExtResource("2_n27ih")]
+position = Vector2(1, -51)
+
+[node name="Progressbar" parent="." instance=ExtResource("3_cqdx3")]
+visible = true
+offset_top = -34.0
+offset_bottom = 94.0
+
+[node name="CurrentOrderDisplay" parent="." instance=ExtResource("5_j57fk")]
+position = Vector2(0, -24)
+
+[node name="OutputSpot" type="Marker2D" parent="."]
+position = Vector2(0, 10)
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_bu548")

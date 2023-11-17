@@ -32,6 +32,10 @@ export const scriptRegistry = {
     res_path: "res://world/buildings/charcoal_kiln/charcoal_kiln.tscn",
     id: "charcoal_kiln_gbuAXz",
   },
+  smelter_mx3GEc: {
+    res_path: "res://world/buildings/smelter/smelter.tscn",
+    id: "smelter_mx3GEc",
+  },
   ginventory_GVwfHU: {
     res_path: "res://global/GInventory.gd",
     id: "ginventory_GVwfHU",
