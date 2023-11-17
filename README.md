@@ -78,7 +78,7 @@ v0.1.0
   - [ ] allow ginventory changes with save-load functionality
 - [ ] some polish
   - [x] use a Marker to determine the position of production outputs
-  - [ ] scene transitions
+  - [ ] scene transitions -> <https://godotshaders.com/shader/screentone-scene-transition/> or <https://godotshaders.com/shader/diamond-based-screen-transition/>
     - [ ] continue
     - [ ] new game
     - [ ] load
@@ -96,8 +96,9 @@ v0.1.0
     - [ ] replace placeholder sprite
     - [ ] animations
   - [ ] smelter
-    - [ ] replace placeholder sprite
+    - [ ] replace placeholder sprite -> <https://opengameart.org/content/lpc-blacksmith>
     - [ ] animations
+  - [ ] woodshop/sawmill? <https://opengameart.org/content/lpc-woodshop>
   - [ ] crafting menu: if Max results in 0 items, do not confirm.
 - [ ] demo: production sim
   - [ ] final goal: produce 20 battle axes for the war of the dwarves against the evil lord
@@ -155,3 +156,9 @@ These are options that are under further investigation but not yet necessarily u
 - [obsydianx interface pack cc0](https://obsydianx.itch.io/interface-sfx-pack-1)
 - [Orc sound pack CC0 (good for dwarf laughs & amused, burp, yes, hup and hut when cutting trees, inquisitive & sceptical, joyous, satisfied, sleep, surprised, thankful)](https://johncarroll.itch.io/orc-voice-pack) (there's more stuff from johncarroll. may be worth checking out, e.g. [warrior](https://johncarroll.itch.io/warrior-voice-pack))
 - [itchio CC0 sfx](https://itch.io/game-assets/assets-cc0/tag-sound-effects)
+
+### Assets
+
+- <https://opengameart.org/users/bluecarrot16?page=2>
+- <https://opengameart.org/content/lpc-rocks>
+- <https://opengameart.org/content/lpc-ore-and-forge>
