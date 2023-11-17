@@ -7,6 +7,8 @@ const Pickup = preload("res://world/pickup/pickup.tscn")
 @export var reference_node: Node2D
 @export var progressbar: Range
 @export var current_order_display: Node2D
+## At around this location, outputs will be spawned.
+@export var output_spot: Marker2D
 ## type: keyof typeof buildingData
 @export var building_type: String
 ## type: Recipe
@@ -183,7 +185,7 @@ func _output_products() -> void:
 
 
 func _output_pickups(item_id: String, amount: int) -> void:
-	const y := 25
+	var y := output_spot.position.y
 	const CENTER_OFFSET = 10
 	for i in range(amount):
 		var x = lerp(-CENTER_OFFSET, CENTER_OFFSET, float(i) / (amount - 1)) if amount != 1 else 0
