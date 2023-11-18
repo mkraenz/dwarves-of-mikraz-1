@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://world/buildings/smithy/smithy.gd" id="1_nmfpx"]
 [ext_resource type="Texture2D" uid="uid://ciqjgayfpwp72" path="res://assets/images/gui/progressbar/progressbar.png" id="4_t07dl"]
-[ext_resource type="AudioStream" uid="uid://noa3q0awltwv" path="res://third-party/sounds/pickups/pop.mp3" id="7_4rb6a"]
 [ext_resource type="PackedScene" uid="uid://t2utidwitf4t" path="res://world/buildings/common/current_order_display/current_order_display.tscn" id="7_nx6gu"]
 [ext_resource type="Texture2D" uid="uid://bh8fyhr10mw41" path="res://assets/images/smithy.png" id="7_raft2"]
 [ext_resource type="PackedScene" uid="uid://c2mrs2touugk1" path="res://world/buildings/common/how_to_interact/how_to_interact.tscn" id="7_ya30g"]
+[ext_resource type="PackedScene" uid="uid://djaa81nvsgmhy" path="res://world/buildings/common/building-audio.tscn" id="7_ynve1"]
 [ext_resource type="PackedScene" uid="uid://p7ame63w6rhl" path="res://world/buildings/common/production/production.tscn" id="8_vi8pg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wuawx"]
@@ -87,11 +87,6 @@ fill_mode = 4
 texture_under = SubResource("AtlasTexture_caltq")
 texture_progress = SubResource("AtlasTexture_i3tp4")
 
-[node name="Audio" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_4rb6a")
-volume_db = -20.0
-bus = &"Sounds"
-
 [node name="CurrentOrderDisplay" parent="." instance=ExtResource("7_nx6gu")]
 position = Vector2(0, 6)
 
@@ -100,3 +95,5 @@ position = Vector2(0, -29)
 
 [node name="OutputSlot" type="Marker2D" parent="."]
 position = Vector2(0, 27)
+
+[node name="Audio" parent="." instance=ExtResource("7_ynve1")]

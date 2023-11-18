@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c2mrs2touugk1" path="res://world/buildings/common/how_to_interact/how_to_interact.tscn" id="3_nfipn"]
 [ext_resource type="PackedScene" uid="uid://cyfyx07i1ornl" path="res://world/buildings/common/progressbar/progressbar.tscn" id="4_iefot"]
 [ext_resource type="PackedScene" uid="uid://t2utidwitf4t" path="res://world/buildings/common/current_order_display/current_order_display.tscn" id="5_85gy8"]
-[ext_resource type="AudioStream" uid="uid://noa3q0awltwv" path="res://third-party/sounds/pickups/pop.mp3" id="7_4rb6a"]
+[ext_resource type="PackedScene" uid="uid://djaa81nvsgmhy" path="res://world/buildings/common/building-audio.tscn" id="6_4yh66"]
 [ext_resource type="PackedScene" uid="uid://p7ame63w6rhl" path="res://world/buildings/common/production/production.tscn" id="8_53tld"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wuawx"]
@@ -37,10 +37,7 @@ region_rect = Rect2(0, 96, 16, 16)
 
 [node name="Progressbar" parent="." instance=ExtResource("4_iefot")]
 
-[node name="Audio" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_4rb6a")
-volume_db = -20.0
-bus = &"Sounds"
+[node name="Audio" parent="." instance=ExtResource("6_4yh66")]
 
 [node name="CurrentOrderDisplay" parent="." instance=ExtResource("5_85gy8")]
 position = Vector2(0, 8)

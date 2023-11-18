@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://djaa81nvsgmhy"]
+
+[ext_resource type="AudioStream" uid="uid://noa3q0awltwv" path="res://third-party/sounds/pickups/pop.mp3" id="1_k787h"]
+
+[node name="Audio" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_k787h")
+volume_db = -10.0
+max_distance = 1000.0
+bus = &"Sounds"

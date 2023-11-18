@@ -73,7 +73,6 @@ v0.1.0
   - [ ] ps
   - [ ] xbox
 - [ ] ingame menus can open above eachother
-- [x] cancel current order
 - [x] script registry
   - [ ] allow ginventory changes with save-load functionality
 - [ ] some polish
@@ -85,7 +84,7 @@ v0.1.0
     - [x] pause -> back to title
     - [x] skip pausing and resuming
   - [x] notification on successful save
-  - [ ] workshops use same Audio node, set output to Sounds bus
+  - [x] workshops use same Audio node, set output to Sounds bus
   - [ ] redo pause menu in title menu style
   - [ ] sfx
     - [ ] on build
@@ -104,7 +103,7 @@ v0.1.0
     - [ ] animations
   - [ ] woodshop/sawmill? <https://opengameart.org/content/lpc-woodshop>
   - [ ] crafting menu: if Max results in 0 items, do not confirm.
-- [ ] unlock new building recipes by having at seen every needed item for that building
+- [ ] unlock new building recipes when having seen every needed item for that building
 - [ ] demo: production sim
   - [ ] final goal: produce 20 battle axes for the war of the dwarves against the evil lord
   - [ ] communicate the final quest (KIS)

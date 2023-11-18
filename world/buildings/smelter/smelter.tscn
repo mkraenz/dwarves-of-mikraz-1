@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cyfyx07i1ornl" path="res://world/buildings/common/progressbar/progressbar.tscn" id="3_cqdx3"]
 [ext_resource type="PackedScene" uid="uid://p7ame63w6rhl" path="res://world/buildings/common/production/production.tscn" id="4_wna7y"]
 [ext_resource type="PackedScene" uid="uid://t2utidwitf4t" path="res://world/buildings/common/current_order_display/current_order_display.tscn" id="5_j57fk"]
-[ext_resource type="AudioStream" uid="uid://noa3q0awltwv" path="res://third-party/sounds/pickups/pop.mp3" id="7_bu548"]
+[ext_resource type="PackedScene" uid="uid://djaa81nvsgmhy" path="res://world/buildings/common/building-audio.tscn" id="7_wuwu0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ttpmn"]
 atlas = ExtResource("1_x2mhi")
@@ -71,7 +71,6 @@ shape = SubResource("RectangleShape2D_lb2ix")
 position = Vector2(1, -51)
 
 [node name="Progressbar" parent="." instance=ExtResource("3_cqdx3")]
-visible = true
 offset_top = -34.0
 offset_bottom = 94.0
 
@@ -81,5 +80,4 @@ position = Vector2(0, -24)
 [node name="OutputSpot" type="Marker2D" parent="."]
 position = Vector2(0, 10)
 
-[node name="Audio" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_bu548")
+[node name="Audio" parent="." instance=ExtResource("7_wuwu0")]
