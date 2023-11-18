@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://crvaxgw3mwm78"]
+[gd_scene load_steps=11 format=3 uid="uid://crvaxgw3mwm78"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_k5eii"]
 [ext_resource type="PackedScene" uid="uid://4bt3ndfyg5jf" path="res://ui/pause/pause_menu.tscn" id="3_lo3uq"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://world/world.gd" id="5_qpwfe"]
 [ext_resource type="PackedScene" uid="uid://bhc1lv183q4nr" path="res://ui/buildings/building_menu.tscn" id="6_0fwhm"]
 [ext_resource type="PackedScene" uid="uid://dn05qj4gsbmoa" path="res://ui/hud/hud.tscn" id="7_q3nhx"]
+[ext_resource type="PackedScene" uid="uid://ccoad4rkapxlr" path="res://effects/screen_transition/screen_transition.tscn" id="8_aqk3u"]
 
 [node name="Main" type="Node"]
 process_mode = 3
@@ -32,6 +33,20 @@ process_mode = 2
 visible = false
 
 [node name="TitleMenu" parent="Gui" instance=ExtResource("3_sxw8d")]
+
+[node name="Effects" type="Control" parent="Gui"]
+top_level = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ScreenTransition" parent="Gui/Effects" instance=ExtResource("8_aqk3u")]
+top_level = true
+layout_mode = 1
 
 [node name="World" type="Node2D" parent="."]
 process_mode = 1

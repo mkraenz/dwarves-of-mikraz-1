@@ -42,6 +42,7 @@ offset_bottom = 108.0
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_w8jxa")
+bus = &"Sounds"
 
 [node name="HowToInteract" parent="." instance=ExtResource("7_jjvep")]
 position = Vector2(1, -38)

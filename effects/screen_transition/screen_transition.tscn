@@ -1,0 +1,83 @@
+[gd_scene load_steps=8 format=3 uid="uid://ccoad4rkapxlr"]
+
+[ext_resource type="Shader" path="res://effects/diamond-circle-screen-transition.gdshader" id="1_nerjc"]
+[ext_resource type="Script" path="res://effects/screen_transition/screen_transition.gd" id="2_cqe04"]
+[ext_resource type="AudioStream" uid="uid://b0x5wsbns3cso" path="res://assets/sounds/swoosh.mp3" id="4_j4k4h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7e5kq"]
+shader = ExtResource("1_nerjc")
+shader_parameter/color = null
+shader_parameter/position = 1.0
+shader_parameter/size = Vector2(32, 32)
+
+[sub_resource type="Animation" id="Animation_u3mnt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_50jlk"]
+resource_name = "transition_hide"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, -1.5]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Audio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_j4k4h")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7jbic"]
+_data = {
+"RESET": SubResource("Animation_u3mnt"),
+"transition_hide": SubResource("Animation_50jlk")
+}
+
+[node name="ScreenTransition" type="ColorRect"]
+material = SubResource("ShaderMaterial_7e5kq")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("2_cqe04")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "RESET"
+libraries = {
+"": SubResource("AnimationLibrary_7jbic")
+}
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+bus = &"Sounds"

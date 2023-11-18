@@ -83,6 +83,7 @@ v0.1.0
     - [ ] new game
     - [ ] load
     - [ ] more?
+  - [ ] workshops use same Audio node, set output to Sounds bus
   - [ ] sfx
     - [ ] on build
     - [ ] menu sounds
@@ -100,6 +101,7 @@ v0.1.0
     - [ ] animations
   - [ ] woodshop/sawmill? <https://opengameart.org/content/lpc-woodshop>
   - [ ] crafting menu: if Max results in 0 items, do not confirm.
+- [ ] unlock new building recipes by having at seen every needed item for that building
 - [ ] demo: production sim
   - [ ] final goal: produce 20 battle axes for the war of the dwarves against the evil lord
   - [ ] communicate the final quest (KIS)

@@ -50,8 +50,11 @@ func _on_save_game_pressed() -> void:
 
 
 func _on_new_game_pressed() -> void:
+	eventbus.scene_transition_hide.emit()
 	world.setup_new_level()
+	await eventbus.scene_transition_finished
 	unpause_game()
+	eventbus.scene_transition_show.emit()
 
 
 func _on_load_game_pressed() -> void:

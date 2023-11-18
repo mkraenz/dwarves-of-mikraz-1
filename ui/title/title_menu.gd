@@ -17,7 +17,6 @@ func _shortcut_input(_event) -> void:
 
 func _on_start_pressed() -> void:
 	eventbus.new_game_pressed.emit()
-	hide()
 
 
 func _on_load_pressed() -> void:
