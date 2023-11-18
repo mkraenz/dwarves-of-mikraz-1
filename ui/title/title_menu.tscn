@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://d4bt3ndfyg5je"]
 
 [ext_resource type="Script" path="res://ui/title/title_menu.gd" id="2_01unw"]
-[ext_resource type="Texture2D" uid="uid://ut5g2ojm8lh4" path="res://assets/images/dwarves-mining-town-cut.jpg" id="2_n8ops"]
+[ext_resource type="PackedScene" uid="uid://bgbkco32lhejv" path="res://ui/title/background.tscn" id="2_bmlgv"]
 [ext_resource type="PackedScene" uid="uid://bt1njt15eesor" path="res://ui/components/game_title_heading.tscn" id="3_l0v43"]
 [ext_resource type="PackedScene" uid="uid://bwmjdntgw8ghd" path="res://ui/title/version/version.tscn" id="4_irtrd"]
 
@@ -14,13 +14,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_01unw")
 
-[node name="Background" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(640, 360)
+[node name="Background" parent="." instance=ExtResource("2_bmlgv")]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("2_n8ops")
-expand_mode = 2
 
 [node name="M" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -29,10 +24,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 20
+theme_type_variation = &"MarginTitleMenu"
 
 [node name="H" type="HBoxContainer" parent="M"]
 layout_mode = 2

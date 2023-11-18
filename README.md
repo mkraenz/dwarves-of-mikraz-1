@@ -90,7 +90,7 @@ v0.1.0
     - [x] skip pausing and resuming
   - [x] notification on successful save
   - [x] workshops use same Audio node, set output to Sounds bus
-  - [ ] redo pause menu in title menu style
+  - [x] redo pause menu in title menu style
   - [ ] sfx
     - [ ] on build
     - [ ] menu sounds
@@ -114,15 +114,15 @@ v0.1.0
   - [ ] communicate the final quest (KIS)
   - [ ] Congratulations. You finished the game/demo.
   - [ ] new resource: stone
-  - [ ] new resource: iron ore
+  - [x] new resource: iron ore
     - [x] add scene
     - [x] spawn regularly
     - [x] extract common code for resource nodes
-    - [ ] remove the ability to "craft" iron ore at sawmill
-    - [ ] on hit anim
-    - [ ] on death anim
-    - [ ] on hit sound
-    - [ ] on death sound
+    - [x] remove the ability to "craft" iron ore at sawmill
+    - [x] on hit anim
+    - [x] on death anim
+    - [x] on hit sound
+    - [x] on death sound
   - [ ] turn crates into trees
   - [x] new building: smelter
   - [x] move crafting recipes from smithy to smelter

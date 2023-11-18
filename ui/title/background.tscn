@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgbkco32lhejv"]
+
+[ext_resource type="Texture2D" uid="uid://ut5g2ojm8lh4" path="res://assets/images/dwarves-mining-town-cut.jpg" id="1_vsxwr"]
+
+[node name="Background" type="TextureRect"]
+custom_minimum_size = Vector2(640, 360)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_vsxwr")
+expand_mode = 2
