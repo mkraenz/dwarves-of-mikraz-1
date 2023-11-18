@@ -30,7 +30,7 @@ func save() -> Dictionary:
 	return save_dict
 
 
-func on_load(save_dict: Dictionary) -> void:
+func load_from(save_dict: Dictionary) -> void:
 	production.load_from(save_dict.production)
 
 

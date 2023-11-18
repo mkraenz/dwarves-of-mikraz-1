@@ -76,8 +76,8 @@ v0.1.0
 - [ ] ts watcher on assets/data/ and scripts/ (nodemon)
 - [ ] refactor mark and unmark for how-to displays into child node. Use `has_node('HowTo')`
 - [ ] define resource node health in TS
-- [ ] unify save, on_load, load_from to save + load
 - [ ] call sawmill.on_load before adding the sawmill to the tree. This should allow production to use export variables inside its `_ready` function
+- [x] unify save, on_load, load_from to save + load
 - [x] script registry
   - [x] allow ginventory changes with save-load functionality
 - [ ] some polish
