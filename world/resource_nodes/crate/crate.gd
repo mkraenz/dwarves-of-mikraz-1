@@ -1,13 +1,13 @@
 extends StaticBody2D
 
-const DeathAnim = preload("res://world/crate/crate_death.tscn")
+const DeathAnim = preload("res://world/resource_nodes/crate/crate_death.tscn")
 const Pickup = preload("res://world/pickup/pickup.tscn")
 
 var eventbus := Eventbus
 var gdata := GData
 @onready var stats: Stats = $Stats
 @onready var anims: AnimationPlayer = $AnimationPlayer
-@onready var how_to_use := $HowToUse
+@onready var how_to_act := $HowToAct
 @onready var shape: CollisionShape2D = $Shape
 
 ## @type {keyof typeof ResourceNodeData}
@@ -68,11 +68,11 @@ func save() -> Dictionary:
 
 
 func mark() -> void:
-	how_to_use.show()
+	how_to_act.show()
 
 
 func unmark() -> void:
-	how_to_use.hide()
+	how_to_act.hide()
 
 
 func set_collision_scale(new_scale: float) -> void:

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dibg57pg4emn7"]
+
+[ext_resource type="Texture2D" uid="uid://jfmr2n8kjf10" path="res://third-party/kenney/kenney-input-prompts-34x24-a-16x16.png" id="1_wgyvu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tks0i"]
+atlas = ExtResource("1_wgyvu")
+region = Rect2(304, 32, 16, 16)
+
+[node name="HowToAct" type="Sprite2D"]
+visible = false
+position = Vector2(0, -24)
+texture = SubResource("AtlasTexture_tks0i")

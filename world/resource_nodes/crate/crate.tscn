@@ -1,20 +1,20 @@
-[gd_scene load_steps=17 format=3 uid="uid://ck2utngryc1v"]
+[gd_scene load_steps=15 format=3 uid="uid://ck2utngryc1v"]
 
-[ext_resource type="Script" path="res://world/crate/crate.gd" id="1_lb4kg"]
-[ext_resource type="Texture2D" uid="uid://dxb80j1fcp0dr" path="res://third-party/kenney_tiny-dungeon/Tilemap/tilemap_packed.png" id="1_ogvuk"]
-[ext_resource type="PackedScene" uid="uid://6b2lgtejwxtv" path="res://common/Stats.tscn" id="3_5oe1n"]
-[ext_resource type="Shader" path="res://effects/blink.gdshader" id="5_qr2ih"]
-[ext_resource type="AudioStream" uid="uid://dvfjim7k1sto8" path="res://third-party/sounds/wood/wood-impact-straight.mp3" id="6_sdewg"]
-[ext_resource type="Texture2D" uid="uid://jfmr2n8kjf10" path="res://third-party/kenney/kenney-input-prompts-34x24-a-16x16.png" id="6_v5w2m"]
-[ext_resource type="Script" path="res://world/crate/Healthbar.gd" id="7_p124t"]
+[ext_resource type="Script" path="res://world/resource_nodes/crate/crate.gd" id="1_ja3ux"]
+[ext_resource type="Shader" path="res://effects/blink.gdshader" id="2_trs7a"]
+[ext_resource type="Texture2D" uid="uid://dxb80j1fcp0dr" path="res://third-party/kenney_tiny-dungeon/Tilemap/tilemap_packed.png" id="3_dtivu"]
+[ext_resource type="PackedScene" uid="uid://6b2lgtejwxtv" path="res://common/Stats.tscn" id="4_t3scl"]
+[ext_resource type="AudioStream" uid="uid://dvfjim7k1sto8" path="res://third-party/sounds/wood/wood-impact-straight.mp3" id="5_prc3t"]
+[ext_resource type="PackedScene" uid="uid://i5pg0rokc7h8" path="res://world/resource_nodes/common/healthbar/healthbar.tscn" id="6_013ur"]
+[ext_resource type="PackedScene" uid="uid://dibg57pg4emn7" path="res://world/resource_nodes/common/how_to_act.tscn" id="7_uis07"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r3og4"]
 resource_local_to_scene = true
-shader = ExtResource("5_qr2ih")
+shader = ExtResource("2_trs7a")
 shader_parameter/active = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v5s0d"]
-atlas = ExtResource("1_ogvuk")
+atlas = ExtResource("3_dtivu")
 region = Rect2(48, 80, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rc7yc"]
@@ -84,7 +84,7 @@ tracks/2/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("6_sdewg")
+"stream": ExtResource("5_prc3t")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -96,16 +96,9 @@ _data = {
 "bounce": SubResource("Animation_lp1nn")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tks0i"]
-atlas = ExtResource("6_v5w2m")
-region = Rect2(304, 32, 16, 16)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w3uge"]
-bg_color = Color(1, 0.156863, 0.156863, 1)
-
 [node name="Crate" type="StaticBody2D" groups=["persist"]]
 collision_mask = 3
-script = ExtResource("1_lb4kg")
+script = ExtResource("1_ja3ux")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_r3og4")
@@ -116,7 +109,7 @@ sprite_frames = SubResource("SpriteFrames_rc7yc")
 position = Vector2(0.5, -4)
 shape = SubResource("RectangleShape2D_pcu3n")
 
-[node name="Stats" parent="." instance=ExtResource("3_5oe1n")]
+[node name="Stats" parent="." instance=ExtResource("4_t3scl")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -126,17 +119,7 @@ libraries = {
 [node name="Audio" type="AudioStreamPlayer2D" parent="."]
 bus = &"Sounds"
 
-[node name="HowToUse" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(0, -24)
-texture = SubResource("AtlasTexture_tks0i")
-
-[node name="Healthbar" type="ProgressBar" parent="." node_paths=PackedStringArray("stats")]
-offset_left = -9.0
-offset_top = 1.0
-offset_right = 10.0
-offset_bottom = 5.0
-theme_override_styles/fill = SubResource("StyleBoxFlat_w3uge")
-show_percentage = false
-script = ExtResource("7_p124t")
+[node name="Healthbar" parent="." node_paths=PackedStringArray("stats") instance=ExtResource("6_013ur")]
 stats = NodePath("../Stats")
+
+[node name="HowToAct" parent="." instance=ExtResource("7_uis07")]

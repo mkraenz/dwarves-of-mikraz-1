@@ -1,6 +1,6 @@
 extends Node2D
 
-const Crate = preload("res://world/crate/crate.tscn")
+const Crate = preload("res://world/resource_nodes/crate/crate.tscn")
 
 @export var enabled := true
 
