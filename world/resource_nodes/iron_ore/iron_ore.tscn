@@ -111,6 +111,8 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_4gpe3")
 
 [node name="Healthbar" parent="." node_paths=PackedStringArray("stats") instance=ExtResource("2_grutw")]
+offset_top = 7.0
+offset_bottom = 11.0
 stats = NodePath("../Stats")
 
 [node name="Stats" parent="." instance=ExtResource("3_txvwt")]

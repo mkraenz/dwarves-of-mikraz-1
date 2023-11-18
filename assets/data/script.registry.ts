@@ -13,7 +13,7 @@ export const scriptRegistry = {
     id: "player_rqXkdk",
   },
   crate_tmMrzy: {
-    res_path: "res://world/crate/crate.tscn",
+    res_path: "res://world/resource_nodes/crate/crate.tscn",
     id: "crate_tmMrzy",
   },
   pickup_FUwDe7: {
