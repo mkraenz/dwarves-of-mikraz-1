@@ -47,6 +47,7 @@ func _on_save_game_pressed() -> void:
 	persistence.save_game(get_tree())
 	_on_resume_game_pressed()
 	eventbus.game_saved_successfully.emit()
+	eventbus.show_notification.emit("[color=green]Saved successfully.[/color]", 2)
 
 
 func _on_new_game_pressed() -> void:
@@ -58,13 +59,16 @@ func _on_new_game_pressed() -> void:
 
 
 func _on_load_game_pressed() -> void:
-	world.clear(true)  # queue_free (i.e. force=false) would cause the next two lines to instantiate under the node path '/root/Main/World/Level2' instead of 'Level'. The persistence however uses the node paths '/root/Main/World/Level/Tilemap/Player' etc that depend on the naming 'Level'.
+	eventbus.scene_transition_hide.emit()
+	world.clear(true)  # queue_free (i.e. force=false) would cause the next two lines to instantiate under the node path '/root/Main/World/Level2' instead of 'Level'. The persistence however uses the node paths '/root/Main/World/Level/Player' etc that depend on the naming 'Level'.
 	gstate.reset()
 
 	world.setup_empty_level()
 	var persistence = Persistence.new()
 	persistence.load_game(get_tree(), get_node)
+	await eventbus.scene_transition_finished
 	unpause_game()
+	eventbus.scene_transition_show.emit()
 
 
 func _on_load_most_recent_game_pressed() -> void:
@@ -72,10 +76,13 @@ func _on_load_most_recent_game_pressed() -> void:
 
 
 func _on_quit_to_title_pressed() -> void:
+	eventbus.scene_transition_hide.emit()
 	world.clear()
+	await eventbus.scene_transition_finished
 	unpause_game()
 	title_menu.show()
 	title_menu.refresh()
+	eventbus.scene_transition_show.emit()
 
 
 func _on_resume_game_pressed() -> void:
@@ -88,7 +95,7 @@ func pause_game() -> void:
 
 
 func unpause_game() -> void:
-	get_tree().paused = false  # only needed when we're in pause menu but also doesn't hurt to do from title menu
+	get_tree().paused = false
 	title_menu.hide()
 	pause_menu.hide()
 

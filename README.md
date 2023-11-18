@@ -78,17 +78,20 @@ v0.1.0
   - [ ] allow ginventory changes with save-load functionality
 - [ ] some polish
   - [x] use a Marker to determine the position of production outputs
-  - [ ] scene transitions -> <https://godotshaders.com/shader/screentone-scene-transition/> or <https://godotshaders.com/shader/diamond-based-screen-transition/>
-    - [ ] continue
-    - [ ] new game
-    - [ ] load
-    - [ ] more?
+  - [x] scene transitions -> <https://godotshaders.com/shader/screentone-scene-transition/> or <https://godotshaders.com/shader/diamond-based-screen-transition/>
+    - [x] menu -> continue
+    - [x] menu -> new game
+    - [x] pause -> load
+    - [x] pause -> back to title
+    - [x] skip pausing and resuming
+  - [x] notification on successful save
   - [ ] workshops use same Audio node, set output to Sounds bus
+  - [ ] redo pause menu in title menu style
   - [ ] sfx
     - [ ] on build
     - [ ] menu sounds
-      - [ ] title menu
-      - [ ] pause menu
+      - [x] title menu
+      - [x] pause menu
       - [ ] crafting menu
       - [ ] inventory menu
       - [ ] building menu

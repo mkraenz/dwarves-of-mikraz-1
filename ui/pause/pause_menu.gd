@@ -3,14 +3,8 @@ extends Control
 @onready var eventbus := Eventbus
 
 
-func _on_start_pressed() -> void:
-	eventbus.new_game_pressed.emit()
-	hide()
-
-
 func _on_load_pressed() -> void:
 	eventbus.load_game_pressed.emit()
-	hide()
 
 
 func _on_quit_to_desktop_pressed():
@@ -23,9 +17,7 @@ func _on_quit_to_title_pressed():
 
 func _on_resume_pressed():
 	eventbus.resume_game_pressed.emit()
-	hide()
 
 
 func _on_save_pressed():
 	eventbus.save_game_pressed.emit()
-	hide()

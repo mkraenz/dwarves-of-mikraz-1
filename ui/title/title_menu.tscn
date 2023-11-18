@@ -68,11 +68,6 @@ text = "Continue"
 layout_mode = 2
 text = "New Game"
 
-[node name="Load" type="Button" parent="M/H/V/Buttons"]
-visible = false
-layout_mode = 2
-text = "Load"
-
 [node name="Options" type="Button" parent="M/H/V/Buttons"]
 layout_mode = 2
 text = "Options"
@@ -97,6 +92,5 @@ grow_vertical = 0
 
 [connection signal="pressed" from="M/H/V/Buttons/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="M/H/V/Buttons/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="M/H/V/Buttons/Load" to="." method="_on_load_pressed"]
 [connection signal="pressed" from="M/H/V/Buttons/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="M/H/V/Buttons/Quit" to="." method="_on_quit_pressed"]
