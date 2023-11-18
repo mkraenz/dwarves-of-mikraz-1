@@ -8,7 +8,6 @@ var gdata := GData
 var gstate := GState
 @onready var stats: Stats = $Stats
 @onready var anims: AnimationPlayer = $AnimationPlayer
-@onready var how_to_act := $HowToAct
 @onready var shape: CollisionShape2D = $Shape
 @onready var mining := $Mining
 
@@ -43,14 +42,6 @@ func save() -> Dictionary:
 		"pos_y": position.y,
 	}
 	return save_dict
-
-
-func mark() -> void:
-	how_to_act.show()
-
-
-func unmark() -> void:
-	how_to_act.hide()
 
 
 func set_collision_scale(new_scale: float) -> void:

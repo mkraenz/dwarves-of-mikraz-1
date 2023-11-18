@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dbtbfpiho8sx1"]
+[gd_scene load_steps=10 format=3 uid="uid://dbtbfpiho8sx1"]
 
 [ext_resource type="Script" path="res://world/buildings/charcoal_kiln/charcoal_kiln.gd" id="1_1mcgh"]
 [ext_resource type="Texture2D" uid="uid://b4lbmdd2n5ebi" path="res://third-party/kenney-roguelike/roguelikeSheet_transparent.png" id="1_ms5hd"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cyfyx07i1ornl" path="res://world/buildings/common/progressbar/progressbar.tscn" id="4_xhkxv"]
 [ext_resource type="PackedScene" uid="uid://c2mrs2touugk1" path="res://world/buildings/common/how_to_interact/how_to_interact.tscn" id="7_jjvep"]
 [ext_resource type="PackedScene" uid="uid://djaa81nvsgmhy" path="res://world/buildings/common/building-audio.tscn" id="7_kpavp"]
+[ext_resource type="PackedScene" uid="uid://fan0u7c1xosh" path="res://common/marker/marker.tscn" id="8_7ox5l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7xndd"]
 size = Vector2(28, 20)
@@ -40,10 +41,13 @@ position = Vector2(0, -10)
 offset_top = -20.0
 offset_bottom = 108.0
 
-[node name="HowToInteract" parent="." instance=ExtResource("7_jjvep")]
-position = Vector2(1, -38)
-
 [node name="OutputSpot" type="Marker2D" parent="."]
 position = Vector2(0, 8)
 
 [node name="Audio" parent="." instance=ExtResource("7_kpavp")]
+
+[node name="Marker" parent="." node_paths=PackedStringArray("how_to") instance=ExtResource("8_7ox5l")]
+how_to = NodePath("HowToInteract")
+
+[node name="HowToInteract" parent="Marker" instance=ExtResource("7_jjvep")]
+position = Vector2(1, -38)

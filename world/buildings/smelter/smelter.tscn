@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bmsf4jrtokcvg"]
+[gd_scene load_steps=14 format=3 uid="uid://bmsf4jrtokcvg"]
 
 [ext_resource type="Script" path="res://world/buildings/smelter/smelter.gd" id="1_nniej"]
 [ext_resource type="Texture2D" uid="uid://b4lbmdd2n5ebi" path="res://third-party/kenney-roguelike/roguelikeSheet_transparent.png" id="1_x2mhi"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cyfyx07i1ornl" path="res://world/buildings/common/progressbar/progressbar.tscn" id="3_cqdx3"]
 [ext_resource type="PackedScene" uid="uid://p7ame63w6rhl" path="res://world/buildings/common/production/production.tscn" id="4_wna7y"]
 [ext_resource type="PackedScene" uid="uid://t2utidwitf4t" path="res://world/buildings/common/current_order_display/current_order_display.tscn" id="5_j57fk"]
+[ext_resource type="PackedScene" uid="uid://fan0u7c1xosh" path="res://common/marker/marker.tscn" id="7_k8nb8"]
 [ext_resource type="PackedScene" uid="uid://djaa81nvsgmhy" path="res://world/buildings/common/building-audio.tscn" id="7_wuwu0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ttpmn"]
@@ -67,9 +68,6 @@ autoplay = "idle"
 position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_lb2ix")
 
-[node name="HowToInteract" parent="." instance=ExtResource("2_n27ih")]
-position = Vector2(1, -51)
-
 [node name="Progressbar" parent="." instance=ExtResource("3_cqdx3")]
 offset_top = -34.0
 offset_bottom = 94.0
@@ -81,3 +79,9 @@ position = Vector2(0, -24)
 position = Vector2(0, 10)
 
 [node name="Audio" parent="." instance=ExtResource("7_wuwu0")]
+
+[node name="Marker" parent="." node_paths=PackedStringArray("how_to") instance=ExtResource("7_k8nb8")]
+how_to = NodePath("HowToInteract")
+
+[node name="HowToInteract" parent="Marker" instance=ExtResource("2_n27ih")]
+position = Vector2(1, -51)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://b43yygkrld0ry"]
+[gd_scene load_steps=16 format=3 uid="uid://b43yygkrld0ry"]
 
 [ext_resource type="Script" path="res://world/buildings/smithy/smithy.gd" id="1_nmfpx"]
 [ext_resource type="Texture2D" uid="uid://ciqjgayfpwp72" path="res://assets/images/gui/progressbar/progressbar.png" id="4_t07dl"]
+[ext_resource type="PackedScene" uid="uid://fan0u7c1xosh" path="res://common/marker/marker.tscn" id="7_mi3f0"]
 [ext_resource type="PackedScene" uid="uid://t2utidwitf4t" path="res://world/buildings/common/current_order_display/current_order_display.tscn" id="7_nx6gu"]
 [ext_resource type="Texture2D" uid="uid://bh8fyhr10mw41" path="res://assets/images/smithy.png" id="7_raft2"]
 [ext_resource type="PackedScene" uid="uid://c2mrs2touugk1" path="res://world/buildings/common/how_to_interact/how_to_interact.tscn" id="7_ya30g"]
@@ -90,10 +91,13 @@ texture_progress = SubResource("AtlasTexture_i3tp4")
 [node name="CurrentOrderDisplay" parent="." instance=ExtResource("7_nx6gu")]
 position = Vector2(0, 6)
 
-[node name="HowToInteract" parent="." instance=ExtResource("7_ya30g")]
-position = Vector2(0, -29)
-
 [node name="OutputSlot" type="Marker2D" parent="."]
 position = Vector2(0, 27)
 
 [node name="Audio" parent="." instance=ExtResource("7_ynve1")]
+
+[node name="Marker" parent="." node_paths=PackedStringArray("how_to") instance=ExtResource("7_mi3f0")]
+how_to = NodePath("HowToInteract")
+
+[node name="HowToInteract" parent="Marker" instance=ExtResource("7_ya30g")]
+position = Vector2(0, -29)

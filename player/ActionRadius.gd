@@ -19,14 +19,14 @@ func _on_body_entered(body: Node2D):
 func _on_body_exited(body: Node2D):
 	gstate.bodies_in_player_action_radius.erase(body)
 
-	if body.has_method("unmark"):
-		body.unmark()
+	if body.has_node("Marker"):
+		body.get_node("Marker").unmark()
 
 
 func unmark_all() -> void:
 	for node in gstate.bodies_in_player_action_radius:
-		if node.has_method("unmark"):
-			node.unmark()
+		if node.has_node("Marker"):
+			node.get_node("Marker").unmark()
 
 
 func add_marks() -> void:
@@ -50,5 +50,5 @@ func act_on_closest_actable(method_name: String):
 
 
 func try_mark_node(node: Node2D):
-	if node and node.has_method("mark"):
-		node.mark()
+	if node and node.has_node("Marker"):
+		node.get_node("Marker").mark()

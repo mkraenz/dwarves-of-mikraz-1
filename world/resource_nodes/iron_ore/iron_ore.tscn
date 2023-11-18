@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://1yjdrf40idyo"]
+[gd_scene load_steps=15 format=3 uid="uid://1yjdrf40idyo"]
 
 [ext_resource type="Shader" path="res://effects/blink.gdshader" id="1_cmyh3"]
 [ext_resource type="Script" path="res://world/resource_nodes/iron_ore/iron_ore.gd" id="1_xtj8a"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dibg57pg4emn7" path="res://world/resource_nodes/common/how_to_act.tscn" id="5_60koc"]
 [ext_resource type="AudioStream" uid="uid://dxsv2jaqwel1x" path="res://assets/sounds/stone-breaking.mp3" id="6_nh7i3"]
 [ext_resource type="PackedScene" uid="uid://be52v685kfaec" path="res://world/resource_nodes/common/mining/mining.tscn" id="8_duo8a"]
+[ext_resource type="PackedScene" uid="uid://fan0u7c1xosh" path="res://common/marker/marker.tscn" id="8_ycpb3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_alivw"]
 resource_local_to_scene = true
@@ -123,8 +124,12 @@ libraries = {
 [node name="Audio" type="AudioStreamPlayer2D" parent="."]
 bus = &"Sounds"
 
-[node name="HowToAct" parent="." instance=ExtResource("5_60koc")]
-
 [node name="Mining" parent="." node_paths=PackedStringArray("reference_node") instance=ExtResource("8_duo8a")]
 resource_node_type = "iron_ore"
 reference_node = NodePath("..")
+
+[node name="Marker" parent="." node_paths=PackedStringArray("how_to") instance=ExtResource("8_ycpb3")]
+position = Vector2(0, -6)
+how_to = NodePath("HowToAct")
+
+[node name="HowToAct" parent="Marker" instance=ExtResource("5_60koc")]

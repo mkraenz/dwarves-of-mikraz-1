@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ck2utngryc1v"]
+[gd_scene load_steps=15 format=3 uid="uid://ck2utngryc1v"]
 
 [ext_resource type="Script" path="res://world/resource_nodes/crate/crate.gd" id="1_ja3ux"]
 [ext_resource type="Shader" path="res://effects/blink.gdshader" id="2_trs7a"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://dvfjim7k1sto8" path="res://third-party/sounds/wood/wood-impact-straight.mp3" id="5_prc3t"]
 [ext_resource type="PackedScene" uid="uid://i5pg0rokc7h8" path="res://world/resource_nodes/common/healthbar/healthbar.tscn" id="6_013ur"]
 [ext_resource type="PackedScene" uid="uid://dibg57pg4emn7" path="res://world/resource_nodes/common/how_to_act.tscn" id="7_uis07"]
+[ext_resource type="PackedScene" uid="uid://fan0u7c1xosh" path="res://common/marker/marker.tscn" id="8_67h2o"]
 [ext_resource type="PackedScene" uid="uid://be52v685kfaec" path="res://world/resource_nodes/common/mining/mining.tscn" id="8_jbldv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ghb5y"]
@@ -108,8 +109,11 @@ bus = &"Sounds"
 [node name="Healthbar" parent="." node_paths=PackedStringArray("stats") instance=ExtResource("6_013ur")]
 stats = NodePath("../Stats")
 
-[node name="HowToAct" parent="." instance=ExtResource("7_uis07")]
-
 [node name="Mining" parent="." node_paths=PackedStringArray("reference_node") instance=ExtResource("8_jbldv")]
 resource_node_type = "crate"
 reference_node = NodePath("..")
+
+[node name="Marker" parent="." node_paths=PackedStringArray("how_to") instance=ExtResource("8_67h2o")]
+how_to = NodePath("HowToAct")
+
+[node name="HowToAct" parent="Marker" instance=ExtResource("7_uis07")]
