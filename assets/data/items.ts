@@ -1,6 +1,7 @@
 interface ItemData {
-  [itemName: string]: Item;
+  [id: string]: Item;
 }
+export type ItemId = keyof typeof itemsData;
 
 interface Item {
   label: string;

@@ -1,7 +1,7 @@
 import type { NeededItem } from "./crafting-recipes";
 
 interface BuildingData {
-  [buildingName: string]: Building;
+  [id: string]: Building;
 }
 
 interface Building {

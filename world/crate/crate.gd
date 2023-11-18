@@ -3,13 +3,15 @@ extends StaticBody2D
 const DeathAnim = preload("res://world/crate/crate_death.tscn")
 const Pickup = preload("res://world/pickup/pickup.tscn")
 
-@onready var eventbus := Eventbus
+var eventbus := Eventbus
+var gdata := GData
 @onready var stats: Stats = $Stats
 @onready var anims: AnimationPlayer = $AnimationPlayer
 @onready var how_to_use := $HowToUse
 @onready var shape: CollisionShape2D = $Shape
 
-@export var outputs: Array = [{"item_id": "log", "amount": 3}]
+## @type {keyof typeof ResourceNodeData}
+@export var resource_node_type: String = "crate"
 
 
 func _ready():
@@ -22,7 +24,8 @@ func mine() -> void:
 
 
 func die() -> void:
-	spawn_pickups()
+	var resource_node = gdata.get_resource_node(resource_node_type)
+	spawn_pickups(resource_node.outputs)
 	spawn(DeathAnim)
 	queue_free()
 
@@ -31,7 +34,8 @@ func bounce(_val) -> void:
 	anims.play("bounce")
 
 
-func spawn_pickups() -> void:
+## @param {OutputItem[]} outputs
+func spawn_pickups(outputs: Array) -> void:
 	const RADIUS := 10
 
 	for output in outputs:
@@ -41,7 +45,7 @@ func spawn_pickups() -> void:
 			)
 			var instance = Pickup.instantiate()
 			instance.global_position = global_position + random_offset_on_circle
-			instance.item_id = output.item_id
+			instance.item_id = output.id
 			get_parent().add_child(instance)
 
 
@@ -58,7 +62,7 @@ func save() -> Dictionary:
 		"parent": get_parent().get_path(),
 		"pos_x": position.x,  # Vector2 is not supported by JSON
 		"pos_y": position.y,
-		"outputs": outputs
+		"resource_node_type": resource_node_type
 	}
 	return save_dict
 

@@ -1,14 +1,16 @@
 extends Node
 
-## type: CraftingData
+## @type {CraftingData}
 var crafting_recipes: Dictionary
-## type: ItemData
+## @type {ItemData}
 var items: Dictionary
-## type: BuildingData
+## @type {BuildingData}
 var buildings: Dictionary
 var version: String = "0.0.x"
-## type: ScriptRegistry
+## @type {ScriptRegistry}
 var scripts: Dictionary
+## @type {ResourceNodeData}
+var resource_nodes: Dictionary
 
 
 func _ready():
@@ -17,6 +19,7 @@ func _ready():
 	buildings = read_json_dict("res://assets/data/buildings.json")
 	version = read_json_dict("res://package.json").version
 	scripts = read_json_dict("res://assets/data/script.registry.json")
+	resource_nodes = read_json_dict("res://assets/data/resource-nodes.json")
 
 
 func read_json_dict(filepath: String):
@@ -72,3 +75,7 @@ func _load_icon(icon: Dictionary, id: String) -> Texture2D:
 		_:
 			push_error("Unsupported texture type for ", id)
 			return null
+
+
+func get_resource_node(id: String) -> Dictionary:
+	return resource_nodes[id]

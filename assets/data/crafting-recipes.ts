@@ -1,10 +1,8 @@
-import type { itemsData } from "./items";
+import type { ItemId } from "./items";
 
 interface CraftingData {
-  [buildingName: string]: Recipe[];
+  [building_id: string]: Recipe[];
 }
-
-type ItemId = keyof typeof itemsData;
 
 interface Recipe {
   id: string;
