@@ -9,9 +9,7 @@ const Pickup = preload("res://world/pickup/pickup.tscn")
 @onready var how_to_use := $HowToUse
 @onready var shape: CollisionShape2D = $Shape
 
-@export var mineable := true  # used by MouseCollider
-@export var item_id := "log"
-@export var amount := 3
+@export var outputs: Array = [{"item_id": "log", "amount": 3}]
 
 
 func _ready():
@@ -36,12 +34,15 @@ func bounce(_val) -> void:
 func spawn_pickups() -> void:
 	const RADIUS := 10
 
-	for i in range(amount):
-		var random_offset_on_circle = Vector2(randf() - 0.5, randf() - 0.5).normalized() * RADIUS
-		var instance = Pickup.instantiate()
-		instance.global_position = global_position + random_offset_on_circle
-		instance.item_id = item_id
-		get_parent().add_child(instance)
+	for output in outputs:
+		for i in range(output.amount):
+			var random_offset_on_circle = (
+				Vector2(randf() - 0.5, randf() - 0.5).normalized() * RADIUS
+			)
+			var instance = Pickup.instantiate()
+			instance.global_position = global_position + random_offset_on_circle
+			instance.item_id = output.item_id
+			get_parent().add_child(instance)
 
 
 func spawn(Scene: PackedScene, offset := Vector2.ZERO):
@@ -57,8 +58,7 @@ func save() -> Dictionary:
 		"parent": get_parent().get_path(),
 		"pos_x": position.x,  # Vector2 is not supported by JSON
 		"pos_y": position.y,
-		"item_id": item_id,
-		"amount": amount
+		"outputs": outputs
 	}
 	return save_dict
 
