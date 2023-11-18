@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-# const DeathAnim = preload("res://world/resource_nodes/crate/crate_death.tscn")
+const DeathAnim = preload("res://world/resource_nodes/iron_ore/iron_ore_death.tscn")
 const Pickup = preload("res://world/pickup/pickup.tscn")
 
 var eventbus := Eventbus
@@ -27,7 +27,7 @@ func mine() -> void:
 
 func die() -> void:
 	mining.output_resources()
-	# spawn(DeathAnim)
+	Utils.spawn(DeathAnim, global_position, gstate.level)
 	queue_free()
 
 

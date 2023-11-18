@@ -117,10 +117,12 @@ v0.1.0
   - [ ] new resource: iron ore
     - [x] add scene
     - [x] spawn regularly
-    - [ ] extract common code for resource nodes
+    - [x] extract common code for resource nodes
     - [ ] remove the ability to "craft" iron ore at sawmill
     - [ ] on hit anim
     - [ ] on death anim
+    - [ ] on hit sound
+    - [ ] on death sound
   - [ ] turn crates into trees
   - [x] new building: smelter
   - [x] move crafting recipes from smithy to smelter
@@ -171,7 +173,7 @@ These are options that are under further investigation but not yet necessarily u
 - [Orc sound pack CC0 (good for dwarf laughs & amused, burp, yes, hup and hut when cutting trees, inquisitive & sceptical, joyous, satisfied, sleep, surprised, thankful)](https://johncarroll.itch.io/orc-voice-pack) (there's more stuff from johncarroll. may be worth checking out, e.g. [warrior](https://johncarroll.itch.io/warrior-voice-pack))
 - [itchio CC0 sfx](https://itch.io/game-assets/assets-cc0/tag-sound-effects)
 
-### Assets
+## Images
 
 - <https://opengameart.org/users/bluecarrot16?page=2>
 - <https://opengameart.org/content/lpc-rocks>

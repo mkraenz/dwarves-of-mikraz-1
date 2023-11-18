@@ -1,18 +1,19 @@
 [gd_scene load_steps=10 format=3 uid="uid://50at58g2mqb1"]
 
 [ext_resource type="Shader" path="res://effects/dissolve.gdshader" id="1_8t3r1"]
-[ext_resource type="Texture2D" uid="uid://dxb80j1fcp0dr" path="res://third-party/kenney_tiny-dungeon/Tilemap/tilemap_packed.png" id="2_s6smn"]
 [ext_resource type="Script" path="res://effects/death-effect-base.gd" id="3_5us18"]
 [ext_resource type="AudioStream" uid="uid://2vbb6efqqtd2" path="res://third-party/sounds/wood/wood-breaking.mp3" id="3_oxtmi"]
+[ext_resource type="Texture2D" uid="uid://tplk8k6rox3j" path="res://world/resource_nodes/crate/crate.atlastex" id="4_317lf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rmsbm"]
 resource_local_to_scene = true
 shader = ExtResource("1_8t3r1")
 shader_parameter/sensitivity = 0.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_daefa"]
-atlas = ExtResource("2_s6smn")
-region = Rect2(48, 80, 16, 16)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yxfv5"]
+resource_local_to_scene = true
+shader = ExtResource("1_8t3r1")
+shader_parameter/sensitivity = 0.0
 
 [sub_resource type="Animation" id="Animation_fsrip"]
 length = 0.001
@@ -35,7 +36,7 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:material:shader_parameter/sensitivity")
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/sensitivity")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
@@ -78,10 +79,14 @@ _data = {
 "default": SubResource("Animation_vsf4l")
 }
 
-[node name="CrateDeath" type="Sprite2D"]
+[node name="CrateDeath" type="Node2D"]
 material = SubResource("ShaderMaterial_rmsbm")
-texture = SubResource("AtlasTexture_daefa")
+position = Vector2(0, -8)
 script = ExtResource("3_5us18")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_yxfv5")
+texture = ExtResource("4_317lf")
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="."]
 bus = &"Sounds"

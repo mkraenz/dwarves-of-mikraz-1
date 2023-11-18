@@ -1,33 +1,18 @@
-[gd_scene load_steps=16 format=3 uid="uid://ck2utngryc1v"]
+[gd_scene load_steps=14 format=3 uid="uid://ck2utngryc1v"]
 
 [ext_resource type="Script" path="res://world/resource_nodes/crate/crate.gd" id="1_ja3ux"]
 [ext_resource type="Shader" path="res://effects/blink.gdshader" id="2_trs7a"]
-[ext_resource type="Texture2D" uid="uid://dxb80j1fcp0dr" path="res://third-party/kenney_tiny-dungeon/Tilemap/tilemap_packed.png" id="3_dtivu"]
+[ext_resource type="Texture2D" uid="uid://tplk8k6rox3j" path="res://world/resource_nodes/crate/crate.atlastex" id="3_r6v5k"]
 [ext_resource type="PackedScene" uid="uid://6b2lgtejwxtv" path="res://common/Stats.tscn" id="4_t3scl"]
 [ext_resource type="AudioStream" uid="uid://dvfjim7k1sto8" path="res://third-party/sounds/wood/wood-impact-straight.mp3" id="5_prc3t"]
 [ext_resource type="PackedScene" uid="uid://i5pg0rokc7h8" path="res://world/resource_nodes/common/healthbar/healthbar.tscn" id="6_013ur"]
 [ext_resource type="PackedScene" uid="uid://dibg57pg4emn7" path="res://world/resource_nodes/common/how_to_act.tscn" id="7_uis07"]
 [ext_resource type="PackedScene" uid="uid://be52v685kfaec" path="res://world/resource_nodes/common/mining/mining.tscn" id="8_jbldv"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_r3og4"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ghb5y"]
 resource_local_to_scene = true
 shader = ExtResource("2_trs7a")
 shader_parameter/active = false
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_v5s0d"]
-atlas = ExtResource("3_dtivu")
-region = Rect2(48, 80, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_rc7yc"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_v5s0d")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pcu3n"]
 size = Vector2(13, 8)
@@ -37,13 +22,13 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/active")
+tracks/0/path = NodePath("Sprite:material:shader_parameter/active")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [false]
 }
 
@@ -51,22 +36,25 @@ tracks/0/keys = {
 resource_name = "bounce"
 length = 0.2
 step = 0.05
-tracks/0/type = "value"
+tracks/0/type = "audio"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/path = NodePath("Audio")
 tracks/0/interp = 1
-tracks/0/loop_wrap = false
+tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_prc3t")
+}],
+"times": PackedFloat32Array(0)
 }
+tracks/0/use_blend = true
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:material:shader_parameter/active")
+tracks/1/path = NodePath("Sprite:material:shader_parameter/active")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -75,21 +63,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [true, false]
 }
-tracks/2/type = "audio"
+tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Audio")
+tracks/2/path = NodePath("Sprite:scale")
 tracks/2/interp = 1
-tracks/2/loop_wrap = true
+tracks/2/loop_wrap = false
 tracks/2/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("5_prc3t")
-}],
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
 }
-tracks/2/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vbtnk"]
 _data = {
@@ -101,10 +86,10 @@ _data = {
 collision_mask = 3
 script = ExtResource("1_ja3ux")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-material = SubResource("ShaderMaterial_r3og4")
+[node name="Sprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_ghb5y")
 position = Vector2(0, -8)
-sprite_frames = SubResource("SpriteFrames_rc7yc")
+texture = ExtResource("3_r6v5k")
 
 [node name="Shape" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -4)

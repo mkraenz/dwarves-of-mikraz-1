@@ -1,68 +1,22 @@
-[gd_scene load_steps=15 format=3 uid="uid://1yjdrf40idyo"]
+[gd_scene load_steps=14 format=3 uid="uid://1yjdrf40idyo"]
 
-[ext_resource type="Texture2D" uid="uid://57s5bwgq2jlw" path="res://third-party/bluecarrot16/ore.png" id="1_76clr"]
 [ext_resource type="Shader" path="res://effects/blink.gdshader" id="1_cmyh3"]
 [ext_resource type="Script" path="res://world/resource_nodes/iron_ore/iron_ore.gd" id="1_xtj8a"]
 [ext_resource type="PackedScene" uid="uid://i5pg0rokc7h8" path="res://world/resource_nodes/common/healthbar/healthbar.tscn" id="2_grutw"]
+[ext_resource type="Texture2D" uid="uid://bdapxssfugeaq" path="res://world/resource_nodes/iron_ore/iron_ore.atlastex" id="3_suxqc"]
 [ext_resource type="PackedScene" uid="uid://6b2lgtejwxtv" path="res://common/Stats.tscn" id="3_txvwt"]
 [ext_resource type="PackedScene" uid="uid://dibg57pg4emn7" path="res://world/resource_nodes/common/how_to_act.tscn" id="5_60koc"]
-[ext_resource type="AudioStream" uid="uid://u5n1gxyaybuq" path="res://third-party/sounds/pickups/blubs/blub-dull.mp3" id="6_pymx2"]
+[ext_resource type="AudioStream" uid="uid://dxsv2jaqwel1x" path="res://assets/sounds/stone-breaking.mp3" id="6_nh7i3"]
 [ext_resource type="PackedScene" uid="uid://be52v685kfaec" path="res://world/resource_nodes/common/mining/mining.tscn" id="8_duo8a"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_alivw"]
+resource_local_to_scene = true
 shader = ExtResource("1_cmyh3")
 shader_parameter/active = false
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xndrd"]
-atlas = ExtResource("1_76clr")
-region = Rect2(64, 224, 32, 32)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4gpe3"]
 radius = 8.0
 height = 28.0
-
-[sub_resource type="Animation" id="Animation_2gx2t"]
-resource_name = "hit"
-length = 0.2
-tracks/0/type = "audio"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Audio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("6_pymx2")
-}],
-"times": PackedFloat32Array(0)
-}
-tracks/0/use_blend = true
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:material:shader_parameter/active")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = false
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_6vic6"]
 length = 0.001
@@ -91,6 +45,49 @@ tracks/1/keys = {
 "values": [Vector2(1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_2gx2t"]
+resource_name = "hit"
+length = 0.4
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Audio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_nh7i3")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:material:shader_parameter/active")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = false
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v1yj3"]
 _data = {
 "RESET": SubResource("Animation_6vic6"),
@@ -103,7 +100,7 @@ script = ExtResource("1_xtj8a")
 [node name="Sprite" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_alivw")
 position = Vector2(0, -9)
-texture = SubResource("AtlasTexture_xndrd")
+texture = ExtResource("3_suxqc")
 
 [node name="Shape" type="CollisionShape2D" parent="."]
 position = Vector2(1, -4)
@@ -124,6 +121,7 @@ libraries = {
 }
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="."]
+bus = &"Sounds"
 
 [node name="HowToAct" parent="." instance=ExtResource("5_60koc")]
 
