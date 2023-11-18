@@ -30,8 +30,8 @@ func save() -> Dictionary:
 	return save_dict
 
 
-func load_from(save_dict: Dictionary) -> void:
-	production.load_from(save_dict.production)
+func load_before_ready(save_dict: Dictionary) -> void:
+	$Production.load_from(save_dict.production)
 
 
 func on_production_producing() -> void:

@@ -75,7 +75,7 @@ v0.1.0
 - [ ] ingame menus can open above eachother
 - [ ] refactor mark and unmark for how-to displays into child node. Use `has_node('HowTo')`
 - [ ] define resource node health in TS
-- [ ] call sawmill.on_load before adding the sawmill to the tree. This should allow production to use export variables inside its `_ready` function
+- [x] call sawmill.on_load before adding the sawmill to the tree. This should allow production to use export variables inside its `_ready` function
 - [x] ts watcher on assets/data/ and scripts/ (nodemon)
 - [x] unify save, on_load, load_from to save + load
 - [x] script registry

@@ -108,11 +108,11 @@ func load_game(tree: SceneTree, get_tree_node: Callable):
 					_:
 						new_object.set(key, val)
 
+			if new_object.has_method("load_before_ready"):
+				new_object.load_before_ready(node_data)
+
 			# finally add to tree. This happens last so that _ready is not called before all the properties have been re-initialized
 			get_tree_node.call(node_data["parent"]).add_child(new_object)
-
-			if new_object.has_method("load_from"):
-				new_object.load_from(node_data)
 
 			if "node_name" in node_data and node_data["node_name"] == "Player":
 				new_object.connect_camera(gstate.cam)
