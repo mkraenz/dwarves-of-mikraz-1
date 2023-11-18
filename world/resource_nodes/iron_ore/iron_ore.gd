@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-const DeathAnim = preload("res://world/resource_nodes/crate/crate_death.tscn")
+# const DeathAnim = preload("res://world/resource_nodes/crate/crate_death.tscn")
 const Pickup = preload("res://world/pickup/pickup.tscn")
 
 var eventbus := Eventbus
@@ -12,12 +12,12 @@ var gstate := GState
 @onready var shape: CollisionShape2D = $Shape
 
 ## @type {keyof typeof ResourceNodeData}
-@export var resource_node_type: String = "crate"
+@export var resource_node_type: String = "iron_ore"
 
 
 func _ready():
 	stats.connect("no_health", die)
-	stats.connect("hp_changed", bounce)
+	stats.connect("hp_changed", _on_hit)
 
 
 func mine() -> void:
@@ -27,12 +27,12 @@ func mine() -> void:
 func die() -> void:
 	var resource_node = gdata.get_resource_node(resource_node_type)
 	spawn_pickups(resource_node.outputs)
-	spawn(DeathAnim)
+	# spawn(DeathAnim)
 	queue_free()
 
 
-func bounce(_val) -> void:
-	anims.play("bounce")
+func _on_hit(_val) -> void:
+	anims.play("hit")
 
 
 ## @param {OutputItem[]} outputs
@@ -59,7 +59,7 @@ func spawn(Scene: PackedScene, offset := Vector2.ZERO):
 
 func save() -> Dictionary:
 	var save_dict = {
-		"file_id": "crate_tmMrzy",
+		"file_id": "iron_ore_ufkPN4",
 		"parent": get_parent().get_path(),
 		"pos_x": position.x,  # Vector2 is not supported by JSON
 		"pos_y": position.y,

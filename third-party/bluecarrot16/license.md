@@ -1,0 +1,1 @@
+- ore.png under CC-BY 3.0 - "[LPC] Ore and Forge" by bluecarrot16, commissioned by Pierre Vigier (pvigier). CC-BY 3.0+ / GPL 3.0+ / OGA-BY 3.0+

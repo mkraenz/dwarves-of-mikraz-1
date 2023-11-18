@@ -40,4 +40,8 @@ export const scriptRegistry = {
     res_path: "res://global/GInventory.gd",
     id: "ginventory_GVwfHU",
   },
+  iron_ore_ufkPN4: {
+    res_path: "res://world/resource_nodes/iron_ore/iron_ore.tscn",
+    id: "iron_ore_ufkPN4",
+  },
 } satisfies ScriptRegistry;

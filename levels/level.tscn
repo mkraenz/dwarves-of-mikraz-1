@@ -1,15 +1,16 @@
-[gd_scene load_steps=14 format=3 uid="uid://bi08raw4e5yar"]
+[gd_scene load_steps=15 format=3 uid="uid://bi08raw4e5yar"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_n5ph6"]
 [ext_resource type="Texture2D" uid="uid://dxb80j1fcp0dr" path="res://third-party/kenney_tiny-dungeon/Tilemap/tilemap_packed.png" id="1_plfv1"]
 [ext_resource type="Texture2D" uid="uid://clpyftpsvyfuh" path="res://third-party/kenney/kenney-tiny-battle-tilemap.png" id="2_aatao"]
-[ext_resource type="PackedScene" uid="uid://ck2utngryc1v" path="res://world/crate/crate.tscn" id="3_qvbfd"]
 [ext_resource type="PackedScene" uid="uid://molrdbxdnti" path="res://common/resource_spawner/resource_spawner.tscn" id="5_0ppb2"]
 [ext_resource type="PackedScene" uid="uid://d032gr28r0n7b" path="res://world/pickup/pickup.tscn" id="5_jo4wq"]
+[ext_resource type="PackedScene" uid="uid://ck2utngryc1v" path="res://world/resource_nodes/crate/crate.tscn" id="5_ma5vi"]
 [ext_resource type="PackedScene" uid="uid://b43yygkrld0rh" path="res://world/buildings/sawmill/sawmill.tscn" id="6_ko3yx"]
 [ext_resource type="PackedScene" uid="uid://2fh363mu15xx" path="res://common/build_mode/build_mode_handler.tscn" id="7_55u28"]
 [ext_resource type="PackedScene" uid="uid://b43yygkrld0ry" path="res://world/buildings/smithy/smithy.tscn" id="8_nspfr"]
 [ext_resource type="PackedScene" uid="uid://dbtbfpiho8sx1" path="res://world/buildings/charcoal_kiln/charcoal_kiln.tscn" id="10_hnn76"]
+[ext_resource type="PackedScene" uid="uid://1yjdrf40idyo" path="res://world/resource_nodes/iron_ore/iron_ore.tscn" id="11_qogle"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sb6lg"]
 texture = ExtResource("2_aatao")
@@ -913,10 +914,10 @@ item_id = "iron_ore"
 position = Vector2(272, 230)
 item_id = "iron_ore"
 
-[node name="Crate" parent="." instance=ExtResource("3_qvbfd")]
+[node name="Crate" parent="." instance=ExtResource("5_ma5vi")]
 position = Vector2(63, 65)
 
-[node name="Crate2" parent="." instance=ExtResource("3_qvbfd")]
+[node name="Crate2" parent="." instance=ExtResource("5_ma5vi")]
 position = Vector2(69, 55)
 
 [node name="ResourceSpawner" parent="." instance=ExtResource("5_0ppb2")]
@@ -935,5 +936,8 @@ position = Vector2(308, 76)
 
 [node name="CharcoalKiln" parent="." instance=ExtResource("10_hnn76")]
 position = Vector2(238, 166)
+
+[node name="IronOre" parent="." instance=ExtResource("11_qogle")]
+position = Vector2(303, 155)
 
 [connection signal="timeout" from="ProductionTakt" to="." method="_on_production_takt_timeout"]
