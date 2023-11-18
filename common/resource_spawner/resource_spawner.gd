@@ -1,6 +1,7 @@
 extends Node2D
 
 const Crate = preload("res://world/resource_nodes/crate/crate.tscn")
+const IronOre = preload("res://world/resource_nodes/iron_ore/iron_ore.tscn")
 
 @export var enabled := true
 
@@ -12,7 +13,7 @@ const NORMAL_COLLISION_SCALE: float = 1.0
 
 func _on_cooldown_timeout():
 	if enabled:
-		spawn_resource(Crate)
+		spawn_resource(Utils.sample([Crate, IronOre]))
 
 
 func spawn_resource(Scene: PackedScene, attempt = 0) -> void:

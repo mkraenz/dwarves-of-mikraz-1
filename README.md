@@ -74,6 +74,7 @@ v0.1.0
   - [ ] xbox
 - [ ] ingame menus can open above eachother
 - [ ] ts watcher on assets/data/ and scripts/ (nodemon)
+- [ ] refactor mark and unmark for how-to displays into child node. Use `has_node('HowTo')`
 - [ ] define resource node health in TS
 - [ ] unify save, on_load, load_from to save + load
 - [ ] call sawmill.on_load before adding the sawmill to the tree. This should allow production to use export variables inside its `_ready` function
@@ -114,7 +115,12 @@ v0.1.0
   - [ ] Congratulations. You finished the game/demo.
   - [ ] new resource: stone
   - [ ] new resource: iron ore
+    - [x] add scene
+    - [x] spawn regularly
+    - [ ] extract common code for resource nodes
     - [ ] remove the ability to "craft" iron ore at sawmill
+    - [ ] on hit anim
+    - [ ] on death anim
   - [ ] turn crates into trees
   - [x] new building: smelter
   - [x] move crafting recipes from smithy to smelter
