@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://1yjdrf40idyo"]
+[gd_scene load_steps=15 format=3 uid="uid://1yjdrf40idyo"]
 
 [ext_resource type="Texture2D" uid="uid://57s5bwgq2jlw" path="res://third-party/bluecarrot16/ore.png" id="1_76clr"]
 [ext_resource type="Shader" path="res://effects/blink.gdshader" id="1_cmyh3"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://6b2lgtejwxtv" path="res://common/Stats.tscn" id="3_txvwt"]
 [ext_resource type="PackedScene" uid="uid://dibg57pg4emn7" path="res://world/resource_nodes/common/how_to_act.tscn" id="5_60koc"]
 [ext_resource type="AudioStream" uid="uid://u5n1gxyaybuq" path="res://third-party/sounds/pickups/blubs/blub-dull.mp3" id="6_pymx2"]
+[ext_resource type="PackedScene" uid="uid://be52v685kfaec" path="res://world/resource_nodes/common/mining/mining.tscn" id="8_duo8a"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_alivw"]
 shader = ExtResource("1_cmyh3")
@@ -123,3 +124,7 @@ libraries = {
 [node name="Audio" type="AudioStreamPlayer2D" parent="."]
 
 [node name="HowToAct" parent="." instance=ExtResource("5_60koc")]
+
+[node name="Mining" parent="." node_paths=PackedStringArray("reference_node") instance=ExtResource("8_duo8a")]
+resource_node_type = "iron_ore"
+reference_node = NodePath("..")

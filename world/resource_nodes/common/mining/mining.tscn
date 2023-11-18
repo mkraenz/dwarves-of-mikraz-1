@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://be52v685kfaec"]
+
+[ext_resource type="Script" path="res://world/resource_nodes/common/mining/mining.gd" id="1_ns8sv"]
+
+[node name="Mining" type="Node2D"]
+script = ExtResource("1_ns8sv")

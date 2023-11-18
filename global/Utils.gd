@@ -13,3 +13,12 @@ static func remove_all_children(parent: Node, immediate = false) -> void:
 
 static func sample(arr: Array[Variant]) -> Variant:
 	return arr[randi() % len(arr)]
+
+
+static func spawn(
+	Scene: PackedScene, global_position: Vector2, parent: Node2D, offset := Vector2.ZERO
+):
+	var instance = Scene.instantiate()
+	instance.global_position = global_position + offset
+	parent.add_child(instance)
+	return instance
