@@ -30,7 +30,17 @@ func _get_seen_items() -> Dictionary:
 
 
 func _set_inventory(val: Dictionary) -> void:
-	inventory = val
+	inventory = {}
+	for key in gdata.items:
+		inventory[key] = {"amount": 0, "seen": false}
+	# for backwards compatibility with old save states
+	for key in val:
+		if val[key].get("amount") != null:
+			inventory[key].amount = val[key].get("amount")
+		inventory[key].seen = (
+			val[key].get("seen") if val[key].get("seen") else inventory[key].amount > 0
+		)
+
 	eventbus.ginventory_overwritten.emit()
 
 

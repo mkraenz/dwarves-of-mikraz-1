@@ -79,7 +79,7 @@ v0.1.0
 - [ ] unify save, on_load, load_from to save + load
 - [ ] call sawmill.on_load before adding the sawmill to the tree. This should allow production to use export variables inside its `_ready` function
 - [x] script registry
-  - [ ] allow ginventory changes with save-load functionality
+  - [x] allow ginventory changes with save-load functionality
 - [ ] some polish
   - [x] use a Marker to determine the position of production outputs
   - [x] scene transitions -> <https://godotshaders.com/shader/screentone-scene-transition/> or <https://godotshaders.com/shader/diamond-based-screen-transition/>
