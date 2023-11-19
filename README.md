@@ -63,7 +63,7 @@ summary:
 
 v0.1.0
 
-- [ ] NeededItemPanel not updating
+- [ ] bug: NeededItemPanel not updating
 - [ ] options menu
   - [ ] language
     - [x] don't translate the label
@@ -124,7 +124,15 @@ v0.1.0
   - [ ] final goal: produce 20 battle axes for the war of the dwarves against the evil lord
   - [ ] communicate the final quest (KIS)
   - [ ] Congratulations. You finished the game/demo.
-  - [ ] new resource: stone
+  - [x] new resource: stone
+    - [x] add scene
+    - [x] spawn regularly
+    - [x] new recipes
+    - [x] on hit anim
+    - [x] on death anim
+      - [x] particle effect
+    - [x] on hit sound
+    - [x] on death sound
   - [x] new resource: iron ore
     - [x] add scene
     - [x] spawn regularly

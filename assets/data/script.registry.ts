@@ -44,4 +44,8 @@ export const scriptRegistry = {
     res_path: "res://world/resource_nodes/iron_ore/iron_ore.tscn",
     id: "iron_ore_ufkPN4",
   },
+  stone_ul586x: {
+    res_path: "res://world/resource_nodes/stone/stone.tscn",
+    id: "stone_ul586x",
+  },
 } satisfies ScriptRegistry;

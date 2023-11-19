@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-const DeathAnim = preload("res://world/resource_nodes/iron_ore/iron_ore_death.tscn")
+const DeathAnim = preload("res://world/resource_nodes/stone/stone_death.tscn")
 
 var eventbus := Eventbus
 var gstate := GState
@@ -31,7 +31,7 @@ func _on_hit(_val) -> void:
 
 func save() -> Dictionary:
 	var save_dict = {
-		"file_id": "iron_ore_ufkPN4",
+		"file_id": "stone_ul586x",
 		"parent": get_parent().get_path(),
 		"pos_x": position.x,  # Vector2 is not supported by JSON
 		"pos_y": position.y,

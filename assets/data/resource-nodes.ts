@@ -34,6 +34,16 @@ export const resourceNodes = {
         amount: 2,
       },
     ],
-    health: 7,
+    health: 12,
+  },
+  stone: {
+    id: "stone",
+    outputs: [
+      {
+        id: "stone",
+        amount: 3,
+      },
+    ],
+    health: 10,
   },
 } satisfies ResourceNodeData;

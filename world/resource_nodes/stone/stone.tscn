@@ -1,0 +1,106 @@
+[gd_scene load_steps=14 format=3 uid="uid://c00ecsnklwewt"]
+
+[ext_resource type="Script" path="res://world/resource_nodes/stone/stone.gd" id="1_2onj2"]
+[ext_resource type="PackedScene" uid="uid://i5pg0rokc7h8" path="res://world/resource_nodes/common/healthbar/healthbar.tscn" id="2_13jsn"]
+[ext_resource type="Shader" path="res://effects/blink.gdshader" id="2_lcvb5"]
+[ext_resource type="PackedScene" uid="uid://6b2lgtejwxtv" path="res://common/Stats.tscn" id="3_p068t"]
+[ext_resource type="Texture2D" uid="uid://hn8myu11cgn4" path="res://world/resource_nodes/stone/stone.atlastex" id="3_rg5b6"]
+[ext_resource type="PackedScene" uid="uid://be52v685kfaec" path="res://world/resource_nodes/common/mining/mining.tscn" id="4_687jj"]
+[ext_resource type="AudioStream" uid="uid://dxsv2jaqwel1x" path="res://assets/sounds/stone-breaking.mp3" id="6_hy74y"]
+[ext_resource type="PackedScene" uid="uid://fan0u7c1xosh" path="res://common/marker/marker.tscn" id="6_uaovn"]
+[ext_resource type="PackedScene" uid="uid://dibg57pg4emn7" path="res://world/resource_nodes/common/how_to_act.tscn" id="7_k37yo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2lvrg"]
+resource_local_to_scene = true
+shader = ExtResource("2_lcvb5")
+shader_parameter/active = false
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qe8db"]
+radius = 7.0
+height = 26.0
+
+[sub_resource type="Animation" id="Animation_cer2i"]
+resource_name = "hit"
+length = 0.4
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Audio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_hy74y")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:material:shader_parameter/active")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = false
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yle6d"]
+_data = {
+"hit": SubResource("Animation_cer2i")
+}
+
+[node name="Stone" type="StaticBody2D"]
+script = ExtResource("1_2onj2")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_2lvrg")
+position = Vector2(0, -11)
+texture = ExtResource("3_rg5b6")
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+position = Vector2(1, -5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_qe8db")
+
+[node name="Healthbar" parent="." node_paths=PackedStringArray("stats") instance=ExtResource("2_13jsn")]
+offset_top = 5.0
+offset_bottom = 9.0
+stats = NodePath("../Stats")
+
+[node name="Stats" parent="." instance=ExtResource("3_p068t")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_yle6d")
+}
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+volume_db = 5.0
+
+[node name="Mining" parent="." node_paths=PackedStringArray("reference_node") instance=ExtResource("4_687jj")]
+resource_node_type = "stone"
+reference_node = NodePath("..")
+
+[node name="Marker" parent="." node_paths=PackedStringArray("how_to") instance=ExtResource("6_uaovn")]
+how_to = NodePath("HowToAct")
+
+[node name="HowToAct" parent="Marker" instance=ExtResource("7_k37yo")]
+position = Vector2(0, -35)

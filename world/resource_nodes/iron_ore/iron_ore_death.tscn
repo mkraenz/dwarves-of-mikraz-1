@@ -39,7 +39,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_2bsrv"]
 resource_name = "default"
-length = 2.8
+length = 2.6
 tracks/0/type = "audio"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -96,6 +96,7 @@ texture = ExtResource("1_yhwfx")
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(0, -9)
+volume_db = 5.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite2D")

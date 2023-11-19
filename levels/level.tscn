@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bi08raw4e5yar"]
+[gd_scene load_steps=16 format=3 uid="uid://bi08raw4e5yar"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_n5ph6"]
 [ext_resource type="Texture2D" uid="uid://dxb80j1fcp0dr" path="res://third-party/kenney_tiny-dungeon/Tilemap/tilemap_packed.png" id="1_plfv1"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b43yygkrld0ry" path="res://world/buildings/smithy/smithy.tscn" id="8_nspfr"]
 [ext_resource type="PackedScene" uid="uid://dbtbfpiho8sx1" path="res://world/buildings/charcoal_kiln/charcoal_kiln.tscn" id="10_hnn76"]
 [ext_resource type="PackedScene" uid="uid://1yjdrf40idyo" path="res://world/resource_nodes/iron_ore/iron_ore.tscn" id="11_qogle"]
+[ext_resource type="PackedScene" uid="uid://c00ecsnklwewt" path="res://world/resource_nodes/stone/stone.tscn" id="12_1uyqu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sb6lg"]
 texture = ExtResource("2_aatao")
@@ -939,5 +940,8 @@ position = Vector2(238, 166)
 
 [node name="IronOre" parent="." instance=ExtResource("11_qogle")]
 position = Vector2(303, 155)
+
+[node name="Stone" parent="." instance=ExtResource("12_1uyqu")]
+position = Vector2(180, 123)
 
 [connection signal="timeout" from="ProductionTakt" to="." method="_on_production_takt_timeout"]

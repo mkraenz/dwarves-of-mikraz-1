@@ -2,6 +2,7 @@ extends Node2D
 
 const Crate = preload("res://world/resource_nodes/crate/crate.tscn")
 const IronOre = preload("res://world/resource_nodes/iron_ore/iron_ore.tscn")
+const Stone = preload("res://world/resource_nodes/stone/stone.tscn")
 
 @export var enabled := true
 
@@ -10,10 +11,12 @@ var gstate := GState
 const COLLISION_SCALE_FOR_PLACEMENT_CHECK: float = 2.0
 const NORMAL_COLLISION_SCALE: float = 1.0
 
+const ResourceNodes = [Crate, IronOre, Stone]
+
 
 func _on_cooldown_timeout():
 	if enabled:
-		spawn_resource(Utils.sample([Crate, IronOre]))
+		spawn_resource(Utils.sample(ResourceNodes))
 
 
 func spawn_resource(Scene: PackedScene, attempt = 0) -> void:
