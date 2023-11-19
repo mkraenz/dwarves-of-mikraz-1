@@ -74,6 +74,7 @@ v0.1.0
   - [ ] choose controller ps or controller xbox or keyboard
   - [ ] volume
   - [ ] credits
+  - [x] exiting pause menu also closes options menu
 - [ ] controller support
   - [ ] ps
   - [ ] xbox

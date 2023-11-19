@@ -13,3 +13,9 @@ Inventory,Inventory,Inventar
 Craft {special_amount},Craft {special_amount},{special_amount} herstellen
 Craft x{amount},Craft x{amount},{amount}x herstellen
 Materials (batch),Materials (per batch),Materialien (je Batch)
+Resume,Resume,Fortsetzen
+Back to Title,Back to Title,Zum Hauptmenü
+Save,Save,Speichern
+Load,Load,Laden
+- Paused -,- Paused -,- Pausiert -
+Saved successfully.,[color=green]Saved successfully.[/color],[color=green]Speichern erfolgreich.[/color]

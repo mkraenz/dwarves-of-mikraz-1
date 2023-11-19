@@ -50,7 +50,7 @@ func _on_save_game_pressed() -> void:
 	persistence.save_game(get_tree())
 	_on_resume_game_pressed()
 	eventbus.game_saved_successfully.emit()
-	eventbus.show_notification.emit("[color=green]Saved successfully.[/color]", 2)
+	eventbus.show_notification.emit("Saved successfully.", 2)
 
 
 func _on_new_game_pressed() -> void:
@@ -101,6 +101,7 @@ func unpause_game() -> void:
 	get_tree().paused = false
 	title_menu.hide()
 	pause_menu.hide()
+	options_menu.hide()
 
 
 func _on_toggle_crafting_menu(for_building: String, workshop_node_path: String) -> void:

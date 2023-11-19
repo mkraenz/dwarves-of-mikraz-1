@@ -8,7 +8,6 @@ var locale_in_that_language = {
 
 func _ready() -> void:
 	var locales := TranslationServer.get_loaded_locales()
-	var current_locale := TranslationServer.get_locale()
 	for i in len(locales):
 		var locale = locales[i]
 		var locale_in_english := TranslationServer.get_locale_name(locale)

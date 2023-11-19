@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://4bt3ndfyg5jf"]
+[gd_scene load_steps=7 format=3 uid="uid://4bt3ndfyg5jf"]
 
 [ext_resource type="PackedScene" uid="uid://bgbkco32lhejv" path="res://ui/title/background.tscn" id="2_evy4p"]
 [ext_resource type="Script" path="res://ui/pause/pause_menu.gd" id="2_lkj2s"]
 [ext_resource type="PackedScene" uid="uid://bt1njt15eesor" path="res://ui/components/game_title_heading.tscn" id="3_48pxe"]
 [ext_resource type="Script" path="res://ui/pause/paused_label.gd" id="4_kxpae"]
+[ext_resource type="PackedScene" uid="uid://b0426023cyp6a" path="res://ui/title/options_button/options_button.tscn" id="5_2jfyi"]
 [ext_resource type="PackedScene" uid="uid://btys1uystjl0u" path="res://ui/title/quit_button/quit_button.tscn" id="5_jbu0r"]
 
 [node name="PauseMenu" type="Control" groups=["blocking"]]
@@ -84,9 +85,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Load"
 
-[node name="Options" type="Button" parent="M/H/V/Buttons"]
+[node name="OptionsButton" parent="M/H/V/Buttons" instance=ExtResource("5_2jfyi")]
 layout_mode = 2
-text = "Options"
 
 [node name="H" type="HBoxContainer" parent="M/H/V/Buttons"]
 layout_mode = 2

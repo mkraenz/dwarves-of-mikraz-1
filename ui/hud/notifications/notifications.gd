@@ -28,5 +28,5 @@ func display_notification() -> void:
 
 	var next_notification = queue.pop_front()
 	if next_notification:
-		text = "[center]%s[/center]" % [next_notification.message]
+		text = "[center]{message}[/center]".format({message = tr(next_notification.message)})
 		timer.start(next_notification.duration_in_sec)
