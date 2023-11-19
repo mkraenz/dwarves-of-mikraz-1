@@ -28,3 +28,5 @@ signal cancel_order_at_workshop(workshop_node_path: String)
 signal scene_transition_show
 signal scene_transition_hide
 signal scene_transition_finished
+
+signal locale_changed

@@ -17,6 +17,7 @@ config/features=PackedStringArray("4.1", "GL Compatibility")
 [autoload]
 
 Eventbus="*res://global/Eventbus.gd"
+LocaleSwitcher="*res://global/LocaleSwitcher.gd"
 GData="*res://global/GData.gd"
 GState="*res://global/GState.gd"
 GInventory="*res://global/GInventory.gd"

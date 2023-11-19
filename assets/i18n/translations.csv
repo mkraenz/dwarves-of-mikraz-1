@@ -10,6 +10,6 @@ Materials,Materials,Materialien
 Needs,Needs,Materialien
 Buildings,Buildings,Gebäude
 Inventory,Inventory,Inventar
-Craft {amount},Craft {amount},{amount} herstellen
-Craft x{amount},Craft x{amount},{amount} herstellen
+Craft {special_amount},Craft {special_amount},{special_amount} herstellen
+Craft x{amount},Craft x{amount},{amount}x herstellen
 Materials (batch),Materials (per batch),Materialien (je Batch)
