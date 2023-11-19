@@ -78,11 +78,11 @@ v0.1.0
 - [ ] controller support
   - [ ] ps
   - [ ] xbox
-- [ ] bug: ingame menus can open above eachother
-- [x] bug: ingame menus stay open on load
 - [ ] localization:
   - [ ] how to localize content?
 - [ ] define resource node health in TS
+- [x] bug: ingame menus can open above eachother
+- [x] bug: ingame menus stay open on load
 - [x] refactor mark and unmark for how-to displays into child node. Use `has_node('HowTo')`
 - [x] call sawmill.on_load before adding the sawmill to the tree. This should allow production to use export variables inside its `_ready` function
 - [x] ts watcher on assets/data/ and scripts/ (nodemon)

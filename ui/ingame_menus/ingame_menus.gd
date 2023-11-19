@@ -27,11 +27,11 @@ func _on_toggle_crafting_menu(for_building: String, workshop_node_path: String) 
 	crafting_menu.recipes = gdata.crafting_recipes[for_building]
 	crafting_menu.soft_reset()
 	crafting_menu.refresh()
-	crafting_menu.visible = not crafting_menu.visible
+	toggle_child(crafting_menu)
 
 
 func _on_toggle_building_menu() -> void:
-	building_menu.visible = not building_menu.visible
+	toggle_child(building_menu)
 
 
 func _on_enter_build_mode(_building_id: String) -> void:
@@ -40,4 +40,15 @@ func _on_enter_build_mode(_building_id: String) -> void:
 
 
 func _on_toggle_inventory_menu() -> void:
-	inventory_menu.visible = not inventory_menu.visible
+	toggle_child(inventory_menu)
+
+
+func toggle_child(target: Control) -> void:
+	hide_children_except(target)
+	target.visible = not target.visible
+
+
+func hide_children_except(exception: Control) -> void:
+	for child in get_children():
+		if child != exception:
+			child.hide()

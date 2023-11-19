@@ -12,7 +12,6 @@ var gstate := GState
 @onready var options_menu := $Gui/OutgameMenus/OptionsMenu
 @onready var ingame_menus := $Gui/IngameMenus
 @onready var outgame_menus := $Gui/OutgameMenus
-## Todo there are several issues with the management of menus, e.g. crafting menu and inventory menu can be opened at the same time causing glitchy ui. Needs rework
 
 
 func _ready() -> void:
