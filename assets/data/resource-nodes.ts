@@ -31,7 +31,11 @@ export const resourceNodes = {
     outputs: [
       {
         id: "iron_ore",
-        amount: 2,
+        amount: 3,
+      },
+      {
+        id: "stone",
+        amount: 1,
       },
     ],
     health: 12,

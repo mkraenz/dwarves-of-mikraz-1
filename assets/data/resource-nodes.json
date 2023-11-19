@@ -1,1 +1,1 @@
-{"crate":{"id":"crate","outputs":[{"id":"log","amount":3}],"health":5},"iron_ore":{"id":"iron_ore","outputs":[{"id":"iron_ore","amount":2}],"health":12},"stone":{"id":"stone","outputs":[{"id":"stone","amount":3}],"health":10}}
+{"crate":{"id":"crate","outputs":[{"id":"log","amount":3}],"health":5},"iron_ore":{"id":"iron_ore","outputs":[{"id":"iron_ore","amount":3},{"id":"stone","amount":1}],"health":12},"stone":{"id":"stone","outputs":[{"id":"stone","amount":3}],"health":10}}
