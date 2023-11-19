@@ -6,15 +6,12 @@ const Player = preload("res://player/Player.tscn")
 
 var eventbus := Eventbus
 var gstate := GState
-var gdata := GData
 @onready var world := $World
-@onready var pause_menu := $Gui/PauseMenu
-@onready var title_menu := $Gui/TitleMenu
-@onready var crafting_menu := $Gui/IngameMenus/CraftingMenu
-@onready var inventory_menu := $Gui/IngameMenus/InventoryMenu
-@onready var building_menu := $Gui/IngameMenus/BuildingMenu
+@onready var pause_menu := $Gui/OutgameMenus/PauseMenu
+@onready var title_menu := $Gui/OutgameMenus/TitleMenu
+@onready var options_menu := $Gui/OutgameMenus/OptionsMenu
 @onready var ingame_menus := $Gui/IngameMenus
-@onready var options_menu := $Gui/OptionsMenu
+@onready var outgame_menus := $Gui/OutgameMenus
 ## Todo there are several issues with the management of menus, e.g. crafting menu and inventory menu can be opened at the same time causing glitchy ui. Needs rework
 
 
@@ -27,10 +24,6 @@ func _ready() -> void:
 	eventbus.resume_game_pressed.connect(_on_resume_game_pressed)
 	eventbus.save_game_pressed.connect(_on_save_game_pressed)
 	eventbus.toggle_options_menu.connect(_on_toggle_options_menu)
-	eventbus.toggle_crafting_menu.connect(_on_toggle_crafting_menu)
-	eventbus.toggle_building_menu.connect(_on_toggle_building_menu)
-	eventbus.toggle_inventory_menu.connect(_on_toggle_inventory_menu)
-	eventbus.enter_build_mode.connect(_on_enter_build_mode)
 
 
 func is_ingame() -> bool:
@@ -99,31 +92,8 @@ func pause_game() -> void:
 
 func unpause_game() -> void:
 	get_tree().paused = false
-	title_menu.hide()
-	pause_menu.hide()
-	options_menu.hide()
+	outgame_menus.hide_children()
 	ingame_menus.hide_children()
-
-
-func _on_toggle_crafting_menu(for_building: String, workshop_node_path: String) -> void:
-	crafting_menu.workshop_node_path = workshop_node_path
-	crafting_menu.recipes = gdata.crafting_recipes[for_building]
-	crafting_menu.soft_reset()
-	crafting_menu.refresh()
-	crafting_menu.visible = not crafting_menu.visible
-
-
-func _on_toggle_building_menu() -> void:
-	building_menu.visible = not building_menu.visible
-
-
-func _on_enter_build_mode(_building_id: String) -> void:
-	building_menu.hide()
-	gstate.mode = GState.Mode.build
-
-
-func _on_toggle_inventory_menu() -> void:
-	inventory_menu.visible = not inventory_menu.visible
 
 
 func _on_toggle_options_menu() -> void:

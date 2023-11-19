@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://crvaxgw3mwm78"]
+[gd_scene load_steps=15 format=3 uid="uid://crvaxgw3mwm78"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_k5eii"]
 [ext_resource type="PackedScene" uid="uid://4bt3ndfyg5jf" path="res://ui/pause/pause_menu.tscn" id="3_lo3uq"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bpmgglwruexb7" path="res://common/camera/my_camera.tscn" id="5_du1ce"]
 [ext_resource type="Script" path="res://world/world.gd" id="5_qpwfe"]
 [ext_resource type="PackedScene" uid="uid://bhc1lv183q4nr" path="res://ui/buildings/building_menu.tscn" id="6_0fwhm"]
+[ext_resource type="Script" path="res://ui/outgame_menus/outgame_menus.gd" id="7_ixuk5"]
 [ext_resource type="PackedScene" uid="uid://dn05qj4gsbmoa" path="res://ui/hud/hud.tscn" id="7_q3nhx"]
 [ext_resource type="PackedScene" uid="uid://ccoad4rkapxlr" path="res://effects/screen_transition/screen_transition.tscn" id="8_aqk3u"]
 [ext_resource type="PackedScene" uid="uid://buknj5j72vcmc" path="res://ui/options/options_menu.tscn" id="8_lysbd"]
@@ -29,6 +30,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("3_qo32b")
 
 [node name="InventoryMenu" parent="Gui/IngameMenus" instance=ExtResource("4_2h3fo")]
@@ -43,14 +45,27 @@ layout_mode = 1
 visible = false
 layout_mode = 1
 
-[node name="PauseMenu" parent="Gui" instance=ExtResource("3_lo3uq")]
+[node name="OutgameMenus" type="Control" parent="Gui"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("7_ixuk5")
+
+[node name="PauseMenu" parent="Gui/OutgameMenus" instance=ExtResource("3_lo3uq")]
 process_mode = 2
 visible = false
+layout_mode = 1
 
-[node name="TitleMenu" parent="Gui" instance=ExtResource("3_sxw8d")]
+[node name="TitleMenu" parent="Gui/OutgameMenus" instance=ExtResource("3_sxw8d")]
+layout_mode = 1
 
-[node name="OptionsMenu" parent="Gui" groups=["blocking"] instance=ExtResource("8_lysbd")]
+[node name="OptionsMenu" parent="Gui/OutgameMenus" groups=["blocking"] instance=ExtResource("8_lysbd")]
 visible = false
+layout_mode = 1
 
 [node name="Effects" type="Control" parent="Gui"]
 top_level = true
@@ -67,6 +82,7 @@ top_level = true
 layout_mode = 1
 
 [node name="DebugOverlay" parent="Gui" instance=ExtResource("9_yypcb")]
+visible = false
 
 [node name="World" type="Node2D" parent="."]
 process_mode = 1

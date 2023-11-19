@@ -5,7 +5,7 @@ var gdata := GData
 var gstate := GState
 var eventbus := Eventbus
 
-@onready var item_list: ItemList = $M/P/M/H/ItemList
+@onready var item_list: ItemList = $M/P/M/V/ItemList
 
 ## workaround: Godot's ItemLists are so ugly to use... they only allow access via index. So we keep lookup tables in both directions to avoid quadratic runtime complexity.
 var item_id_to_index = {}
