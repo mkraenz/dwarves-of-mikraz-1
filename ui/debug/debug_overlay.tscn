@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bo7o6835f3fh6"]
+
+[ext_resource type="PackedScene" uid="uid://ieyklly2a2r" path="res://ui/debug/switch_language/debug_switch_language.tscn" id="1_tkn0c"]
+[ext_resource type="Script" path="res://ui/debug/debug_overlay.gd" id="1_yt4sn"]
+
+[node name="DebugOverlay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_yt4sn")
+
+[node name="DebugSwitchLanguage" parent="." instance=ExtResource("1_tkn0c")]
+layout_mode = 0
+offset_left = 487.0
+offset_top = 3.0
+offset_right = 635.0
+offset_bottom = 21.0

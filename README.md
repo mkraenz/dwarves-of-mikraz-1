@@ -69,6 +69,7 @@ v0.1.0
     - [ ] don't translate the label
     - [ ] apply language selection
     - [ ] persist language selection
+    - [ ] load the OS language `OS.get_locale()` on first opening
   - [ ] key rebinding
   - [ ] choose controller ps or controller xbox or keyboard
   - [ ] volume

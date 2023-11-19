@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ieyklly2a2r"]
+
+[ext_resource type="Script" path="res://ui/debug/switch_language/debug_switch_language.gd" id="1_ah57v"]
+
+[node name="DebugSwitchLanguage" type="Button"]
+auto_translate = false
+text = "Debug: English"
+script = ExtResource("1_ah57v")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

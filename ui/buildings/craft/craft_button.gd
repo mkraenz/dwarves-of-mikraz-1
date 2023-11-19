@@ -3,8 +3,8 @@ extends Button
 
 func refresh_text(crafted_amount: float) -> void:
 	if crafted_amount == 0:
-		text = "Craft Max"
+		text = tr("Craft {amount}").format({amount = "Max"})
 	elif crafted_amount == INF:
-		text = "Craft ∞"
+		text = tr("Craft {amount}").format({amount = "∞"})
 	else:
-		text = "Craft x%s" % [crafted_amount]
+		text = tr("Craft x{amount}").format({amount = crafted_amount})
