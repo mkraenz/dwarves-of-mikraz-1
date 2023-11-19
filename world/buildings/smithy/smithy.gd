@@ -26,17 +26,17 @@ func load_before_ready(save_dict: Dictionary) -> void:
 
 
 func on_production_producing() -> void:
-	anim_sprite.modulate = Color.GREEN
+	anim_sprite.modulate = Color.WHITE
 	anim_sprite.play("producing")
 
 
 func on_production_blocked() -> void:
-	anim_sprite.modulate = Color.RED
+	anim_sprite.modulate = Color(1, .5, .5)
 	anim_sprite.play("idle")
 
 
 func on_production_pending() -> void:
-	anim_sprite.modulate = Color.YELLOW
+	anim_sprite.modulate = Color(1, 1, .5)
 	anim_sprite.play("idle")
 
 

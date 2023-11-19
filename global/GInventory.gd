@@ -68,8 +68,9 @@ func get_max_producable_batches(needs: Array) -> float:
 
 func reset() -> void:
 	inventory = {}
+	var amount = 0 if not FeatureFlags.filled_inventory else 500
 	for key in gdata.items:
-		inventory[key] = {"amount": 0, "seen": false}
+		inventory[key] = {"amount": amount, "seen": amount != 0}
 
 
 func _on_add_to_inventory(item_id: String, amount: int):

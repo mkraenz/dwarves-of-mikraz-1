@@ -74,6 +74,8 @@ v0.1.0
   - [ ] choose controller ps or controller xbox or keyboard
   - [ ] volume
   - [ ] credits
+    - [ ] Twitch folks
+    - [ ] Special thanks "First person to ever finish this game" GrumbleOfPugz
   - [x] exiting pause menu also closes options menu
 - [ ] controller support
   - [ ] ps
@@ -109,6 +111,10 @@ v0.1.0
       - [ ] inventory menu
       - [ ] building menu
     - [ ] on order accepted
+  - [x] blacksmith
+    - [x] replace placeholder sprite
+    - [x] animations
+    - [ ] details
   - [ ] charcoal kiln
     - [ ] replace placeholder sprite
     - [ ] animations
