@@ -78,8 +78,8 @@ v0.1.0
 - [ ] controller support
   - [ ] ps
   - [ ] xbox
-- [ ] ingame menus can open above eachother
-- [ ] ingame menus stay open on load
+- [ ] bug: ingame menus can open above eachother
+- [x] bug: ingame menus stay open on load
 - [ ] localization:
   - [ ] how to localize content?
 - [ ] define resource node health in TS

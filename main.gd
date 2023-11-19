@@ -10,15 +10,15 @@ var gdata := GData
 @onready var world := $World
 @onready var pause_menu := $Gui/PauseMenu
 @onready var title_menu := $Gui/TitleMenu
-@onready var crafting_menu := $Gui/CraftingMenu
-@onready var inventory_menu := $Gui/InventoryMenu
-@onready var building_menu := $Gui/BuildingMenu
+@onready var crafting_menu := $Gui/IngameMenus/CraftingMenu
+@onready var inventory_menu := $Gui/IngameMenus/InventoryMenu
+@onready var building_menu := $Gui/IngameMenus/BuildingMenu
+@onready var ingame_menus := $Gui/IngameMenus
 @onready var options_menu := $Gui/OptionsMenu
 ## Todo there are several issues with the management of menus, e.g. crafting menu and inventory menu can be opened at the same time causing glitchy ui. Needs rework
 
 
 func _ready() -> void:
-	# TranslationServer.set_locale("en")
 	RenderingServer.set_default_clear_color(Color.BLACK)
 	eventbus.new_game_pressed.connect(_on_new_game_pressed)
 	eventbus.load_game_pressed.connect(_on_load_game_pressed)
@@ -102,6 +102,7 @@ func unpause_game() -> void:
 	title_menu.hide()
 	pause_menu.hide()
 	options_menu.hide()
+	ingame_menus.hide_children()
 
 
 func _on_toggle_crafting_menu(for_building: String, workshop_node_path: String) -> void:

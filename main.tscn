@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://crvaxgw3mwm78"]
+[gd_scene load_steps=14 format=3 uid="uid://crvaxgw3mwm78"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_k5eii"]
 [ext_resource type="PackedScene" uid="uid://4bt3ndfyg5jf" path="res://ui/pause/pause_menu.tscn" id="3_lo3uq"]
+[ext_resource type="Script" path="res://ui/ingame_menus/ingame_menus.gd" id="3_qo32b"]
 [ext_resource type="PackedScene" uid="uid://d4bt3ndfyg5je" path="res://ui/title/title_menu.tscn" id="3_sxw8d"]
 [ext_resource type="PackedScene" uid="uid://ce83xqbtw77i5" path="res://ui/inventory/inventory_menu.tscn" id="4_2h3fo"]
 [ext_resource type="PackedScene" uid="uid://b3ff7xd1sb0og" path="res://ui/buildings/craft/crafting_menu.tscn" id="5_bbh1v"]
@@ -21,14 +22,26 @@ script = ExtResource("1_k5eii")
 
 [node name="Hud" parent="Gui" instance=ExtResource("7_q3nhx")]
 
-[node name="InventoryMenu" parent="Gui" instance=ExtResource("4_2h3fo")]
-visible = false
+[node name="IngameMenus" type="Control" parent="Gui"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_qo32b")
 
-[node name="CraftingMenu" parent="Gui" instance=ExtResource("5_bbh1v")]
+[node name="InventoryMenu" parent="Gui/IngameMenus" instance=ExtResource("4_2h3fo")]
 visible = false
+layout_mode = 1
 
-[node name="BuildingMenu" parent="Gui" instance=ExtResource("6_0fwhm")]
+[node name="CraftingMenu" parent="Gui/IngameMenus" instance=ExtResource("5_bbh1v")]
 visible = false
+layout_mode = 1
+
+[node name="BuildingMenu" parent="Gui/IngameMenus" instance=ExtResource("6_0fwhm")]
+visible = false
+layout_mode = 1
 
 [node name="PauseMenu" parent="Gui" instance=ExtResource("3_lo3uq")]
 process_mode = 2
