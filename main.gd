@@ -17,6 +17,7 @@ var gdata := GData
 
 
 func _ready() -> void:
+	TranslationServer.set_locale("en")
 	RenderingServer.set_default_clear_color(Color.BLACK)
 	eventbus.new_game_pressed.connect(_on_new_game_pressed)
 	eventbus.load_game_pressed.connect(_on_load_game_pressed)

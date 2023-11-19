@@ -65,6 +65,10 @@ v0.1.0
 
 - [ ] NeededItemPanel not updating
 - [ ] options menu
+  - [ ] language
+    - [ ] don't translate the label
+    - [ ] apply language selection
+    - [ ] persist language selection
   - [ ] key rebinding
   - [ ] choose controller ps or controller xbox or keyboard
   - [ ] volume
@@ -106,7 +110,9 @@ v0.1.0
   - [ ] smelter
     - [ ] replace placeholder sprite -> <https://opengameart.org/content/lpc-blacksmith>
     - [ ] animations
-  - [ ] woodshop/sawmill? <https://opengameart.org/content/lpc-woodshop>
+  - [ ] woodshop/sawmill
+    - [ ] new sprite <https://opengameart.org/content/lpc-woodshop>
+    - [ ] handsaw sound on order
   - [ ] crafting menu: if Max results in 0 items, do not confirm.
 - [ ] unlock new building recipes when having seen every needed item for that building
 - [ ] demo: production sim
