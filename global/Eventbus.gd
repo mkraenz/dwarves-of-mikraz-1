@@ -13,6 +13,7 @@ signal resume_game_pressed
 signal quit_to_title_pressed
 signal save_game_pressed
 signal game_saved_successfully
+signal toggle_options_menu
 signal toggle_crafting_menu(for_building: String, workshop_node_path: String)  ## node path is the absolute path to the node that is being processed. used for sending the order back to that workshop
 signal ordered_at_workshop(recipe: Dictionary, batches: float, workshop_node_path: String)
 signal toggle_building_menu

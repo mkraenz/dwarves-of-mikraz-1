@@ -13,6 +13,7 @@ var gdata := GData
 @onready var crafting_menu := $Gui/CraftingMenu
 @onready var inventory_menu := $Gui/InventoryMenu
 @onready var building_menu := $Gui/BuildingMenu
+@onready var options_menu := $Gui/OptionsMenu
 ## Todo there are several issues with the management of menus, e.g. crafting menu and inventory menu can be opened at the same time causing glitchy ui. Needs rework
 
 
@@ -25,6 +26,7 @@ func _ready() -> void:
 	eventbus.quit_to_title_pressed.connect(_on_quit_to_title_pressed)
 	eventbus.resume_game_pressed.connect(_on_resume_game_pressed)
 	eventbus.save_game_pressed.connect(_on_save_game_pressed)
+	eventbus.toggle_options_menu.connect(_on_toggle_options_menu)
 	eventbus.toggle_crafting_menu.connect(_on_toggle_crafting_menu)
 	eventbus.toggle_building_menu.connect(_on_toggle_building_menu)
 	eventbus.toggle_inventory_menu.connect(_on_toggle_inventory_menu)
@@ -120,3 +122,7 @@ func _on_enter_build_mode(_building_id: String) -> void:
 
 func _on_toggle_inventory_menu() -> void:
 	inventory_menu.visible = not inventory_menu.visible
+
+
+func _on_toggle_options_menu() -> void:
+	options_menu.visible = not options_menu.visible

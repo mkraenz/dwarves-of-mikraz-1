@@ -23,16 +23,8 @@ func _on_load_pressed() -> void:
 	eventbus.load_game_pressed.emit()
 
 
-func _on_quit_pressed() -> void:
-	get_tree().quit()
-
-
 func _on_continue_pressed():
 	eventbus.load_most_recent_game_pressed.emit()
-
-
-func _on_options_pressed():
-	pass
 
 
 func refresh() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://crvaxgw3mwm78"]
+[gd_scene load_steps=13 format=3 uid="uid://crvaxgw3mwm78"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_k5eii"]
 [ext_resource type="PackedScene" uid="uid://4bt3ndfyg5jf" path="res://ui/pause/pause_menu.tscn" id="3_lo3uq"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bhc1lv183q4nr" path="res://ui/buildings/building_menu.tscn" id="6_0fwhm"]
 [ext_resource type="PackedScene" uid="uid://dn05qj4gsbmoa" path="res://ui/hud/hud.tscn" id="7_q3nhx"]
 [ext_resource type="PackedScene" uid="uid://ccoad4rkapxlr" path="res://effects/screen_transition/screen_transition.tscn" id="8_aqk3u"]
+[ext_resource type="PackedScene" uid="uid://buknj5j72vcmc" path="res://ui/options/options_menu.tscn" id="8_lysbd"]
 [ext_resource type="PackedScene" uid="uid://bo7o6835f3fh6" path="res://ui/debug/debug_overlay.tscn" id="9_yypcb"]
 
 [node name="Main" type="Node"]
@@ -34,6 +35,9 @@ process_mode = 2
 visible = false
 
 [node name="TitleMenu" parent="Gui" instance=ExtResource("3_sxw8d")]
+
+[node name="OptionsMenu" parent="Gui" groups=["blocking"] instance=ExtResource("8_lysbd")]
+visible = false
 
 [node name="Effects" type="Control" parent="Gui"]
 top_level = true

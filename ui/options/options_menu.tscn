@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=3 uid="uid://buknj5j72vcmc"]
+
+[ext_resource type="Script" path="res://ui/options/options_menu.gd" id="1_7i8f7"]
+[ext_resource type="PackedScene" uid="uid://yjnjpa3w23jx" path="res://ui/common/backdrop.tscn" id="2_lhxoi"]
+[ext_resource type="Script" path="res://ui/options/language_select.gd" id="3_5vv1n"]
+
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7i8f7")
+
+[node name="Backdrop" parent="." instance=ExtResource("2_lhxoi")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 2
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 636.0
+offset_bottom = 356.0
+theme_type_variation = &"MarginAllSmall"
+
+[node name="P" type="PanelContainer" parent="Margin"]
+layout_mode = 2
+
+[node name="Padding" type="MarginContainer" parent="Margin/P"]
+layout_mode = 2
+theme_type_variation = &"MarginAllSmall"
+
+[node name="V" type="VBoxContainer" parent="Margin/P/Padding"]
+layout_mode = 2
+
+[node name="H" type="HBoxContainer" parent="Margin/P/Padding/V"]
+layout_mode = 2
+
+[node name="Heading" type="Label" parent="Margin/P/Padding/V/H"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Options"
+horizontal_alignment = 1
+
+[node name="CloseButton" type="Button" parent="Margin/P/Padding/V/H"]
+layout_mode = 2
+text = "X"
+
+[node name="LanguageSelect" type="OptionButton" parent="Margin/P/Padding/V"]
+layout_mode = 2
+auto_translate = false
+alignment = 1
+script = ExtResource("3_5vv1n")
+
+[connection signal="pressed" from="Margin/P/Padding/V/H/CloseButton" to="." method="close_menu"]
+[connection signal="item_selected" from="Margin/P/Padding/V/LanguageSelect" to="Margin/P/Padding/V/LanguageSelect" method="_on_item_selected"]

@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://d4bt3ndfyg5je"]
+[gd_scene load_steps=7 format=3 uid="uid://d4bt3ndfyg5je"]
 
 [ext_resource type="Script" path="res://ui/title/title_menu.gd" id="2_01unw"]
 [ext_resource type="PackedScene" uid="uid://bgbkco32lhejv" path="res://ui/title/background.tscn" id="2_bmlgv"]
 [ext_resource type="PackedScene" uid="uid://bt1njt15eesor" path="res://ui/components/game_title_heading.tscn" id="3_l0v43"]
+[ext_resource type="PackedScene" uid="uid://b0426023cyp6a" path="res://ui/title/options_button/options_button.tscn" id="4_0dbtb"]
 [ext_resource type="PackedScene" uid="uid://bwmjdntgw8ghd" path="res://ui/title/version/version.tscn" id="4_irtrd"]
+[ext_resource type="PackedScene" uid="uid://btys1uystjl0u" path="res://ui/title/quit_button/quit_button.tscn" id="5_pfxfi"]
 
 [node name="TitleMenu" type="Control" groups=["blocking"]]
 layout_mode = 3
@@ -16,6 +18,8 @@ script = ExtResource("2_01unw")
 
 [node name="Background" parent="." instance=ExtResource("2_bmlgv")]
 layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
 
 [node name="M" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -60,13 +64,11 @@ text = "Continue"
 layout_mode = 2
 text = "New Game"
 
-[node name="Options" type="Button" parent="M/H/V/Buttons"]
+[node name="Options" parent="M/H/V/Buttons" instance=ExtResource("4_0dbtb")]
 layout_mode = 2
-text = "Options"
 
-[node name="Quit" type="Button" parent="M/H/V/Buttons"]
+[node name="Quit" parent="M/H/V/Buttons" instance=ExtResource("5_pfxfi")]
 layout_mode = 2
-text = "Quit"
 
 [node name="Version" parent="." instance=ExtResource("4_irtrd")]
 layout_mode = 1
@@ -84,5 +86,3 @@ grow_vertical = 0
 
 [connection signal="pressed" from="M/H/V/Buttons/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="M/H/V/Buttons/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="M/H/V/Buttons/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="M/H/V/Buttons/Quit" to="." method="_on_quit_pressed"]

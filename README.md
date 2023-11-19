@@ -66,8 +66,8 @@ v0.1.0
 - [ ] NeededItemPanel not updating
 - [ ] options menu
   - [ ] language
-    - [ ] don't translate the label
-    - [ ] apply language selection
+    - [x] don't translate the label
+    - [x] apply language selection
     - [ ] persist language selection
     - [ ] load the OS language `OS.get_locale()` on first opening
   - [ ] key rebinding
@@ -79,6 +79,8 @@ v0.1.0
   - [ ] xbox
 - [ ] ingame menus can open above eachother
 - [ ] ingame menus stay open on load
+- [ ] localization:
+  - [ ] how to localize content?
 - [ ] define resource node health in TS
 - [x] refactor mark and unmark for how-to displays into child node. Use `has_node('HowTo')`
 - [x] call sawmill.on_load before adding the sawmill to the tree. This should allow production to use export variables inside its `_ready` function
