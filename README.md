@@ -114,7 +114,7 @@ v0.1.0
   - [x] blacksmith
     - [x] replace placeholder sprite
     - [x] animations
-    - [ ] details
+    - [x] details
   - [ ] charcoal kiln
     - [ ] replace placeholder sprite
     - [ ] animations
