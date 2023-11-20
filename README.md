@@ -91,6 +91,7 @@ v0.1.0
 - [x] unify save, on_load, load_from to save + load
 - [x] script registry
   - [x] allow ginventory changes with save-load functionality
+- [ ] upgrade to godot 4.1.3
 - [ ] some polish
   - [x] use a Marker to determine the position of production outputs
   - [x] scene transitions -> <https://godotshaders.com/shader/screentone-scene-transition/> or <https://godotshaders.com/shader/diamond-based-screen-transition/>
@@ -121,8 +122,8 @@ v0.1.0
   - [ ] smelter
     - [ ] replace placeholder sprite -> <https://opengameart.org/content/lpc-blacksmith>
     - [ ] animations
-  - [ ] woodshop/sawmill
-    - [ ] new sprite <https://opengameart.org/content/lpc-woodshop>
+  - [x] woodshop/sawmill
+    - [x] new sprite <https://opengameart.org/content/lpc-woodshop>
     - [ ] handsaw sound on order
   - [ ] crafting menu: if Max results in 0 items, do not confirm.
 - [ ] unlock new building recipes when having seen every needed item for that building
