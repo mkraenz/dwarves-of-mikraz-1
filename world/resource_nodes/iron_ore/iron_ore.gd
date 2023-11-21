@@ -16,9 +16,7 @@ func _ready():
 
 
 func mine() -> void:
-	if FeatureFlags.over_nine_thousand:
-		stats.hp -= 9999
-	stats.hp -= 1
+	stats.hp -= 1 if not FeatureFlags.over_nine_thousand else 9999
 
 
 func die() -> void:

@@ -22,3 +22,7 @@ static func spawn(
 	instance.global_position = global_position + offset
 	parent.add_child(instance)
 	return instance
+
+
+static func random_unit_vector() -> Vector2:
+	return Vector2(randf() - 0.5, randf() - 0.5).normalized()

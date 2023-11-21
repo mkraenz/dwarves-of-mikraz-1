@@ -9,6 +9,8 @@ const Pickup = preload("res://world/pickup/pickup.tscn")
 var gstate := GState
 var gdata := GData
 
+const SPAWN_RADIUS := 10
+
 
 func output_resources() -> void:
 	var resource_node = gdata.get_resource_node(resource_node_type)
@@ -17,21 +19,19 @@ func output_resources() -> void:
 
 ## @param {OutputItem[]} outputs
 func _spawn_pickups(outputs: Array) -> void:
-	const RADIUS := 10
-
+	var pickups := []
 	for output in outputs:
-		for i in range(output.amount):
-			var random_offset_on_circle = (
-				Vector2(randf() - 0.5, randf() - 0.5).normalized() * RADIUS
-			)
-			var instance = Pickup.instantiate()
-			instance.global_position = global_position + random_offset_on_circle
-			instance.item_id = output.id
-			gstate.level.add_child(instance)
+		for i in output.amount:
+			var instance = new_pickup(output)
+			pickups.append(instance)
+
+	for pickup in pickups:
+		gstate.level.add_child(pickup)
 
 
-func spawn(Scene: PackedScene, offset := Vector2.ZERO):
-	var instance = Scene.instantiate()
-	instance.global_position = reference_node.global_position + offset
-	gstate.level.add_child(instance)
+func new_pickup(output: Dictionary) -> Node2D:
+	var random_offset_on_circle = Utils.random_unit_vector() * SPAWN_RADIUS
+	var instance = Pickup.instantiate()
+	instance.global_position = reference_node.global_position + random_offset_on_circle
+	instance.item_id = output.id
 	return instance

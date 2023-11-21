@@ -63,6 +63,7 @@ summary:
 
 v0.1.0
 
+- [x] bug: crates are spawning too much (only in debug mode)
 - [x] bug: building Needs not updating when sawmill is buildable but others are not and i switch between buildings. Sawmill will never be shown in Needs.
 - [ ] options menu
   - [ ] language
@@ -77,6 +78,8 @@ v0.1.0
     - [ ] Twitch folks
     - [ ] Special thanks "First person to ever finish this game" GrumbleOfPugz
   - [x] exiting pause menu also closes options menu
+- [ ] player has attack damage
+- [ ] resources have armor
 - [ ] controller support
   - [ ] ps
   - [ ] xbox
