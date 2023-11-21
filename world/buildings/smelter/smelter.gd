@@ -2,7 +2,10 @@ extends StaticBody2D
 
 @onready var audio := $Audio
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var shape: CollisionShape2D = $Shape
+@onready var shape1: CollisionShape2D = $Shape
+@onready var shape2: CollisionShape2D = $Shape2
+@onready var shape3: CollisionShape2D = $Shape3
+@onready var shape4: CollisionShape2D = $Shape4
 @onready var production := $Production
 
 
@@ -26,17 +29,17 @@ func load_before_ready(save_dict: Dictionary) -> void:
 
 
 func on_production_producing() -> void:
-	sprite.modulate = Color.GREEN
+	sprite.modulate = Color.WHITE
 	sprite.play("producing")
 
 
 func on_production_blocked() -> void:
-	sprite.modulate = Color.RED
+	sprite.modulate = Color(1, .5, .5)
 	sprite.play("idle")
 
 
 func on_production_pending() -> void:
-	sprite.modulate = Color.YELLOW
+	sprite.modulate = Color(1, 1, .5)
 	sprite.play("idle")
 
 
@@ -50,4 +53,5 @@ func on_output_products() -> void:
 
 
 func set_collision_scale(new_scale: float) -> void:
-	shape.scale = Vector2.ONE * new_scale
+	for shape in [shape1, shape2, shape3, shape4]:
+		shape.scale = Vector2.ONE * new_scale

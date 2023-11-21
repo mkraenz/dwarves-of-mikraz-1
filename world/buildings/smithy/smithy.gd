@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 @onready var audio := $Audio
-@onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var bellows: AnimatedSprite2D = $Bellows
 @onready var shape1: CollisionShape2D = $Shape
 @onready var shape2: CollisionShape2D = $Shape2
@@ -29,26 +29,26 @@ func load_before_ready(save_dict: Dictionary) -> void:
 
 
 func on_production_producing() -> void:
-	anim_sprite.modulate = Color.WHITE
-	anim_sprite.play("producing")
+	sprite.modulate = Color.WHITE
+	sprite.play("producing")
 	bellows.play("producing")
 
 
 func on_production_blocked() -> void:
-	anim_sprite.modulate = Color(1, .5, .5)
-	anim_sprite.play("idle")
+	sprite.modulate = Color(1, .5, .5)
+	sprite.play("idle")
 	bellows.play("idle")
 
 
 func on_production_pending() -> void:
-	anim_sprite.modulate = Color(1, 1, .5)
-	anim_sprite.play("idle")
+	sprite.modulate = Color(1, 1, .5)
+	sprite.play("idle")
 	bellows.play("idle")
 
 
 func on_production_idle() -> void:
-	anim_sprite.modulate = Color.WHITE
-	anim_sprite.play("idle")
+	sprite.modulate = Color.WHITE
+	sprite.play("idle")
 	bellows.play("idle")
 
 

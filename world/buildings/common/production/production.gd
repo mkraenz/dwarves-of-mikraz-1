@@ -192,12 +192,11 @@ func _output_products() -> void:
 
 
 func _output_pickups(item_id: String, amount: int) -> void:
-	var y := output_spot.position.y
 	const CENTER_OFFSET = 10
 	for i in range(amount):
 		var x = lerp(-CENTER_OFFSET, CENTER_OFFSET, float(i) / (amount - 1)) if amount != 1 else 0
 		var instance = Pickup.instantiate()
-		instance.global_position = global_position + Vector2(x, y)
+		instance.global_position = output_spot.global_position + Vector2(x, 0)
 		instance.item_id = item_id
 		gstate.level.add_child(instance)
 

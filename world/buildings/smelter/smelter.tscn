@@ -1,42 +1,49 @@
-[gd_scene load_steps=14 format=3 uid="uid://bmsf4jrtokcvg"]
+[gd_scene load_steps=18 format=3 uid="uid://bmsf4jrtokcvg"]
 
 [ext_resource type="Script" path="res://world/buildings/smelter/smelter.gd" id="1_nniej"]
-[ext_resource type="Texture2D" uid="uid://b4lbmdd2n5ebi" path="res://third-party/kenney-roguelike/roguelikeSheet_transparent.png" id="1_x2mhi"]
 [ext_resource type="PackedScene" uid="uid://c2mrs2touugk1" path="res://world/buildings/common/how_to_interact/how_to_interact.tscn" id="2_n27ih"]
+[ext_resource type="Texture2D" uid="uid://di0kba6tv0q58" path="res://third-party/bluecarrot16/smelter.png" id="3_037es"]
 [ext_resource type="PackedScene" uid="uid://cyfyx07i1ornl" path="res://world/buildings/common/progressbar/progressbar.tscn" id="3_cqdx3"]
 [ext_resource type="PackedScene" uid="uid://p7ame63w6rhl" path="res://world/buildings/common/production/production.tscn" id="4_wna7y"]
 [ext_resource type="PackedScene" uid="uid://t2utidwitf4t" path="res://world/buildings/common/current_order_display/current_order_display.tscn" id="5_j57fk"]
 [ext_resource type="PackedScene" uid="uid://fan0u7c1xosh" path="res://common/marker/marker.tscn" id="7_k8nb8"]
 [ext_resource type="PackedScene" uid="uid://djaa81nvsgmhy" path="res://world/buildings/common/building-audio.tscn" id="7_wuwu0"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ttpmn"]
-atlas = ExtResource("1_x2mhi")
-region = Rect2(880, 144, 16, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_buu0b"]
+atlas = ExtResource("3_037es")
+region = Rect2(0, 0, 193, 120)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1es47"]
-atlas = ExtResource("1_x2mhi")
-region = Rect2(864, 144, 16, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmugg"]
+atlas = ExtResource("3_037es")
+region = Rect2(193, 0, 193, 120)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_plsmg"]
-atlas = ExtResource("1_x2mhi")
-region = Rect2(880, 144, 16, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_mos7y"]
+atlas = ExtResource("3_037es")
+region = Rect2(386, 0, 193, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_djt3a"]
+atlas = ExtResource("3_037es")
+region = Rect2(579, 0, 193, 120)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k6xnf"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ttpmn")
+"texture": SubResource("AtlasTexture_buu0b")
 }],
 "loop": true,
 "name": &"idle",
-"speed": 1.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1es47")
+"texture": SubResource("AtlasTexture_kmugg")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_plsmg")
+"texture": SubResource("AtlasTexture_mos7y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_djt3a")
 }],
 "loop": true,
 "name": &"producing",
@@ -44,7 +51,16 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lb2ix"]
-size = Vector2(30, 16)
+size = Vector2(31.5, 16)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3vfsj"]
+radius = 8.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j7fx2"]
+size = Vector2(20, 13)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pwbhq"]
+height = 40.0
 
 [node name="Smelter" type="StaticBody2D" groups=["persist"]]
 script = ExtResource("1_nniej")
@@ -58,25 +74,42 @@ output_spot = NodePath("../OutputSpot")
 building_type = "smelter"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -24)
-scale = Vector2(2, 2)
+position = Vector2(0, -6)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_k6xnf")
-animation = &"idle"
+animation = &"producing"
 autoplay = "idle"
 
 [node name="Shape" type="CollisionShape2D" parent="."]
-position = Vector2(0, -6)
+position = Vector2(-0.75, 5.5)
 shape = SubResource("RectangleShape2D_lb2ix")
 
+[node name="Shape2" type="CollisionShape2D" parent="."]
+position = Vector2(20, 5.5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_3vfsj")
+
+[node name="Shape3" type="CollisionShape2D" parent="."]
+position = Vector2(38, 4)
+shape = SubResource("RectangleShape2D_j7fx2")
+
+[node name="Shape4" type="CollisionShape2D" parent="."]
+position = Vector2(-28, 7.5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_pwbhq")
+
 [node name="Progressbar" parent="." instance=ExtResource("3_cqdx3")]
-offset_top = -34.0
-offset_bottom = 94.0
+visible = true
+offset_left = -9.0
+offset_top = 5.0
+offset_right = 119.0
+offset_bottom = 133.0
 
 [node name="CurrentOrderDisplay" parent="." instance=ExtResource("5_j57fk")]
-position = Vector2(0, -24)
+position = Vector2(1, 15)
 
 [node name="OutputSpot" type="Marker2D" parent="."]
-position = Vector2(0, 10)
+position = Vector2(40, 18)
 
 [node name="Audio" parent="." instance=ExtResource("7_wuwu0")]
 
@@ -84,4 +117,4 @@ position = Vector2(0, 10)
 how_to = NodePath("HowToInteract")
 
 [node name="HowToInteract" parent="Marker" instance=ExtResource("2_n27ih")]
-position = Vector2(1, -51)
+position = Vector2(0, -39)

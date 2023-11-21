@@ -122,12 +122,13 @@ v0.1.0
   - [ ] charcoal kiln
     - [ ] replace placeholder sprite
     - [ ] animations
-  - [ ] smelter
-    - [ ] replace placeholder sprite -> <https://opengameart.org/content/lpc-blacksmith>
-    - [ ] animations
+  - [x] smelter
+    - [x] replace placeholder sprite -> <https://opengameart.org/content/lpc-blacksmith>
+    - [x] animations
   - [x] woodshop/sawmill
     - [x] new sprite <https://opengameart.org/content/lpc-woodshop>
     - [ ] handsaw sound on order
+  - [ ] build menu icons
   - [ ] crafting menu: if Max results in 0 items, do not confirm.
 - [ ] unlock new building recipes when having seen every needed item for that building
 - [ ] demo: production sim
