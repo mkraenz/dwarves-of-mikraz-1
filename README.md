@@ -65,6 +65,7 @@ v0.1.0
 
 - [x] bug: crates are spawning too much (only in debug mode)
 - [x] bug: building Needs not updating when sawmill is buildable but others are not and i switch between buildings. Sawmill will never be shown in Needs.
+- [ ] bug: building needs not updating when sth is selected and i collect resources and then open build menu again.
 - [ ] options menu
   - [ ] language
     - [x] don't translate the label
