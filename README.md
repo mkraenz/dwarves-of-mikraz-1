@@ -63,7 +63,7 @@ summary:
 
 v0.1.0
 
-- [ ] bug: NeededItemPanel not updating
+- [x] bug: building Needs not updating when sawmill is buildable but others are not and i switch between buildings. Sawmill will never be shown in Needs.
 - [ ] options menu
   - [ ] language
     - [x] don't translate the label
@@ -91,7 +91,7 @@ v0.1.0
 - [x] unify save, on_load, load_from to save + load
 - [x] script registry
   - [x] allow ginventory changes with save-load functionality
-- [ ] upgrade to godot 4.1.3
+- [x] upgrade to godot 4.1.3
 - [ ] some polish
   - [x] use a Marker to determine the position of production outputs
   - [x] scene transitions -> <https://godotshaders.com/shader/screentone-scene-transition/> or <https://godotshaders.com/shader/diamond-based-screen-transition/>

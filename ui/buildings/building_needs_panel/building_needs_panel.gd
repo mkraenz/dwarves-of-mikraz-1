@@ -14,14 +14,13 @@ var building: Dictionary = {}:
 
 
 func _set_building(val: Dictionary) -> void:
-	if val != building:
-		building = val
-		building_changed.emit()
+	building = val
+	building_changed.emit()
+	_on_building_changed()
 
 
 func _ready():
 	Utils.remove_all_children(needs_list)
-	building_changed.connect(_on_building_changed)
 
 
 func _on_building_changed() -> void:
