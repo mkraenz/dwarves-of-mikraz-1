@@ -6,9 +6,9 @@ signal max_hp_changed(new_amount: float)
 signal no_health
 
 @export var max_hp: float = 5.0:
-	set = _set_hp
+	set = _set_max_hp
 
-@onready var hp: float = max_hp:
+var hp: float = max_hp:
 	set = _set_hp
 
 
@@ -24,3 +24,4 @@ func _set_max_hp(val: float) -> void:
 	if max_hp != val:
 		max_hp = max(val, 0.0)
 		max_hp_changed.emit(max_hp)
+		hp = max_hp

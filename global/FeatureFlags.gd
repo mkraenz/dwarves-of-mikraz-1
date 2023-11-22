@@ -15,4 +15,4 @@ static var filled_inventory = false:
 
 static var over_nine_thousand = false:
 	get:
-		return OS.has_feature("debug") and true
+		return OS.has_feature("debug") and false
