@@ -68,7 +68,7 @@ _data = {
 "hit": SubResource("Animation_cer2i")
 }
 
-[node name="Stone" type="StaticBody2D"]
+[node name="Stone" type="StaticBody2D" groups=["persist"]]
 script = ExtResource("1_2onj2")
 
 [node name="Sprite" type="Sprite2D" parent="."]

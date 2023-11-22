@@ -11,6 +11,8 @@ signal no_health
 var hp: float = max_hp:
 	set = _set_hp
 
+var initialized_on_load := false
+
 
 func _set_hp(val: float) -> void:
 	if hp != val:
@@ -24,7 +26,6 @@ func _set_max_hp(val: float) -> void:
 	if max_hp != val:
 		max_hp = max(val, 0.0)
 		max_hp_changed.emit(max_hp)
-		hp = max_hp
 
 
 func save() -> Dictionary:
@@ -33,5 +34,6 @@ func save() -> Dictionary:
 
 
 func load_from(save_dict: Dictionary) -> void:
+	initialized_on_load = true
 	hp = save_dict.hp
 	max_hp = save_dict.max_hp

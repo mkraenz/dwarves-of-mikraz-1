@@ -185,6 +185,7 @@ v0.2.0 upgrade system
 - [ ] upgrade: player / tech upgrades / talents
 - [ ] automation: collector building that autocollects outputs
 - [ ] unlock new building recipes when having seen every needed item for that building
+- [ ] everything gets an entity id
 
 ## Data generation
 

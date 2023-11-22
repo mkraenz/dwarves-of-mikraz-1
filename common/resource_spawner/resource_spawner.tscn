@@ -5,6 +5,7 @@
 [node name="ResourceSpawner" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_mgmjs")
+enabled = false
 
 [node name="Cooldown" type="Timer" parent="."]
 wait_time = 5.0
