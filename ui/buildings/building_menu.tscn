@@ -94,6 +94,7 @@ size_flags_horizontal = 4
 text = "Build"
 icon = ExtResource("6_4j3a5")
 
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="M/P/M/V/Header/CloseButton" to="." method="close_menu"]
 [connection signal="item_activated" from="M/P/M/V/H/ItemList" to="." method="_on_item_list_item_activated"]
 [connection signal="item_selected" from="M/P/M/V/H/ItemList" to="." method="_on_item_list_item_selected"]

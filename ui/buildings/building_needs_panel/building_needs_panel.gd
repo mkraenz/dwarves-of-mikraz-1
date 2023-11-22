@@ -5,6 +5,7 @@ const NeededItemPanel = preload("res://ui/buildings/craft/needed_item_panel/need
 signal building_changed
 
 @onready var needs_list := $V/Needs
+@onready var building_name = $V/M/Heading
 var ginventory := GInventory
 var gdata := GData
 
@@ -24,6 +25,7 @@ func _ready():
 
 
 func _on_building_changed() -> void:
+	building_name.text = building.label
 	Utils.remove_all_children(needs_list)
 	for need in building.needs:
 		var panel = NeededItemPanel.instantiate()

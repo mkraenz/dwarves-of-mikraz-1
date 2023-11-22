@@ -46,6 +46,9 @@ func _on_toggle_inventory_menu() -> void:
 func toggle_child(target: Control) -> void:
 	hide_children_except(target)
 	target.visible = not target.visible
+	if target.visible:
+		eventbus.exit_build_mode.emit()
+		gstate.mode = GState.Mode.menu
 
 
 func hide_children_except(exception: Control) -> void:

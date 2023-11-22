@@ -12,13 +12,21 @@ layout_mode = 2
 
 [node name="M" type="MarginContainer" parent="V"]
 layout_mode = 2
-theme_override_constants/margin_left = 12
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 12
-theme_override_constants/margin_bottom = 4
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
 
-[node name="Label" type="Label" parent="V/M"]
+[node name="Heading" type="Label" parent="V/M"]
 layout_mode = 2
+theme_type_variation = &"TitleHeading"
+text = "Smithy"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="NeedsLabel" type="Label" parent="V"]
+layout_mode = 2
+theme_type_variation = &"LabelSmall"
 text = "Needs"
 horizontal_alignment = 1
 

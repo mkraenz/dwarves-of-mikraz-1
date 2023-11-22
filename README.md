@@ -65,7 +65,19 @@ v0.1.0
 
 - [x] bug: crates are spawning too much (only in debug mode)
 - [x] bug: building Needs not updating when sawmill is buildable but others are not and i switch between buildings. Sawmill will never be shown in Needs.
-- [ ] bug: building needs not updating when sth is selected and i collect resources and then open build menu again.
+- [x] bug: building needs not updating when sth is selected and i collect resources and then open build menu again.
+- [x] bug: building menu should keep the current one selected
+- [x] bug: building menu consumes resources when selecting another. Reproduction:
+  - have enough resources to build exactly one sawmill but no other buildings
+  - open building menu
+  - select sawmill and activate (go into build mode)
+  - open building menu again
+  - click smithy
+  - hit enter
+  - open building menu again
+  - click sawmill
+  - Expected: we still have the logs from the beginning
+  - Observed: logs are gone
 - [ ] options menu
   - [ ] language
     - [x] don't translate the label
