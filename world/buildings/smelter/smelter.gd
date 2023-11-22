@@ -17,7 +17,7 @@ func save() -> Dictionary:
 	var save_dict = {
 		"file_id": "smelter_mx3GEc",
 		"parent": get_parent().get_path(),
-		"pos_x": position.x,  # Vector2 is not supported by JSON
+		"pos_x": position.x,
 		"pos_y": position.y,
 		"production": production.save(),
 	}

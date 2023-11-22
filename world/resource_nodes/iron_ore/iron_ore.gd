@@ -33,10 +33,15 @@ func save() -> Dictionary:
 	var save_dict = {
 		"file_id": "iron_ore_ufkPN4",
 		"parent": get_parent().get_path(),
-		"pos_x": position.x,  # Vector2 is not supported by JSON
+		"pos_x": position.x,
 		"pos_y": position.y,
+		"stats": stats.save(),
 	}
 	return save_dict
+
+
+func load_before_ready(save_dict: Dictionary) -> void:
+	$Stats.load_from(save_dict.stats)
 
 
 func set_collision_scale(new_scale: float) -> void:
