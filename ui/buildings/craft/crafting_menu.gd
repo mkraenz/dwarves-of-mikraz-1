@@ -20,11 +20,10 @@ var selected_id: String
 
 var ordered_batches: float = 0.0:
 	get:
-		return (
-			batches
-			if batches != 0
-			else ginventory.get_max_producable_batches(get_current_recipe().needs)
-		)
+		if batches != 0:
+			return batches
+		var max_batches := ginventory.get_max_producable_batches(get_current_recipe().needs)
+		return max_batches if max_batches != 0 else 1.0
 
 
 func _input(_event):
@@ -77,6 +76,8 @@ func soft_reset() -> void:
 
 func _on_panel_selected(recipe_id: String) -> void:
 	selected_id = recipe_id
+	if batches == 0:  # for Craft Max we need to force recalculation of max producable batches
+		batches = 0
 	recipe_details.recipe = get_current_recipe()
 	recipe_details.refresh()
 	refresh_craft_button()
@@ -104,7 +105,8 @@ func refresh_craft_button() -> void:
 	if not recipe:
 		return
 	var crafted_amount = batches * recipe.batch_size
-	craft_button.refresh_text(crafted_amount)
+	var ordered_amount = ordered_batches * recipe.batch_size
+	craft_button.refresh_text(crafted_amount, ordered_amount)
 
 
 func _on_craft_button_pressed() -> void:

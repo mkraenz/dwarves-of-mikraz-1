@@ -61,7 +61,7 @@ summary:
 
 ## Todos
 
-v0.1.0
+v0.1.0 production sim
 
 - [x] bug: crates are spawning too much (only in debug mode)
 - [x] bug: building Needs not updating when sawmill is buildable but others are not and i switch between buildings. Sawmill will never be shown in Needs.
@@ -91,8 +91,6 @@ v0.1.0
     - [ ] Twitch folks
     - [ ] Special thanks "First person to ever finish this game" GrumbleOfPugz
   - [x] exiting pause menu also closes options menu
-- [ ] player has attack damage
-- [ ] resources have armor
 - [ ] controller support
   - [ ] ps
   - [ ] xbox
@@ -121,6 +119,7 @@ v0.1.0
   - [x] redo pause menu in title menu style
   - [ ] sfx
     - [ ] on build
+    - [ ] on craft
     - [ ] menu sounds
       - [x] title menu
       - [x] pause menu
@@ -128,22 +127,29 @@ v0.1.0
       - [ ] inventory menu
       - [ ] building menu
     - [ ] on order accepted
+  - [ ] build menu icons
+  - [ ] charcoal kiln
+    - [ ] replace placeholder sprite
+    - [ ] animations
+  - [ ] turn crates into trees
   - [x] blacksmith
     - [x] replace placeholder sprite
     - [x] animations
     - [x] details
-  - [ ] charcoal kiln
-    - [ ] replace placeholder sprite
-    - [ ] animations
   - [x] smelter
     - [x] replace placeholder sprite -> <https://opengameart.org/content/lpc-blacksmith>
     - [x] animations
   - [x] woodshop/sawmill
     - [x] new sprite <https://opengameart.org/content/lpc-woodshop>
-    - [ ] handsaw sound on order
-  - [ ] build menu icons
-  - [ ] crafting menu: if Max results in 0 items, do not confirm.
-- [ ] unlock new building recipes when having seen every needed item for that building
+  - [x] crafting menu: if Max results in 0 items, default to 1 batch.
+  - [x] bug: crafting menu: Reproduction:
+    - have n>1 logs in your inventory
+    - at sawmill (bc it's the only one with multiple recipes)
+    - select recipe planks (2x)
+    - set to Craft Max (should show consumption of n logs)
+    - select a different recipe
+    - Expected: NeededItemPanel updates and recalculates the Max producable batches
+    - Observed: it still uses n batches from the planks 2x recipe
 - [ ] demo: production sim
   - [ ] final goal: produce 20 battle axes for the war of the dwarves against the evil lord
   - [ ] communicate the final quest (KIS)
@@ -166,16 +172,19 @@ v0.1.0
     - [x] on death anim
     - [x] on hit sound
     - [x] on death sound
-  - [ ] turn crates into trees
   - [x] new building: smelter
   - [x] move crafting recipes from smithy to smelter
   - [x] new crafting recipe: battle axe
-  - [ ] progression:
-    - [ ] logs -> sawmill -> planks -> stone -> charcoal kiln -> coal -> iron ore -> smelter -> iron ingots -> smithy -> battle axe
+  - [x] progression:
+    - [x] logs -> sawmill -> planks -> stone -> charcoal kiln -> coal -> iron ore -> smelter -> iron ingots -> smithy -> battle axe
 
-v0.2.0
+v0.2.0 upgrade system
 
-- [ ] collector building that autocollects outputs
+- [ ] upgrade: player has attack damage
+- [ ] upgrade: resources have armor
+- [ ] upgrade: player / tech upgrades / talents
+- [ ] automation: collector building that autocollects outputs
+- [ ] unlock new building recipes when having seen every needed item for that building
 
 ## Data generation
 
