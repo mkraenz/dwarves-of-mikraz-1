@@ -1,10 +1,9 @@
-[gd_scene load_steps=35 format=3 uid="uid://dnhulsx17skef"]
+[gd_scene load_steps=34 format=3 uid="uid://dnhulsx17skef"]
 
 [ext_resource type="Script" path="res://player/Player.gd" id="1_calhm"]
 [ext_resource type="Texture2D" uid="uid://daevt8ai8xoht" path="res://third-party/Elthen/DwarfSpriteSheet1.3v.png" id="2_7vbeh"]
 [ext_resource type="AudioStream" uid="uid://b6w62pkixw4fr" path="res://third-party/sounds/swings/axe-swing.mp3" id="3_b7myr"]
 [ext_resource type="Script" path="res://player/ActionRadius.gd" id="4_sw58l"]
-[ext_resource type="PackedScene" uid="uid://6b2lgtejwxtv" path="res://common/Stats.tscn" id="4_vaoqg"]
 [ext_resource type="PackedScene" uid="uid://b14qrhy5ybx0w" path="res://common/suck_radius/suck_radius.tscn" id="6_2apq6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1hntc"]
@@ -439,8 +438,6 @@ parameters/conditions/is_moving = false
 parameters/attack/blend_position = 1.0
 parameters/idle/blend_position = 1.0
 parameters/move/blend_position = 1.0
-
-[node name="Stats" parent="." instance=ExtResource("4_vaoqg")]
 
 [node name="Audio" type="AudioStreamPlayer" parent="."]
 volume_db = -10.0

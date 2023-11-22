@@ -96,7 +96,7 @@ v0.1.0 production sim
   - [ ] xbox
 - [ ] localization:
   - [ ] how to localize content?
-- [ ] define resource node health in TS
+- [x] define resource node health in TS
 - [x] bug: ingame menus can open above eachother
 - [x] bug: ingame menus stay open on load
 - [x] refactor mark and unmark for how-to displays into child node. Use `has_node('HowTo')`

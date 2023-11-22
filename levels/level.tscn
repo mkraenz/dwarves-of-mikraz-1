@@ -916,10 +916,7 @@ position = Vector2(272, 230)
 item_id = "iron_ore"
 
 [node name="Crate" parent="." instance=ExtResource("5_ma5vi")]
-position = Vector2(63, 65)
-
-[node name="Crate2" parent="." instance=ExtResource("5_ma5vi")]
-position = Vector2(69, 55)
+position = Vector2(192, 130)
 
 [node name="ResourceSpawner" parent="." instance=ExtResource("5_0ppb2")]
 
@@ -939,9 +936,9 @@ position = Vector2(308, 76)
 position = Vector2(238, 166)
 
 [node name="IronOre" parent="." instance=ExtResource("11_qogle")]
-position = Vector2(303, 155)
+position = Vector2(63, 196)
 
 [node name="Stone" parent="." instance=ExtResource("12_1uyqu")]
-position = Vector2(180, 123)
+position = Vector2(304, 159)
 
 [connection signal="timeout" from="ProductionTakt" to="." method="_on_production_takt_timeout"]

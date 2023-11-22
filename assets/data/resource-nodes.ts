@@ -12,7 +12,7 @@ interface OutputItem {
 interface ResourceNode {
   id: string;
   outputs: OutputItem[];
-  health: number;
+  hp: number;
 }
 
 export const resourceNodes = {
@@ -24,7 +24,7 @@ export const resourceNodes = {
         amount: 3,
       },
     ],
-    health: 5,
+    hp: 3,
   },
   iron_ore: {
     id: "iron_ore",
@@ -38,7 +38,7 @@ export const resourceNodes = {
         amount: 1,
       },
     ],
-    health: 12,
+    hp: 12,
   },
   stone: {
     id: "stone",
@@ -48,6 +48,6 @@ export const resourceNodes = {
         amount: 3,
       },
     ],
-    health: 10,
+    hp: 10,
   },
 } satisfies ResourceNodeData;

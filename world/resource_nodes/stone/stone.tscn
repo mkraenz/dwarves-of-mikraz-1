@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c00ecsnklwewt"]
+[gd_scene load_steps=15 format=3 uid="uid://c00ecsnklwewt"]
 
 [ext_resource type="Script" path="res://world/resource_nodes/stone/stone.gd" id="1_2onj2"]
 [ext_resource type="PackedScene" uid="uid://i5pg0rokc7h8" path="res://world/resource_nodes/common/healthbar/healthbar.tscn" id="2_13jsn"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://dxsv2jaqwel1x" path="res://assets/sounds/stone-breaking.mp3" id="6_hy74y"]
 [ext_resource type="PackedScene" uid="uid://fan0u7c1xosh" path="res://common/marker/marker.tscn" id="6_uaovn"]
 [ext_resource type="PackedScene" uid="uid://dibg57pg4emn7" path="res://world/resource_nodes/common/how_to_act.tscn" id="7_k37yo"]
+[ext_resource type="PackedScene" uid="uid://d4dhro78xsx7h" path="res://world/resource_nodes/common/resource_node/resource_node.tscn" id="10_av8jp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2lvrg"]
 resource_local_to_scene = true
@@ -104,3 +105,7 @@ how_to = NodePath("HowToAct")
 
 [node name="HowToAct" parent="Marker" instance=ExtResource("7_k37yo")]
 position = Vector2(0, -35)
+
+[node name="ResourceNode" parent="." node_paths=PackedStringArray("mining", "stats") instance=ExtResource("10_av8jp")]
+mining = NodePath("../Mining")
+stats = NodePath("../Stats")

@@ -1,4 +1,5 @@
 extends Node2D
+class_name Mining
 
 const Pickup = preload("res://world/pickup/pickup.tscn")
 
