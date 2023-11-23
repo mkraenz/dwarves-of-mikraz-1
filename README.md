@@ -74,7 +74,7 @@ v0.1.0 production sim
   - [ ] volume
     - [x] basic setup
     - [x] translations
-      - [ ] find out German words
+      - [x] find out German words
     - [ ] persist
   - [x] credits
     - [x] Twitch folks

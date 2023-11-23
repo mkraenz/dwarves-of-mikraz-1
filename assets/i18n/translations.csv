@@ -19,12 +19,12 @@ Save,Save,Speichern
 Load,Load,Laden
 - Paused -,- Paused -,- Pausiert -
 Saved successfully.,[color=green]Saved successfully.[/color],[color=green]Speichern erfolgreich.[/color]
-Master volume,Master volume,Hauptlautstärke
-SFX volume,SFX volume,SFX-Lautstärke
+Master volume,Master volume,Gesamtlautstärke
+SFX volume,SFX volume,Lautstärke Effekte
 Music volume,Music volume,Musiklautstärke
 General,General,Allgemein
 Controls,Controls,Steuerung
 Graphics,Graphics,Grafik
 Audio,Audio,Audio
-Credits,Credits,Credits
+Credits,Credits,Abspann
 Language,Language,Sprache
