@@ -63,30 +63,19 @@ summary:
 
 v0.1.0 production sim
 
-- [x] bug: crates are spawning too much (only in debug mode)
-- [x] bug: building Needs not updating when sawmill is buildable but others are not and i switch between buildings. Sawmill will never be shown in Needs.
-- [x] bug: building needs not updating when sth is selected and i collect resources and then open build menu again.
-- [x] bug: building menu should keep the current one selected
-- [x] bug: building menu consumes resources when selecting another. Reproduction:
-  - have enough resources to build exactly one sawmill but no other buildings
-  - open building menu
-  - select sawmill and activate (go into build mode)
-  - open building menu again
-  - click smithy
-  - hit enter
-  - open building menu again
-  - click sawmill
-  - Expected: we still have the logs from the beginning
-  - Observed: logs are gone
 - [ ] options menu
   - [ ] language
     - [x] don't translate the label
     - [x] apply language selection
-    - [ ] persist language selection
     - [ ] load the OS language `OS.get_locale()` on first opening
+    - [ ] persist language selection
   - [ ] key rebinding
-  - [ ] choose controller ps or controller xbox or keyboard
+    - [ ] choose controller ps or controller xbox or keyboard+mouse
   - [ ] volume
+    - [x] basic setup
+    - [x] translations
+      - [ ] find out German words
+    - [ ] persist
   - [ ] credits
     - [ ] Twitch folks
     - [ ] Special thanks "First person to ever finish this game" GrumbleOfPugz
@@ -96,27 +85,7 @@ v0.1.0 production sim
   - [ ] xbox
 - [ ] localization:
   - [ ] how to localize content?
-- [x] define resource node health in TS
-- [x] bug: ingame menus can open above eachother
-- [x] bug: ingame menus stay open on load
-- [x] refactor mark and unmark for how-to displays into child node. Use `has_node('HowTo')`
-- [x] call sawmill.on_load before adding the sawmill to the tree. This should allow production to use export variables inside its `_ready` function
-- [x] ts watcher on assets/data/ and scripts/ (nodemon)
-- [x] unify save, on_load, load_from to save + load
-- [x] script registry
-  - [x] allow ginventory changes with save-load functionality
-- [x] upgrade to godot 4.1.3
 - [ ] some polish
-  - [x] use a Marker to determine the position of production outputs
-  - [x] scene transitions -> <https://godotshaders.com/shader/screentone-scene-transition/> or <https://godotshaders.com/shader/diamond-based-screen-transition/>
-    - [x] menu -> continue
-    - [x] menu -> new game
-    - [x] pause -> load
-    - [x] pause -> back to title
-    - [x] skip pausing and resuming
-  - [x] notification on successful save
-  - [x] workshops use same Audio node, set output to Sounds bus
-  - [x] redo pause menu in title menu style
   - [ ] sfx
     - [ ] on build
     - [ ] on craft
@@ -132,49 +101,10 @@ v0.1.0 production sim
     - [ ] replace placeholder sprite
     - [ ] animations
   - [ ] turn crates into trees
-  - [x] blacksmith
-    - [x] replace placeholder sprite
-    - [x] animations
-    - [x] details
-  - [x] smelter
-    - [x] replace placeholder sprite -> <https://opengameart.org/content/lpc-blacksmith>
-    - [x] animations
-  - [x] woodshop/sawmill
-    - [x] new sprite <https://opengameart.org/content/lpc-woodshop>
-  - [x] crafting menu: if Max results in 0 items, default to 1 batch.
-  - [x] bug: crafting menu: Reproduction:
-    - have n>1 logs in your inventory
-    - at sawmill (bc it's the only one with multiple recipes)
-    - select recipe planks (2x)
-    - set to Craft Max (should show consumption of n logs)
-    - select a different recipe
-    - Expected: NeededItemPanel updates and recalculates the Max producable batches
-    - Observed: it still uses n batches from the planks 2x recipe
 - [ ] demo: production sim
   - [ ] final goal: produce 20 battle axes for the war of the dwarves against the evil lord
   - [ ] communicate the final quest (KIS)
   - [ ] Congratulations. You finished the game/demo.
-  - [x] new resource: stone
-    - [x] add scene
-    - [x] spawn regularly
-    - [x] new recipes
-    - [x] on hit anim
-    - [x] on death anim
-      - [x] particle effect
-    - [x] on hit sound
-    - [x] on death sound
-  - [x] new resource: iron ore
-    - [x] add scene
-    - [x] spawn regularly
-    - [x] extract common code for resource nodes
-    - [x] remove the ability to "craft" iron ore at sawmill
-    - [x] on hit anim
-    - [x] on death anim
-    - [x] on hit sound
-    - [x] on death sound
-  - [x] new building: smelter
-  - [x] move crafting recipes from smithy to smelter
-  - [x] new crafting recipe: battle axe
   - [x] progression:
     - [x] logs -> sawmill -> planks -> stone -> charcoal kiln -> coal -> iron ore -> smelter -> iron ingots -> smithy -> battle axe
 

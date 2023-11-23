@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4dvwa3lk02q"]
+
+[ext_resource type="Script" path="res://ui/options/volume_range/volume_range.gd" id="1_6onbk"]
+
+[node name="VolumeRange" type="HBoxContainer"]
+size_flags_horizontal = 3
+script = ExtResource("1_6onbk")
+
+[node name="MinVolume" type="Label" parent="."]
+layout_mode = 2
+text = "0"
+vertical_alignment = 1
+
+[node name="VolumeSlider" type="HSlider" parent="."]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 10.0
+value = 7.0
+rounded = true
+tick_count = 9
+
+[node name="MaxVolume" type="Label" parent="."]
+layout_mode = 2
+text = "10"
+vertical_alignment = 1
+
+[connection signal="value_changed" from="VolumeSlider" to="." method="_on_volume_slider_value_changed"]

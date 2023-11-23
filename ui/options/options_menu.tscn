@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://buknj5j72vcmc"]
+[gd_scene load_steps=5 format=3 uid="uid://buknj5j72vcmc"]
 
 [ext_resource type="Script" path="res://ui/options/options_menu.gd" id="1_7i8f7"]
 [ext_resource type="PackedScene" uid="uid://yjnjpa3w23jx" path="res://ui/common/backdrop.tscn" id="2_lhxoi"]
 [ext_resource type="Script" path="res://ui/options/language_select.gd" id="3_5vv1n"]
+[ext_resource type="PackedScene" uid="uid://d4dvwa3lk02q" path="res://ui/options/volume_range/volume_range.tscn" id="4_nbvjr"]
 
 [node name="OptionsMenu" type="Control"]
 layout_mode = 3
@@ -39,24 +40,106 @@ theme_type_variation = &"MarginAllSmall"
 [node name="V" type="VBoxContainer" parent="Margin/P/Padding"]
 layout_mode = 2
 
-[node name="H" type="HBoxContainer" parent="Margin/P/Padding/V"]
+[node name="Header" type="HBoxContainer" parent="Margin/P/Padding/V"]
 layout_mode = 2
 
-[node name="Heading" type="Label" parent="Margin/P/Padding/V/H"]
+[node name="Heading" type="Label" parent="Margin/P/Padding/V/Header"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Options"
 horizontal_alignment = 1
 
-[node name="CloseButton" type="Button" parent="Margin/P/Padding/V/H"]
+[node name="CloseButton" type="Button" parent="Margin/P/Padding/V/Header"]
 layout_mode = 2
 text = "X"
 
-[node name="LanguageSelect" type="OptionButton" parent="Margin/P/Padding/V"]
+[node name="TabContainer" type="TabContainer" parent="Margin/P/Padding/V"]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="General" type="TabBar" parent="Margin/P/Padding/V/TabContainer"]
+layout_mode = 2
+
+[node name="M" type="MarginContainer" parent="Margin/P/Padding/V/TabContainer/General"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"MarginTitleMenu"
+
+[node name="GridContainer" type="GridContainer" parent="Margin/P/Padding/V/TabContainer/General/M"]
+layout_mode = 2
+columns = 2
+
+[node name="LanguageLabel" type="Label" parent="Margin/P/Padding/V/TabContainer/General/M/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Language"
+
+[node name="LanguageSelect" type="OptionButton" parent="Margin/P/Padding/V/TabContainer/General/M/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 auto_translate = false
 alignment = 1
 script = ExtResource("3_5vv1n")
 
-[connection signal="pressed" from="Margin/P/Padding/V/H/CloseButton" to="." method="close_menu"]
-[connection signal="item_selected" from="Margin/P/Padding/V/LanguageSelect" to="Margin/P/Padding/V/LanguageSelect" method="_on_item_selected"]
+[node name="Controls" type="TabBar" parent="Margin/P/Padding/V/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Graphics" type="TabBar" parent="Margin/P/Padding/V/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Audio" type="TabBar" parent="Margin/P/Padding/V/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="M" type="MarginContainer" parent="Margin/P/Padding/V/TabContainer/Audio"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"MarginTitleMenu"
+
+[node name="GridContainer" type="GridContainer" parent="Margin/P/Padding/V/TabContainer/Audio/M"]
+layout_mode = 2
+theme_override_constants/v_separation = 12
+columns = 2
+
+[node name="MasterVolumeLabel" type="Label" parent="Margin/P/Padding/V/TabContainer/Audio/M/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Master volume"
+vertical_alignment = 1
+
+[node name="MasterVolumeRange" parent="Margin/P/Padding/V/TabContainer/Audio/M/GridContainer" instance=ExtResource("4_nbvjr")]
+layout_mode = 2
+bus_name = "Master"
+
+[node name="SoundsVolumeLabel" type="Label" parent="Margin/P/Padding/V/TabContainer/Audio/M/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SFX volume"
+vertical_alignment = 1
+
+[node name="SoundsVolumeRange" parent="Margin/P/Padding/V/TabContainer/Audio/M/GridContainer" instance=ExtResource("4_nbvjr")]
+layout_mode = 2
+bus_name = "Sounds"
+
+[node name="MusicVolumeLabel" type="Label" parent="Margin/P/Padding/V/TabContainer/Audio/M/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Music volume"
+vertical_alignment = 1
+
+[node name="MusicVolumeRange" parent="Margin/P/Padding/V/TabContainer/Audio/M/GridContainer" instance=ExtResource("4_nbvjr")]
+layout_mode = 2
+bus_name = "Music"
+
+[connection signal="pressed" from="Margin/P/Padding/V/Header/CloseButton" to="." method="close_menu"]
+[connection signal="item_selected" from="Margin/P/Padding/V/TabContainer/General/M/GridContainer/LanguageSelect" to="Margin/P/Padding/V/TabContainer/General/M/GridContainer/LanguageSelect" method="_on_item_selected"]
