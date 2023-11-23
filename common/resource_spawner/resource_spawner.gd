@@ -1,6 +1,6 @@
 extends Node2D
 
-const Crate = preload("res://world/resource_nodes/crate/crate.tscn")
+const TreeScene = preload("res://world/resource_nodes/tree/tree.tscn")
 const IronOre = preload("res://world/resource_nodes/iron_ore/iron_ore.tscn")
 const Stone = preload("res://world/resource_nodes/stone/stone.tscn")
 
@@ -11,7 +11,7 @@ var gstate := GState
 const COLLISION_SCALE_FOR_PLACEMENT_CHECK: float = 2.0
 const NORMAL_COLLISION_SCALE: float = 1.0
 
-const ResourceNodes = [Crate, IronOre, Stone]
+const ResourceNodes = [TreeScene, IronOre, Stone]
 
 
 func _on_cooldown_timeout():

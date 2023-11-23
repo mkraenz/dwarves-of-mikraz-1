@@ -3,7 +3,7 @@
 [ext_resource type="Shader" path="res://effects/dissolve.gdshader" id="1_8t3r1"]
 [ext_resource type="Script" path="res://effects/death-effect-base.gd" id="3_5us18"]
 [ext_resource type="AudioStream" uid="uid://2vbb6efqqtd2" path="res://third-party/sounds/wood/wood-breaking.mp3" id="3_oxtmi"]
-[ext_resource type="Texture2D" uid="uid://drtgk3t0q62h0" path="res://world/resource_nodes/crate/tree.tres" id="3_x4ito"]
+[ext_resource type="Texture2D" uid="uid://drtgk3t0q62h0" path="res://world/resource_nodes/tree/tree.tres" id="3_x4ito"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rmsbm"]
 resource_local_to_scene = true
@@ -79,7 +79,7 @@ _data = {
 "default": SubResource("Animation_vsf4l")
 }
 
-[node name="CrateDeath" type="Node2D"]
+[node name="TreeDeath" type="Node2D"]
 material = SubResource("ShaderMaterial_rmsbm")
 position = Vector2(0, -8)
 script = ExtResource("3_5us18")

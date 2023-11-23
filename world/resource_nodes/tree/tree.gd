@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-const DeathAnim = preload("res://world/resource_nodes/crate/crate_death.tscn")
+const DeathAnim = preload("res://world/resource_nodes/tree/tree_death.tscn")
 
 var eventbus := Eventbus
 var gdata := GData
@@ -32,7 +32,7 @@ func bounce(_val) -> void:
 
 func save() -> Dictionary:
 	var save_dict = {
-		"file_id": "crate_tmMrzy",
+		"file_id": "tree_tmMrzy",
 		"parent": get_parent().get_path(),
 		"pos_x": position.x,
 		"pos_y": position.y,

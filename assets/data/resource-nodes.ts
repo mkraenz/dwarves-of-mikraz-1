@@ -16,8 +16,8 @@ interface ResourceNode {
 }
 
 export const resourceNodes = {
-  crate: {
-    id: "crate",
+  tree: {
+    id: "tree",
     outputs: [
       {
         id: "log",

@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://clpyftpsvyfuh" path="res://third-party/kenney/kenney-tiny-battle-tilemap.png" id="2_aatao"]
 [ext_resource type="PackedScene" uid="uid://molrdbxdnti" path="res://common/resource_spawner/resource_spawner.tscn" id="5_0ppb2"]
 [ext_resource type="PackedScene" uid="uid://d032gr28r0n7b" path="res://world/pickup/pickup.tscn" id="5_jo4wq"]
-[ext_resource type="PackedScene" uid="uid://ck2utngryc1v" path="res://world/resource_nodes/crate/crate.tscn" id="5_ma5vi"]
+[ext_resource type="PackedScene" uid="uid://ck2utngryc1v" path="res://world/resource_nodes/tree/tree.tscn" id="5_ma5vi"]
 [ext_resource type="PackedScene" uid="uid://b43yygkrld0rh" path="res://world/buildings/sawmill/sawmill.tscn" id="6_ko3yx"]
 [ext_resource type="PackedScene" uid="uid://2fh363mu15xx" path="res://common/build_mode/build_mode_handler.tscn" id="7_55u28"]
 [ext_resource type="PackedScene" uid="uid://b43yygkrld0ry" path="res://world/buildings/smithy/smithy.tscn" id="8_nspfr"]
@@ -913,7 +913,7 @@ item_id = "iron_ore"
 position = Vector2(272, 230)
 item_id = "iron_ore"
 
-[node name="Crate" parent="." instance=ExtResource("5_ma5vi")]
+[node name="Tree" parent="." instance=ExtResource("5_ma5vi")]
 position = Vector2(192, 130)
 
 [node name="ResourceSpawner" parent="." instance=ExtResource("5_0ppb2")]

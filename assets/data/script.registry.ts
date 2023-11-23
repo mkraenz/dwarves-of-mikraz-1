@@ -12,9 +12,9 @@ export const scriptRegistry = {
     res_path: "res://player/Player.tscn",
     id: "player_rqXkdk",
   },
-  crate_tmMrzy: {
-    res_path: "res://world/resource_nodes/crate/crate.tscn",
-    id: "crate_tmMrzy",
+  tree_tmMrzy: {
+    res_path: "res://world/resource_nodes/tree/tree.tscn",
+    id: "tree_tmMrzy",
   },
   pickup_FUwDe7: {
     res_path: "res://world/pickup/pickup.tscn",
