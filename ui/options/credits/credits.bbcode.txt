@@ -1,18 +1,73 @@
 [center]
-Dwarves of Mikraz
+[font_size=20][outline_size=12]Dwarves of Mikraz[/outline_size][/font_size]
 
-by TypeScriptTeatime
+
+by Mirco Kraenz aka. TypeScriptTeatime
+
+
+
+
+Programming, Composition, Scenario
+
+Mirco Kraenz
+
+
+
+
+
+This project is made possible thanks to many amazing artists who have put their work under the CreativeCommons and similar licenses! 
+
+Thank you so much!
+
+
+
 
 [color=green]Artwork[/color]
 
-This work has been made possible thanks to many amazing artists who have put their work under the CreativeCommons and similar licenses! Thank you so much!
-
-TODO write all the people in here
+Pixel Art Dwarf Sprites by Elthen under CC BY-NC 4.0 with additional license terms available at https://www.patreon.com/posts/27430241.
 
 "[LPC] Ore and Forge" by bluecarrot16, commissioned by Pierre Vigier (pvigier). CC-BY 3.0+ / GPL 3.0+ / OGA-BY 3.0+
 
-"[LPC] Blacksmith Workshop" by bluecarrot16. License: OGA-BY 3.0, CC-BY 3.0+, GPL 2.0+. <http://opengameart.org/content/lpc-blacksmith>
+"[LPC] Blacksmith Workshop" by bluecarrot16. License: OGA-BY 3.0, CC-BY 3.0+, GPL 2.0+.
 
-"[LPC] Woodshop" by bluecarrot16. OGA-BY 3.0+ / CC-BY-3.0+ / GPL v2.0+. Available on [opengameart](https://opengameart.org/content/lpc-woodshop).
+"[LPC] Woodshop" by bluecarrot16. OGA-BY 3.0+ / CC-BY-3.0+ / GPL v2.0+.
+
+Several icons created by Henrique Lazarini (7Soul1) under CC0 1.0.
+
+Spritesheets tiny dungeon, tiny dungeon, roguelike atlas, input prompts, and tiny battle by kenney.nl under CC0 1.0.
+
+
+
+
+[color=green]Music and Sound[/color]
+
+blub sound from freesound.org by Angel_Perez_Grandi under CC BY 4.0 DEED.
+
+pop.mp3 by deathbyfairydust from freesound.org under CC BY 4.0 DEED.
+
+
+
+
+[color=green]Open Source[/color]
+
+All code is open-source. Check our Github:
+
+https://github.com/mkraenz/dwarves-of-mikraz-1
+
+
+
+
+[color=green]Special Thanks[/color]
+
+
+GrumbleOfPugz - "First person to ever finish this game"
+
+
+And all the amazing folks from [color=#6441a5]Twitch chat <3[/color].
+
+
+
+
+[color=#4588B9]Made with Godot[/color]
 
 [/center]

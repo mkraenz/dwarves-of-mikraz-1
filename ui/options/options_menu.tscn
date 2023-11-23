@@ -159,6 +159,7 @@ theme_type_variation = &"MarginOptionsTab"
 
 [node name="CreditsLabel" type="RichTextLabel" parent="Margin/P/Padding/V/TabContainer/Credits/M"]
 layout_mode = 2
+theme_override_font_sizes/normal_font_size = 10
 bbcode_enabled = true
 text = "[center]
 Dwarves of Mikraz
