@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://buknj5j72vcmc"]
+[gd_scene load_steps=6 format=3 uid="uid://buknj5j72vcmc"]
 
 [ext_resource type="Script" path="res://ui/options/options_menu.gd" id="1_7i8f7"]
 [ext_resource type="PackedScene" uid="uid://yjnjpa3w23jx" path="res://ui/common/backdrop.tscn" id="2_lhxoi"]
 [ext_resource type="Script" path="res://ui/options/language_select.gd" id="3_5vv1n"]
 [ext_resource type="PackedScene" uid="uid://d4dvwa3lk02q" path="res://ui/options/volume_range/volume_range.tscn" id="4_nbvjr"]
+[ext_resource type="Script" path="res://ui/options/credits/credits_label.gd" id="5_qvat5"]
 
 [node name="OptionsMenu" type="Control"]
 layout_mode = 3
@@ -39,6 +40,7 @@ theme_type_variation = &"MarginAllSmall"
 
 [node name="V" type="VBoxContainer" parent="Margin/P/Padding"]
 layout_mode = 2
+theme_override_constants/separation = 20
 
 [node name="Header" type="HBoxContainer" parent="Margin/P/Padding/V"]
 layout_mode = 2
@@ -56,6 +58,7 @@ text = "X"
 [node name="TabContainer" type="TabContainer" parent="Margin/P/Padding/V"]
 layout_mode = 2
 size_flags_vertical = 3
+tab_alignment = 1
 
 [node name="General" type="TabBar" parent="Margin/P/Padding/V/TabContainer"]
 layout_mode = 2
@@ -67,7 +70,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_type_variation = &"MarginTitleMenu"
+theme_type_variation = &"MarginOptionsTab"
 
 [node name="GridContainer" type="GridContainer" parent="Margin/P/Padding/V/TabContainer/General/M"]
 layout_mode = 2
@@ -104,7 +107,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_type_variation = &"MarginTitleMenu"
+theme_type_variation = &"MarginOptionsTab"
 
 [node name="GridContainer" type="GridContainer" parent="Margin/P/Padding/V/TabContainer/Audio/M"]
 layout_mode = 2
@@ -140,6 +143,42 @@ vertical_alignment = 1
 [node name="MusicVolumeRange" parent="Margin/P/Padding/V/TabContainer/Audio/M/GridContainer" instance=ExtResource("4_nbvjr")]
 layout_mode = 2
 bus_name = "Music"
+
+[node name="Credits" type="TabBar" parent="Margin/P/Padding/V/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="M" type="MarginContainer" parent="Margin/P/Padding/V/TabContainer/Credits"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"MarginOptionsTab"
+
+[node name="CreditsLabel" type="RichTextLabel" parent="Margin/P/Padding/V/TabContainer/Credits/M"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]
+Dwarves of Mikraz
+
+by TypeScriptTeatime
+
+[color=green]Artwork[/color]
+
+This work has been made possible thanks to many amazing artists who have put their work under the CreativeCommons and similar licenses! Thank you so much!
+
+TODO write all the people in here
+
+\"[LPC] Ore and Forge\" by bluecarrot16, commissioned by Pierre Vigier (pvigier). CC-BY 3.0+ / GPL 3.0+ / OGA-BY 3.0+
+\"[LPC] Blacksmith Workshop\" by bluecarrot16. License: OGA-BY 3.0, CC-BY 3.0+, GPL 2.0+. <http://opengameart.org/content/lpc-blacksmith>
+\"[LPC] Woodshop\" by bluecarrot16. OGA-BY 3.0+ / CC-BY-3.0+ / GPL v2.0+. Available on [opengameart](https://opengameart.org/content/lpc-woodshop).
+
+[/center]
+"
+threaded = true
+script = ExtResource("5_qvat5")
 
 [connection signal="pressed" from="Margin/P/Padding/V/Header/CloseButton" to="." method="close_menu"]
 [connection signal="item_selected" from="Margin/P/Padding/V/TabContainer/General/M/GridContainer/LanguageSelect" to="Margin/P/Padding/V/TabContainer/General/M/GridContainer/LanguageSelect" method="_on_item_selected"]
