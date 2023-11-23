@@ -79,6 +79,7 @@ v0.1.0 production sim
   - [ ] credits
     - [ ] Twitch folks
     - [ ] Special thanks "First person to ever finish this game" GrumbleOfPugz
+    - [x] credits not showing in browser
   - [x] exiting pause menu also closes options menu
 - [ ] controller support
   - [ ] ps
