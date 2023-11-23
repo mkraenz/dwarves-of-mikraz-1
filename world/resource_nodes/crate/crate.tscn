@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://world/resource_nodes/crate/crate.gd" id="1_ja3ux"]
 [ext_resource type="Shader" path="res://effects/blink.gdshader" id="2_trs7a"]
-[ext_resource type="Texture2D" uid="uid://tplk8k6rox3j" path="res://world/resource_nodes/crate/crate.atlastex" id="3_r6v5k"]
+[ext_resource type="Texture2D" uid="uid://drtgk3t0q62h0" path="res://world/resource_nodes/crate/tree.tres" id="3_hfidx"]
 [ext_resource type="PackedScene" uid="uid://6b2lgtejwxtv" path="res://common/Stats.tscn" id="4_t3scl"]
 [ext_resource type="AudioStream" uid="uid://dvfjim7k1sto8" path="res://third-party/sounds/wood/wood-impact-straight.mp3" id="5_prc3t"]
 [ext_resource type="PackedScene" uid="uid://i5pg0rokc7h8" path="res://world/resource_nodes/common/healthbar/healthbar.tscn" id="6_013ur"]
@@ -16,8 +16,8 @@ resource_local_to_scene = true
 shader = ExtResource("2_trs7a")
 shader_parameter/active = false
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pcu3n"]
-size = Vector2(13, 8)
+[sub_resource type="CircleShape2D" id="CircleShape2D_whluy"]
+radius = 5.0
 
 [sub_resource type="Animation" id="Animation_f0w6d"]
 length = 0.001
@@ -90,12 +90,12 @@ script = ExtResource("1_ja3ux")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_ghb5y")
-position = Vector2(0, -8)
-texture = ExtResource("3_r6v5k")
+position = Vector2(0, -15)
+texture = ExtResource("3_hfidx")
 
 [node name="Shape" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -4)
-shape = SubResource("RectangleShape2D_pcu3n")
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_whluy")
 
 [node name="Stats" parent="." instance=ExtResource("4_t3scl")]
 
