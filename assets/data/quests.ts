@@ -8,7 +8,7 @@ type SuccessCondition = {
 export type Quest = {
   trigger: { type: "manual" };
   on_complete: {
-    signal: "win_the_game";
+    signal: "game_won";
     signal_params: {};
   };
   /** shown in the HUD preview. */
@@ -28,7 +28,7 @@ export const quests = {
       type: "manual",
     },
     on_complete: {
-      signal: "win_the_game",
+      signal: "game_won",
       signal_params: {},
     },
     teaser: "Craft 20 Battle Axes to equip the King's army.",

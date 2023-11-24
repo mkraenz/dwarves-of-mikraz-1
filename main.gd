@@ -23,6 +23,7 @@ func _ready() -> void:
 	eventbus.resume_game_pressed.connect(_on_resume_game_pressed)
 	eventbus.save_game_pressed.connect(_on_save_game_pressed)
 	eventbus.toggle_options_menu.connect(_on_toggle_options_menu)
+	eventbus.game_won.connect(_on_game_won)
 
 
 func is_ingame() -> bool:
@@ -97,3 +98,7 @@ func unpause_game() -> void:
 
 func _on_toggle_options_menu() -> void:
 	options_menu.visible = not options_menu.visible
+
+
+func _on_game_won(_dict: Dictionary) -> void:
+	eventbus.show_notification.emit("won_game", 15)

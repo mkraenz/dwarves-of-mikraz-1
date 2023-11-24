@@ -31,3 +31,5 @@ signal scene_transition_hide
 signal scene_transition_finished
 
 signal locale_changed
+
+signal game_won(dict: Dictionary)
