@@ -61,7 +61,6 @@ size_flags_vertical = 3
 tab_alignment = 1
 
 [node name="General" type="TabBar" parent="Margin/P/Padding/V/TabContainer"]
-visible = false
 layout_mode = 2
 
 [node name="M" type="MarginContainer" parent="Margin/P/Padding/V/TabContainer/General"]
@@ -90,6 +89,7 @@ alignment = 1
 script = ExtResource("3_5vv1n")
 
 [node name="Controls" type="TabBar" parent="Margin/P/Padding/V/TabContainer"]
+visible = false
 layout_mode = 2
 
 [node name="M" type="MarginContainer" parent="Margin/P/Padding/V/TabContainer/Controls"]

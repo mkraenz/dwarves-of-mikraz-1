@@ -75,5 +75,24 @@ flat = true
 icon_alignment = 2
 script = ExtResource("2_ojauf")
 
+[node name="M2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"MarginAllSmall"
+
+[node name="QuestLog" type="Label" parent="M2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_type_variation = &"LabelTiny"
+text = "Craft 20 Battle Axes to equip the King's army. 0/20"
+horizontal_alignment = 2
+autowrap_mode = 3
+
 [connection signal="pressed" from="M/V/V/InventoryMenuHint" to="M/V/V/InventoryMenuHint" method="_on_pressed"]
 [connection signal="pressed" from="M/V/V/BuildMenuHint" to="M/V/V/BuildMenuHint" method="_on_pressed"]

@@ -118,6 +118,7 @@ reference_node = NodePath("..")
 how_to = NodePath("HowToAct")
 
 [node name="HowToAct" parent="Marker" instance=ExtResource("7_uis07")]
+position = Vector2(0, -39)
 
 [node name="ResourceNode" parent="." node_paths=PackedStringArray("mining", "stats") instance=ExtResource("10_2pk00")]
 mining = NodePath("../Mining")

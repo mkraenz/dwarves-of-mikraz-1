@@ -102,7 +102,9 @@ v0.1.0 production sim
   - [ ] charcoal kiln
     - [ ] replace placeholder sprite
     - [ ] animations
+  - [ ] shadows?
   - [x] turn crates into trees
+  - [ ] automated testing
 - [ ] demo: production sim
   - [ ] final goal: produce 20 battle axes for the war of the dwarves against the evil lord
   - [ ] communicate the final quest (KIS)

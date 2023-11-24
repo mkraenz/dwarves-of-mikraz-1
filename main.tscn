@@ -82,6 +82,7 @@ top_level = true
 layout_mode = 1
 
 [node name="DebugOverlay" parent="Gui" instance=ExtResource("9_yypcb")]
+visible = false
 
 [node name="World" type="Node2D" parent="."]
 process_mode = 1
