@@ -20,7 +20,7 @@ Load,Load,Laden
 - Paused -,- Paused -,- Pausiert -
 Saved successfully.,[color=green]Saved successfully.[/color],[color=green]Speichern erfolgreich.[/color]
 Master volume,Master volume,Gesamtlautstärke
-SFX volume,SFX volume,Lautstärke Effekte
+SFX volume,SFX volume,Effektlautstärke
 Music volume,Music volume,Musiklautstärke
 General,General,Allgemein
 Controls,Controls,Steuerung
@@ -28,3 +28,4 @@ Graphics,Graphics,Grafik
 Audio,Audio,Audio
 Credits,Credits,Abspann
 Language,Language,Sprache
+Coming soon,Coming soon,Folgt in Kürze

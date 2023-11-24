@@ -61,6 +61,7 @@ size_flags_vertical = 3
 tab_alignment = 1
 
 [node name="General" type="TabBar" parent="Margin/P/Padding/V/TabContainer"]
+visible = false
 layout_mode = 2
 
 [node name="M" type="MarginContainer" parent="Margin/P/Padding/V/TabContainer/General"]
@@ -89,12 +90,47 @@ alignment = 1
 script = ExtResource("3_5vv1n")
 
 [node name="Controls" type="TabBar" parent="Margin/P/Padding/V/TabContainer"]
-visible = false
 layout_mode = 2
+
+[node name="M" type="MarginContainer" parent="Margin/P/Padding/V/TabContainer/Controls"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"MarginOptionsTab"
+
+[node name="GridContainer" type="GridContainer" parent="Margin/P/Padding/V/TabContainer/Controls/M"]
+layout_mode = 2
+columns = 2
+
+[node name="ComingSoon" type="Label" parent="Margin/P/Padding/V/TabContainer/Controls/M/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Coming soon"
 
 [node name="Graphics" type="TabBar" parent="Margin/P/Padding/V/TabContainer"]
 visible = false
 layout_mode = 2
+
+[node name="M" type="MarginContainer" parent="Margin/P/Padding/V/TabContainer/Graphics"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"MarginOptionsTab"
+
+[node name="GridContainer" type="GridContainer" parent="Margin/P/Padding/V/TabContainer/Graphics/M"]
+layout_mode = 2
+columns = 2
+
+[node name="ComingSoon" type="Label" parent="Margin/P/Padding/V/TabContainer/Graphics/M/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Coming soon"
 
 [node name="Audio" type="TabBar" parent="Margin/P/Padding/V/TabContainer"]
 visible = false

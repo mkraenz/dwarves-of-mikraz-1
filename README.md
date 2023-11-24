@@ -71,6 +71,7 @@ v0.1.0 production sim
     - [ ] persist language selection
   - [ ] key rebinding
     - [ ] choose controller ps or controller xbox or keyboard+mouse
+  - [x] graphics + input tabs -> say empty by design
   - [ ] volume
     - [x] basic setup
     - [x] translations
