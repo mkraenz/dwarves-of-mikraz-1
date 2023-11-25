@@ -1,8 +1,8 @@
 import type { NeededItem } from "./crafting-recipes";
 
 type SuccessCondition = {
-  type: "collect items";
-  items: NeededItem[];
+  type: "collect item";
+  item: NeededItem;
 };
 
 export type Quest = {
@@ -36,14 +36,26 @@ export const quests = {
     description: "flavor text here",
     success_conditions: [
       {
-        type: "collect items",
-        items: [
-          {
-            id: "battle_axe",
-            amount: 20,
-          },
-        ],
+        type: "collect item",
+        item: {
+          id: "battle_axe",
+          amount: 20,
+        },
       },
+      // {
+      //   type: "collect item",
+      //   item: {
+      //     id: "stone",
+      //     amount: 20,
+      //   },
+      // },
+      // {
+      //   type: "collect item",
+      //   item: {
+      //     id: "log",
+      //     amount: 4,
+      //   },
+      // },
     ],
   },
 } satisfies Quests;

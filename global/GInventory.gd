@@ -49,6 +49,10 @@ func _ready():
 	eventbus.add_to_inventory.connect(_on_add_to_inventory)
 
 
+func get_item(item_id: String) -> Dictionary:
+	return inventory[item_id]
+
+
 func has(item_id: String, amount: int) -> bool:
 	return inventory[item_id].amount >= amount
 

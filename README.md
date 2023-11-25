@@ -109,6 +109,11 @@ v0.1.0 production sim
   - [ ] final goal: produce 20 battle axes for the war of the dwarves against the evil lord
   - [ ] communicate the final quest (KIS)
   - [ ] Congratulations. You finished the game/demo.
+    - [ ] DONE player gets introduced to quest
+          -> player can check quest progress
+          -> quest gets fulfilled
+          -> on complete signal
+          DONE -> handle signal
   - [x] progression:
     - [x] logs -> sawmill -> planks -> stone -> charcoal kiln -> coal -> iron ore -> smelter -> iron ingots -> smithy -> battle axe
 

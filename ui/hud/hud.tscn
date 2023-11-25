@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dn05qj4gsbmoa"]
+[gd_scene load_steps=8 format=3 uid="uid://dn05qj4gsbmoa"]
 
 [ext_resource type="PackedScene" uid="uid://ds2qodwrbmiud" path="res://ui/hud/notifications/notifications.tscn" id="1_20kht"]
 [ext_resource type="Texture2D" uid="uid://jfmr2n8kjf10" path="res://third-party/kenney/kenney-input-prompts-34x24-a-16x16.png" id="1_lmv2g"]
 [ext_resource type="Script" path="res://ui/hud/BuildMenuHint.gd" id="2_ojauf"]
 [ext_resource type="Script" path="res://ui/inventory/toggle_menu_button.gd" id="4_yojxo"]
+[ext_resource type="PackedScene" uid="uid://daj58p4eefnw6" path="res://ui/hud/quest_log/quest_log.tscn" id="5_li6s0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mexfn"]
 atlas = ExtResource("1_lmv2g")
@@ -84,15 +85,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_type_variation = &"MarginAllSmall"
 
-[node name="QuestLog" type="Label" parent="M2"]
-custom_minimum_size = Vector2(100, 0)
+[node name="QuestLog" parent="M2" instance=ExtResource("5_li6s0")]
 layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-theme_type_variation = &"LabelTiny"
-text = "Craft 20 Battle Axes to equip the King's army. 0/20"
-horizontal_alignment = 2
-autowrap_mode = 3
 
 [connection signal="pressed" from="M/V/V/InventoryMenuHint" to="M/V/V/InventoryMenuHint" method="_on_pressed"]
 [connection signal="pressed" from="M/V/V/BuildMenuHint" to="M/V/V/BuildMenuHint" method="_on_pressed"]

@@ -11,6 +11,8 @@ var version: String = "0.0.x"
 var scripts: Dictionary
 ## @type {ResourceNodeData}
 var resource_nodes: Dictionary
+## @type {Quests}
+var quests: Dictionary
 
 
 func _ready():
@@ -20,6 +22,7 @@ func _ready():
 	version = read_json_dict("res://package.json").version
 	scripts = read_json_dict("res://assets/data/script.registry.json")
 	resource_nodes = read_json_dict("res://assets/data/resource-nodes.json")
+	quests = read_json_dict("res://assets/data/quests.json")
 
 
 func read_json_dict(filepath: String):

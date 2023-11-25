@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://gtc8aykfenjv"]
+
+[ext_resource type="Script" path="res://ui/hud/quest_log/quest_log_entry/quest_log_entry.gd" id="1_ifunv"]
+
+[node name="QuestLogEntry" type="VBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 0
+script = ExtResource("1_ifunv")
+
+[node name="Teaser" type="Label" parent="."]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_type_variation = &"LabelExtraTiny"
+text = "Craft 20 Battle Axes to equip the King's army."
+autowrap_mode = 3
+
+[node name="Need1" parent="." instance_placeholder="res://ui/hud/quest_log/quest_log_entry/quest_log_entry_needed_item.tscn"]
+layout_mode = 2
+
+[node name="Need2" parent="." instance_placeholder="res://ui/hud/quest_log/quest_log_entry/quest_log_entry_needed_item.tscn"]
+layout_mode = 2
+text = "- 0/20 Battle Axe"

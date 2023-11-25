@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://daig4m4h8yb0m"]
+
+[node name="Need2" type="Label"]
+custom_minimum_size = Vector2(100, 0)
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_type_variation = &"LabelExtraTiny"
+text = "- 125/20 Logs"
+autowrap_mode = 3

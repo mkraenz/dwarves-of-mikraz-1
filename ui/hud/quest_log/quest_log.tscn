@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://daj58p4eefnw6"]
+
+[ext_resource type="Script" path="res://ui/hud/quest_log/quest_log.gd" id="1_t0mm8"]
+
+[node name="QuestLog" type="VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_type_variation = &"LabelTiny"
+script = ExtResource("1_t0mm8")
+
+[node name="QuestLogEntry" parent="." instance_placeholder="res://ui/hud/quest_log/quest_log_entry/quest_log_entry.tscn"]
+layout_mode = 2
