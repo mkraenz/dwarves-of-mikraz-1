@@ -85,9 +85,8 @@ func _on_add_to_inventory(item_id: String, amount: int):
 
 func save() -> Dictionary:
 	var data = {
-		"file_id": "ginventory_GVwfHU",
 		"is_autoload": true,
 		"autoload_name": "GInventory",
-		"inventory": inventory
+		"inventory": inventory,
 	}
 	return data
