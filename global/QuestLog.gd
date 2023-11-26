@@ -5,6 +5,7 @@ const Quest = preload("res://common/quest/quest.gd")
 signal quest_completed(quest: Quest)
 signal quest_started(quest: Quest)
 signal quest_progress_updated(quest: Quest)
+signal loading_finished
 
 var ginventory := GInventory
 var gdata := GData
@@ -85,6 +86,19 @@ func start_quest(id: String) -> void:
 
 
 func save() -> Dictionary:
-	## TODO
-	push_error("not implemented")
-	return {}
+	var save_dict = {
+		"is_autoload": true,
+		"autoload_name": "QuestLog",
+		"quests": quests.values().map(func(quest): return quest.save())
+	}
+	return save_dict
+
+
+func load_from(save_dict: Dictionary) -> void:
+	reset()
+	for quest_save_data in save_dict.quests as Array:
+		var id = quest_save_data.id
+		var quest_base_data = gdata.quests[id]
+		var quest = Quest.from_save_data(quest_save_data, quest_base_data)
+		quests[id] = quest
+	loading_finished.emit()

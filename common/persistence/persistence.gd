@@ -1,8 +1,12 @@
 extends Node
 
-var inventory := GInventory
+var ginventory := GInventory
+var questlog := QuestLog
 var gstate := GState
 var gdata := GData
+
+## IMPORTANT: Order of initialization is relevant! Should mirror the order of Autoloads in Project -> Project Settings -> Autoload
+var globals_to_save = [ginventory, questlog]
 
 ## largely following https://docs.godotengine.org/en/stable/tutorials/io/saving_games.html
 
@@ -32,7 +36,7 @@ func save_game(tree: SceneTree):
 		var json_string = JSON.stringify(node_data)
 		save_file.store_line(json_string)
 
-	for global_variable in [inventory]:
+	for global_variable in globals_to_save:
 		var node_data = global_variable.call("save")
 		var json_string = JSON.stringify(node_data)
 		save_file.store_line(json_string)
@@ -80,7 +84,9 @@ func load_game(tree: SceneTree, get_tree_node: Callable):
 
 		if node_data.get("is_autoload"):
 			if node_data["autoload_name"] == "GInventory":
-				inventory.inventory = node_data["inventory"]
+				ginventory.inventory = node_data["inventory"]
+			if node_data["autoload_name"] == "QuestLog":
+				questlog.load_from(node_data)
 		else:
 			const handled_keys = ["file_id", "parent", "pos_x", "pos_y", "is_autoload", "node_name"]
 

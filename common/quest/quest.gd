@@ -33,3 +33,15 @@ func save() -> Dictionary:
 		"completed": completed,
 	}
 	return save_dict
+
+
+func load_from(save_data: Dictionary) -> void:
+	started = save_data.started
+	completed = save_data.completed
+
+
+static func from_save_data(save_data: Dictionary, base_data_) -> Quest:
+	var quest = Quest.new()
+	quest.init(save_data.id, base_data_)
+	quest.load_from(save_data)
+	return quest

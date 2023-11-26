@@ -105,17 +105,19 @@ v0.1.0 production sim
   - [ ] shadows?
   - [x] turn crates into trees
   - [ ] automated testing
+  - [x] persistence of quests
 - [ ] demo: production sim
-  - [ ] final goal: produce 20 battle axes for the war of the dwarves against the evil lord
-  - [ ] communicate the final quest (KIS)
+  - [x] final goal: produce 20 battle axes for the war of the dwarves against the evil lord
+  - [x] communicate the final quest (KIS)
   - [ ] Congratulations. You finished the game/demo.
-    - [ ] DONE player gets introduced to quest
+    - [x] player gets introduced to quest
           -> player can check quest progress
           -> quest gets fulfilled
           -> on complete signal
-          DONE -> handle signal
+          -> handle signal
   - [x] progression:
     - [x] logs -> sawmill -> planks -> stone -> charcoal kiln -> coal -> iron ore -> smelter -> iron ingots -> smithy -> battle axe
+  - [ ] rename game and all occurrences of Dwarves of Mikraz
 
 v0.2.0 upgrade system
 
@@ -149,6 +151,11 @@ yarn deploy
 ## Other Resources
 
 - [must-see godot 4 ui tutorial](https://www.youtube.com/watch?v=1_OFJLyqlXI)
+- [pixelation filter online free, no login](https://www.resizepixel.com/edit)
+- [Brokkr Mythology](https://en.wikipedia.org/wiki/Brokkr)
+- [List of Dwarves in North Mythology](https://en.wikipedia.org/wiki/List_of_dwarfs_in_Norse_mythology)
+- [Masamune - Legendary Japanese Blacksmith](https://en.wikipedia.org/wiki/Masamune)
+- [Lessons on "failing" an indie game](https://www.reddit.com/r/gamedev/comments/183e88f/my_first_solo_developed_indie_game_failed_request/)
 
 ## Audio
 
@@ -170,3 +177,16 @@ These are options that are under further investigation but not yet necessarily u
 - <https://opengameart.org/users/bluecarrot16?page=2>
 - <https://opengameart.org/content/lpc-rocks>
 - <https://opengameart.org/content/lpc-ore-and-forge>
+
+## Naming
+
+- ~~Dwarves of Mikraz~~
+- Mikraz: Legendary Blacksmith
+- Mikraz: Legendary Forge
+- ~~Mikraz: Forge of Legends~~
+- Legends of Mikraz: The Blacksmith
+- Mikraz: Blacksmith Legends
+- Mikraz: Blacksmith of Legends
+- ~~Mikraz: Weaponsmith of Legends~~
+- ~~Mikraz: Smith of Legends~~
+- Mikraz: Blacksmith's Factory
