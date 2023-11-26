@@ -106,6 +106,8 @@ v0.1.0 production sim
   - [x] turn crates into trees
   - [ ] automated testing
   - [x] persistence of quests
+  - [ ] turn ginventory items into Item class
+  - [x] redo persistence of giventory
 - [ ] demo: production sim
   - [x] final goal: produce 20 battle axes for the war of the dwarves against the evil lord
   - [x] communicate the final quest (KIS)

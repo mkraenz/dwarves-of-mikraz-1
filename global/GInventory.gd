@@ -90,3 +90,8 @@ func save() -> Dictionary:
 		"inventory": inventory,
 	}
 	return data
+
+
+func load_from(save_dict) -> void:
+	reset()
+	inventory = save_dict["inventory"]

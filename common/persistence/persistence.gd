@@ -84,7 +84,7 @@ func load_game(tree: SceneTree, get_tree_node: Callable):
 
 		if node_data.get("is_autoload"):
 			if node_data["autoload_name"] == "GInventory":
-				ginventory.inventory = node_data["inventory"]
+				ginventory.load_from(node_data)
 			if node_data["autoload_name"] == "QuestLog":
 				questlog.load_from(node_data)
 		else:
