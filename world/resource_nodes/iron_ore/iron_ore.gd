@@ -30,14 +30,13 @@ func _on_hit(_val) -> void:
 
 
 func save() -> Dictionary:
-	var save_dict = {
+	return {
 		"file_id": "iron_ore_ufkPN4",
 		"parent": get_parent().get_path(),
 		"pos_x": position.x,
 		"pos_y": position.y,
 		"stats": stats.save(),
 	}
-	return save_dict
 
 
 func load_before_ready(save_dict: Dictionary) -> void:

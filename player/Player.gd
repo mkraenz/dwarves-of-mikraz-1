@@ -67,14 +67,13 @@ func _locked_anim_finished() -> void:
 
 
 func save() -> Dictionary:
-	var save_dict = {
+	return {
 		"file_id": "player_rqXkdk",
 		"parent": get_parent().get_path(),
 		"pos_x": position.x,  # Vector2 is not supported by JSON
 		"pos_y": position.y,
 		"node_name": name,
 	}
-	return save_dict
 
 
 func connect_camera(cam: Camera2D) -> void:

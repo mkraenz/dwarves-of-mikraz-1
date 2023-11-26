@@ -12,14 +12,13 @@ func interact() -> void:
 
 
 func save() -> Dictionary:
-	var save_dict = {
+	return {
 		"file_id": "sawmill_DgFJ2E",
 		"parent": get_parent().get_path(),
 		"pos_x": position.x,
 		"pos_y": position.y,
 		"production": production.save()
 	}
-	return save_dict
 
 
 func load_before_ready(save_dict: Dictionary) -> void:

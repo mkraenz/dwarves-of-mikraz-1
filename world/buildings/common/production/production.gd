@@ -202,14 +202,13 @@ func _output_pickups(item_id: String, amount: int) -> void:
 
 
 func save() -> Dictionary:
-	var save_dict = {
+	return {
 		"ordered_recipe": ordered_recipe,
 		"ordered_batches": JSONX.stringify_float(ordered_batches),
 		"produced_batches": produced_batches,
 		"ticks_to_batch_completion": JSONX.stringify_float(ticks_to_batch_completion),
 		"resources_in_use": resources_in_use,
 	}
-	return save_dict
 
 
 func load_from(save_dict: Dictionary) -> void:

@@ -26,13 +26,12 @@ func init(id_: String, base_data_: Dictionary):
 
 
 func save() -> Dictionary:
-	var save_dict = {
+	return {
 		"id": id,
 		# "progress": progress, # probably should be calculated again on load
 		"started": started,
 		"completed": completed,
 	}
-	return save_dict
 
 
 func load_from(save_data: Dictionary) -> void:

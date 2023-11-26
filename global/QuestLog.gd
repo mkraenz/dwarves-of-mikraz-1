@@ -86,12 +86,11 @@ func start_quest(id: String) -> void:
 
 
 func save() -> Dictionary:
-	var save_dict = {
+	return {
 		"is_autoload": true,
 		"autoload_name": "QuestLog",
 		"quests": quests.values().map(func(quest): return quest.save())
 	}
-	return save_dict
 
 
 func load_from(save_dict: Dictionary) -> void:

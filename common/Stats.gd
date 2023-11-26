@@ -29,8 +29,10 @@ func _set_max_hp(val: float) -> void:
 
 
 func save() -> Dictionary:
-	var save_dict = {"hp": hp, "max_hp": max_hp}
-	return save_dict
+	return {
+		"hp": hp,
+		"max_hp": max_hp,
+	}
 
 
 func load_from(save_dict: Dictionary) -> void:
