@@ -10,7 +10,7 @@ var progress: Array = []:
 	set = set_progress
 var started := false
 var completed := false
-var base_data: Dictionary = {}
+var base_data: Dictionary
 
 
 func set_progress(val: Array) -> void:

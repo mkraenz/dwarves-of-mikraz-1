@@ -19,7 +19,7 @@ func _physics_process(_delta: float) -> void:
 
 func _ready():
 	fill_item_list()
-	eventbus.ginventory_overwritten.connect(_on_ginventory_overwritten)
+	ginventory.loading_finished.connect(_on_loading_finished)
 
 
 func _input(_event):
@@ -61,5 +61,5 @@ func close_menu():
 	hide()
 
 
-func _on_ginventory_overwritten() -> void:
+func _on_loading_finished() -> void:
 	fill_item_list()
