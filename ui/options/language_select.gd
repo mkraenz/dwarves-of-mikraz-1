@@ -1,5 +1,7 @@
 extends OptionButton
 
+var app_config := AppConfig
+
 var locale_in_that_language = {
 	"en": "English",
 	"de": "Deutsch",
@@ -8,6 +10,7 @@ var locale_in_that_language = {
 
 func _ready() -> void:
 	var locales := TranslationServer.get_loaded_locales()
+	var current_locale = TranslationServer.get_locale().substr(0, 2)
 	for i in len(locales):
 		var locale = locales[i]
 		var locale_in_english := TranslationServer.get_locale_name(locale)
@@ -23,7 +26,10 @@ func _ready() -> void:
 			add_item(locale_in_english)
 		set_item_metadata(i, locale)
 
+		if current_locale == locale.substr(0, 2):
+			selected = i
+
 
 func _on_item_selected(index: int) -> void:
 	var locale = get_item_metadata(index)
-	LocaleSwitcher.change_locale(locale)
+	app_config.change_locale(locale)

@@ -18,7 +18,7 @@ size_flags_horizontal = 3
 max_value = 10.0
 value = 7.0
 rounded = true
-tick_count = 9
+tick_count = 11
 
 [node name="MaxVolume" type="Label" parent="."]
 layout_mode = 2

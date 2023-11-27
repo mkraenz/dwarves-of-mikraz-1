@@ -68,15 +68,15 @@ v0.1.0 production sim
     - [x] don't translate the label
     - [x] apply language selection
     - [ ] load the OS language `OS.get_locale()` on first opening
-    - [ ] persist language selection
+    - [x] persist language selection
   - [ ] key rebinding
     - [ ] choose controller ps or controller xbox or keyboard+mouse
   - [x] graphics + input tabs -> say empty by design
-  - [ ] volume
+  - [x] volume
     - [x] basic setup
     - [x] translations
       - [x] find out German words
-    - [ ] persist
+    - [x] persist
   - [x] credits
     - [x] Twitch folks
     - [x] Special thanks "First person to ever finish this game" GrumbleOfPugz
@@ -108,10 +108,11 @@ v0.1.0 production sim
   - [x] persistence of quests
   - [x] turn ginventory items into Item class
   - [x] redo persistence of giventory
+  - [ ] win screen with image
 - [ ] demo: production sim
   - [x] final goal: produce 20 battle axes for the war of the dwarves against the evil lord
   - [x] communicate the final quest (KIS)
-  - [ ] Congratulations. You finished the game/demo.
+  - [x] Congratulations. You finished the game/demo.
     - [x] player gets introduced to quest
           -> player can check quest progress
           -> quest gets fulfilled

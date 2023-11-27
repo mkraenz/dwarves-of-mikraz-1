@@ -8,7 +8,7 @@ func _ready():
 	Eventbus.locale_changed.connect(_on_locale_changed)
 
 
-## Workaround: when changing the locale while this component is shown, it doesn't automatically call translate. Fortunately, if we are clever we rarely run into this issue as in-game menus should simply close, when we switch into the pause or title screens. On next open, they will just be refreshed anyway, including any language changes. As such, I will only leave this as a reference for how to do it, but with little intention to implement it anywhere else. See LocaleSwitcher for more details.
+## Workaround: when changing the locale while this component is shown, it doesn't automatically call translate. Fortunately, if we are clever we rarely run into this issue as in-game menus should simply close, when we switch into the pause or title screens. On next open, they will just be refreshed anyway, including any language changes. As such, I will only leave this as a reference for how to do it, but with little intention to implement it anywhere else. See AppConfig.change_language for more details.
 func _on_locale_changed() -> void:
 	refresh_text(crafted_amount, ordered_amount)
 

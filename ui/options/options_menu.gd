@@ -1,9 +1,8 @@
 extends Control
 
-
-func _ready() -> void:
-	pass  # Replace with function body.
+var app_config := AppConfig
 
 
 func close_menu() -> void:
 	hide()
+	app_config.persist()
