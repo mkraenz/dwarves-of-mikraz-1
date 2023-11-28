@@ -17,5 +17,7 @@ texture = ExtResource("1_eigs4")
 layout_mode = 2
 theme = ExtResource("2_2ii1x")
 theme_type_variation = &"TitleHeading"
-text = "Dwarves of Mikraz"
+text = "Mikraz: Blacksmith 
+of Legends"
 horizontal_alignment = 1
+vertical_alignment = 1

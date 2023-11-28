@@ -1,5 +1,5 @@
 [center]
-[font_size=20][outline_size=12]Dwarves of Mikraz[/outline_size][/font_size]
+[font_size=20][outline_size=12]Mikraz: Blacksmith of Legends[/outline_size][/font_size]
 
 
 by Mirco Kraenz aka. TypeScriptTeatime

@@ -1,4 +1,4 @@
-# TypeScriptTeatime's Dwarves of Mikraz I
+# TypeScriptTeatime's Mikraz: Blacksmith of Legends
 
 - [itch.io](https://mkraenz.itch.io/dwarves-of-mikraz)
 - [github repo](https://github.com/mkraenz/dwarves-of-mikraz-1)
@@ -64,24 +64,8 @@ summary:
 v0.1.0 production sim
 
 - [ ] options menu
-  - [ ] language
-    - [x] don't translate the label
-    - [x] apply language selection
-    - [ ] load the OS language `OS.get_locale()` on first opening
-    - [x] persist language selection
   - [ ] key rebinding
     - [ ] choose controller ps or controller xbox or keyboard+mouse
-  - [x] graphics + input tabs -> say empty by design
-  - [x] volume
-    - [x] basic setup
-    - [x] translations
-      - [x] find out German words
-    - [x] persist
-  - [x] credits
-    - [x] Twitch folks
-    - [x] Special thanks "First person to ever finish this game" GrumbleOfPugz
-    - [x] credits not showing in browser
-  - [x] exiting pause menu also closes options menu
 - [ ] controller support
   - [ ] ps
   - [ ] xbox
@@ -103,24 +87,15 @@ v0.1.0 production sim
     - [ ] replace placeholder sprite
     - [ ] animations
   - [ ] shadows?
-  - [x] turn crates into trees
   - [ ] automated testing
-  - [x] persistence of quests
-  - [x] turn ginventory items into Item class
-  - [x] redo persistence of giventory
   - [ ] win screen with image
 - [ ] demo: production sim
-  - [x] final goal: produce 20 battle axes for the war of the dwarves against the evil lord
-  - [x] communicate the final quest (KIS)
-  - [x] Congratulations. You finished the game/demo.
-    - [x] player gets introduced to quest
-          -> player can check quest progress
-          -> quest gets fulfilled
-          -> on complete signal
-          -> handle signal
   - [x] progression:
     - [x] logs -> sawmill -> planks -> stone -> charcoal kiln -> coal -> iron ore -> smelter -> iron ingots -> smithy -> battle axe
   - [ ] rename game and all occurrences of Dwarves of Mikraz
+    - [x] in code
+    - [ ] repo
+    - [ ] itch io
 
 v0.2.0 upgrade system
 
