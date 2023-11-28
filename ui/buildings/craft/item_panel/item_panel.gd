@@ -12,8 +12,7 @@ var ginventory := GInventory
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	icon = gdata.get_item_icon(recipe.item_id)
-	var crafted_item := gdata.get_item(recipe.item_id)
-	text = crafted_item.label
+	text = gdata.get_localized_item_label(recipe.item_id)
 
 
 func _gui_input(_event):

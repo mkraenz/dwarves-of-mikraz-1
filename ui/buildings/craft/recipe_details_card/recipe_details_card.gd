@@ -19,9 +19,11 @@ func refresh() -> void:
 		panel.in_stock = ginventory.inventory[need.id].amount
 		panel.needed = need.amount * batches if batches != INF else need.amount
 		needs_heading.text = "Materials" if batches != INF else "Materials (batch)"
-		panel.item_name = gdata.get_item(need.id).label
+		panel.item_name = gdata.get_localized_item_label(need.id)
 		panel.item_icon = gdata.get_item_icon(need.id)
 		needs_list.add_child(panel)
 		panel.refresh()
 
-	crafted_item_label.text = "%s x%s" % [gdata.items[recipe.item_id].label, recipe.batch_size]
+	crafted_item_label.text = (
+		"%s x%s" % [gdata.get_localized_item_label(recipe.item_id), recipe.batch_size]
+	)

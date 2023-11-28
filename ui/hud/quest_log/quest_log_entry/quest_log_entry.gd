@@ -18,13 +18,12 @@ func _ready():
 	quest.quest_completed.connect(_on_quest_completed)
 	teaser.text = quest.base_data.teaser
 	for need in quest.progress:
-		var item = gdata.get_item(need.id)
 		var label = QuestLogEntryNeededItem.instantiate()
 		label.text = "· {current_amount}/{required_amount} {item_name}".format(
 			{
 				"current_amount": need.current_amount,
 				"required_amount": need.required_amount,
-				"item_name": item.label
+				"item_name": gdata.get_localized_item_label(need.id)
 			}
 		)
 		add_child(label)
@@ -41,12 +40,11 @@ func _on_progress_updated() -> void:
 	for i in len(quest.progress):
 		var label = need_item_labels[i]
 		var need = quest.progress[i]
-		var item = gdata.get_item(need.id)
 		label.text = "· {current_amount}/{required_amount} {item_name}".format(
 			{
 				"current_amount": need.current_amount,
 				"required_amount": need.required_amount,
-				"item_name": item.label
+				"item_name": gdata.get_localized_item_label(need.id)
 			}
 		)
 
@@ -55,11 +53,10 @@ func _on_quest_completed() -> void:
 	for i in len(quest.progress):
 		var label = need_item_labels[i]
 		var need = quest.progress[i]
-		var item = gdata.get_item(need.id)
 		label.text = "~~~~~~· {current_amount}/{required_amount} {item_name}".format(
 			{
 				"current_amount": need.current_amount,
 				"required_amount": need.required_amount,
-				"item_name": item.label
+				"item_name": gdata.get_localized_item_label(need.id)
 			}
 		)

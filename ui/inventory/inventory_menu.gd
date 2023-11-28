@@ -49,11 +49,11 @@ func fill_item_list() -> void:
 
 func add_item_to_list(item_id) -> void:
 	var inventory_item = ginventory.inventory[item_id]
-	var item := gdata.get_item(item_id)
-	var icon = gdata.get_item_icon(item_id)
+	var icon := gdata.get_item_icon(item_id)
+	var label := gdata.get_localized_item_label(item_id)
 	var i = item_list.add_item(str(inventory_item.amount), icon)
 	item_list.set_item_metadata(i, item_id)
-	item_list.set_item_tooltip(i, item.label)
+	item_list.set_item_tooltip(i, label)
 	item_id_to_index[item_id] = i
 
 

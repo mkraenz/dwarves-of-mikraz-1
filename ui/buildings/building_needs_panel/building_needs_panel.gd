@@ -31,7 +31,7 @@ func _on_building_changed() -> void:
 		var panel = NeededItemPanel.instantiate()
 		panel.in_stock = ginventory.inventory[need.id].amount
 		panel.needed = need.amount
-		panel.item_name = gdata.get_item(need.id).label
+		panel.item_name = gdata.get_localized_item_label(need.id)
 		panel.item_icon = gdata.get_item_icon(need.id)
 		needs_list.add_child(panel)
 		panel.refresh()

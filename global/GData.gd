@@ -54,6 +54,14 @@ func get_item(id: String) -> Dictionary:
 	return items[id]
 
 
+func get_localized_item_label(id: String) -> String:
+	var language = TranslationServer.get_locale().substr(0, 2)
+	var label = items[id].label.get(language)
+	if label:
+		return label
+	return items[id].label.en
+
+
 func get_building(id: String) -> Dictionary:
 	return buildings[id]
 
