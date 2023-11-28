@@ -12,11 +12,11 @@ export type Quest = {
     signal_params: {};
   };
   /** shown in the HUD preview. */
-  teaser: string;
+  teaser: { en: string; de: string };
   /** shown in the quest log. */
-  title: string;
+  title: { en: string; de: string };
   /** flavor text shown in the quest log. */
-  description: string;
+  description: { en: string; de: string };
   success_conditions: SuccessCondition[];
 };
 
@@ -31,9 +31,12 @@ export const quests = {
       signal: "game_won",
       signal_params: {},
     },
-    teaser: "Craft 20 Battle Axes to equip the King's army.",
-    title: "To arms!",
-    description: "flavor text here",
+    teaser: {
+      en: "Craft Battle Axes to equip the King's army.",
+      de: "Stelle Streitäxte her zur Rüstung der Armee des Königs.",
+    },
+    title: { en: "To arms!", de: "Zu den Waffen!" },
+    description: { en: "flavor text here", de: "flavor text here" },
     success_conditions: [
       {
         type: "collect item",

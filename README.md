@@ -69,12 +69,12 @@ v0.1.0 production sim
 - [ ] controller support
   - [ ] ps
   - [ ] xbox
-- [ ] localization:
+- [x] localization:
   - [x] how to localize content?
-  - [ ] localize
+  - [x] localize
     - [x] items
     - [x] buildings
-    - [ ] quests
+    - [x] quests
 - [ ] some polish
   - [ ] sfx
     - [ ] on build

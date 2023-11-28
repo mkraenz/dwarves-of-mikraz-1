@@ -6,6 +6,7 @@ const QuestLogEntryNeededItem = preload(
 
 @export var quest: Quest
 
+var eventbus := Eventbus
 var gdata := GData
 @onready var teaser := $Teaser
 
@@ -16,7 +17,17 @@ var need_item_labels := []
 func _ready():
 	quest.progress_updated.connect(_on_progress_updated)
 	quest.quest_completed.connect(_on_quest_completed)
-	teaser.text = quest.base_data.teaser
+	eventbus.locale_changed.connect(refresh)
+	refresh()
+
+
+func refresh() -> void:
+	for child in get_children():
+		if child != teaser:
+			child.queue_free()
+	need_item_labels = []
+
+	teaser.text = gdata.get_localized_label(quest.base_data.teaser)
 	for need in quest.progress:
 		var label = QuestLogEntryNeededItem.instantiate()
 		label.text = "· {current_amount}/{required_amount} {item_name}".format(
