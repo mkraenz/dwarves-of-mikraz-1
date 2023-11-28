@@ -55,11 +55,7 @@ func get_item(id: String) -> Dictionary:
 
 
 func get_localized_item_label(id: String) -> String:
-	var language = TranslationServer.get_locale().substr(0, 2)
-	var label = items[id].label.get(language)
-	if label:
-		return label
-	return items[id].label.en
+	return _get_localized_label(items[id].label)
 
 
 func get_building(id: String) -> Dictionary:
@@ -69,6 +65,18 @@ func get_building(id: String) -> Dictionary:
 func get_building_icon(id: String) -> Texture2D:
 	var building := get_building(id)
 	return _load_icon(building.icon, id)
+
+
+func get_localized_building_label(id: String) -> String:
+	return _get_localized_label(buildings[id].label)
+
+
+func _get_localized_label(label_obj: Dictionary) -> String:
+	var language = TranslationServer.get_locale().substr(0, 2)
+	var label = label_obj.get(language)
+	if label:
+		return label
+	return label_obj.en
 
 
 func _load_icon(icon: Dictionary, id: String) -> Texture2D:

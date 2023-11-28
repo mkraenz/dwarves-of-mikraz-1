@@ -25,7 +25,8 @@ func _ready():
 
 
 func _on_building_changed() -> void:
-	building_name.text = building.label
+	var label = gdata.get_localized_building_label(building.id)
+	building_name.text = label
 	Utils.remove_all_children(needs_list)
 	for need in building.needs:
 		var panel = NeededItemPanel.instantiate()

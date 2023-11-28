@@ -5,7 +5,7 @@ interface BuildingData {
 }
 
 interface Building {
-  label: string;
+  label: { en: string; de: string };
   id: string;
   icon:
     | { type: "Texture2D"; res_path: `res://${string}` }
@@ -25,7 +25,7 @@ interface Building {
 
 export const buildingData = {
   sawmill: {
-    label: "Sawmill",
+    label: { en: "Sawmill", de: "Sägemühle" },
     id: "sawmill",
     icon: {
       type: "Texture2D",
@@ -34,7 +34,7 @@ export const buildingData = {
     needs: [{ id: "log", amount: 5 }],
   },
   smelter: {
-    label: "Smelter",
+    label: { en: "Smelter", de: "Schmelzer" },
     id: "smelter",
     icon: {
       type: "Texture2D",
@@ -46,7 +46,7 @@ export const buildingData = {
     ],
   },
   mint: {
-    label: "Mint",
+    label: { en: "Mint", de: "Münzanstalt" },
     id: "mint",
     icon: {
       type: "Texture2D",
@@ -55,7 +55,7 @@ export const buildingData = {
     needs: [{ id: "plank", amount: 200 }],
   },
   smithy: {
-    label: "Smithy",
+    label: { en: "Smithy", de: "Schmiede" },
     id: "smithy",
     icon: {
       type: "AtlasTexture",
@@ -74,7 +74,7 @@ export const buildingData = {
     ],
   },
   charcoal_kiln: {
-    label: "Charcoal Kiln",
+    label: { en: "Charcoal Kiln", de: "Köhler" },
     id: "charcoal_kiln",
     icon: {
       type: "Texture2D",

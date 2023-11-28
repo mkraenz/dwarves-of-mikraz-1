@@ -12,10 +12,16 @@ var clicked_index = 0
 
 
 func _ready():
+	eventbus.locale_changed.connect(refresh)
+	refresh()
+
+
+func refresh() -> void:
 	item_list.clear()
 	for building in gdata.buildings.values():
 		var icon = gdata.get_building_icon(building.id)
-		var index = item_list.add_item(building.label, icon)
+		var label = gdata.get_localized_building_label(building.id)
+		var index = item_list.add_item(label, icon)
 		item_list.set_item_metadata(index, building.id)
 
 

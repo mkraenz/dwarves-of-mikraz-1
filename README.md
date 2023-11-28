@@ -70,7 +70,11 @@ v0.1.0 production sim
   - [ ] ps
   - [ ] xbox
 - [ ] localization:
-  - [ ] how to localize content?
+  - [x] how to localize content?
+  - [ ] localize
+    - [x] items
+    - [x] buildings
+    - [ ] quests
 - [ ] some polish
   - [ ] sfx
     - [ ] on build
