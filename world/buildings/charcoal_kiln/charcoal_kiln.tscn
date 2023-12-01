@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b4lbmdd2n5ebi" path="res://third-party/kenney-roguelike/roguelikeSheet_transparent.png" id="1_ms5hd"]
 [ext_resource type="PackedScene" uid="uid://p7ame63w6rhl" path="res://world/buildings/common/production/production.tscn" id="2_o1fro"]
 [ext_resource type="PackedScene" uid="uid://t2utidwitf4t" path="res://world/buildings/common/current_order_display/current_order_display.tscn" id="3_snav2"]
-[ext_resource type="PackedScene" uid="uid://cyfyx07i1ornl" path="res://world/buildings/common/progressbar/progressbar.tscn" id="4_xhkxv"]
+[ext_resource type="PackedScene" uid="uid://cyfyx07i1ornl" path="res://world/buildings/common/progressbar/production_progressbar.tscn" id="4_xhkxv"]
 [ext_resource type="PackedScene" uid="uid://c2mrs2touugk1" path="res://world/buildings/common/how_to_interact/how_to_interact.tscn" id="7_jjvep"]
 [ext_resource type="PackedScene" uid="uid://djaa81nvsgmhy" path="res://world/buildings/common/building-audio.tscn" id="7_kpavp"]
 [ext_resource type="PackedScene" uid="uid://fan0u7c1xosh" path="res://common/marker/marker.tscn" id="8_7ox5l"]
@@ -16,9 +16,8 @@ size = Vector2(28, 20)
 [node name="CharcoalKiln" type="StaticBody2D" groups=["persist"]]
 script = ExtResource("1_1mcgh")
 
-[node name="Production" parent="." node_paths=PackedStringArray("production_site", "progressbar", "current_order_display", "output_spot") instance=ExtResource("2_o1fro")]
+[node name="Production" parent="." node_paths=PackedStringArray("production_site", "current_order_display", "output_spot") instance=ExtResource("2_o1fro")]
 production_site = NodePath("..")
-progressbar = NodePath("../Progressbar")
 current_order_display = NodePath("../CurrentOrderDisplay")
 output_spot = NodePath("../OutputSpot")
 building_type = "charcoal_kiln"
@@ -37,9 +36,10 @@ shape = SubResource("RectangleShape2D_7xndd")
 [node name="CurrentOrderDisplay" parent="." instance=ExtResource("3_snav2")]
 position = Vector2(0, -10)
 
-[node name="Progressbar" parent="." instance=ExtResource("4_xhkxv")]
+[node name="Progressbar" parent="." node_paths=PackedStringArray("production") instance=ExtResource("4_xhkxv")]
 offset_top = -20.0
 offset_bottom = 108.0
+production = NodePath("../Production")
 
 [node name="OutputSpot" type="Marker2D" parent="."]
 position = Vector2(0, 8)

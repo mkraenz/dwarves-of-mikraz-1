@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dh7r5hrbwih6k" path="res://third-party/bluecarrot16/sawmill.png" id="3_hk0sk"]
 [ext_resource type="PackedScene" uid="uid://c2mrs2touugk1" path="res://world/buildings/common/how_to_interact/how_to_interact.tscn" id="3_nfipn"]
 [ext_resource type="Texture2D" uid="uid://cdtyalr1g6x37" path="res://third-party/bluecarrot16/planer.png" id="4_dmbpg"]
-[ext_resource type="PackedScene" uid="uid://cyfyx07i1ornl" path="res://world/buildings/common/progressbar/progressbar.tscn" id="4_iefot"]
+[ext_resource type="PackedScene" uid="uid://cyfyx07i1ornl" path="res://world/buildings/common/progressbar/production_progressbar.tscn" id="4_iefot"]
 [ext_resource type="PackedScene" uid="uid://t2utidwitf4t" path="res://world/buildings/common/current_order_display/current_order_display.tscn" id="5_85gy8"]
 [ext_resource type="PackedScene" uid="uid://djaa81nvsgmhy" path="res://world/buildings/common/building-audio.tscn" id="6_4yh66"]
 [ext_resource type="PackedScene" uid="uid://p7ame63w6rhl" path="res://world/buildings/common/production/production.tscn" id="8_53tld"]
@@ -186,9 +186,8 @@ collision_layer = 9
 collision_mask = 3
 script = ExtResource("1_nmfpx")
 
-[node name="Production" parent="." node_paths=PackedStringArray("production_site", "progressbar", "current_order_display", "output_spot") instance=ExtResource("8_53tld")]
+[node name="Production" parent="." node_paths=PackedStringArray("production_site", "current_order_display", "output_spot") instance=ExtResource("8_53tld")]
 production_site = NodePath("..")
-progressbar = NodePath("../Progressbar")
 current_order_display = NodePath("../CurrentOrderDisplay")
 output_spot = NodePath("../OutputSlot")
 building_type = "sawmill"
@@ -222,9 +221,10 @@ position = Vector2(-15, -9)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_dmbpg")
 
-[node name="Progressbar" parent="." instance=ExtResource("4_iefot")]
+[node name="Progressbar" parent="." node_paths=PackedStringArray("production") instance=ExtResource("4_iefot")]
 offset_top = -8.0
 offset_bottom = 120.0
+production = NodePath("../Production")
 
 [node name="Audio" parent="." instance=ExtResource("6_4yh66")]
 

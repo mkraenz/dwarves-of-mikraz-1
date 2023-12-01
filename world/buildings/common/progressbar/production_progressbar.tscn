@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cyfyx07i1ornl"]
+[gd_scene load_steps=5 format=3 uid="uid://cyfyx07i1ornl"]
 
 [ext_resource type="Texture2D" uid="uid://ciqjgayfpwp72" path="res://assets/images/gui/progressbar/progressbar.png" id="1_lmylf"]
+[ext_resource type="Script" path="res://world/buildings/common/progressbar/production_progressbar.gd" id="2_gh7j5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g4vuu"]
 atlas = ExtResource("1_lmylf")
@@ -10,7 +11,7 @@ region = Rect2(0, 0, 128, 128)
 atlas = ExtResource("1_lmylf")
 region = Rect2(128, 0, 128, 128)
 
-[node name="Progressbar" type="TextureProgressBar"]
+[node name="ProductionProgressbar" type="TextureProgressBar"]
 visible = false
 offset_left = -10.0
 offset_top = -3.0
@@ -21,3 +22,4 @@ size_flags_horizontal = 4
 fill_mode = 4
 texture_under = SubResource("AtlasTexture_g4vuu")
 texture_progress = SubResource("AtlasTexture_cnbr5")
+script = ExtResource("2_gh7j5")

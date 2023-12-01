@@ -1,4 +1,5 @@
 extends Node2D
+class_name Production
 
 signal producing
 signal pending
@@ -12,7 +13,6 @@ const Pickup = preload("res://world/pickup/pickup.tscn")
 
 ## the thing that is producing. type: `{on_output_products: () => void; on_production_idle: () => void; on_production_producing: () => void; on_production_blocked: () => void; on_production_pending: () => void; get_path: () => void;}`
 @export var production_site: Node2D
-@export var progressbar: Range
 @export var current_order_display: Node2D
 ## At around this location, outputs will be spawned.
 @export var output_spot: Marker2D
@@ -174,31 +174,24 @@ func _refresh_current_order_display() -> void:
 func _mark_as_producing() -> void:
 	producing.emit()
 
-	progressbar.show()
-	progressbar.max_value = ordered_recipe.duration_in_ticks
-	progressbar.value = ordered_recipe.duration_in_ticks - ticks_to_batch_completion
-
 	production_site.on_production_producing()
 
 
 func _mark_as_production_blocked() -> void:
 	blocked.emit()
 
-	progressbar.hide()
 	production_site.on_production_blocked()
 
 
 func _mark_as_pending() -> void:
 	pending.emit()
 
-	progressbar.hide()
 	production_site.on_production_pending()
 
 
 func _mark_as_idle() -> void:
 	idle.emit()
 
-	progressbar.hide()
 	production_site.on_production_idle()
 
 

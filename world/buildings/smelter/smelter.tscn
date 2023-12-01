@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://world/buildings/smelter/smelter.gd" id="1_nniej"]
 [ext_resource type="PackedScene" uid="uid://c2mrs2touugk1" path="res://world/buildings/common/how_to_interact/how_to_interact.tscn" id="2_n27ih"]
 [ext_resource type="Texture2D" uid="uid://di0kba6tv0q58" path="res://third-party/bluecarrot16/smelter.png" id="3_037es"]
-[ext_resource type="PackedScene" uid="uid://cyfyx07i1ornl" path="res://world/buildings/common/progressbar/progressbar.tscn" id="3_cqdx3"]
+[ext_resource type="PackedScene" uid="uid://cyfyx07i1ornl" path="res://world/buildings/common/progressbar/production_progressbar.tscn" id="3_cqdx3"]
 [ext_resource type="PackedScene" uid="uid://p7ame63w6rhl" path="res://world/buildings/common/production/production.tscn" id="4_wna7y"]
 [ext_resource type="PackedScene" uid="uid://t2utidwitf4t" path="res://world/buildings/common/current_order_display/current_order_display.tscn" id="5_j57fk"]
 [ext_resource type="PackedScene" uid="uid://fan0u7c1xosh" path="res://common/marker/marker.tscn" id="7_k8nb8"]
@@ -66,9 +66,8 @@ height = 40.0
 [node name="Smelter" type="StaticBody2D" groups=["persist"]]
 script = ExtResource("1_nniej")
 
-[node name="Production" parent="." node_paths=PackedStringArray("production_site", "progressbar", "current_order_display", "output_spot") instance=ExtResource("4_wna7y")]
+[node name="Production" parent="." node_paths=PackedStringArray("production_site", "current_order_display", "output_spot") instance=ExtResource("4_wna7y")]
 production_site = NodePath("..")
-progressbar = NodePath("../Progressbar")
 current_order_display = NodePath("../CurrentOrderDisplay")
 output_spot = NodePath("../OutputSpot")
 building_type = "smelter"
@@ -98,12 +97,13 @@ position = Vector2(-28, 7.5)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_pwbhq")
 
-[node name="Progressbar" parent="." instance=ExtResource("3_cqdx3")]
+[node name="Progressbar" parent="." node_paths=PackedStringArray("production") instance=ExtResource("3_cqdx3")]
 visible = true
 offset_left = -9.0
 offset_top = 5.0
 offset_right = 119.0
 offset_bottom = 133.0
+production = NodePath("../Production")
 
 [node name="CurrentOrderDisplay" parent="." instance=ExtResource("5_j57fk")]
 position = Vector2(1, 15)

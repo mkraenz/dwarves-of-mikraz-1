@@ -1,9 +1,9 @@
-[gd_scene load_steps=31 format=3 uid="uid://b43yygkrld0ry"]
+[gd_scene load_steps=29 format=3 uid="uid://b43yygkrld0ry"]
 
 [ext_resource type="Script" path="res://world/buildings/smithy/smithy.gd" id="1_nmfpx"]
 [ext_resource type="Texture2D" uid="uid://driel8oy8h3l1" path="res://third-party/bluecarrot16/blacksmith.png" id="3_61c4m"]
 [ext_resource type="Texture2D" uid="uid://dqtlogcljsdsd" path="res://third-party/bluecarrot16/bellows.png" id="4_rc18i"]
-[ext_resource type="Texture2D" uid="uid://ciqjgayfpwp72" path="res://assets/images/gui/progressbar/progressbar.png" id="4_t07dl"]
+[ext_resource type="PackedScene" uid="uid://cyfyx07i1ornl" path="res://world/buildings/common/progressbar/production_progressbar.tscn" id="5_8vioc"]
 [ext_resource type="PackedScene" uid="uid://fan0u7c1xosh" path="res://common/marker/marker.tscn" id="7_mi3f0"]
 [ext_resource type="PackedScene" uid="uid://t2utidwitf4t" path="res://world/buildings/common/current_order_display/current_order_display.tscn" id="7_nx6gu"]
 [ext_resource type="PackedScene" uid="uid://c2mrs2touugk1" path="res://world/buildings/common/how_to_interact/how_to_interact.tscn" id="7_ya30g"]
@@ -139,23 +139,14 @@ size = Vector2(50, 20)
 radius = 13.0
 height = 36.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_caltq"]
-atlas = ExtResource("4_t07dl")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i3tp4"]
-atlas = ExtResource("4_t07dl")
-region = Rect2(128, 0, 128, 128)
-
 [node name="Smithy" type="StaticBody2D" groups=["persist"]]
 collision_layer = 9
 collision_mask = 3
 script = ExtResource("1_nmfpx")
 
-[node name="Production" parent="." node_paths=PackedStringArray("production_site", "progressbar", "current_order_display", "output_spot") instance=ExtResource("8_vi8pg")]
+[node name="Production" parent="." node_paths=PackedStringArray("production_site", "current_order_display", "output_spot") instance=ExtResource("8_vi8pg")]
 position = Vector2(0, 4)
 production_site = NodePath("..")
-progressbar = NodePath("../Progressbar")
 current_order_display = NodePath("../CurrentOrderDisplay")
 output_spot = NodePath("../OutputSlot")
 building_type = "smithy"
@@ -188,17 +179,11 @@ position = Vector2(-42, 10)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_vh0v6")
 
-[node name="Progressbar" type="TextureProgressBar" parent="."]
-visible = false
-offset_left = -10.0
-offset_top = -57.0
-offset_right = 118.0
-offset_bottom = 71.0
-scale = Vector2(0.15, 0.15)
-size_flags_horizontal = 4
-fill_mode = 4
-texture_under = SubResource("AtlasTexture_caltq")
-texture_progress = SubResource("AtlasTexture_i3tp4")
+[node name="ProductionProgressbar" parent="." node_paths=PackedStringArray("production") instance=ExtResource("5_8vioc")]
+visible = true
+offset_top = -58.0
+offset_bottom = 70.0
+production = NodePath("../Production")
 
 [node name="CurrentOrderDisplay" parent="." instance=ExtResource("7_nx6gu")]
 visible = false
