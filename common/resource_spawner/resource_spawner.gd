@@ -1,22 +1,25 @@
 extends Node2D
 
-const TreeScene = preload("res://world/resource_nodes/tree/tree.tscn")
-const IronOre = preload("res://world/resource_nodes/iron_ore/iron_ore.tscn")
-const Stone = preload("res://world/resource_nodes/stone/stone.tscn")
-
 @export var enabled := true
+## the interval in which spawning occur
+@export var wait_time: float = 4.0
+## the resources to be spawned
+@export var scenes: Array[PackedScene]
 
 var gstate := GState
+@onready var cooldown := $Cooldown
 
 const COLLISION_SCALE_FOR_PLACEMENT_CHECK: float = 2.0
 const NORMAL_COLLISION_SCALE: float = 1.0
 
-const ResourceNodes = [TreeScene, IronOre, Stone]
+
+func _ready():
+	cooldown.wait_time = wait_time
 
 
 func _on_cooldown_timeout():
 	if enabled:
-		spawn_resource(Utils.sample(ResourceNodes))
+		spawn_resource(Utils.sample(scenes))
 
 
 func spawn_resource(Scene: PackedScene, attempt = 0) -> void:

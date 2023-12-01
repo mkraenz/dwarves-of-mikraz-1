@@ -1,13 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://molrdbxdnti"]
+[gd_scene load_steps=5 format=3 uid="uid://molrdbxdnti"]
 
 [ext_resource type="Script" path="res://common/resource_spawner/resource_spawner.gd" id="1_mgmjs"]
+[ext_resource type="PackedScene" uid="uid://1yjdrf40idyo" path="res://world/resource_nodes/iron_ore/iron_ore.tscn" id="2_bbnbn"]
+[ext_resource type="PackedScene" uid="uid://c00ecsnklwewt" path="res://world/resource_nodes/stone/stone.tscn" id="3_flrr7"]
+[ext_resource type="PackedScene" uid="uid://ck2utngryc1v" path="res://world/resource_nodes/tree/tree.tscn" id="4_lrla2"]
 
 [node name="ResourceSpawner" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_mgmjs")
+scenes = Array[PackedScene]([ExtResource("2_bbnbn"), ExtResource("3_flrr7"), ExtResource("4_lrla2")])
 
 [node name="Cooldown" type="Timer" parent="."]
-wait_time = 4.0
 autostart = true
 
 [connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
