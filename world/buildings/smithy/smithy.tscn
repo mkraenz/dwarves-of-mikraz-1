@@ -152,10 +152,9 @@ collision_layer = 9
 collision_mask = 3
 script = ExtResource("1_nmfpx")
 
-[node name="Production" parent="." node_paths=PackedStringArray("production_site", "reference_node", "progressbar", "current_order_display", "output_spot") instance=ExtResource("8_vi8pg")]
+[node name="Production" parent="." node_paths=PackedStringArray("production_site", "progressbar", "current_order_display", "output_spot") instance=ExtResource("8_vi8pg")]
 position = Vector2(0, 4)
 production_site = NodePath("..")
-reference_node = NodePath("..")
 progressbar = NodePath("../Progressbar")
 current_order_display = NodePath("../CurrentOrderDisplay")
 output_spot = NodePath("../OutputSlot")

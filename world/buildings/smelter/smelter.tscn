@@ -66,9 +66,8 @@ height = 40.0
 [node name="Smelter" type="StaticBody2D" groups=["persist"]]
 script = ExtResource("1_nniej")
 
-[node name="Production" parent="." node_paths=PackedStringArray("production_site", "reference_node", "progressbar", "current_order_display", "output_spot") instance=ExtResource("4_wna7y")]
+[node name="Production" parent="." node_paths=PackedStringArray("production_site", "progressbar", "current_order_display", "output_spot") instance=ExtResource("4_wna7y")]
 production_site = NodePath("..")
-reference_node = NodePath("..")
 progressbar = NodePath("../Progressbar")
 current_order_display = NodePath("../CurrentOrderDisplay")
 output_spot = NodePath("../OutputSpot")

@@ -16,9 +16,8 @@ size = Vector2(28, 20)
 [node name="CharcoalKiln" type="StaticBody2D" groups=["persist"]]
 script = ExtResource("1_1mcgh")
 
-[node name="Production" parent="." node_paths=PackedStringArray("production_site", "reference_node", "progressbar", "current_order_display", "output_spot") instance=ExtResource("2_o1fro")]
+[node name="Production" parent="." node_paths=PackedStringArray("production_site", "progressbar", "current_order_display", "output_spot") instance=ExtResource("2_o1fro")]
 production_site = NodePath("..")
-reference_node = NodePath("..")
 progressbar = NodePath("../Progressbar")
 current_order_display = NodePath("../CurrentOrderDisplay")
 output_spot = NodePath("../OutputSpot")

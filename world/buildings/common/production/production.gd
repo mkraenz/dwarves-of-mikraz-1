@@ -1,10 +1,17 @@
 extends Node2D
 
+signal producing
+signal pending
+signal blocked
+signal idle
+signal order_cancelled
+signal order_received
+signal outputting_products
+
 const Pickup = preload("res://world/pickup/pickup.tscn")
 
 ## the thing that is producing. type: `{on_output_products: () => void; on_production_idle: () => void; on_production_producing: () => void; on_production_blocked: () => void; on_production_pending: () => void; get_path: () => void;}`
 @export var production_site: Node2D
-@export var reference_node: Node2D
 @export var progressbar: Range
 @export var current_order_display: Node2D
 ## At around this location, outputs will be spawned.
@@ -65,8 +72,10 @@ func _on_ordered_at_workshop(
 		if has_an_order:
 			_output_current_inputs()
 			clear_order()
+			order_cancelled.emit()
 		ordered_recipe = recipe
 		ordered_batches = batches
+		order_received.emit()
 
 
 func _on_cancel_order_at_workshop(at_target_node_path: String) -> void:
@@ -74,6 +83,7 @@ func _on_cancel_order_at_workshop(at_target_node_path: String) -> void:
 	if targetted_at_this_workshop:
 		_output_current_inputs()
 		clear_order()
+		order_cancelled.emit()
 
 
 func interact() -> void:
@@ -162,6 +172,8 @@ func _refresh_current_order_display() -> void:
 
 
 func _mark_as_producing() -> void:
+	producing.emit()
+
 	progressbar.show()
 	progressbar.max_value = ordered_recipe.duration_in_ticks
 	progressbar.value = ordered_recipe.duration_in_ticks - ticks_to_batch_completion
@@ -170,21 +182,29 @@ func _mark_as_producing() -> void:
 
 
 func _mark_as_production_blocked() -> void:
+	blocked.emit()
+
 	progressbar.hide()
 	production_site.on_production_blocked()
 
 
 func _mark_as_pending() -> void:
+	pending.emit()
+
 	progressbar.hide()
 	production_site.on_production_pending()
 
 
 func _mark_as_idle() -> void:
+	idle.emit()
+
 	progressbar.hide()
 	production_site.on_production_idle()
 
 
 func _output_products() -> void:
+	outputting_products.emit()
+
 	var amount = ordered_recipe.batch_size
 	var item_id = ordered_recipe.item_id
 	_output_pickups(item_id, amount)
