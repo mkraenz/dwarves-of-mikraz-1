@@ -41,7 +41,3 @@ func save() -> Dictionary:
 
 func load_before_ready(save_dict: Dictionary) -> void:
 	$Stats.load_from(save_dict.stats)
-
-
-func set_collision_scale(new_scale: float) -> void:
-	shape.scale = Vector2.ONE * new_scale

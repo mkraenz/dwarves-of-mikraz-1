@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b43yygkrld0rh"]
+[gd_scene load_steps=17 format=3 uid="uid://b43yygkrld0rh"]
 
 [ext_resource type="Script" path="res://world/buildings/sawmill/sawmill.gd" id="1_nmfpx"]
 [ext_resource type="Texture2D" uid="uid://dh7r5hrbwih6k" path="res://third-party/bluecarrot16/sawmill.png" id="3_hk0sk"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://djaa81nvsgmhy" path="res://world/buildings/common/building-audio.tscn" id="6_4yh66"]
 [ext_resource type="PackedScene" uid="uid://p7ame63w6rhl" path="res://world/buildings/common/production/production.tscn" id="8_53tld"]
 [ext_resource type="PackedScene" uid="uid://fan0u7c1xosh" path="res://common/marker/marker.tscn" id="8_y8hcy"]
+[ext_resource type="PackedScene" uid="uid://biedgjept2pjx" path="res://common/collision_scaler/collision_scaler.tscn" id="10_jtwd7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q23y1"]
 atlas = ExtResource("3_hk0sk")
@@ -245,3 +246,6 @@ autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_bdven")
 }
+
+[node name="CollisionScaler" parent="." node_paths=PackedStringArray("shapes") instance=ExtResource("10_jtwd7")]
+shapes = [NodePath("../Shape")]

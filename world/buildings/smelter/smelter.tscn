@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bmsf4jrtokcvg"]
+[gd_scene load_steps=19 format=3 uid="uid://bmsf4jrtokcvg"]
 
 [ext_resource type="Script" path="res://world/buildings/smelter/smelter.gd" id="1_nniej"]
 [ext_resource type="PackedScene" uid="uid://c2mrs2touugk1" path="res://world/buildings/common/how_to_interact/how_to_interact.tscn" id="2_n27ih"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://t2utidwitf4t" path="res://world/buildings/common/current_order_display/current_order_display.tscn" id="5_j57fk"]
 [ext_resource type="PackedScene" uid="uid://fan0u7c1xosh" path="res://common/marker/marker.tscn" id="7_k8nb8"]
 [ext_resource type="PackedScene" uid="uid://djaa81nvsgmhy" path="res://world/buildings/common/building-audio.tscn" id="7_wuwu0"]
+[ext_resource type="PackedScene" uid="uid://biedgjept2pjx" path="res://common/collision_scaler/collision_scaler.tscn" id="9_vpj2w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_buu0b"]
 atlas = ExtResource("3_037es")
@@ -118,3 +119,6 @@ how_to = NodePath("HowToInteract")
 
 [node name="HowToInteract" parent="Marker" instance=ExtResource("2_n27ih")]
 position = Vector2(0, -39)
+
+[node name="CollisionScaler" parent="." node_paths=PackedStringArray("shapes") instance=ExtResource("9_vpj2w")]
+shapes = [NodePath("../Shape"), NodePath("../Shape2"), NodePath("../Shape3"), NodePath("../Shape4")]

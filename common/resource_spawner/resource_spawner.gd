@@ -38,7 +38,7 @@ func spawn_resource(Scene: PackedScene, attempt = 0) -> void:
 		spawn_resource(Scene, attempt + 1)
 	else:
 		instance.collision_layer = original_collision_layer  # reenable collision for a valid object
-		scale_collision_shape(instance, NORMAL_COLLISION_SCALE)
+		reset_collision_shape(instance)
 
 
 func random_vector2() -> Vector2:
@@ -51,7 +51,14 @@ func random_vector2() -> Vector2:
 
 
 func scale_collision_shape(instance: Node2D, new_scale: float) -> void:
-	if instance.has_method("set_collision_scale"):
-		instance.set_collision_scale(new_scale)
+	if instance.has_node("CollisionScaler"):
+		instance.get_node("CollisionScaler").set_collision_scale(new_scale)
 	else:
-		push_error("instance is missing 'set_collision_scale'. instance.name", instance.name)
+		push_error("instance is missing 'CollisionScaler'. instance.name", instance.name)
+
+
+func reset_collision_shape(instance: Node2D) -> void:
+	if instance.has_node("CollisionScaler"):
+		instance.get_node("CollisionScaler").reset_collision_scale()
+	else:
+		push_error("instance is missing 'CollisionScaler'. instance.name", instance.name)

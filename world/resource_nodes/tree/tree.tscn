@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ck2utngryc1v"]
+[gd_scene load_steps=17 format=3 uid="uid://ck2utngryc1v"]
 
 [ext_resource type="Script" path="res://world/resource_nodes/tree/tree.gd" id="1_ja3ux"]
 [ext_resource type="Shader" path="res://effects/blink.gdshader" id="2_trs7a"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://fan0u7c1xosh" path="res://common/marker/marker.tscn" id="8_67h2o"]
 [ext_resource type="PackedScene" uid="uid://be52v685kfaec" path="res://world/resource_nodes/common/mining/mining.tscn" id="8_jbldv"]
 [ext_resource type="PackedScene" uid="uid://d4dhro78xsx7h" path="res://world/resource_nodes/common/resource_node/resource_node.tscn" id="10_2pk00"]
+[ext_resource type="PackedScene" uid="uid://biedgjept2pjx" path="res://common/collision_scaler/collision_scaler.tscn" id="11_53ijr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ghb5y"]
 resource_local_to_scene = true
@@ -123,3 +124,6 @@ position = Vector2(0, -39)
 [node name="ResourceNode" parent="." node_paths=PackedStringArray("mining", "stats") instance=ExtResource("10_2pk00")]
 mining = NodePath("../Mining")
 stats = NodePath("../Stats")
+
+[node name="CollisionScaler" parent="." node_paths=PackedStringArray("shapes") instance=ExtResource("11_53ijr")]
+shapes = [NodePath("../Shape")]

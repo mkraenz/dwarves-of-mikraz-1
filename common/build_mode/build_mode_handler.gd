@@ -119,7 +119,7 @@ func _blueprint_collision_shape_scale(val: float) -> void:
 func scale_blueprint_collision_shape(new_scale: float) -> void:
 	if not blueprint:
 		return
-	if blueprint.has_method("set_collision_scale"):
-		blueprint.set_collision_scale(new_scale)
+	if blueprint.has_node("CollisionScaler"):
+		blueprint.get_node("CollisionScaler").set_collision_scale(new_scale)
 	else:
-		push_error("blueprint is missing 'set_collision_scale'. blueprint.name", blueprint.name)
+		push_error("blueprint is missing 'CollisionScaler'. blueprint.name", blueprint.name)

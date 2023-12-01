@@ -2,10 +2,6 @@ extends StaticBody2D
 
 @onready var audio := $Audio
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var shape1: CollisionShape2D = $Shape
-@onready var shape2: CollisionShape2D = $Shape2
-@onready var shape3: CollisionShape2D = $Shape3
-@onready var shape4: CollisionShape2D = $Shape4
 @onready var production := $Production
 
 
@@ -49,8 +45,3 @@ func on_production_idle() -> void:
 
 func on_output_products() -> void:
 	audio.play()
-
-
-func set_collision_scale(new_scale: float) -> void:
-	for shape in [shape1, shape2, shape3, shape4]:
-		shape.scale = Vector2.ONE * new_scale
