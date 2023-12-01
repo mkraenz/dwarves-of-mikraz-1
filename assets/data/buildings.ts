@@ -46,7 +46,7 @@ export const buildingData = {
     ],
   },
   mint: {
-    label: { en: "Mint", de: "Münzanstalt" },
+    label: { en: "Mint (not implemented)", de: "Münzanstalt (nicht im Spiel)" },
     id: "mint",
     icon: {
       type: "Texture2D",
