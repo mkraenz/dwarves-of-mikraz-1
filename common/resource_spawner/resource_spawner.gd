@@ -14,6 +14,7 @@ const NORMAL_COLLISION_SCALE: float = 1.0
 
 
 func _ready():
+	assert(scenes, "Scenes not set on %s" % [name])
 	cooldown.wait_time = wait_time
 
 
