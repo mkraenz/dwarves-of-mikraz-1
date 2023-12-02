@@ -114,9 +114,8 @@ offset_right = 119.0
 offset_bottom = 133.0
 production = NodePath("../Production")
 
-[node name="Production" parent="Producer" node_paths=PackedStringArray("production_site", "current_order_display") instance=ExtResource("4_wna7y")]
+[node name="Production" parent="Producer" node_paths=PackedStringArray("current_order_display") instance=ExtResource("4_wna7y")]
 unique_name_in_owner = true
-production_site = NodePath("../..")
 current_order_display = NodePath("../CurrentOrderDisplay")
 building_type = "smelter"
 

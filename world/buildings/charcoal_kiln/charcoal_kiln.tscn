@@ -42,9 +42,8 @@ shapes = [NodePath("../Shape")]
 
 [node name="Producer" type="Node2D" parent="."]
 
-[node name="Production" parent="Producer" node_paths=PackedStringArray("production_site", "current_order_display") instance=ExtResource("2_o1fro")]
+[node name="Production" parent="Producer" node_paths=PackedStringArray("current_order_display") instance=ExtResource("2_o1fro")]
 unique_name_in_owner = true
-production_site = NodePath("../..")
 current_order_display = NodePath("../CurrentOrderDisplay")
 building_type = "charcoal_kiln"
 

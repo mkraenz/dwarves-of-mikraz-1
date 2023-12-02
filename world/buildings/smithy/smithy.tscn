@@ -189,10 +189,9 @@ shapes = [NodePath("../Shape"), NodePath("../Shape2"), NodePath("../Shape3")]
 
 [node name="Producer" type="Node2D" parent="."]
 
-[node name="Production" parent="Producer" node_paths=PackedStringArray("production_site", "current_order_display") instance=ExtResource("8_vi8pg")]
+[node name="Production" parent="Producer" node_paths=PackedStringArray("current_order_display") instance=ExtResource("8_vi8pg")]
 unique_name_in_owner = true
 position = Vector2(0, 4)
-production_site = NodePath("../..")
 current_order_display = NodePath("../CurrentOrderDisplay")
 building_type = "smithy"
 

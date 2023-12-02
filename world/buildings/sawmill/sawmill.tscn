@@ -247,9 +247,8 @@ position = Vector2(0, 18)
 [node name="CurrentOrderDisplay" parent="Producer" instance=ExtResource("5_85gy8")]
 position = Vector2(0, 1)
 
-[node name="Production" parent="Producer" node_paths=PackedStringArray("production_site", "current_order_display") instance=ExtResource("8_53tld")]
+[node name="Production" parent="Producer" node_paths=PackedStringArray("current_order_display") instance=ExtResource("8_53tld")]
 unique_name_in_owner = true
-production_site = NodePath("../..")
 current_order_display = NodePath("../CurrentOrderDisplay")
 building_type = "sawmill"
 

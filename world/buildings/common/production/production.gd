@@ -11,8 +11,6 @@ signal outputting_products(item_id: String, amount: float)
 signal outputting_input(item_id: String, amount: float)
 signal loading_finished
 
-## the thing that is producing. type: `{on_output_products: () => void; on_production_idle: () => void; on_production_producing: () => void; on_production_blocked: () => void; on_production_pending: () => void; get_path: () => void;}`
-@export var production_site: Node2D
 @export var current_order_display: Node2D
 ## type: keyof typeof buildingData
 @export var building_type: String
@@ -24,7 +22,6 @@ signal loading_finished
 var eventbus := Eventbus
 var gdata := GData
 var ginventory := GInventory
-var gstate := GState
 
 var ticks_to_batch_completion = INF
 var produced_batches: int = 0
@@ -58,14 +55,14 @@ func _ready():
 	eventbus.cancel_order_at_workshop.connect(_on_cancel_order_at_workshop)
 
 
-func _process(_delta):
+func _physics_process(_delta: float):
 	_refresh_mark()
 
 
 func _on_ordered_at_workshop(
 	recipe: Dictionary, batches: float, at_target_node_path: String
 ) -> void:
-	var order_is_for_this_workshop = str(production_site.get_path()) == at_target_node_path
+	var order_is_for_this_workshop = str(get_path()) == at_target_node_path
 	if order_is_for_this_workshop:
 		if has_an_order:
 			_output_current_inputs()
@@ -77,7 +74,7 @@ func _on_ordered_at_workshop(
 
 
 func _on_cancel_order_at_workshop(at_target_node_path: String) -> void:
-	var targetted_at_this_workshop = str(production_site.get_path()) == at_target_node_path
+	var targetted_at_this_workshop = str(get_path()) == at_target_node_path
 	if targetted_at_this_workshop:
 		_output_current_inputs()
 		clear_order()
@@ -85,7 +82,7 @@ func _on_cancel_order_at_workshop(at_target_node_path: String) -> void:
 
 
 func interact() -> void:
-	eventbus.toggle_crafting_menu.emit(building_type, str(production_site.get_path()))
+	eventbus.toggle_crafting_menu.emit(building_type, str(get_path()))
 
 
 func clear_order() -> void:
