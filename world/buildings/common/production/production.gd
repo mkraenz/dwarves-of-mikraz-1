@@ -21,7 +21,7 @@ signal loading_finished
 var eventbus := Eventbus
 var ginventory := GInventory
 
-var ticks_to_batch_completion = INF
+var ticks_to_batch_completion := INF
 var produced_batches: int = 0
 ## type: NeededItem[]
 var resources_in_use := []
