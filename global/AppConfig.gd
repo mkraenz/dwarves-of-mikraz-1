@@ -1,10 +1,14 @@
 extends Node
 
+const AudioConfig = preload("res://global/AudioConfig.gd")
+
 ## All kinds of configs that are relevant for the application (as opposed to a specific game setting) like audio, language, graphics, etc. Loaded on application startup.
 
 const FILEPATH = "user://config.json"
 
 var eventbus := Eventbus
+
+var audio: AudioConfig = AudioConfig.new()
 
 
 func config_file_exists() -> bool:
@@ -44,13 +48,13 @@ func save() -> Dictionary:
 	return {
 		"is_autoload": true,
 		"autoload_name": "AppConfig",
-		"audio": AudioConfig.save(),
+		"audio": audio.save(),
 		"locale": TranslationServer.get_locale()
 	}
 
 
 func load_from(save_dict: Dictionary) -> void:
-	AudioConfig.load_from(save_dict.audio)
+	audio.load_from(save_dict.audio)
 
 	change_locale(save_dict.locale)  # this one is not working for UI, but TranslationServer.get_locale() inside persist and other components already can use that value
 	# WORKAROUND: for whatever reason, changing the locale immediately doesn't it apply it to the scenes.

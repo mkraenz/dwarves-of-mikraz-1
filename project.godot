@@ -17,7 +17,6 @@ config/features=PackedStringArray("4.1", "GL Compatibility")
 [autoload]
 
 Eventbus="*res://global/Eventbus.gd"
-AudioConfig="*res://global/AudioConfig.gd"
 AppConfig="*res://global/AppConfig.gd"
 GData="*res://global/GData.gd"
 GState="*res://global/GState.gd"

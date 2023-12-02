@@ -1,7 +1,5 @@
 extends Node
 
-## TODO turn into regular variable inside AppConfig instead of standalone autoload variable
-
 const display_max_value := 10
 const display_min_value := 0
 const min_volume_db := -30.0
@@ -35,8 +33,6 @@ func reset() -> void:
 
 func save() -> Dictionary:
 	return {
-		"is_autoload": true,
-		"autoload_name": "AudioConfig",
 		"master_volume": current_volume_views.Master,
 		"sounds_volume": current_volume_views.Sounds,
 		"music_volume": current_volume_views.Music,

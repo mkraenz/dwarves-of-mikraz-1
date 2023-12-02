@@ -2,11 +2,11 @@ extends HBoxContainer
 
 @export var bus_name := ""
 
-@onready var config = AudioConfig
+@onready var config = AppConfig
 
-@onready var bus = config.audio_buses[bus_name]
-@onready var initial_volume = config.initial_volumes[bus_name]
-@onready var display_value = config.current_volume_views[bus_name]
+@onready var bus = config.audio.audio_buses[bus_name]
+@onready var initial_volume = config.audio.initial_volumes[bus_name]
+@onready var display_value = config.audio.current_volume_views[bus_name]
 
 @onready var slider := $VolumeSlider
 
@@ -16,7 +16,7 @@ func _ready() -> void:
 
 
 func update_view() -> void:
-	slider.value = config.current_volume_views[bus_name]
+	slider.value = config.audio.current_volume_views[bus_name]
 
 
 func reset() -> void:
@@ -25,5 +25,5 @@ func reset() -> void:
 
 
 func _on_volume_slider_value_changed(value: float) -> void:
-	AudioConfig.set_volume(bus_name, value)
+	config.audio.set_volume(bus_name, value)
 	update_view()
