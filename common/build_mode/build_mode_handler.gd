@@ -85,25 +85,12 @@ func _on_enter_build_mode(_building_id: String) -> void:
 	click_delay.start()
 
 
-## TODO can we automate this and instead use the script id to get the building from buildings.ts
 func get_building_scene() -> PackedScene:
-	match building_id:
-		"sawmill":
-			return Sawmill
-		"smithy":
-			return Smithy
-		"charcoal_kiln":
-			return CharcoalKiln
-		"smelter":
-			return Smelter
-		"":
-			push_error("building_id is not initialized to an actual value.")
-			return
-		_:
-			push_error(
-				"actually selected %s, but so far we only have the Sawmill building" % building_id
-			)
-			return Sawmill
+	var script_id = gdata.get_building(building_id).script
+	if not script_id:
+		push_error("building_id is not initialized to an actual value.")
+		return
+	return load(gdata.scripts[script_id].res_path)
 
 
 func consume_resources(needs: Array) -> void:

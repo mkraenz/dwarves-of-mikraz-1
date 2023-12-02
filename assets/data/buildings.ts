@@ -7,6 +7,8 @@ interface BuildingData {
 interface Building {
   label: { en: string; de: string };
   id: string;
+  /** id of corresponding script/scene in script.registry.ts */
+  script: string;
   icon:
     | { type: "Texture2D"; res_path: `res://${string}` }
     | {
@@ -27,6 +29,7 @@ export const buildingData = {
   sawmill: {
     label: { en: "Sawmill", de: "Sägemühle" },
     id: "sawmill",
+    script: "sawmill_DgFJ2E",
     icon: {
       type: "Texture2D",
       res_path: "res://assets/images/buzzsaw.png",
@@ -36,6 +39,7 @@ export const buildingData = {
   smelter: {
     label: { en: "Smelter", de: "Schmelzer" },
     id: "smelter",
+    script: "smelter_mx3GEc",
     icon: {
       type: "Texture2D",
       res_path: "res://third-party/henry_lazarini/I_IronBar.png",
@@ -45,18 +49,19 @@ export const buildingData = {
       { id: "stone", amount: 15 },
     ],
   },
-  mint: {
-    label: { en: "Mint (not implemented)", de: "Münzanstalt (nicht im Spiel)" },
-    id: "mint",
-    icon: {
-      type: "Texture2D",
-      res_path: "res://third-party/henry_lazarini/I_GoldCoin.png",
-    },
-    needs: [{ id: "plank", amount: 200 }],
-  },
+  // mint: {
+  //   label: { en: "Mint", de: "Münzanstalt" },
+  //   id: "mint",
+  //   icon: {
+  //     type: "Texture2D",
+  //     res_path: "res://third-party/henry_lazarini/I_GoldCoin.png",
+  //   },
+  //   needs: [{ id: "plank", amount: 200 }],
+  // },
   smithy: {
     label: { en: "Smithy", de: "Schmiede" },
     id: "smithy",
+    script: "smithy_2IVp6B",
     icon: {
       type: "AtlasTexture",
       res_path: "res://assets/images/smithy.png",
@@ -76,6 +81,7 @@ export const buildingData = {
   charcoal_kiln: {
     label: { en: "Charcoal Kiln", de: "Köhler" },
     id: "charcoal_kiln",
+    script: "charcoal_kiln_gbuAXz",
     icon: {
       type: "Texture2D",
       res_path: "res://third-party/henry_lazarini/I_Coal.png",
