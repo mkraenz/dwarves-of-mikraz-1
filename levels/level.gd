@@ -6,7 +6,8 @@ var gstate := GState
 
 func _ready():
 	gstate.level = self
-	QuestLog.start_quest("main1")  ## TODO remove
+	if not QuestLog.is_quest_started("main1"):
+		QuestLog.start_quest("main1")
 
 
 func _input(_event) -> void:

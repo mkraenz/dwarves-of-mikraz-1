@@ -108,3 +108,7 @@ func load_from(save_dict: Dictionary) -> void:
 		var quest = Quest.from_save_data(quest_save_data, quest_base_data)
 		quests[id] = quest
 	loading_finished.emit()
+
+
+func is_quest_started(id: String) -> bool:
+	return (quests[id] as Quest).started
