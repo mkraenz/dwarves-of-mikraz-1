@@ -10,7 +10,8 @@ var active_quests = []
 func _ready() -> void:
 	QuestLog.quest_started.connect(_on_quest_started)
 	QuestLog.quest_completed.connect(_on_quest_completed)
-	QuestLog.loading_finished.connect(_on_loading_finished)
+	QuestLog.loading_finished.connect(reset)
+	QuestLog.reset_finished.connect(reset)
 
 	init_entries()
 
@@ -35,7 +36,6 @@ func init_entries() -> void:
 		add_child(entry)
 
 
-func _on_loading_finished() -> void:
-	print("triggered")
+func reset() -> void:
 	Utils.remove_all_children(self)
 	init_entries()

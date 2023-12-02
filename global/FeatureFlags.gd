@@ -11,7 +11,7 @@ static var no_building_costs = false:
 
 static var filled_inventory = false:
 	get:
-		return OS.has_feature("debug") and false
+		return OS.has_feature("debug") and true
 
 static var over_nine_thousand = false:
 	get:

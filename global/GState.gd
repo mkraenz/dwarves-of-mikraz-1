@@ -1,5 +1,7 @@
 extends Node
 
+var eventbus := Eventbus
+
 var bodies_in_player_action_radius: Array = []
 var is_ingame := false:
 	get = _get_is_ingame
@@ -23,6 +25,12 @@ func _get_player_input_blocked() -> bool:
 	var nodes = get_tree().get_nodes_in_group("blocking")
 	var some_blocking_node_visible = nodes.any(func(x): return x.visible)
 	return some_blocking_node_visible
+
+
+func _ready() -> void:
+	eventbus.new_game_pressed.connect(reset)
+	eventbus.load_most_recent_game_pressed.connect(reset)
+	eventbus.load_game_pressed.connect(reset)
 
 
 func _get_is_ingame() -> bool:

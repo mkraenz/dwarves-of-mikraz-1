@@ -25,6 +25,9 @@ func _get_seen_items() -> Dictionary:
 
 func _ready():
 	reset()
+	eventbus.new_game_pressed.connect(reset)
+	eventbus.load_game_pressed.connect(reset)
+	eventbus.load_most_recent_game_pressed.connect(reset)
 	eventbus.add_to_inventory.connect(_on_add_to_inventory)
 
 
@@ -57,7 +60,7 @@ func reset() -> void:
 		inventory[id] = item
 
 		if FeatureFlags.filled_inventory:
-			item.amount = 5000
+			item.amount = 10
 
 
 func _on_add_to_inventory(item_id: String, amount: int):

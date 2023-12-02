@@ -5,6 +5,7 @@ const Quest = preload("res://common/quest/quest.gd")
 signal quest_completed(quest: Quest)
 signal quest_started(quest: Quest)
 signal quest_progress_updated(quest: Quest)
+signal reset_finished
 signal loading_finished
 
 var ginventory := GInventory
@@ -29,6 +30,10 @@ func _get_started_quests() -> Dictionary:
 
 
 func _ready() -> void:
+	eventbus.new_game_pressed.connect(reset)
+	eventbus.load_game_pressed.connect(reset)
+	eventbus.load_most_recent_game_pressed.connect(reset)
+
 	reset()
 
 
@@ -67,6 +72,8 @@ func reset() -> void:
 		var quest = Quest.new()
 		quest.init(quest_id, gdata.quests[quest_id])
 		quests[quest_id] = quest
+
+	reset_finished.emit()
 
 
 func get_progress(condition: Dictionary):
