@@ -1,10 +1,5 @@
 extends Node2D
 
-const Sawmill = preload("res://world/buildings/sawmill/sawmill.tscn")
-const CharcoalKiln = preload("res://world/buildings/charcoal_kiln/charcoal_kiln.tscn")
-const Smithy = preload("res://world/buildings/smithy/smithy.tscn")
-const Smelter = preload("res://world/buildings/smelter/smelter.tscn")
-
 ## The node that new buildings get attached to, and buildings attach outputs to.
 @export var target_node: Node2D
 @export var blueprint_collision_shape_scale := 1.45:

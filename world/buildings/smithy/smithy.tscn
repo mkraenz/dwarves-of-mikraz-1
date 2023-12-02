@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://b43yygkrld0ry"]
+[gd_scene load_steps=32 format=3 uid="uid://b43yygkrld0ry"]
 
 [ext_resource type="Script" path="res://world/buildings/smithy/smithy.gd" id="1_nmfpx"]
 [ext_resource type="Texture2D" uid="uid://driel8oy8h3l1" path="res://third-party/bluecarrot16/blacksmith.png" id="3_61c4m"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bamcabj1qagsi" path="res://world/buildings/common/production_output_spot/production_output_spot.tscn" id="9_11ouh"]
 [ext_resource type="PackedScene" uid="uid://biedgjept2pjx" path="res://common/collision_scaler/collision_scaler.tscn" id="10_q600e"]
 [ext_resource type="PackedScene" uid="uid://cuavy6b0bqgqb" path="res://world/buildings/common/production_output/production_output.tscn" id="12_ta6kl"]
+[ext_resource type="PackedScene" uid="uid://eyu8ml080qmh" path="res://world/buildings/common/current_order_display/current_order_display_manager.tscn" id="13_15tru"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4x50y"]
 atlas = ExtResource("3_61c4m")
@@ -189,14 +190,17 @@ shapes = [NodePath("../Shape"), NodePath("../Shape2"), NodePath("../Shape3")]
 
 [node name="Producer" type="Node2D" parent="."]
 
-[node name="Production" parent="Producer" node_paths=PackedStringArray("current_order_display") instance=ExtResource("8_vi8pg")]
+[node name="Production" parent="Producer" instance=ExtResource("8_vi8pg")]
 unique_name_in_owner = true
 position = Vector2(0, 4)
-current_order_display = NodePath("../CurrentOrderDisplay")
 building_type = "smithy"
 
 [node name="ProductionOutputSpot" parent="Producer" instance=ExtResource("9_11ouh")]
 position = Vector2(0, 32)
+
+[node name="ProductionOutput" parent="Producer" node_paths=PackedStringArray("production", "spot") instance=ExtResource("12_ta6kl")]
+production = NodePath("../Production")
+spot = NodePath("../ProductionOutputSpot")
 
 [node name="ProductionProgressbar" parent="Producer" node_paths=PackedStringArray("production") instance=ExtResource("5_8vioc")]
 visible = true
@@ -205,12 +209,11 @@ offset_bottom = 70.0
 production = NodePath("../Production")
 
 [node name="CurrentOrderDisplay" parent="Producer" instance=ExtResource("7_nx6gu")]
-visible = false
 position = Vector2(0, -47)
 
-[node name="ProductionOutput" parent="Producer" node_paths=PackedStringArray("production", "spot") instance=ExtResource("12_ta6kl")]
+[node name="CurrentOrderDisplayManager" parent="Producer" node_paths=PackedStringArray("production", "display") instance=ExtResource("13_15tru")]
 production = NodePath("../Production")
-spot = NodePath("../ProductionOutputSpot")
+display = NodePath("../CurrentOrderDisplay")
 
 [connection signal="blocked" from="Producer/Production" to="." method="_on_production_blocked"]
 [connection signal="idle" from="Producer/Production" to="." method="_on_production_idle"]

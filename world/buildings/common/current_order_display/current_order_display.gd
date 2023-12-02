@@ -1,3 +1,4 @@
+class_name CurrentOrderDisplay
 extends Node2D
 
 @export var TARGET_SIZE := 16.0

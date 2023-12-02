@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b43yygkrld0rh"]
+[gd_scene load_steps=20 format=3 uid="uid://b43yygkrld0rh"]
 
 [ext_resource type="Script" path="res://world/buildings/sawmill/sawmill.gd" id="1_nmfpx"]
 [ext_resource type="Texture2D" uid="uid://dh7r5hrbwih6k" path="res://third-party/bluecarrot16/sawmill.png" id="3_hk0sk"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bamcabj1qagsi" path="res://world/buildings/common/production_output_spot/production_output_spot.tscn" id="9_v50ci"]
 [ext_resource type="PackedScene" uid="uid://biedgjept2pjx" path="res://common/collision_scaler/collision_scaler.tscn" id="10_jtwd7"]
 [ext_resource type="PackedScene" uid="uid://cuavy6b0bqgqb" path="res://world/buildings/common/production_output/production_output.tscn" id="12_hlwke"]
+[ext_resource type="PackedScene" uid="uid://eyu8ml080qmh" path="res://world/buildings/common/current_order_display/current_order_display_manager.tscn" id="13_se5gv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q23y1"]
 atlas = ExtResource("3_hk0sk")
@@ -247,14 +248,17 @@ position = Vector2(0, 18)
 [node name="CurrentOrderDisplay" parent="Producer" instance=ExtResource("5_85gy8")]
 position = Vector2(0, 1)
 
-[node name="Production" parent="Producer" node_paths=PackedStringArray("current_order_display") instance=ExtResource("8_53tld")]
+[node name="Production" parent="Producer" instance=ExtResource("8_53tld")]
 unique_name_in_owner = true
-current_order_display = NodePath("../CurrentOrderDisplay")
 building_type = "sawmill"
 
 [node name="ProductionOutput" parent="Producer" node_paths=PackedStringArray("production", "spot") instance=ExtResource("12_hlwke")]
 production = NodePath("../Production")
 spot = NodePath("../ProductionOutputSpot")
+
+[node name="CurrentOrderDisplayManager" parent="Producer" node_paths=PackedStringArray("production", "display") instance=ExtResource("13_se5gv")]
+production = NodePath("../Production")
+display = NodePath("../CurrentOrderDisplay")
 
 [connection signal="blocked" from="Producer/Production" to="." method="_on_production_blocked"]
 [connection signal="idle" from="Producer/Production" to="." method="_on_production_idle"]

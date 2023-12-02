@@ -65,6 +65,7 @@ v0.1.0 production sim
 
 - [x] Bug: on load, notifications don't get reset
 - [x] Bug: click Continue -> Pause -> exit to title -> New game. Then the quest log is duplicated
+- [ ] refactor: extract more stuff from Production
 - [ ] options menu
   - [ ] key rebinding
     - [ ] choose controller ps or controller xbox or keyboard+mouse
@@ -79,6 +80,8 @@ v0.1.0 production sim
     - [x] buildings
     - [x] quests
 - [ ] some polish
+  - [ ] build menu icons
+  - [ ] shadows?
   - [ ] sfx
     - [ ] on build
     - [ ] on craft
@@ -89,11 +92,9 @@ v0.1.0 production sim
       - [ ] inventory menu
       - [ ] building menu
     - [ ] on order accepted
-  - [ ] build menu icons
   - [ ] charcoal kiln
     - [ ] replace placeholder sprite
     - [ ] animations
-  - [ ] shadows?
   - [ ] automated testing
   - [ ] win screen with image
 - [ ] demo: production sim
@@ -103,6 +104,7 @@ v0.1.0 production sim
     - [x] in code
     - [ ] repo
     - [ ] itch io
+    - [ ] itch io page
 
 v0.2.0 upgrade system
 

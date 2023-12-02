@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dbtbfpiho8sx1"]
+[gd_scene load_steps=14 format=3 uid="uid://dbtbfpiho8sx1"]
 
 [ext_resource type="Script" path="res://world/buildings/charcoal_kiln/charcoal_kiln.gd" id="1_1mcgh"]
 [ext_resource type="Texture2D" uid="uid://b4lbmdd2n5ebi" path="res://third-party/kenney-roguelike/roguelikeSheet_transparent.png" id="1_ms5hd"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://fan0u7c1xosh" path="res://common/marker/marker.tscn" id="8_7ox5l"]
 [ext_resource type="PackedScene" uid="uid://biedgjept2pjx" path="res://common/collision_scaler/collision_scaler.tscn" id="9_a51w8"]
 [ext_resource type="PackedScene" uid="uid://cuavy6b0bqgqb" path="res://world/buildings/common/production_output/production_output.tscn" id="11_2k7ql"]
+[ext_resource type="PackedScene" uid="uid://eyu8ml080qmh" path="res://world/buildings/common/current_order_display/current_order_display_manager.tscn" id="12_7yrut"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7xndd"]
 size = Vector2(28, 20)
@@ -42,9 +43,8 @@ shapes = [NodePath("../Shape")]
 
 [node name="Producer" type="Node2D" parent="."]
 
-[node name="Production" parent="Producer" node_paths=PackedStringArray("current_order_display") instance=ExtResource("2_o1fro")]
+[node name="Production" parent="Producer" instance=ExtResource("2_o1fro")]
 unique_name_in_owner = true
-current_order_display = NodePath("../CurrentOrderDisplay")
 building_type = "charcoal_kiln"
 
 [node name="ProductionOutputSpot" parent="Producer" instance=ExtResource("6_sj55m")]
@@ -61,6 +61,10 @@ production = NodePath("../Production")
 [node name="ProductionOutput" parent="Producer" node_paths=PackedStringArray("production", "spot") instance=ExtResource("11_2k7ql")]
 production = NodePath("../Production")
 spot = NodePath("../ProductionOutputSpot")
+
+[node name="CurrentOrderDisplayManager" parent="Producer" node_paths=PackedStringArray("production", "display") instance=ExtResource("12_7yrut")]
+production = NodePath("../Production")
+display = NodePath("../CurrentOrderDisplay")
 
 [connection signal="blocked" from="Producer/Production" to="." method="_on_production_blocked"]
 [connection signal="idle" from="Producer/Production" to="." method="_on_production_idle"]

@@ -11,7 +11,6 @@ signal outputting_products(item_id: String, amount: float)
 signal outputting_input(item_id: String, amount: float)
 signal loading_finished
 
-@export var current_order_display: Node2D
 ## type: keyof typeof buildingData
 @export var building_type: String
 ## type: Recipe
@@ -20,7 +19,6 @@ signal loading_finished
 @export var ordered_batches: float = 0
 
 var eventbus := Eventbus
-var gdata := GData
 var ginventory := GInventory
 
 var ticks_to_batch_completion = INF
@@ -47,6 +45,10 @@ var batch_finished := true:
 var is_pending := true:
 	get:
 		return has_an_order and (resources_in_use or _needs_fulfilled_for_next_batch())
+
+var remaining_amount_of_current_order := 0:
+	get:
+		return (ordered_batches - produced_batches) * ordered_recipe.batch_size
 
 
 func _ready():
@@ -145,8 +147,6 @@ func _output_current_inputs() -> void:
 
 
 func _refresh_mark() -> void:
-	_refresh_current_order_display()
-
 	if is_producing:
 		producing.emit()
 		return
@@ -158,16 +158,6 @@ func _refresh_mark() -> void:
 		return
 	idle.emit()
 	return
-
-
-func _refresh_current_order_display() -> void:
-	if has_an_order:
-		current_order_display.show()
-		current_order_display.set_icon_texture(gdata.get_item_icon(ordered_recipe.item_id))
-		var remaining_amount = (ordered_batches - produced_batches) * ordered_recipe.batch_size
-		current_order_display.set_text(remaining_amount)
-	else:
-		current_order_display.hide()
 
 
 func _output_products() -> void:

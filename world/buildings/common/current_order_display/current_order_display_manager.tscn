@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://eyu8ml080qmh"]
+
+[ext_resource type="Script" path="res://world/buildings/common/current_order_display/current_order_display_manager.gd" id="1_1ey4j"]
+
+[node name="CurrentOrderDisplayManager" type="Node2D"]
+script = ExtResource("1_1ey4j")
