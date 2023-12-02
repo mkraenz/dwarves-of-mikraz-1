@@ -65,7 +65,7 @@ v0.1.0 production sim
 
 - [x] Bug: on load, notifications don't get reset
 - [x] Bug: click Continue -> Pause -> exit to title -> New game. Then the quest log is duplicated
-- [ ] refactor: extract more stuff from Production
+- [x] refactor: extract more stuff from Production
 - [ ] options menu
   - [ ] key rebinding
     - [ ] choose controller ps or controller xbox or keyboard+mouse

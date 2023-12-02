@@ -6,6 +6,10 @@ extends StaticBody2D
 @onready var anims: AnimationPlayer = $AnimationPlayer
 
 
+func _ready() -> void:
+	production._refresh_mark()
+
+
 func interact() -> void:
 	production.interact()
 

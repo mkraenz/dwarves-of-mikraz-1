@@ -46,7 +46,7 @@ var is_pending := true:
 	get:
 		return has_an_order and (resources_in_use or _needs_fulfilled_for_next_batch())
 
-var remaining_amount_of_current_order := 0:
+var remaining_amount_of_current_order: float = 0:
 	get:
 		return (ordered_batches - produced_batches) * ordered_recipe.batch_size
 
@@ -55,10 +55,6 @@ func _ready():
 	eventbus.production_tick.connect(_on_production_tick)
 	eventbus.ordered_at_workshop.connect(_on_ordered_at_workshop)
 	eventbus.cancel_order_at_workshop.connect(_on_cancel_order_at_workshop)
-
-
-func _physics_process(_delta: float):
-	_refresh_mark()
 
 
 func _on_ordered_at_workshop(
@@ -110,6 +106,8 @@ func _on_production_tick() -> void:
 
 	if has_an_order and not is_producing:
 		_prepare_next_batch()
+
+	_refresh_mark()
 
 
 func _finish_current_batch() -> void:
