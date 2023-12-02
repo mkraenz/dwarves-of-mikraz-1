@@ -11,6 +11,9 @@ var queue := []
 func _ready():
 	text = ""
 	eventbus.show_notification.connect(_on_show_notification)
+	eventbus.load_game_pressed.connect(reset)
+	eventbus.new_game_pressed.connect(reset)
+	eventbus.load_most_recent_game_pressed.connect(reset)
 
 
 func _on_show_notification(message: String, duration_in_sec: float) -> void:
@@ -30,3 +33,9 @@ func display_notification() -> void:
 	if next_notification:
 		text = "[center]{message}[/center]".format({message = tr(next_notification.message)})
 		timer.start(next_notification.duration_in_sec)
+
+
+func reset() -> void:
+	queue = []
+	text = ""
+	timer.stop()
