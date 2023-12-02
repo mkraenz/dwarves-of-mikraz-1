@@ -124,9 +124,9 @@ func _prepare_next_batch() -> void:
 	if _needs_fulfilled_for_next_batch():
 		_consume_resources()
 		ticks_to_batch_completion = ordered_recipe.duration_in_ticks
-		_mark_as_producing()
+		producing.emit()
 	else:
-		_mark_as_production_blocked()
+		blocked.emit()
 
 
 func _needs_fulfilled_for_next_batch() -> bool:
@@ -151,12 +151,16 @@ func _refresh_mark() -> void:
 	_refresh_current_order_display()
 
 	if is_producing:
-		return _mark_as_producing()
+		producing.emit()
+		return
 	elif has_an_order and not is_pending:
-		return _mark_as_production_blocked()
+		blocked.emit()
+		return
 	elif is_pending:
-		return _mark_as_pending()
-	return _mark_as_idle()
+		pending.emit()
+		return
+	idle.emit()
+	return
 
 
 func _refresh_current_order_display() -> void:
@@ -167,22 +171,6 @@ func _refresh_current_order_display() -> void:
 		current_order_display.set_text(remaining_amount)
 	else:
 		current_order_display.hide()
-
-
-func _mark_as_producing() -> void:
-	producing.emit()
-
-
-func _mark_as_production_blocked() -> void:
-	blocked.emit()
-
-
-func _mark_as_pending() -> void:
-	pending.emit()
-
-
-func _mark_as_idle() -> void:
-	idle.emit()
 
 
 func _output_products() -> void:
