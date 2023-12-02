@@ -16,8 +16,6 @@ func _on_scene_transition_hide() -> void:
 
 
 func _on_scene_transition_show() -> void:
-	# TODO seems like we can do
 	anims.play_backwards("transition_hide")
-	# anims.play("transition_show")
 	await anims.animation_finished
 	eventbus.scene_transition_finished.emit()
