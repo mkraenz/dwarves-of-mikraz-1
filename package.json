@@ -1,6 +1,6 @@
 {
   "name": "dwarves-of-mikraz-1",
-  "version": "0.0.52",
+  "version": "0.0.53",
   "scripts": {
     "datagen": "deno run --allow-write ./scripts/generate-data-jsons.ts",
     "datagen:watch": "deno run --allow-write --watch=./assets/data/*.ts,./scripts/generate-data-json.ts ./scripts/generate-data-jsons.ts",
