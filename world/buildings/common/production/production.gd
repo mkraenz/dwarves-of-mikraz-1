@@ -9,6 +9,7 @@ signal order_cancelled
 signal order_received
 signal outputting_products(item_id: String, amount: float)
 signal outputting_input(item_id: String, amount: float)
+signal loading_finished
 
 ## the thing that is producing. type: `{on_output_products: () => void; on_production_idle: () => void; on_production_producing: () => void; on_production_blocked: () => void; on_production_pending: () => void; get_path: () => void;}`
 @export var production_site: Node2D
@@ -171,33 +172,23 @@ func _refresh_current_order_display() -> void:
 func _mark_as_producing() -> void:
 	producing.emit()
 
-	production_site.on_production_producing()
-
 
 func _mark_as_production_blocked() -> void:
 	blocked.emit()
-
-	production_site.on_production_blocked()
 
 
 func _mark_as_pending() -> void:
 	pending.emit()
 
-	production_site.on_production_pending()
-
 
 func _mark_as_idle() -> void:
 	idle.emit()
-
-	production_site.on_production_idle()
 
 
 func _output_products() -> void:
 	var amount = ordered_recipe.batch_size
 	var item_id = ordered_recipe.item_id
 	outputting_products.emit(item_id, amount)
-
-	production_site.on_output_products()
 
 
 func save() -> Dictionary:
@@ -219,3 +210,4 @@ func load_from(save_dict: Dictionary) -> void:
 				self.set(key, value)
 			_:
 				self.set(key, val)
+	loading_finished.emit()

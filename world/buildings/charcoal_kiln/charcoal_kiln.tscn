@@ -62,3 +62,9 @@ production = NodePath("../Production")
 [node name="ProductionOutput" parent="Producer" node_paths=PackedStringArray("production", "spot") instance=ExtResource("11_2k7ql")]
 production = NodePath("../Production")
 spot = NodePath("../ProductionOutputSpot")
+
+[connection signal="blocked" from="Producer/Production" to="." method="_on_production_blocked"]
+[connection signal="idle" from="Producer/Production" to="." method="_on_production_idle"]
+[connection signal="outputting_products" from="Producer/Production" to="." method="_on_production_outputting_products"]
+[connection signal="pending" from="Producer/Production" to="." method="_on_production_pending"]
+[connection signal="producing" from="Producer/Production" to="." method="_on_production_producing"]

@@ -24,25 +24,25 @@ func load_before_ready(save_dict: Dictionary) -> void:
 	%Production.load_from(save_dict.production)
 
 
-func on_production_producing() -> void:
+func _on_production_producing() -> void:
 	sprite.modulate = Color.WHITE
 	anims.play("producing")
 
 
-func on_production_blocked() -> void:
+func _on_production_blocked() -> void:
 	sprite.modulate = Color(1, .5, .5)
 	anims.play("idle")
 
 
-func on_production_pending() -> void:
+func _on_production_pending() -> void:
 	sprite.modulate = Color(1, 1, .5)
 	anims.play("idle")
 
 
-func on_production_idle() -> void:
+func _on_production_idle() -> void:
 	sprite.modulate = Color.WHITE
 	anims.play("idle")
 
 
-func on_output_products() -> void:
+func _on_production_outputting_products(_item_id: String, _amount: float) -> void:
 	audio.play()

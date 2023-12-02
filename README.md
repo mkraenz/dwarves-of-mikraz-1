@@ -66,6 +66,7 @@ v0.1.0 production sim
 - [ ] options menu
   - [ ] key rebinding
     - [ ] choose controller ps or controller xbox or keyboard+mouse
+  - [ ] graphics: toggle order details (e.g. Alt key to show order details, otherwise only show when in action radius)
 - [ ] controller support
   - [ ] ps
   - [ ] xbox
