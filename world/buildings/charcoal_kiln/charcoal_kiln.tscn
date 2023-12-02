@@ -1,26 +1,22 @@
-[gd_scene load_steps=11 format=3 uid="uid://dbtbfpiho8sx1"]
+[gd_scene load_steps=13 format=3 uid="uid://dbtbfpiho8sx1"]
 
 [ext_resource type="Script" path="res://world/buildings/charcoal_kiln/charcoal_kiln.gd" id="1_1mcgh"]
 [ext_resource type="Texture2D" uid="uid://b4lbmdd2n5ebi" path="res://third-party/kenney-roguelike/roguelikeSheet_transparent.png" id="1_ms5hd"]
 [ext_resource type="PackedScene" uid="uid://p7ame63w6rhl" path="res://world/buildings/common/production/production.tscn" id="2_o1fro"]
 [ext_resource type="PackedScene" uid="uid://t2utidwitf4t" path="res://world/buildings/common/current_order_display/current_order_display.tscn" id="3_snav2"]
 [ext_resource type="PackedScene" uid="uid://cyfyx07i1ornl" path="res://world/buildings/common/progressbar/production_progressbar.tscn" id="4_xhkxv"]
+[ext_resource type="PackedScene" uid="uid://bamcabj1qagsi" path="res://world/buildings/common/production_output_spot/production_output_spot.tscn" id="6_sj55m"]
 [ext_resource type="PackedScene" uid="uid://c2mrs2touugk1" path="res://world/buildings/common/how_to_interact/how_to_interact.tscn" id="7_jjvep"]
 [ext_resource type="PackedScene" uid="uid://djaa81nvsgmhy" path="res://world/buildings/common/building-audio.tscn" id="7_kpavp"]
 [ext_resource type="PackedScene" uid="uid://fan0u7c1xosh" path="res://common/marker/marker.tscn" id="8_7ox5l"]
 [ext_resource type="PackedScene" uid="uid://biedgjept2pjx" path="res://common/collision_scaler/collision_scaler.tscn" id="9_a51w8"]
+[ext_resource type="PackedScene" uid="uid://cuavy6b0bqgqb" path="res://world/buildings/common/production_output/production_output.tscn" id="11_2k7ql"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7xndd"]
 size = Vector2(28, 20)
 
 [node name="CharcoalKiln" type="StaticBody2D" groups=["persist"]]
 script = ExtResource("1_1mcgh")
-
-[node name="Production" parent="." node_paths=PackedStringArray("production_site", "current_order_display", "output_spot") instance=ExtResource("2_o1fro")]
-production_site = NodePath("..")
-current_order_display = NodePath("../CurrentOrderDisplay")
-output_spot = NodePath("../OutputSpot")
-building_type = "charcoal_kiln"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -16)
@@ -33,17 +29,6 @@ region_rect = Rect2(864, 128, 16, 16)
 position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_7xndd")
 
-[node name="CurrentOrderDisplay" parent="." instance=ExtResource("3_snav2")]
-position = Vector2(0, -10)
-
-[node name="Progressbar" parent="." node_paths=PackedStringArray("production") instance=ExtResource("4_xhkxv")]
-offset_top = -20.0
-offset_bottom = 108.0
-production = NodePath("../Production")
-
-[node name="OutputSpot" type="Marker2D" parent="."]
-position = Vector2(0, 8)
-
 [node name="Audio" parent="." instance=ExtResource("7_kpavp")]
 
 [node name="Marker" parent="." node_paths=PackedStringArray("how_to") instance=ExtResource("8_7ox5l")]
@@ -54,3 +39,26 @@ position = Vector2(1, -38)
 
 [node name="CollisionScaler" parent="." node_paths=PackedStringArray("shapes") instance=ExtResource("9_a51w8")]
 shapes = [NodePath("../Shape")]
+
+[node name="Producer" type="Node2D" parent="."]
+
+[node name="Production" parent="Producer" node_paths=PackedStringArray("production_site", "current_order_display") instance=ExtResource("2_o1fro")]
+unique_name_in_owner = true
+production_site = NodePath("../..")
+current_order_display = NodePath("../CurrentOrderDisplay")
+building_type = "charcoal_kiln"
+
+[node name="ProductionOutputSpot" parent="Producer" instance=ExtResource("6_sj55m")]
+position = Vector2(0, 6)
+
+[node name="CurrentOrderDisplay" parent="Producer" instance=ExtResource("3_snav2")]
+position = Vector2(0, -10)
+
+[node name="Progressbar" parent="Producer" node_paths=PackedStringArray("production") instance=ExtResource("4_xhkxv")]
+offset_top = -20.0
+offset_bottom = 108.0
+production = NodePath("../Production")
+
+[node name="ProductionOutput" parent="Producer" node_paths=PackedStringArray("production", "spot") instance=ExtResource("11_2k7ql")]
+production = NodePath("../Production")
+spot = NodePath("../ProductionOutputSpot")

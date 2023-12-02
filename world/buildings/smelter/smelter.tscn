@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bmsf4jrtokcvg"]
+[gd_scene load_steps=21 format=3 uid="uid://bmsf4jrtokcvg"]
 
 [ext_resource type="Script" path="res://world/buildings/smelter/smelter.gd" id="1_nniej"]
 [ext_resource type="PackedScene" uid="uid://c2mrs2touugk1" path="res://world/buildings/common/how_to_interact/how_to_interact.tscn" id="2_n27ih"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://fan0u7c1xosh" path="res://common/marker/marker.tscn" id="7_k8nb8"]
 [ext_resource type="PackedScene" uid="uid://djaa81nvsgmhy" path="res://world/buildings/common/building-audio.tscn" id="7_wuwu0"]
 [ext_resource type="PackedScene" uid="uid://biedgjept2pjx" path="res://common/collision_scaler/collision_scaler.tscn" id="9_vpj2w"]
+[ext_resource type="PackedScene" uid="uid://bamcabj1qagsi" path="res://world/buildings/common/production_output_spot/production_output_spot.tscn" id="10_1h7sg"]
+[ext_resource type="PackedScene" uid="uid://cuavy6b0bqgqb" path="res://world/buildings/common/production_output/production_output.tscn" id="11_3f8kg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_buu0b"]
 atlas = ExtResource("3_037es")
@@ -66,12 +68,6 @@ height = 40.0
 [node name="Smelter" type="StaticBody2D" groups=["persist"]]
 script = ExtResource("1_nniej")
 
-[node name="Production" parent="." node_paths=PackedStringArray("production_site", "current_order_display", "output_spot") instance=ExtResource("4_wna7y")]
-production_site = NodePath("..")
-current_order_display = NodePath("../CurrentOrderDisplay")
-output_spot = NodePath("../OutputSpot")
-building_type = "smelter"
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -6)
 scale = Vector2(0.5, 0.5)
@@ -97,20 +93,6 @@ position = Vector2(-28, 7.5)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_pwbhq")
 
-[node name="Progressbar" parent="." node_paths=PackedStringArray("production") instance=ExtResource("3_cqdx3")]
-visible = true
-offset_left = -9.0
-offset_top = 5.0
-offset_right = 119.0
-offset_bottom = 133.0
-production = NodePath("../Production")
-
-[node name="CurrentOrderDisplay" parent="." instance=ExtResource("5_j57fk")]
-position = Vector2(1, 15)
-
-[node name="OutputSpot" type="Marker2D" parent="."]
-position = Vector2(40, 18)
-
 [node name="Audio" parent="." instance=ExtResource("7_wuwu0")]
 
 [node name="Marker" parent="." node_paths=PackedStringArray("how_to") instance=ExtResource("7_k8nb8")]
@@ -121,3 +103,29 @@ position = Vector2(0, -39)
 
 [node name="CollisionScaler" parent="." node_paths=PackedStringArray("shapes") instance=ExtResource("9_vpj2w")]
 shapes = [NodePath("../Shape"), NodePath("../Shape2"), NodePath("../Shape3"), NodePath("../Shape4")]
+
+[node name="Producer" type="Node2D" parent="."]
+
+[node name="Progressbar" parent="Producer" node_paths=PackedStringArray("production") instance=ExtResource("3_cqdx3")]
+visible = true
+offset_left = -9.0
+offset_top = 5.0
+offset_right = 119.0
+offset_bottom = 133.0
+production = NodePath("../Production")
+
+[node name="Production" parent="Producer" node_paths=PackedStringArray("production_site", "current_order_display") instance=ExtResource("4_wna7y")]
+unique_name_in_owner = true
+production_site = NodePath("../..")
+current_order_display = NodePath("../CurrentOrderDisplay")
+building_type = "smelter"
+
+[node name="ProductionOutputSpot" parent="Producer" instance=ExtResource("10_1h7sg")]
+position = Vector2(36, 18)
+
+[node name="CurrentOrderDisplay" parent="Producer" instance=ExtResource("5_j57fk")]
+position = Vector2(1, 15)
+
+[node name="ProductionOutput" parent="Producer" node_paths=PackedStringArray("production", "spot") instance=ExtResource("11_3f8kg")]
+production = NodePath("../Production")
+spot = NodePath("../ProductionOutputSpot")

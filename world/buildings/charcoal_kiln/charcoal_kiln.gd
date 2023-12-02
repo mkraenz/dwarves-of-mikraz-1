@@ -1,8 +1,8 @@
 extends StaticBody2D
 
-@onready var audio := $Audio
+@onready var audio: AudioStreamPlayer2D = $Audio
 @onready var sprite: Sprite2D = $Sprite2D
-@onready var production := $Production
+@onready var production: Production = %Production
 
 
 func interact() -> void:
@@ -20,7 +20,7 @@ func save() -> Dictionary:
 
 
 func load_before_ready(save_dict: Dictionary) -> void:
-	$Production.load_from(save_dict.production)
+	%Production.load_from(save_dict.production)
 
 
 func on_production_producing() -> void:

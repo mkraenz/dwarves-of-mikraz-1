@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b43yygkrld0ry"]
+[gd_scene load_steps=31 format=3 uid="uid://b43yygkrld0ry"]
 
 [ext_resource type="Script" path="res://world/buildings/smithy/smithy.gd" id="1_nmfpx"]
 [ext_resource type="Texture2D" uid="uid://driel8oy8h3l1" path="res://third-party/bluecarrot16/blacksmith.png" id="3_61c4m"]
@@ -9,7 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://c2mrs2touugk1" path="res://world/buildings/common/how_to_interact/how_to_interact.tscn" id="7_ya30g"]
 [ext_resource type="PackedScene" uid="uid://djaa81nvsgmhy" path="res://world/buildings/common/building-audio.tscn" id="7_ynve1"]
 [ext_resource type="PackedScene" uid="uid://p7ame63w6rhl" path="res://world/buildings/common/production/production.tscn" id="8_vi8pg"]
+[ext_resource type="PackedScene" uid="uid://bamcabj1qagsi" path="res://world/buildings/common/production_output_spot/production_output_spot.tscn" id="9_11ouh"]
 [ext_resource type="PackedScene" uid="uid://biedgjept2pjx" path="res://common/collision_scaler/collision_scaler.tscn" id="10_q600e"]
+[ext_resource type="PackedScene" uid="uid://cuavy6b0bqgqb" path="res://world/buildings/common/production_output/production_output.tscn" id="12_ta6kl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4x50y"]
 atlas = ExtResource("3_61c4m")
@@ -144,13 +146,6 @@ collision_layer = 9
 collision_mask = 3
 script = ExtResource("1_nmfpx")
 
-[node name="Production" parent="." node_paths=PackedStringArray("production_site", "current_order_display", "output_spot") instance=ExtResource("8_vi8pg")]
-position = Vector2(0, 4)
-production_site = NodePath("..")
-current_order_display = NodePath("../CurrentOrderDisplay")
-output_spot = NodePath("../OutputSlot")
-building_type = "smithy"
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -23)
 scale = Vector2(0.5, 0.5)
@@ -179,19 +174,6 @@ position = Vector2(-42, 10)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_vh0v6")
 
-[node name="ProductionProgressbar" parent="." node_paths=PackedStringArray("production") instance=ExtResource("5_8vioc")]
-visible = true
-offset_top = -58.0
-offset_bottom = 70.0
-production = NodePath("../Production")
-
-[node name="CurrentOrderDisplay" parent="." instance=ExtResource("7_nx6gu")]
-visible = false
-position = Vector2(0, -47)
-
-[node name="OutputSlot" type="Marker2D" parent="."]
-position = Vector2(0, 33)
-
 [node name="Audio" parent="." instance=ExtResource("7_ynve1")]
 position = Vector2(0, 4)
 
@@ -204,3 +186,29 @@ position = Vector2(1, -88)
 
 [node name="CollisionScaler" parent="." node_paths=PackedStringArray("shapes") instance=ExtResource("10_q600e")]
 shapes = [NodePath("../Shape"), NodePath("../Shape2"), NodePath("../Shape3")]
+
+[node name="Producer" type="Node2D" parent="."]
+
+[node name="Production" parent="Producer" node_paths=PackedStringArray("production_site", "current_order_display") instance=ExtResource("8_vi8pg")]
+unique_name_in_owner = true
+position = Vector2(0, 4)
+production_site = NodePath("../..")
+current_order_display = NodePath("../CurrentOrderDisplay")
+building_type = "smithy"
+
+[node name="ProductionOutputSpot" parent="Producer" instance=ExtResource("9_11ouh")]
+position = Vector2(0, 32)
+
+[node name="ProductionProgressbar" parent="Producer" node_paths=PackedStringArray("production") instance=ExtResource("5_8vioc")]
+visible = true
+offset_top = -58.0
+offset_bottom = 70.0
+production = NodePath("../Production")
+
+[node name="CurrentOrderDisplay" parent="Producer" instance=ExtResource("7_nx6gu")]
+visible = false
+position = Vector2(0, -47)
+
+[node name="ProductionOutput" parent="Producer" node_paths=PackedStringArray("production", "spot") instance=ExtResource("12_ta6kl")]
+production = NodePath("../Production")
+spot = NodePath("../ProductionOutputSpot")

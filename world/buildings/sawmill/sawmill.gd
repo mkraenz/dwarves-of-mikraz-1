@@ -1,8 +1,8 @@
 extends StaticBody2D
 
-@onready var sprite := $Sprite2D
-@onready var audio := $Audio
-@onready var production := $Production
+@onready var sprite: Sprite2D = $Sprite2D
+@onready var audio: AudioStreamPlayer2D = $Audio
+@onready var production: Production = %Production
 @onready var anims: AnimationPlayer = $AnimationPlayer
 
 
@@ -21,7 +21,7 @@ func save() -> Dictionary:
 
 
 func load_before_ready(save_dict: Dictionary) -> void:
-	$Production.load_from(save_dict.production)
+	%Production.load_from(save_dict.production)
 
 
 func on_production_producing() -> void:
@@ -46,4 +46,3 @@ func on_production_idle() -> void:
 
 func on_output_products() -> void:
 	audio.play()
-

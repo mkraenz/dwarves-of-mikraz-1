@@ -7,15 +7,12 @@ signal blocked
 signal idle
 signal order_cancelled
 signal order_received
-signal outputting_products
-
-const Pickup = preload("res://world/pickup/pickup.tscn")
+signal outputting_products(item_id: String, amount: float)
+signal outputting_input(item_id: String, amount: float)
 
 ## the thing that is producing. type: `{on_output_products: () => void; on_production_idle: () => void; on_production_producing: () => void; on_production_blocked: () => void; on_production_pending: () => void; get_path: () => void;}`
 @export var production_site: Node2D
 @export var current_order_display: Node2D
-## At around this location, outputs will be spawned.
-@export var output_spot: Marker2D
 ## type: keyof typeof buildingData
 @export var building_type: String
 ## type: Recipe
@@ -145,7 +142,7 @@ func _output_current_inputs() -> void:
 	for resource in resources_in_use:
 		var amount = resource.amount
 		var item_id = resource.id
-		_output_pickups(item_id, amount)
+		outputting_input.emit(item_id, amount)
 	resources_in_use = []
 
 
@@ -196,22 +193,11 @@ func _mark_as_idle() -> void:
 
 
 func _output_products() -> void:
-	outputting_products.emit()
-
 	var amount = ordered_recipe.batch_size
 	var item_id = ordered_recipe.item_id
-	_output_pickups(item_id, amount)
+	outputting_products.emit(item_id, amount)
+
 	production_site.on_output_products()
-
-
-func _output_pickups(item_id: String, amount: int) -> void:
-	const CENTER_OFFSET = 10
-	for i in range(amount):
-		var x = lerp(-CENTER_OFFSET, CENTER_OFFSET, float(i) / (amount - 1)) if amount != 1 else 0
-		var instance = Pickup.instantiate()
-		instance.global_position = output_spot.global_position + Vector2(x, 0)
-		instance.item_id = item_id
-		gstate.level.add_child(instance)
 
 
 func save() -> Dictionary:

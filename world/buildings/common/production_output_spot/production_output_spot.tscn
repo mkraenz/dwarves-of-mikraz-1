@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bamcabj1qagsi"]
+
+[ext_resource type="Script" path="res://world/buildings/common/production_output_spot/production_output_spot.gd" id="1_ga113"]
+
+[node name="ProductionOutputSpot" type="Marker2D"]
+script = ExtResource("1_ga113")
