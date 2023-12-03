@@ -1,8 +1,8 @@
 extends GutTest
 
 const Production = preload("res://world/buildings/common/production/production.tscn")
-var prod: Production
 
+var prod: Production
 var recipe: Dictionary
 
 
@@ -63,7 +63,9 @@ func test_on_cancelling_an_order_it_outputs_the_inputs():
 	GInventory._on_add_to_inventory("log", 1)
 	GInventory._on_add_to_inventory("iron_ore", 5)
 	prod._on_production_tick()
-	assert_eq(prod.resources_in_use, [{"id": "log", "amount": 1}, {"id": "iron_ore", "amount": 5}])
+	assert_eq_deep(
+		prod.resources_in_use, [{"id": "log", "amount": 1}, {"id": "iron_ore", "amount": 5}]
+	)
 
 	Eventbus.cancel_order_at_workshop.emit(prod.get_path())
 

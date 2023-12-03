@@ -4,7 +4,7 @@
 
 - [x] Bug: on load, notifications don't get reset
 - [x] Bug: click Continue -> Pause -> exit to title -> New game. Then the quest log is duplicated
-- [ ] Bug: cancelling an order does not hide the progress bar
+- [x] Bug: cancelling an order does not hide the progress bar and doesn't stop the animation
 - [x] refactor: extract more stuff from Production
 - [ ] options menu
   - [ ] key rebinding
@@ -20,6 +20,7 @@
     - [x] buildings
     - [x] quests
 - [ ] some polish
+  - [ ] when hitting resource node, face the resource node
   - [ ] build menu icons
   - [ ] shadows?
   - [ ] sfx

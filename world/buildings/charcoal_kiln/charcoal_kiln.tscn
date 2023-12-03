@@ -68,6 +68,7 @@ display = NodePath("../CurrentOrderDisplay")
 
 [connection signal="blocked" from="Producer/Production" to="." method="_on_production_blocked"]
 [connection signal="idle" from="Producer/Production" to="." method="_on_production_idle"]
+[connection signal="order_cancelled" from="Producer/Production" to="." method="_on_production_order_cancelled"]
 [connection signal="outputting_products" from="Producer/Production" to="." method="_on_production_outputting_products"]
 [connection signal="pending" from="Producer/Production" to="." method="_on_production_pending"]
 [connection signal="producing" from="Producer/Production" to="." method="_on_production_producing"]

@@ -11,3 +11,4 @@ func _ready():
 	production.blocked.connect(hide)
 	production.pending.connect(hide)
 	production.idle.connect(hide)
+	production.order_cancelled.connect(hide)

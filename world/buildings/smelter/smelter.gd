@@ -49,3 +49,7 @@ func _on_production_idle() -> void:
 
 func _on_production_outputting_products(_item_id: String, _amount: float) -> void:
 	audio.play()
+
+
+func _on_production_order_cancelled() -> void:
+	_on_production_idle()
