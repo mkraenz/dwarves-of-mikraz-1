@@ -133,7 +133,7 @@ func _needs_fulfilled_for_next_batch() -> bool:
 func _consume_resources() -> void:
 	for need in ordered_recipe.needs:
 		eventbus.add_to_inventory.emit(need.id, -need.amount)
-		resources_in_use = ordered_recipe.needs
+	resources_in_use = ordered_recipe.needs
 
 
 func _output_current_inputs() -> void:

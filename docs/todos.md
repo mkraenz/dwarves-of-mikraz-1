@@ -4,6 +4,7 @@
 
 - [x] Bug: on load, notifications don't get reset
 - [x] Bug: click Continue -> Pause -> exit to title -> New game. Then the quest log is duplicated
+- [ ] Bug: cancelling an order does not hide the progress bar
 - [x] refactor: extract more stuff from Production
 - [ ] options menu
   - [ ] key rebinding
