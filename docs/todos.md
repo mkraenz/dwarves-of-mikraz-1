@@ -42,7 +42,7 @@
   - [ ] rename game and all occurrences of previous name
     - [x] in code
     - [x] repo
-    - [ ] directory + all pathes
+    - [x] directory + all pathes
     - [ ] itch io
     - [ ] itch io page
 
