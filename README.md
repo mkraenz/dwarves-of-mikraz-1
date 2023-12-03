@@ -8,14 +8,6 @@
 
 Dwarf Fortress-infused Forager.
 
-## Assets
-
-- check `./third-party/`
-- [Dwarven Font generation](https://www.fontspace.com/category/dwarven) - Anglo-Saxon Runes by Dan Smith's Fantasy Fonts - free for personal use
-- [PressStart2P font](https://fonts.google.com/specimen/Press+Start+2P) - OFL
-- [The Essential Retro Sound Effects Collection](https://opengameart.org/content/512-sound-effects-8-bit-style) - CC0 1.0
-- files in `./assets/` created by mkraenz
-
 ## Getting Started
 
 ### Prerequisites
@@ -34,8 +26,6 @@ Dwarf Fortress-infused Forager.
 
 ### Setup
 
-Create an alias or put Godot into your path variable.
-
 ```sh
 npm run setup
 # then follow the instructions printed in the console
@@ -45,6 +35,16 @@ npm run setup
 
 ```sh
 godot .
+```
+
+### Data generation
+
+We are using a data-driven approach to define items, crafting recipes, etc. Corresponding files you need to change are the `.ts` files in `./assets/data/`. Then, simply run the export script to generate the corresponding json files that get automatically loaded into the game via `GData.gd`.
+
+```sh
+npm run datagen
+# or
+npm run datagen:watch
 ```
 
 ## Build and Export to itch.io
@@ -77,13 +77,15 @@ npm run deploy:prod
   - Fixes error message on game load: `The following features required to run Godot projects on the Web are missing: ...`
   - Note: if you create the itch.io project and set SharedArrayBuffer support at that time, itch seems to forget your config for the newly uploaded build artifacts.
 
-### Features
+## Learnings
 
-#### Persistence
+- set the default theme via Project -> Theme (under GUI subheading) -> Custom -> select default theme
+
+### Persistence
 
 check `persistence.gd`. Note that JSON does not support `INF` so we added a custom parser `JSONX`. To persist floats that can be `INF` use `JSONX.stringify_float(my_float)`.
 
-#### Pausing
+### Pausing
 
 following [docs](https://docs.godotengine.org/en/stable/tutorials/scripting/pausing_games.html)
 
@@ -93,20 +95,13 @@ summary:
 - call `get_tree().paused = true # or false`
 - `pause_menu.hide()`
 
-## Data generation
+## Assets
 
-We are using a data-driven approach to define items and crafting recipes. Corresponding files you need to change are the `.ts` files in `./assets/data/`. Then, simply run the export script to generate the corresponding json files that get automatically loaded into the game via `GData.gd`.
-
-```sh
-npm run datagen
-```
-
-## Learnings
-
-- set the default theme via Project -> Theme (under GUI subheading) -> Custom -> select default theme
-
-## Other Resources
-
+- check `./third-party/`
+- files in `./assets/` created by mkraenz
+- [Dwarven Font generation](https://www.fontspace.com/category/dwarven) - Anglo-Saxon Runes by Dan Smith's Fantasy Fonts - free for personal use
+- [PressStart2P font](https://fonts.google.com/specimen/Press+Start+2P) - OFL
+- [The Essential Retro Sound Effects Collection](https://opengameart.org/content/512-sound-effects-8-bit-style) - CC0 1.0
 - [must-see godot 4 ui tutorial](https://www.youtube.com/watch?v=1_OFJLyqlXI)
 - [pixelation filter online free, no login](https://www.resizepixel.com/edit)
 - [Brokkr Mythology](https://en.wikipedia.org/wiki/Brokkr)
@@ -114,16 +109,16 @@ npm run datagen
 - [Masamune - Legendary Japanese Blacksmith](https://en.wikipedia.org/wiki/Masamune)
 - [Lessons on "failing" an indie game](https://www.reddit.com/r/gamedev/comments/183e88f/my_first_solo_developed_indie_game_failed_request/)
 
-## Audio
+### Audio
 
 These are options that are under further investigation but not yet necessarily used in the game.
 
-### Music
+#### Music
 
 - [Animal crossing style pack 3$](https://alexcook.itch.io/relaxing-pack)
 - [napping on a cloud CC0](https://opengameart.org/content/napping-on-a-cloud)
 
-### SFX
+#### SFX
 
 - [obsydianx interface pack cc0](https://obsydianx.itch.io/interface-sfx-pack-1)
 - [Orc sound pack CC0 (good for dwarf laughs & amused, burp, yes, hup and hut when cutting trees, inquisitive & sceptical, joyous, satisfied, sleep, surprised, thankful)](https://johncarroll.itch.io/orc-voice-pack) (there's more stuff from johncarroll. may be worth checking out, e.g. [warrior](https://johncarroll.itch.io/warrior-voice-pack))

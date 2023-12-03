@@ -1,1 +1,0 @@
-{"tree":{"id":"tree","outputs":[{"id":"log","amount":3}],"hp":3},"iron_ore":{"id":"iron_ore","outputs":[{"id":"iron_ore","amount":3},{"id":"stone","amount":1}],"hp":12},"stone":{"id":"stone","outputs":[{"id":"stone","amount":3}],"hp":10}}

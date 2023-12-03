@@ -11,9 +11,10 @@ const writeJson = (filepath: string, obj: unknown) => {
   Deno.writeFile(filepath, data);
 };
 
-writeJson("./assets/data/crafting-recipes.json", craftingData);
-writeJson("./assets/data/items.json", itemsData);
-writeJson("./assets/data/buildings.json", buildingData);
-writeJson("./assets/data/script.registry.json", scriptRegistry);
-writeJson("./assets/data/resource-nodes.json", resourceNodes);
-writeJson("./assets/data/quests.json", quests);
+const dir = "./assets/data/gen/";
+writeJson(`${dir}crafting-recipes.json`, craftingData);
+writeJson(`${dir}items.json`, itemsData);
+writeJson(`${dir}buildings.json`, buildingData);
+writeJson(`${dir}script.registry.json`, scriptRegistry);
+writeJson(`${dir}resource-nodes.json`, resourceNodes);
+writeJson(`${dir}quests.json`, quests);

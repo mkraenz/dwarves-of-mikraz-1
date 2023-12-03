@@ -2,3 +2,4 @@
 .godot/
 .build/
 scripts/shell-setup.sh
+**/gen/

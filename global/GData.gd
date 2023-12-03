@@ -16,13 +16,13 @@ var quests: Dictionary
 
 
 func _ready():
-	crafting_recipes = read_json_dict("res://assets/data/crafting-recipes.json")
-	items = read_json_dict("res://assets/data/items.json")
-	buildings = read_json_dict("res://assets/data/buildings.json")
+	crafting_recipes = read_json_dict("res://assets/data/gen/crafting-recipes.json")
+	items = read_json_dict("res://assets/data/gen/items.json")
+	buildings = read_json_dict("res://assets/data/gen/buildings.json")
 	version = read_json_dict("res://package.json").version
-	scripts = read_json_dict("res://assets/data/script.registry.json")
-	resource_nodes = read_json_dict("res://assets/data/resource-nodes.json")
-	quests = read_json_dict("res://assets/data/quests.json")
+	scripts = read_json_dict("res://assets/data/gen/script.registry.json")
+	resource_nodes = read_json_dict("res://assets/data/gen/resource-nodes.json")
+	quests = read_json_dict("res://assets/data/gen/quests.json")
 
 
 func read_json_dict(filepath: String):
