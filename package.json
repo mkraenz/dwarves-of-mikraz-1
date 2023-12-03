@@ -1,19 +1,24 @@
 {
-  "name": "dwarves-of-mikraz-1",
+  "name": "mikraz-blacksmith-of-legends",
   "version": "0.0.53",
+  "engines": {
+    "npm": ">=9.8.1",
+    "deno": ">=1.38.0"
+  },
   "scripts": {
     "datagen": "deno run --allow-write ./scripts/generate-data-jsons.ts",
     "datagen:watch": "deno run --allow-write --watch=./assets/data/*.ts,./scripts/generate-data-json.ts ./scripts/generate-data-jsons.ts",
     "deploy": "npm run bump && ./shipit.sh",
-    "bump": "npm version patch -m 'chore: %s version bump'"
+    "bump": "npm version patch -m 'chore: %s version bump'",
+    "test": "godot --debug --script --path $PWD addons/gut/gut_cmdln.gd"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mkraenz/dwarves-of-mikraz-1.git"
+    "url": "git+https://github.com/mkraenz/mikraz-blacksmith-of-legends.git"
   },
   "author": "Mirco Kraenz",
   "bugs": {
-    "url": "https://github.com/mkraenz/dwarves-of-mikraz-1/issues"
+    "url": "https://github.com/mkraenz/mikraz-blacksmith-of-legends/issues"
   },
-  "homepage": "https://github.com/mkraenz/dwarves-of-mikraz-1#readme"
+  "homepage": "https://github.com/mkraenz/mikraz-blacksmith-of-legends#readme"
 }

@@ -1,7 +1,7 @@
 # TypeScriptTeatime's Mikraz: Blacksmith of Legends
 
 - [itch.io](https://mkraenz.itch.io/dwarves-of-mikraz)
-- [github repo](https://github.com/mkraenz/dwarves-of-mikraz-1)
+- [github repo](https://github.com/mkraenz/mikraz-blacksmith-of-legends)
 
 ## BHAG
 
@@ -15,7 +15,50 @@ Dwarf Fortress-infused Forager.
 - [The Essential Retro Sound Effects Collection](https://opengameart.org/content/512-sound-effects-8-bit-style) - CC0 1.0
 - files in `./assets/` created by mkraenz
 
+## Getting Started
+
+### Prerequisites
+
+- git
+- Godot (4.1.3)
+- Deno (for asset generation)
+- npm (comes with NodeJS) (for deployment and some other scripts)
+- itch.io butler (for deployment)
+
+### Setup
+
+Create an alias or put Godot into your path variable.
+
+```sh
+alias godot="ABSOLUTE_PATH_TO_YOUR_GODOT_EXECUTABLE"
+# test with
+godot --version
+
+alias butler="ABSOLUTE_PATH_TO_ITCHIO_BUTLER_EXECUTABLE"
+# test with
+butler --version
+```
+
+> Hint: It's worth setting the aliases inside your terminal setup file (e.g. `~/.zshrc`, `~/.bashrc`) so you don't have to do it again and again.
+
+### Run the game
+
+```sh
+godot .
+```
+
 ## Build and Export to itch.io
+
+### Release script
+
+Note: This assumes you've gone through the detailed process below at least once.
+
+```sh
+# for details of what this does check package.json -> scripts -> deploy
+npm run deploy
+```
+
+### In Detail
 
 - Create new project on itch.io
 - Build the Godot project using HTML template
@@ -30,18 +73,6 @@ Dwarf Fortress-infused Forager.
 - enable `SharedArrayBuffer support — (Experimental)`
   - Fixes error message on game load: `The following features required to run Godot projects on the Web are missing: ...`
   - Note: if you create the itch.io project and set SharedArrayBuffer support at that time, itch seems to forget your config for the newly uploaded build artifacts.
-
-Release script
-
-```sh
-./shipit.sh
-```
-
-## Start game from command line
-
-```sh
-/home/mirco/programming/gamedev/godot4/Godot_v4.1.1-stable_linux.x86_64 .
-```
 
 ### Features
 
@@ -59,76 +90,12 @@ summary:
 - call `get_tree().paused = true # or false`
 - `pause_menu.hide()`
 
-## Todos
-
-v0.1.0 production sim
-
-- [x] Bug: on load, notifications don't get reset
-- [x] Bug: click Continue -> Pause -> exit to title -> New game. Then the quest log is duplicated
-- [x] refactor: extract more stuff from Production
-- [ ] options menu
-  - [ ] key rebinding
-    - [ ] choose controller ps or controller xbox or keyboard+mouse
-  - [ ] graphics: toggle order details (e.g. Alt key to show order details, otherwise only show when in action radius)
-- [ ] controller support
-  - [ ] ps
-  - [ ] xbox
-- [x] localization:
-  - [x] how to localize content?
-  - [x] localize
-    - [x] items
-    - [x] buildings
-    - [x] quests
-- [ ] some polish
-  - [ ] build menu icons
-  - [ ] shadows?
-  - [ ] sfx
-    - [ ] on build
-    - [ ] on craft
-    - [ ] menu sounds
-      - [x] title menu
-      - [x] pause menu
-      - [ ] crafting menu
-      - [ ] inventory menu
-      - [ ] building menu
-    - [ ] on order accepted
-  - [ ] charcoal kiln
-    - [ ] replace placeholder sprite
-    - [ ] animations
-  - [ ] automated testing
-  - [ ] win screen with image
-- [ ] demo: production sim
-  - [x] progression:
-    - [x] logs -> sawmill -> planks -> stone -> charcoal kiln -> coal -> iron ore -> smelter -> iron ingots -> smithy -> battle axe
-  - [ ] rename game and all occurrences of Dwarves of Mikraz
-    - [x] in code
-    - [ ] repo
-    - [ ] itch io
-    - [ ] itch io page
-
-v0.2.0 upgrade system
-
-- [ ] upgrade: player has attack damage
-- [ ] upgrade: resources have armor
-- [ ] upgrade: player / tech upgrades / talents
-- [ ] automation: collector building that autocollects outputs
-- [ ] unlock new building recipes when having seen every needed item for that building
-- [ ] everything gets an entity id
-
 ## Data generation
 
 We are using a data-driven approach to define items and crafting recipes. Corresponding files you need to change are the `.ts` files in `./assets/data/`. Then, simply run the export script to generate the corresponding json files that get automatically loaded into the game via `GData.gd`.
 
 ```sh
 yarn datagen
-```
-
-## Deployment
-
-Automatically bumps version, builds project, and pushes it to itch.io.
-
-```sh
-yarn deploy
 ```
 
 ## Learnings
@@ -164,16 +131,3 @@ These are options that are under further investigation but not yet necessarily u
 - <https://opengameart.org/users/bluecarrot16?page=2>
 - <https://opengameart.org/content/lpc-rocks>
 - <https://opengameart.org/content/lpc-ore-and-forge>
-
-## Naming
-
-- ~~Dwarves of Mikraz~~
-- Mikraz: Legendary Blacksmith
-- Mikraz: Legendary Forge
-- ~~Mikraz: Forge of Legends~~
-- Legends of Mikraz: The Blacksmith
-- Mikraz: Blacksmith Legends
-- Mikraz: Blacksmith of Legends
-- ~~Mikraz: Weaponsmith of Legends~~
-- ~~Mikraz: Smith of Legends~~
-- Mikraz: Blacksmith's Factory

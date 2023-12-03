@@ -50,9 +50,9 @@ pop.mp3 by deathbyfairydust from freesound.org under CC BY 4.0 DEED.
 
 [color=green]Open Source[/color]
 
-All code is open-source. Check our Github:
+This project is open-source! Check our Github:
 
-https://github.com/mkraenz/dwarves-of-mikraz-1
+https://github.com/mkraenz/mikraz-blacksmith-of-legends
 
 
 
