@@ -34,7 +34,7 @@
   - [ ] charcoal kiln
     - [ ] replace placeholder sprite
     - [ ] animations
-  - [ ] automated testing
+  - [x] automated testing
   - [ ] win screen with image
 - [ ] demo: production sim
   - [x] progression:

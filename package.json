@@ -6,11 +6,12 @@
     "deno": ">=1.38.0"
   },
   "scripts": {
+    "setup": "cp ./scripts/shell-setup.sample.sh ./scripts/shell-setup.sh && echo 'Configure your dev environment by editing the things in ALL_CAPS inside ./scripts/shell-setup.sh'",
     "datagen": "deno run --allow-write ./scripts/generate-data-jsons.ts",
     "datagen:watch": "deno run --allow-write --watch=./assets/data/*.ts,./scripts/generate-data-json.ts ./scripts/generate-data-jsons.ts",
-    "deploy": "npm run bump && ./shipit.sh",
-    "bump": "npm version patch -m 'chore: %s version bump'",
-    "test": "godot --debug --script --path $PWD addons/gut/gut_cmdln.gd"
+    "deploy:dev": "npm run bump:minor && ./shipit.sh",
+    "deploy:prod": "npm run bump:minor && ./shipit.sh prod",
+    "bump:minor": "npm version patch -m 'chore: %s version bump'"
   },
   "repository": {
     "type": "git",

@@ -1,3 +1,4 @@
 # Godot 4+ specific ignores
 .godot/
 .build/
+scripts/shell-setup.sh

@@ -1,7 +1,8 @@
 # TypeScriptTeatime's Mikraz: Blacksmith of Legends
 
-- [itch.io](https://mkraenz.itch.io/dwarves-of-mikraz)
+- [itch.io](https://mkraenz.itch.io/mikraz-blacksmith)
 - [github repo](https://github.com/mkraenz/mikraz-blacksmith-of-legends)
+- [itch.io (dev project)](https://mkraenz.itch.io/dwarves-of-mikraz)
 
 ## BHAG
 
@@ -25,21 +26,20 @@ Dwarf Fortress-infused Forager.
 - npm (comes with NodeJS) (for deployment and some other scripts)
 - itch.io butler (for deployment)
 
+### Other recommended tools
+
+- VS Code
+- [Godot Tools Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=geequlim.godot-tools)
+- [Gut Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=bitwes.gut-extension)
+
 ### Setup
 
 Create an alias or put Godot into your path variable.
 
 ```sh
-alias godot="ABSOLUTE_PATH_TO_YOUR_GODOT_EXECUTABLE"
-# test with
-godot --version
-
-alias butler="ABSOLUTE_PATH_TO_ITCHIO_BUTLER_EXECUTABLE"
-# test with
-butler --version
+npm run setup
+# then follow the instructions printed in the console
 ```
-
-> Hint: It's worth setting the aliases inside your terminal setup file (e.g. `~/.zshrc`, `~/.bashrc`) so you don't have to do it again and again.
 
 ### Run the game
 
@@ -55,7 +55,10 @@ Note: This assumes you've gone through the detailed process below at least once.
 
 ```sh
 # for details of what this does check package.json -> scripts -> deploy
-npm run deploy
+npm run deploy:dev
+
+# or
+npm run deploy:prod
 ```
 
 ### In Detail
@@ -95,7 +98,7 @@ summary:
 We are using a data-driven approach to define items and crafting recipes. Corresponding files you need to change are the `.ts` files in `./assets/data/`. Then, simply run the export script to generate the corresponding json files that get automatically loaded into the game via `GData.gd`.
 
 ```sh
-yarn datagen
+npm run datagen
 ```
 
 ## Learnings
