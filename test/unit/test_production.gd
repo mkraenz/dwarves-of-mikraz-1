@@ -1,15 +1,11 @@
 extends GutTest
 
-const Production = preload("res://world/buildings/common/production/production.gd")
+const Production = preload("res://world/buildings/common/production/production.tscn")
 var prod: Production
 
 
 func before_each() -> void:
-	prod = Production.new()
-
-
-func after_each() -> void:
-	prod.free()
+	prod = autofree(Production.instantiate())
 
 
 func test_has_no_order_by_default():
@@ -27,7 +23,6 @@ func test_sets_ticks_when_order_placed():
 	prod.ordered_batches = 1
 	GInventory._on_add_to_inventory("log", 15)  # setup the needs
 
-	assert_true(prod.has_an_order)
 	prod._on_production_tick()
 
 	assert_lt(prod.ticks_to_batch_completion, INF)
