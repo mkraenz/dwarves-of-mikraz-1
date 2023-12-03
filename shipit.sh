@@ -16,7 +16,7 @@ rm -r .build && mkdir .build
 godot --export-release Web .build/index.html
 
 # deploy
-if [ ENVIRONMENT = "prod" ]; then
+if [ $ENVIRONMENT = "prod" ]; then
     echo "Env: prod"
     butler push .build mkraenz/mikraz-blacksmith:web --userversion $(jq -r .version package.json)
     echo -e '\033[42mDeployed successfully to production. Check https://mkraenz.itch.io/mikraz-blacksmith'
