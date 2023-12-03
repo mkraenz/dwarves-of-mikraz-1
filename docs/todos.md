@@ -39,12 +39,12 @@
 - [ ] demo: production sim
   - [x] progression:
     - [x] logs -> sawmill -> planks -> stone -> charcoal kiln -> coal -> iron ore -> smelter -> iron ingots -> smithy -> battle axe
-  - [ ] rename game and all occurrences of previous name
+  - [x] rename game and all occurrences of previous name
     - [x] in code
     - [x] repo
     - [x] directory + all pathes
-    - [ ] itch io
-    - [ ] itch io page
+    - [x] itch io
+    - [x] itch io page
 
 ## v0.2.0 upgrade system
 

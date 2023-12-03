@@ -10,7 +10,7 @@ var globals_to_save = [ginventory, questlog]
 
 ## largely following https://docs.godotengine.org/en/stable/tutorials/io/saving_games.html
 
-# remove savegame command on my ubuntu: rm ~/.local/share/godot/app_userdata/Dwarves\ of\ Mikraz\ 1/savegame.save
+# remove savegame command on my ubuntu: rm "/home/mirco/.local/share/godot/app_userdata/Mikraz- Blacksmith of Legends/savegame.save"
 const FILEPATH = "user://savegame.save"
 
 

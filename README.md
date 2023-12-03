@@ -70,7 +70,7 @@ npm run deploy:prod
   - Project -> Export... -> Add Preset -> Web -> (if not already installed, download the HTML template) -> Set output path to `.build/` -> Export Project... -> filename `index.html` -> disable `Export with Debug` -> Export
     - or, as a command (once initial setup is done)
     - `godot --export-release Web .build/index.html`
-- upload the build to itch.io `butler push .build mkraenz/dwarves-of-mikraz:web`
+- upload the build to itch.io `butler push .build mkraenz/dwarves-of-mikraz:web` or `butler push .build mkraenz/mikraz-blacksmith:web`
 - enable the build in the itch.io project page
 - In itch.io, edit project -> Uploads -> enable `This file will be played in the browser`
 - enable `SharedArrayBuffer support — (Experimental)`
