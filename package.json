@@ -1,6 +1,6 @@
 {
   "name": "mikraz-blacksmith-of-legends",
-  "version": "0.0.53",
+  "version": "0.0.54",
   "engines": {
     "npm": ">=9.8.1",
     "deno": ">=1.38.0"
