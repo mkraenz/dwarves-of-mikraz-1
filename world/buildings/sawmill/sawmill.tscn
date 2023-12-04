@@ -1,9 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://b43yygkrld0rh"]
+[gd_scene load_steps=18 format=3 uid="uid://b43yygkrld0rh"]
 
 [ext_resource type="Script" path="res://world/buildings/sawmill/sawmill.gd" id="1_nmfpx"]
-[ext_resource type="Texture2D" uid="uid://dh7r5hrbwih6k" path="res://third-party/bluecarrot16/sawmill.png" id="3_hk0sk"]
+[ext_resource type="Texture2D" uid="uid://cysqd30ki1gcq" path="res://third-party/HOFMC_/buzzsaw.png" id="2_xhc8y"]
 [ext_resource type="PackedScene" uid="uid://c2mrs2touugk1" path="res://world/buildings/common/how_to_interact/how_to_interact.tscn" id="3_nfipn"]
-[ext_resource type="Texture2D" uid="uid://cdtyalr1g6x37" path="res://third-party/bluecarrot16/planer.png" id="4_dmbpg"]
 [ext_resource type="PackedScene" uid="uid://cyfyx07i1ornl" path="res://world/buildings/common/progressbar/production_progressbar.tscn" id="4_iefot"]
 [ext_resource type="PackedScene" uid="uid://t2utidwitf4t" path="res://world/buildings/common/current_order_display/current_order_display.tscn" id="5_85gy8"]
 [ext_resource type="PackedScene" uid="uid://djaa81nvsgmhy" path="res://world/buildings/common/building-audio.tscn" id="6_4yh66"]
@@ -14,168 +13,20 @@
 [ext_resource type="PackedScene" uid="uid://cuavy6b0bqgqb" path="res://world/buildings/common/production_output/production_output.tscn" id="12_hlwke"]
 [ext_resource type="PackedScene" uid="uid://eyu8ml080qmh" path="res://world/buildings/common/current_order_display/current_order_display_manager.tscn" id="13_se5gv"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_q23y1"]
-atlas = ExtResource("3_hk0sk")
-region = Rect2(0, 0, 95, 56)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wuawx"]
-size = Vector2(46, 19)
+size = Vector2(26, 22)
 
 [sub_resource type="Animation" id="Animation_m5uex"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture:region")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(0, 0, 95, 56)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Planer:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sawdust:emitting")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sawdust:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(2, -14)]
-}
 
 [sub_resource type="Animation" id="Animation_x2tbb"]
 resource_name = "idle"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture:region")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(0, 0, 95, 56)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Planer:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sawdust:emitting")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_8dk6q"]
 resource_name = "producing"
 length = 2.0
 loop_mode = 1
 step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture:region")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(95, 0, 95, 56)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Planer:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Planer:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.6, 0.8, 1.3, 1.6, 1.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(3, -16), Vector2(-15, -9), Vector2(-15, -9), Vector2(-8, -19), Vector2(-1, -20), Vector2(3, -16)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sawdust:emitting")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.05, 0.55),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Sawdust:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.05, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(2, -14), Vector2(-15, -7)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bdven"]
 _data = {
@@ -190,33 +41,13 @@ collision_mask = 3
 script = ExtResource("1_nmfpx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -7)
-scale = Vector2(0.5, 0.5)
-texture = SubResource("AtlasTexture_q23y1")
+position = Vector2(0, 4)
+texture = ExtResource("2_xhc8y")
 region_rect = Rect2(0, 96, 16, 16)
 
 [node name="Shape" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0, -2.5)
+position = Vector2(0, 10)
 shape = SubResource("RectangleShape2D_wuawx")
-
-[node name="Sawdust" type="CPUParticles2D" parent="."]
-position = Vector2(2, -14)
-emitting = false
-lifetime = 0.4
-lifetime_randomness = 0.5
-direction = Vector2(0, -1)
-spread = 120.0
-gravity = Vector2(0, 10)
-initial_velocity_min = 10.0
-initial_velocity_max = 10.0
-color = Color(0.847059, 0.666667, 0.462745, 1)
-
-[node name="Planer" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(-15, -9)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_dmbpg")
 
 [node name="Audio" parent="." instance=ExtResource("6_4yh66")]
 
@@ -238,15 +69,16 @@ shapes = [NodePath("../Shape")]
 [node name="Producer" type="Node2D" parent="."]
 
 [node name="Progressbar" parent="Producer" node_paths=PackedStringArray("production") instance=ExtResource("4_iefot")]
-offset_top = -8.0
-offset_bottom = 120.0
+visible = true
+offset_top = -1.0
+offset_bottom = 127.0
 production = NodePath("../Production")
 
 [node name="ProductionOutputSpot" parent="Producer" instance=ExtResource("9_v50ci")]
-position = Vector2(0, 18)
+position = Vector2(0, 24)
 
 [node name="CurrentOrderDisplay" parent="Producer" instance=ExtResource("5_85gy8")]
-position = Vector2(0, 1)
+position = Vector2(0, 9)
 
 [node name="Production" parent="Producer" instance=ExtResource("8_53tld")]
 unique_name_in_owner = true

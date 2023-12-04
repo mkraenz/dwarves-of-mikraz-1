@@ -1,8 +1,8 @@
-[gd_scene load_steps=32 format=3 uid="uid://b43yygkrld0ry"]
+[gd_scene load_steps=22 format=3 uid="uid://b43yygkrld0ry"]
 
 [ext_resource type="Script" path="res://world/buildings/smithy/smithy.gd" id="1_nmfpx"]
-[ext_resource type="Texture2D" uid="uid://driel8oy8h3l1" path="res://third-party/bluecarrot16/blacksmith.png" id="3_61c4m"]
-[ext_resource type="Texture2D" uid="uid://dqtlogcljsdsd" path="res://third-party/bluecarrot16/bellows.png" id="4_rc18i"]
+[ext_resource type="Texture2D" uid="uid://b1sm83ykrbdf7" path="res://third-party/HOFMC_/smithy - no shadow.png" id="2_275jx"]
+[ext_resource type="Texture2D" uid="uid://berb2cskyarnm" path="res://third-party/HOFMC_/smithy - shadows.png" id="2_wyp1x"]
 [ext_resource type="PackedScene" uid="uid://cyfyx07i1ornl" path="res://world/buildings/common/progressbar/production_progressbar.tscn" id="5_8vioc"]
 [ext_resource type="PackedScene" uid="uid://fan0u7c1xosh" path="res://common/marker/marker.tscn" id="7_mi3f0"]
 [ext_resource type="PackedScene" uid="uid://t2utidwitf4t" path="res://world/buildings/common/current_order_display/current_order_display.tscn" id="7_nx6gu"]
@@ -14,27 +14,27 @@
 [ext_resource type="PackedScene" uid="uid://cuavy6b0bqgqb" path="res://world/buildings/common/production_output/production_output.tscn" id="12_ta6kl"]
 [ext_resource type="PackedScene" uid="uid://eyu8ml080qmh" path="res://world/buildings/common/current_order_display/current_order_display_manager.tscn" id="13_15tru"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4x50y"]
-atlas = ExtResource("3_61c4m")
-region = Rect2(0, 0, 256, 256)
+[sub_resource type="AtlasTexture" id="AtlasTexture_01thr"]
+atlas = ExtResource("2_wyp1x")
+region = Rect2(0, 0, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k8tsx"]
-atlas = ExtResource("3_61c4m")
-region = Rect2(256, 0, 256, 256)
+[sub_resource type="AtlasTexture" id="AtlasTexture_eeofs"]
+atlas = ExtResource("2_275jx")
+region = Rect2(0, 0, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yawwv"]
-atlas = ExtResource("3_61c4m")
-region = Rect2(512, 0, 256, 256)
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqs8e"]
+atlas = ExtResource("2_275jx")
+region = Rect2(96, 0, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tlvok"]
-atlas = ExtResource("3_61c4m")
-region = Rect2(768, 0, 256, 256)
+[sub_resource type="AtlasTexture" id="AtlasTexture_06dht"]
+atlas = ExtResource("2_275jx")
+region = Rect2(48, 0, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_h6lc3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4x50y")
+"texture": SubResource("AtlasTexture_eeofs")
 }],
 "loop": true,
 "name": &"idle",
@@ -42,104 +42,26 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_k8tsx")
+"texture": SubResource("AtlasTexture_fqs8e")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yawwv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tlvok")
+"texture": SubResource("AtlasTexture_06dht")
 }],
 "loop": true,
 "name": &"producing",
 "speed": 3.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_81xb6"]
-atlas = ExtResource("4_rc18i")
-region = Rect2(0, 0, 96, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tb1c7"]
-atlas = ExtResource("4_rc18i")
-region = Rect2(0, 0, 96, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eremc"]
-atlas = ExtResource("4_rc18i")
-region = Rect2(96, 0, 96, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r4ma4"]
-atlas = ExtResource("4_rc18i")
-region = Rect2(192, 0, 96, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ijpw5"]
-atlas = ExtResource("4_rc18i")
-region = Rect2(288, 0, 96, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a6myf"]
-atlas = ExtResource("4_rc18i")
-region = Rect2(384, 0, 96, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6bua2"]
-atlas = ExtResource("4_rc18i")
-region = Rect2(480, 0, 96, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qw7wa"]
-atlas = ExtResource("4_rc18i")
-region = Rect2(576, 0, 96, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4mpd6"]
-atlas = ExtResource("4_rc18i")
-region = Rect2(672, 0, 96, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_0kgdo"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_81xb6")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 1.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tb1c7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eremc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r4ma4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ijpw5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_a6myf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6bua2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qw7wa")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4mpd6")
-}],
-"loop": true,
-"name": &"producing",
-"speed": 5.0
-}]
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2pqay"]
-radius = 21.0
-height = 64.0
+radius = 8.0
+height = 28.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_n6ukw"]
-size = Vector2(50, 20)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2klp5"]
+radius = 7.0
+height = 32.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vh0v6"]
-radius = 13.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3a6m1"]
+radius = 8.0
 height = 36.0
 
 [node name="Smithy" type="StaticBody2D" groups=["persist"]]
@@ -147,33 +69,29 @@ collision_layer = 9
 collision_mask = 3
 script = ExtResource("1_nmfpx")
 
+[node name="Shadow" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(1, -2)
+texture = SubResource("AtlasTexture_01thr")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -23)
-scale = Vector2(0.5, 0.5)
+position = Vector2(1, -2)
 sprite_frames = SubResource("SpriteFrames_h6lc3")
 animation = &"producing"
 autoplay = "idle"
 
-[node name="Bellows" type="AnimatedSprite2D" parent="."]
-position = Vector2(19, 0)
-scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_0kgdo")
-animation = &"idle"
-autoplay = "idle"
-
 [node name="Shape" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4)
-rotation = 1.5708
+position = Vector2(15, 9)
 shape = SubResource("CapsuleShape2D_2pqay")
 
 [node name="Shape2" type="CollisionShape2D" parent="."]
-position = Vector2(-38, 29)
-shape = SubResource("RectangleShape2D_n6ukw")
+position = Vector2(-11, 4)
+shape = SubResource("CapsuleShape2D_2klp5")
 
 [node name="Shape3" type="CollisionShape2D" parent="."]
-position = Vector2(-42, 10)
+position = Vector2(-4, -5)
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_vh0v6")
+shape = SubResource("CapsuleShape2D_3a6m1")
 
 [node name="Audio" parent="." instance=ExtResource("7_ynve1")]
 position = Vector2(0, 4)
@@ -196,7 +114,7 @@ position = Vector2(0, 4)
 building_type = "smithy"
 
 [node name="ProductionOutputSpot" parent="Producer" instance=ExtResource("9_11ouh")]
-position = Vector2(0, 32)
+position = Vector2(0, 27)
 
 [node name="ProductionOutput" parent="Producer" node_paths=PackedStringArray("production", "spot") instance=ExtResource("12_ta6kl")]
 production = NodePath("../Production")
@@ -204,12 +122,12 @@ spot = NodePath("../ProductionOutputSpot")
 
 [node name="ProductionProgressbar" parent="Producer" node_paths=PackedStringArray("production") instance=ExtResource("5_8vioc")]
 visible = true
-offset_top = -58.0
-offset_bottom = 70.0
+offset_top = 5.0
+offset_bottom = 133.0
 production = NodePath("../Production")
 
 [node name="CurrentOrderDisplay" parent="Producer" instance=ExtResource("7_nx6gu")]
-position = Vector2(0, -47)
+position = Vector2(0, 16)
 
 [node name="CurrentOrderDisplayManager" parent="Producer" node_paths=PackedStringArray("production", "display") instance=ExtResource("13_15tru")]
 production = NodePath("../Production")

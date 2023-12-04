@@ -2,6 +2,8 @@
 
 ## v0.1.0 production sim
 
+- [x] redo smithy with HOFMC\_'s images
+- [x] redo sawmill with HOFMC\_'s images
 - [x] Bug: on load, notifications don't get reset
 - [x] Bug: click Continue -> Pause -> exit to title -> New game. Then the quest log is duplicated
 - [x] Bug: cancelling an order does not hide the progress bar and doesn't stop the animation
