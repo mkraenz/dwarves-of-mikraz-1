@@ -7,7 +7,7 @@ class_name Player
 @onready var anim_tree: AnimationTree = $AnimationTree
 @onready var cam_remote := $CamRemote
 @onready var gstate := GState
-@onready var action_radius := $ActionRadius
+@onready var action_radius: ActionRadius = $ActionRadius
 
 var lock_animation = false
 
@@ -39,11 +39,9 @@ func animate_idle() -> void:
 
 
 func update_anim_params() -> void:
-	var rel_mouse_pos = get_global_mouse_position() - global_position
-	anim_tree["parameters/idle/blend_position"] = rel_mouse_pos.x
-	anim_tree["parameters/move/blend_position"] = rel_mouse_pos.x
-	if not lock_animation:  # without this lock, when attacking and wiggling with the mouse around the player from left to right, the attack wiggles between attack_left and attack_right, never actually swinging the axe
-		anim_tree["parameters/attack/blend_position"] = rel_mouse_pos.x
+	if velocity.x != 0:
+		anim_tree["parameters/idle/blend_position"] = velocity.x
+		anim_tree["parameters/move/blend_position"] = velocity.x
 
 	if velocity == Vector2.ZERO:
 		anim_tree["parameters/conditions/idle"] = true
@@ -52,7 +50,9 @@ func update_anim_params() -> void:
 		anim_tree["parameters/conditions/idle"] = false
 		anim_tree["parameters/conditions/is_moving"] = true
 
-	if Input.is_action_pressed("act"):
+	# without animation lock, when attacking and wiggling left and right on the keyboard, the attack wiggles between attack_left and attack_right, never actually swinging the axe
+	if Input.is_action_pressed("act") and not lock_animation:
+		face("mine")
 		anim_tree["parameters/conditions/attack"] = true
 	else:
 		anim_tree["parameters/conditions/attack"] = false
@@ -81,11 +81,12 @@ func connect_camera(cam: Camera2D) -> void:
 
 
 func _input(_event) -> void:
-	if Input.is_action_just_pressed("interact"):
+	if Input.is_action_pressed("interact"):
 		interact()
 
 
 func interact() -> void:
+	face("interact")
 	action_radius.act_on_closest_actable("interact")
 
 
@@ -95,3 +96,12 @@ func mine() -> void:
 
 func _on_attack_impact() -> void:
 	mine()
+
+
+func face(method_name: String) -> void:
+	var closest_node = action_radius.get_closest_node(method_name)
+	if closest_node:
+		var dir = sign((closest_node.global_position - global_position).x)
+		anim_tree["parameters/idle/blend_position"] = dir
+		anim_tree["parameters/move/blend_position"] = dir
+		anim_tree["parameters/attack/blend_position"] = dir

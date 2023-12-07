@@ -1,3 +1,4 @@
+class_name ActionRadius
 extends Area2D
 
 @export var reference_node: Node2D
@@ -39,6 +40,13 @@ func add_marks() -> void:
 		reference_node.global_position, "mine"
 	)
 	try_mark_node(closest_mineable)
+
+
+func get_closest_node(method_name: String):
+	var closest_node = gstate.get_closest_body_in_player_action_radius(
+		reference_node.global_position, method_name
+	)
+	return closest_node
 
 
 func act_on_closest_actable(method_name: String):
