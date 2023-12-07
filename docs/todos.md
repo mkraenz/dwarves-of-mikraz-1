@@ -24,7 +24,7 @@
 - [ ] some polish
   - [ ] when hitting resource node, face the resource node
   - [ ] build menu icons
-  - [ ] shadows?
+  - [ ] shadows
   - [ ] sfx
     - [ ] on build
     - [ ] on craft
