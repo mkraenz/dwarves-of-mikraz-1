@@ -41,11 +41,13 @@ func test_on_producing_order_shows_the_progressbar_and_order_display_and_animate
 	assert_eq(anims.current_animation, "producing", "Should animate as producing")
 
 
-func test_on_cancelling_an_order_hides_the_progressbar_and_order_display_and_stops_animating():
+func test_on_cancelling_an_order_hides_the_progressbar_and_order_display_and_stops_animating_and_outputs_the_input_resources(
+):
 	var prod = sawmill.get_node("Producer/Production") as Production
 	var progressbar = sawmill.get_node("Producer/Progressbar")
 	var order_display = sawmill.get_node("Producer/CurrentOrderDisplay")
 	var anims = sawmill.get_node("AnimationPlayer") as AnimationPlayer
+	GState.level = sawmill  # we just need any node to append the input resources to
 	Eventbus.ordered_at_workshop.emit(recipe, 5, prod.get_path())
 	Eventbus.production_tick.emit()
 
