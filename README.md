@@ -13,7 +13,7 @@ Dwarf Fortress-infused Forager.
 ### Prerequisites
 
 - git
-- Godot (4.1.3)
+- Godot (4.2.1)
 - Deno (for asset generation)
 - npm (comes with NodeJS) (for deployment and some other scripts)
 - itch.io butler (for deployment)
