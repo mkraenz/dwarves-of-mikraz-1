@@ -24,14 +24,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Gui/Hud/Words"]
-layout_mode = 0
-offset_left = 252.0
-offset_top = 60.0
-offset_right = 324.0
-offset_bottom = 72.0
-text = "BLABLA"
-
 [node name="H" type="HBoxContainer" parent="Gui/Hud"]
 layout_mode = 1
 anchors_preset = 15
