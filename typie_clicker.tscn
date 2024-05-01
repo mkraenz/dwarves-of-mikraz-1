@@ -37,16 +37,6 @@ alignment = 1
 layout_mode = 2
 alignment = 1
 
-[node name="InputOld" type="TextEdit" parent="Gui/Hud/H/V"]
-visible = false
-clip_contents = true
-custom_minimum_size = Vector2(300, 30)
-layout_mode = 2
-size_flags_horizontal = 0
-placeholder_text = "TYPE THE WORDS"
-caret_blink = true
-caret_move_on_right_click = false
-
 [node name="Input" type="LineEdit" parent="Gui/Hud/H/V"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
@@ -62,6 +52,10 @@ script = ExtResource("2_pjvfj")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="Sfx" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Bgm" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="text_changed" from="Gui/Hud/H/V/Input" to="." method="_on_input_text_changed"]
 [connection signal="text_changed" from="Gui/Hud/H/V/Input" to="Gui/Hud/H/V/Input" method="_on_text_changed"]
