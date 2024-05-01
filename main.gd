@@ -35,7 +35,8 @@ func _input(_event):
 		if is_ingame():
 			pause_game()
 		else:
-			unpause_game()
+			if not title_menu.visible:
+				unpause_game()
 
 
 func _on_save_game_pressed() -> void:
